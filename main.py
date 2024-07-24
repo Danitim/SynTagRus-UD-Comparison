@@ -4,7 +4,7 @@ ud_path = "UD_SynTagRus"
 str_path = "SynTagRus"
 
 def main():
-   convert_str_to_ud(str_path, "converted_str.conllu")
+   convert_str_to_ud(str_path, "STR_converted")
                     
             
 if __name__ == '__main__':
