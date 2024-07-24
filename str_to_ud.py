@@ -55,7 +55,7 @@ def read_str_file(root, name):
                     text_iter += 1
                     link_offset += 1
                 
-                # adjust the indices of the words after the inserted punctuation marks
+                # adjust the link ids of the words after the inserted punctuation marks
                 if not word.get('DOM') == '_root':
                     word.set('DOM', str(int(word.get('DOM')) + link_offset))
                     
