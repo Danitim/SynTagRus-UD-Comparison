@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_56_10.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; USESTAT=USESTATNO; ALTTR=$TRUE; MWORDFORM=$TRUE; CORDESCRMODE=CORDESCROLDMODE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=LARGENUM; SPEECHMODE=SPEECHMODENO; JOFICATION=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2002</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2002</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>Газета.ru</publication>
+<publication_date>29.03.2002</publication_date>
+<publisher>-</publisher>
+<source>https://www.gazeta.ru/2002/03/29/box_1866.shtml</source>
+<sphere>публицистика</sphere>
+<title>Буш готовится сделать заявление по ближневосточной проблеме</title>
+<topic>политика и общественная жизнь</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S CLASS="LF" COMMENT="traced" DATE="10 03 2024 23:22:58" ID="1" TRANS="Bush prepares to make a declaration of the Middle East problem ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="БУШ" LEMMA="БУШ" LINK="предик">Буш</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="2" KSNAME="ГОТОВИТЬСЯ" LEMMA="ГОТОВИТЬСЯ">готовится</W> 
+<W DOM="2" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="3" KSNAME="ДЕЛАТЬ" LEMMA="ДЕЛАТЬ" LINK="1-компл">сделать</W> 
+<W DOM="3" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="4" KSNAME="ЗАЯВЛЕНИЕ1" LEMMA="ЗАЯВЛЕНИЕ" LINK="1-компл">заявление</W> 
+<W DOM="4" FEAT="PR" HYPOT="1-компл.17" ID="5" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="7" FEAT="A ЕД ЖЕН ДАТ" HYPOT="опред.01" ID="6" KSNAME="БЛИЖНЕВОСТОЧНЫЙ" LEMMA="БЛИЖНЕВОСТОЧНЫЙ" LINK="опред" MSNAME="БЛИЖНЕВОСТОЧНЫЙ">ближневосточной</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="7" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА" LINK="предл">проблеме</W>
+<LF LFARG="4" LFFUNC="_OPER1" LFVAL="3"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="10 03 2024 23:22:58" ID="2">
+<W DOM="5" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="ПРЕЗИДЕНТ" LEMMA="ПРЕЗИДЕНТ" LINK="предик">Президент</W> 
+<W DOM="1" EXTRAFEAT="UPP" FEAT="S МН РОД НЕОД" HYPOT="1-компл.20" ID="2" KSNAME="США" LEMMA="США" LINK="1-компл">США</W> 
+<W DOM="1" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="3" KSNAME="ДЖОРДЖ" LEMMA="ДЖОРДЖ" LINK="аппоз">Джордж</W> 
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="4" KSNAME="БУШ" LEMMA="БУШ" LINK="аппоз">Буш</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="5" KSNAME="ГОТОВИТЬСЯ" LEMMA="ГОТОВИТЬСЯ">готовится</W> 
+<W DOM="5" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="6" KSNAME="ВЫСТУПАТЬ1" LEMMA="ВЫСТУПАТЬ" LINK="1-компл">выступить</W> 
+<W DOM="6" FEAT="PR" HYPOT="1-компл.17" ID="7" KSNAME="С3" LEMMA="С" LINK="1-компл">с</W> 
+<W DOM="7" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="8" KSNAME="ЗАЯВЛЕНИЕ1" LEMMA="ЗАЯВЛЕНИЕ" LINK="предл">заявлением</W> 
+<W DOM="8" FEAT="PR" HYPOT="1-компл.17" ID="9" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="11" FEAT="A ЕД ЖЕН ДАТ" HYPOT="опред.01" ID="10" KSNAME="БЛИЖНЕВОСТОЧНЫЙ" LEMMA="БЛИЖНЕВОСТОЧНЫЙ" LINK="опред">ближневосточной</W> 
+<W DOM="9" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="11" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА" LINK="предл">проблеме</W>. 
+<LF LFARG="8" LFFUNC="_OPER1-NS" LFPREP="7" LFVAL="6"/>
+</S>
+<S CLASS="LF" DATE="10 03 2024 23:23:16" ID="3" TRANS="As the press secretary of the White House of Ari Flejsher Bush has reported will make a declaration in Washington in 11.00 of the local time (20.00 msk). ">
+<W DOM="9" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="сравнит.10" ID="1" KSNAME="КАК1" LEMMA="КАК" LINK="сравнит">Как</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="сравн-союзн.11" ID="2" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="сравн-союзн">сообщил</W> 
+<W DOM="2" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="3" KSNAME="ПРЕСС-СЕКРЕТАРЬ" LEMMA="ПРЕСС-СЕКРЕТАРЬ" LINK="предик" MSNAME="ПРЕСС-СЕКРЕТАРЬ">пресс-секретарь</W> 
+<W DOM="5" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="4" KSNAME="БЕЛЫЙ" LEMMA="БЕЛЫЙ" LINK="опред">Белого</W> 
+<W DOM="3" EXTRAFEAT="CAP CAPIT" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="ДОМ" LEMMA="ДОМ" LINK="1-компл">Дома</W> 
+<W ACCTSTRING="Ари" DOM="3" EXTRAFEAT="CAP FICTIVE" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="6" KSNAME="ФИКТ-ЛИЧИМЯ" LEMMA="АРИ" LINK="аппоз" MSNAME="АРИ">Ари</W> 
+<W ACCTSTRING="Флейшер" DOM="6" EXTRAFEAT="CAP FICTIVE" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="7" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="ФЛЕЙШЕР" LINK="аппоз">Флейшер</W>, 
+<W DOM="9" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="8" KSNAME="БУШ" LEMMA="БУШ" LINK="предик">Буш</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="9" KSNAME="ДЕЛАТЬ" LEMMA="ДЕЛАТЬ">сделает</W> 
+<W DOM="9" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="10" KSNAME="ЗАЯВЛЕНИЕ1" LEMMA="ЗАЯВЛЕНИЕ" LINK="1-компл">заявление</W> 
+<W DOM="9" FEAT="PR" HYPOT="обст.23" ID="11" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="11" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="12" KSNAME="ВАШИНГТОН1" LEMMA="ВАШИНГТОН" LINK="предл">Вашингтоне</W> 
+<W DOM="9" FEAT="PR" HYPOT="обст.23" ID="13" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="13" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="предл.10" ID="14" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="11.00" LINK="предл">11.00</W> 
+<W DOM="14" FEAT="PR" HYPOT="атриб" ID="15" KSNAME="ПО1" LEMMA="ПО" LINK="атриб">по</W> 
+<W DOM="17" FEAT="A ЕД СРЕД ДАТ" HYPOT="опред.01" ID="16" KSNAME="МЕСТНЫЙ1" LEMMA="МЕСТНЫЙ" LINK="опред">местному</W> 
+<W DOM="15" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="17" KSNAME="ВРЕМЯ" LEMMA="ВРЕМЯ" LINK="предл">времени</W> 
+(<W DOM="17" EXTRAFEAT="FICT-NUM IN-BR" FEAT="NUM" HYPOT="примыкат.01" ID="18" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="20.00" LINK="примыкат">20.00</W> 
+<W ACCTSTRING="мск" DOM="18" EXTRAFEAT="FICTIVE IN-BR" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="атриб" ID="19" KSNAME="ФИКТ-СУЩ-Ж" LEMMA="МСК" LINK="атриб">мск</W>). 
+<LF LFARG="10" LFFUNC="_OPER1" LFVAL="9"/>
+<LF LFARG="12" LFFUNC="_LOC" LFVAL="11"/>
+</S>
+<S DATE="10 03 2024 23:30:50" ID="4" MICROSYNT="(по словам,{1:По...2:словам})&#xA;(брать на себя,{12:взять...14:себя})&#xA;" TRANS="According to words Flejshera the president intends to announce the fact that the USA are ready to take a leading role in a peaceful process to oneself. ">
+<W DOM="5" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="вводн.10" ID="1" KSNAME="ПО1" LEMMA="ПО" LINK="вводн">По</W> 
+<W DOM="1" EXTRAFEAT="ВВОДЧАСТ" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="2" KSNAME="СЛОВО" LEMMA="СЛОВО" LINK="предл">словам</W> 
+<W ACCTSTRING="Флейшера" DOM="2" EXTRAFEAT="FICTIVE" FEAT="S ЕД МУЖ РОД ОД" HYPOT="квазиагент.01" ID="3" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="ФЛЕЙШЕР" LINK="квазиагент" PAFT=", ">Флейшера</W>, 
+<W DOM="5" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.04" ID="4" KSNAME="ПРЕЗИДЕНТ" LEMMA="ПРЕЗИДЕНТ" LINK="предик">президент</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД МУЖ" HYPOT="root" ID="5" KSNAME="НАМЕРЕН" LEMMA="НАМЕРЕН" MSNAME="НАМЕРЕН">намерен</W> 
+<W DOM="5" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="6" KSNAME="ОБЪЯВЛЯТЬ1" LEMMA="ОБЪЯВЛЯТЬ" LINK="1-компл">объявить</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="7" KSNAME="О2" LEMMA="О" LINK="1-компл">о</W> 
+<W DOM="7" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="8" KSNAME="ТО1" LEMMA="ТО" LINK="предл">том</W>, 
+<W DOM="8" FEAT="CONJ" HYPOT="эксплет.10" ID="9" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="эксплет">что</W> 
+<W DOM="11" EXTRAFEAT="UPP ЗЕРО" FEAT="S МН ИМ НЕОД" HYPOT="предик.04" ID="10" KSNAME="США" LEMMA="США" LINK="предик">США</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="A КР МН" HYPOT="подч-союзн.10" ID="11" KSNAME="ГОТОВЫЙ" LEMMA="ГОТОВЫЙ" LINK="подч-союзн">готовы</W> 
+<W DOM="11" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="12" KSNAME="БРАТЬ" LEMMA="БРАТЬ" LINK="1-компл">взять</W> 
+<W DOM="12" FEAT="PR" HYPOT="3-компл.11" ID="13" KSNAME="НА1" LEMMA="НА" LINK="3-компл">на</W> 
+<W DOM="13" FEAT="S ВИН" HYPOT="предл.10" ID="14" KSNAME="СЕБЯ" LEMMA="СЕБЯ" LINK="предл">себя</W> 
+<W DOM="16" FEAT="V НЕСОВ ПРИЧ НЕПРОШ ЕД ЖЕН ВИН" HYPOT="опред.01" ID="15" KSNAME="ЛИДИРОВАТЬ" LEMMA="ЛИДИРОВАТЬ" LINK="опред">лидирующую</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="16" KSNAME="РОЛЬ" LEMMA="РОЛЬ" LINK="1-компл">роль</W> 
+<W DOM="16" FEAT="PR" HYPOT="2-компл.17" ID="17" KSNAME="В2" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="19" FEAT="A ЕД МУЖ ПР" HYPOT="опред.01" ID="18" KSNAME="МИРНЫЙ1" LEMMA="МИРНЫЙ" LINK="опред">мирном</W> 
+<W DOM="17" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="19" KSNAME="ПРОЦЕСС" LEMMA="ПРОЦЕСС" LINK="предл">процессе</W>.
+</S>
+<S CLASS="LF" DATE="10 03 2024 23:23:28" ID="5" MICROSYNT="(по мнению,{4:по...5:мнению})&#xA;" TRANS="A dangerous situation requiring intervention, as Flejsher in Bush's opinion has noted, has been formed. ">
+<W DOM="7" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="вводн.16" ID="1" KSNAME="КАК1" LEMMA="КАК" LINK="вводн">Как</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="сравн-союзн.11" ID="2" KSNAME="ОТМЕЧАТЬ" LEMMA="ОТМЕЧАТЬ" LINK="сравн-союзн">отметил</W> 
+<W ACCTSTRING="Флейшер" DOM="2" EXTRAFEAT="FICTIVE" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.d0" ID="3" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="ФЛЕЙШЕР" LINK="предик">Флейшер</W>, 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="вводн.10" ID="4" KSNAME="ПО1" LEMMA="ПО" LINK="вводн">по</W> 
+<W DOM="4" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="5" KSNAME="МНЕНИЕ" LEMMA="МНЕНИЕ" LINK="предл">мнению</W> 
+<W DOM="5" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="квазиагент.01" ID="6" KSNAME="БУШ" LEMMA="БУШ" LINK="квазиагент">Буша</W>, 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД ЖЕН" ID="7" KSNAME="СКЛАДЫВАТЬСЯ1" LEMMA="СКЛАДЫВАТЬСЯ" MSNAME="СКЛАДЫВАТЬСЯ1">сложилась</W> 
+<W DOM="9" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="8" KSNAME="ОПАСНЫЙ" LEMMA="ОПАСНЫЙ" LINK="опред">опасная</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="9" KSNAME="СИТУАЦИЯ" LEMMA="СИТУАЦИЯ" LINK="предик">ситуация</W>, 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="V НЕСОВ ПРИЧ НЕПРОШ ЕД ЖЕН ИМ" HYPOT="опред.02" ID="10" KSNAME="ТРЕБОВАТЬ" LEMMA="ТРЕБОВАТЬ" LINK="опред">требующая</W> 
+<W DOM="10" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.11" ID="11" KSNAME="ВМЕШАТЕЛЬСТВО" LEMMA="ВМЕШАТЕЛЬСТВО" LINK="1-компл">вмешательства</W>.
+<LF LFARG="9" LFFUNC="_INCEPFUNC0" LFVAL="7"/>
+<LF LFARG="5" LFFUNC="_ADV2-UN" LFVAL="4"/>
+</S>
+</body>
+</text>

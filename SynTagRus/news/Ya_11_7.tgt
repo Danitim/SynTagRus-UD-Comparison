@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_11_7.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; USESTAT=USESTATNO; ALTTR=$TRUE; MWORDFORM=$FALSE; CORDESCRMODE=NODESWEAK; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; SPEECHMODE=SPEECHMODENO; JOFICATION=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2003</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2001-2003</creation_date>
+<date/>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронный текст</medium>
+<part>-</part>
+<publication>-</publication>
+<publication_date>-</publication_date>
+<publisher>-</publisher>
+<source>Материалы новостных лент Интернета, коллекция 11</source>
+<sphere>публицистика</sphere>
+<title>-</title>
+<topic>армия и вооруженные конфликты</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S DATE="16 08 2023 00:58:53" ID="1">
+<W DOM="2" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ФИКТ-СУЩ-М" LEMMA="КОММЕРСАНТ.РУ" LINK="предик">Коммерсант.ру</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="2" KSNAME="ВЫСКАЗЫВАТЬ" LEMMA="ВЫСКАЗЫВАТЬ">высказывает</W> 
+<W DOM="2" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="3" KSNAME="ПРЕДПОЛОЖЕНИЕ" LEMMA="ПРЕДПОЛОЖЕНИЕ" LINK="1-компл">предположение</W>, 
+<W DOM="3" FEAT="CONJ" HYPOT="1-компл.23" ID="4" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="4-компл.11" ID="5" KSNAME="В1" LEMMA="В" LINK="4-компл">в</W> 
+<W DOM="5" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="АФГАНИСТАН" LEMMA="АФГАНИСТАН" LINK="предл">Афганистан</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" HYPOT="подч-союзн.10" ID="7" KSNAME="НАПРАВЛЯТЬ" LEMMA="НАПРАВЛЯТЬ" LINK="подч-союзн">направлены</W> 
+<W DOM="9" FEAT="PART" HYPOT="огранич.10" ID="8" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="ADV" HYPOT="предик.17" ID="9" KSNAME="МЕНЕЕ" LEMMA="МЕНЕЕ" LINK="предик">менее</W> 
+<W DOM="11" FEAT="NUM РОД" HYPOT="количест.14" ID="10" KSNAME="ДВА" LEMMA="ДВА" LINK="количест">двух</W> 
+<W DOM="9" FEAT="S МН МУЖ РОД НЕОД" HYPOT="сравнит.01" ID="11" KSNAME="ПОЛК" LEMMA="ПОЛК" LINK="сравнит">полков</W> 
+<W DOM="11" EXTRAFEAT="UPP" FEAT="S МН СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="12" KSNAME="ВДВ" LEMMA="ВДВ" LINK="квазиагент">ВДВ</W> 
+<W DOM="12" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="РОССИЯ" LEMMA="РОССИЯ" LINK="1-компл">России</W>. 
+</S>
+<S DATE="16 08 2023 00:58:53" ID="2" MICROSYNT="(при этом,{1:При...2:этом})">
+<W DOM="4" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="ПРИ" LEMMA="ПРИ" LINK="обст">При</W> 
+<W DOM="1" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предл">этом</W> 
+<W DOM="4" EXTRAFEAT="SEMI-FICTIVE" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="3" KSNAME="ФИКТ-СУЩ-М" LEMMA="КОММЕРСАНТ.РУ" LINK="предик">Коммерсант.ру</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="4" KSNAME="ССЫЛАТЬСЯ" LEMMA="ССЫЛАТЬСЯ">ссылается</W> 
+<W DOM="4" FEAT="PR" HYPOT="1-компл.17" ID="5" KSNAME="НА1" LEMMA="НА" LINK="1-компл">на</W> 
+<W DOM="5" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="МНЕНИЕ" LEMMA="МНЕНИЕ" LINK="предл">мнение</W> 
+<W DOM="8" FEAT="A МН РОД" HYPOT="опред.01" ID="7" KSNAME="УЗБЕКСКИЙ" LEMMA="УЗБЕКСКИЙ" LINK="опред">узбекских</W> 
+"<W DOM="6" EXTRAFEAT="IN-QUOT" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="8" KSNAME="СПЕЦИАЛИСТ" LEMMA="СПЕЦИАЛИСТ" LINK="квазиагент">специалистов</W>". 
+</S>
+</body>
+</text>

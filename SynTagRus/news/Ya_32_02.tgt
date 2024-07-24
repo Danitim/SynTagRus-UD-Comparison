@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_32_02.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; USESTAT=USESTATNO; ALTTR=$TRUE; MWORDFORM=$TRUE; CORDESCRMODE=CORDESCROLDMODE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=LARGENUM; SPEECHMODE=SPEECHMODENO; JOFICATION=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2002</annotation_year>
+<author>Вячеслав Калашников</author>
+<author_birth_year>-</author_birth_year>
+<author_id>599</author_id>
+<author_sex>мужской</author_sex>
+<comment>-</comment>
+<creation_date>2002</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>РИА Новости</publication>
+<publication_date>20.02.2002</publication_date>
+<publisher>-</publisher>
+<source>https://ria.ru/20020220/75870.html</source>
+<sphere>публицистика</sphere>
+<title>Два человека погибли в результате пожара в частном доме в поселке Вырица Ленинградской области</title>
+<topic>происшествия</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S CLASS="LF" COMMENT="traced" DATE="03 03 2024 01:25:06" ID="1" MICROSYNT="(в результате,{4:в...5:результате})&#xA;" TRANS="Two people have been killed from result of fire of the private house in the settlement Vyritsa of the Leningrad region ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="NUM МУЖ ИМ" HYPOT="количест.14" ID="1" KSNAME="ДВА" LEMMA="ДВА" LINK="количест">Два</W> 
+<W DOM="3" FEAT="S ЕД МУЖ РОД ОД" HYPOT="предик.02" ID="2" KSNAME="ЧЕЛОВЕК" LEMMA="ЧЕЛОВЕК" LINK="предик">человека</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" ID="3" KSNAME="ПОГИБАТЬ" LEMMA="ПОГИБАТЬ">погибли</W> 
+<W DOM="3" FEAT="PR" HYPOT="1-компл.17" ID="4" KSNAME="В2" LEMMA="В" LINK="1-компл">в</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="5" KSNAME="РЕЗУЛЬТАТ" LEMMA="РЕЗУЛЬТАТ" LINK="предл">результате</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="ПОЖАР" LEMMA="ПОЖАР" LINK="квазиагент">пожара</W> 
+<W DOM="6" FEAT="PR" HYPOT="квазиагент.11" ID="7" KSNAME="В2" LEMMA="В" LINK="квазиагент">в</W> 
+<W DOM="9" FEAT="A ЕД МУЖ ПР" HYPOT="опред.01" ID="8" KSNAME="ЧАСТНЫЙ1" LEMMA="ЧАСТНЫЙ" LINK="опред">частном</W> 
+<W DOM="7" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="9" KSNAME="ДОМ" LEMMA="ДОМ" LINK="предл">доме</W> 
+<W DOM="9" FEAT="PR" HYPOT="атриб.18" ID="10" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="10" EXTRAFEAT="ALTJO" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="11" KSNAME="ПОСЕЛОК" LEMMA="ПОСЕЛОК" LINK="предл">поселке</W> 
+<W ACCTSTRING="Вырица" DOM="11" EXTRAFEAT="CAP FICTIVE" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="аппоз.01" ID="12" KSNAME="ФИКТ-МЕСТО" LEMMA="ВЫРИЦА" LINK="аппоз" PAFT=" ">Вырица</W> 
+<W DOM="14" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="13" KSNAME="ЛЕНИНГРАДСКИЙ" LEMMA="ЛЕНИНГРАДСКИЙ" LINK="опред" MSNAME="ЛЕНИНГРАДСКИЙ">Ленинградской</W> 
+<W DOM="9" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="14" KSNAME="ОБЛАСТЬ" LEMMA="ОБЛАСТЬ" LINK="квазиагент">области</W>
+<LF LFARG="9" LFFUNC="_LOC" LFVAL="7"/>
+<LF LFARG="11" LFFUNC="_LOC" LFVAL="10"/>
+</S>
+<S CLASS="LF" DATE="03 03 2024 01:24:31" ID="2" MICROSYNT="(в результате,{3:в...4:результате})">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД ЖЕН ТВОР" HYPOT="опред.01" ID="1" KSNAME="МИНУВШИЙ" LEMMA="МИНУВШИЙ" LINK="опред">Минувшей</W> 
+<W DOM="15" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="обст.19" ID="2" KSNAME="НОЧЬ" LEMMA="НОЧЬ" LINK="обст">ночью</W> 
+<W DOM="15" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="4" KSNAME="РЕЗУЛЬТАТ" LEMMA="РЕЗУЛЬТАТ" LINK="предл">результате</W> 
+<W DOM="4" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="5" KSNAME="ПОЖАР" LEMMA="ПОЖАР" LINK="квазиагент">пожара</W> 
+<W DOM="5" FEAT="PR" HYPOT="атриб.18" ID="6" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="6" FEAT="NUM ЕД МУЖ ПР" HYPOT="предл.10" ID="7" KSNAME="ОДИН1" LEMMA="ОДИН" LINK="предл">одном</W> 
+<W DOM="7" FEAT="PR" HYPOT="электив.11" ID="8" KSNAME="ИЗ" LEMMA="ИЗ" LINK="электив">из</W> 
+<W DOM="10" FEAT="A МН РОД" HYPOT="опред.01" ID="9" KSNAME="ЧАСТНЫЙ1" LEMMA="ЧАСТНЫЙ" LINK="опред">частных</W> 
+<W DOM="8" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="10" KSNAME="ДОМ" LEMMA="ДОМ" LINK="предл">домов</W> 
+<W DOM="10" EXTRAFEAT="ALTJO" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="11" KSNAME="ПОСЕЛОК" LEMMA="ПОСЕЛОК" LINK="квазиагент">поселка</W> 
+<W DOM="11" EXTRAFEAT="CAP FICTIVE" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="аппоз.01" ID="12" KSNAME="ФИКТ-МЕСТО" LEMMA="ВЫРИЦА" LINK="аппоз">Вырица</W> 
+<W DOM="14" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="13" KSNAME="ЛЕНИНГРАДСКИЙ" LEMMA="ЛЕНИНГРАДСКИЙ" LINK="опред">Ленинградской</W> 
+<W DOM="11" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="атриб.01" ID="14" KSNAME="ОБЛАСТЬ" LEMMA="ОБЛАСТЬ" LINK="атриб">области</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" ID="15" KSNAME="ПОГИБАТЬ" LEMMA="ПОГИБАТЬ">погибли</W> 
+<W DOM="17" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.14" ID="16" KSNAME="ЧИСЛ-МАЛ" LEMMA="2" LINK="количест">2</W> 
+<W DOM="15" FEAT="S ЕД МУЖ РОД ОД" HYPOT="предик.02" ID="17" KSNAME="ЧЕЛОВЕК" LEMMA="ЧЕЛОВЕК" LINK="предик">человека</W>. 
+<LF LFARG="4" LFFUNC="_ADV2-UN" LFVAL="3"/>
+</S>
+<S DATE="03 03 2024 01:24:31" ID="3">
+<W DOM="18" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="вводн.16" ID="1" KSNAME="КАК1" LEMMA="КАК" LINK="вводн">Как</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="сравн-союзн.11" ID="2" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="сравн-союзн">сообщили</W> 
+<W ACCTSTRING="РИА" DOM="2" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="3" KSNAME="РИА" LEMMA="РИА" LINK="2-компл">РИА</W> 
+"<W ACCTSTRING="Новости" DOM="3" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="аппоз.01" ID="4" KSNAME="НОВОСТЬ" LEMMA="НОВОСТЬ" LINK="аппоз">Новости</W>" 
+<W DOM="2" FEAT="PR" HYPOT="обст.23" ID="5" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="6" KSNAME="ПРЕСС-СЛУЖБА" LEMMA="ПРЕСС-СЛУЖБА" LINK="предл">пресс-службе</W> 
+<W DOM="6" EXTRAFEAT="CAP CAPIT" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="7" KSNAME="УПРАВЛЕНИЕ2" LEMMA="УПРАВЛЕНИЕ" LINK="квазиагент">Управления</W> 
+<W DOM="10" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="8" KSNAME="ГОСУДАРСТВЕННЫЙ" LEMMA="ГОСУДАРСТВЕННЫЙ" LINK="опред">государственной</W> 
+<W DOM="10" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="9" KSNAME="ПРОТИВОПОЖАРНЫЙ" LEMMA="ПРОТИВОПОЖАРНЫЙ" LINK="опред">противопожарной</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="10" KSNAME="СЛУЖБА2" LEMMA="СЛУЖБА" LINK="1-компл">службы</W> 
+<W DOM="10" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="11" KSNAME="САНКТ-ПЕТЕРБУРГ" LEMMA="САНКТ-ПЕТЕРБУРГ" LINK="квазиагент">Санкт-Петербурга</W>, 
+<W DOM="18" EXTRAFEAT="ЗЕРО" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="12" KSNAME="ПРИЧИНА" LEMMA="ПРИЧИНА" LINK="предик">причины</W> 
+<W DOM="12" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="ВОЗГОРАНИЕ" LEMMA="ВОЗГОРАНИЕ" LINK="1-компл">возгорания</W> 
+<W DOM="12" FEAT="CONJ" HYPOT="сочин.13" ID="14" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="14" FEAT="S МН СРЕД ИМ НЕОД" HYPOT="соч-союзн.10" ID="15" KSNAME="ИМЯ" LEMMA="ИМЯ" LINK="соч-союзн">имена</W> 
+<W DOM="15" EXTRAFEAT="ALT СУБСТ" FEAT="V СОВ ПРИЧ ПРОШ МН РОД" HYPOT="квазиагент.01" ID="16" KSNAME="ПОГИБАТЬ" LEMMA="ПОГИБАТЬ" LINK="квазиагент">погибших</W> 
+<W DOM="18" FEAT="ADV" HYPOT="огранич" ID="17" KSNAME="ПОКА2" LEMMA="ПОКА" LINK="огранич">пока</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР МН" HYPOT="root" ID="18" KSNAME="НЕИЗВЕСТНЫЙ1" LEMMA="НЕИЗВЕСТНЫЙ">неизвестны</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="03 03 2024 01:25:23" ID="4">
+<W DOM="5" EXTRAFEAT="CAP" FEAT="PR" HYPOT="3-компл.11" ID="1" KSNAME="В1" LEMMA="В" LINK="3-компл">В</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="2" KSNAME="СРЕДА2" LEMMA="СРЕДА" LINK="предл">среду</W> 
+<W DOM="5" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="3" KSNAME="ДОЗНАВАТЕЛЬ" LEMMA="ДОЗНАВАТЕЛЬ" LINK="предик">дознаватели</W> 
+<W DOM="3" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="атриб.01" ID="4" KSNAME="УГПС" LEMMA="УГПС" LINK="атриб">УГПС</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="5" KSNAME="НАЧИНАТЬ" LEMMA="НАЧИНАТЬ">начнут</W> 
+<W DOM="5" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="РАССЛЕДОВАНИЕ" LEMMA="РАССЛЕДОВАНИЕ" LINK="1-компл">расследование</W> 
+<W DOM="6" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="ПРИЧИНА" LEMMA="ПРИЧИНА" LINK="1-компл">причин</W> 
+<W DOM="7" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="8" KSNAME="ПРОИСШЕСТВИЕ" LEMMA="ПРОИСШЕСТВИЕ" LINK="1-компл">происшествия</W>. 
+<LF LFARG="2" LFFUNC="_LOC" LFVAL="1"/>
+</S>
+</body>
+</text>

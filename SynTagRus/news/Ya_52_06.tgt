@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_52_06.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; ALTTR=$TRUE; MWORDFORM=$TRUE; WEAKDESCR=$FALSE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; SOFTGEOMFILTR=$TRUE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; USECORPLF=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2002</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2002</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>Jewish.ru</publication>
+<publication_date>05.04.2002</publication_date>
+<publisher>-</publisher>
+<source>https://jewish.ru/ru/news/articles/31929</source>
+<sphere>публицистика</sphere>
+<title>Спецоперация в Дженине и Шхеме: ликвидировано 9 террористов</title>
+<topic>армия и вооруженные конфликты</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S COMMENT="traced" DATE="09 03 2024 13:27:13" ID="1" TRANS="The special operation is in Jenin and Shechem: 9 terrorists are liquidated ">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" ID="1" KSNAME="СПЕЦОПЕРАЦИЯ" LEMMA="СПЕЦОПЕРАЦИЯ" MSNAME="СПЕЦОПЕРАЦИЯ">Спецоперация</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="2" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="3" KSNAME="ДЖЕНИН" LEMMA="ДЖЕНИН" LINK="предл">Дженине</W> 
+<W DOM="3" FEAT="CONJ" HYPOT="сочин.13" ID="4" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="соч-союзн.10" ID="5" KSNAME="ШХЕМ" LEMMA="ШХЕМ" LINK="соч-союзн">Шхеме</W>: 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" HYPOT="разъяснит.01" ID="6" KSNAME="ЛИКВИДИРОВАТЬ" LEMMA="ЛИКВИДИРОВАТЬ" LINK="разъяснит">ликвидировано</W> 
+<W DOM="8" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="7" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="9" LINK="количест">9</W> 
+<W DOM="6" FEAT="S МН МУЖ РОД ОД" HYPOT="предик.02" ID="8" KSNAME="ТЕРРОРИСТ" LEMMA="ТЕРРОРИСТ" LINK="предик">террористов</W>
+<LF LFARG="3" LFFUNC="_LOC" LFVAL="2"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="09 03 2024 13:31:15" ID="2">
+<W ACCTSTRING="В" DOM="5" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="В1" LEMMA="В" LINK="обст">В</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="2" KSNAME="ПЯТНИЦА" LEMMA="ПЯТНИЦА" LINK="предл">пятницу</W> 
+<W DOM="5" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="3" KSNAME="ПРЕДСТАВИТЕЛЬ" LEMMA="ПРЕДСТАВИТЕЛЬ" LINK="предик">представители</W> 
+<W DOM="3" EXTRAFEAT="UPP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="4" KSNAME="ПНА" LEMMA="ПНА" LINK="1-компл">ПНА</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="root" ID="5" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ">сообщили</W>, 
+<W DOM="5" FEAT="CONJ" HYPOT="1-компл.23" ID="6" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="16" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="7" KSNAME="ЗА1" LEMMA="ЗА" LINK="обст">за</W> 
+<W DOM="9" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="8" KSNAME="МИНУВШИЙ" LEMMA="МИНУВШИЙ" LINK="опред">минувшую</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="9" KSNAME="НОЧЬ" LEMMA="НОЧЬ" LINK="предл">ночь</W> 
+<W DOM="16" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="10" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="12" FEAT="A МН ПР" HYPOT="опред.01" ID="11" KSNAME="РАЗЛИЧНЫЙ" LEMMA="РАЗЛИЧНЫЙ" LINK="опред">различных</W> 
+<W DOM="10" FEAT="S МН СРЕД ПР НЕОД" HYPOT="предл.10" ID="12" KSNAME="СТОЛКНОВЕНИЕ" LEMMA="СТОЛКНОВЕНИЕ" LINK="предл">столкновениях</W> 
+<W DOM="12" FEAT="PR" HYPOT="1-компл.17" ID="13" KSNAME="С3" LEMMA="С" LINK="1-компл">с</W> 
+<W DOM="15" FEAT="A МН ТВОР" HYPOT="опред.01" ID="14" KSNAME="ИЗРАИЛЬСКИЙ" LEMMA="ИЗРАИЛЬСКИЙ" LINK="опред">израильскими</W> 
+<W DOM="13" FEAT="S МН МУЖ ТВОР ОД" HYPOT="предл.10" ID="15" KSNAME="ВОЕННЫЙ2" LEMMA="ВОЕННЫЙ" LINK="предл">военными</W> 
+<W ACCTSTRING="убито" DOM="6" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" HYPOT="подч-союзн.10" ID="16" KSNAME="УБИВАТЬ" LEMMA="УБИВАТЬ" LINK="подч-союзн">убито</W> 
+<W DOM="19" FEAT="NUM ИМ" HYPOT="количест.11" ID="17" KSNAME="ДЕВЯТЬ" LEMMA="ДЕВЯТЬ" LINK="количест">девять</W> 
+<W ACCTSTRING="палестинских" DOM="19" FEAT="A МН РОД" HYPOT="опред.01" ID="18" KSNAME="ПАЛЕСТИНСКИЙ" LEMMA="ПАЛЕСТИНСКИЙ" LINK="опред">палестинских</W> 
+<W ACCTSTRING="боевиков" DOM="16" FEAT="S МН МУЖ РОД ОД" HYPOT="предик.02" ID="19" KSNAME="БОЕВИК2" LEMMA="БОЕВИК" LINK="предик">боевиков</W>. 
+<LF LFARG="2" LFFUNC="_LOC" LFVAL="1"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="09 03 2024 13:31:45" ID="3" MICROSYNT="(по словам,{3:по...4:словам})&#xA;">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A МН ИМ" HYPOT="опред.01" ID="1" KSNAME="ВЕСЬ" LEMMA="ВЕСЬ" LINK="опред">Все</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="S МН ИМ ОД" HYPOT="предик.01" ID="2" KSNAME="ОНИ" LEMMA="ОНИ" LINK="предик">они</W>, 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="вводн.10" ID="3" KSNAME="ПО1" LEMMA="ПО" LINK="вводн">по</W> 
+<W DOM="3" EXTRAFEAT="ВВОДЧАСТ" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="4" KSNAME="СЛОВО" LEMMA="СЛОВО" LINK="предл">словам</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="5" KSNAME="ПАЛЕСТИНЕЦ" LEMMA="ПАЛЕСТИНЕЦ" LINK="квазиагент">палестинцев</W>, 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" HYPOT="root" ID="6" KSNAME="БЫТЬ" LEMMA="БЫТЬ">были</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" HYPOT="пасс-анал.10" ID="7" KSNAME="УБИВАТЬ" LEMMA="УБИВАТЬ" LINK="пасс-анал">убиты</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="8" FEAT="S МН МУЖ ПР НЕОД" HYPOT="предл.10" ID="9" KSNAME="ГОРОД" LEMMA="ГОРОД" LINK="предл">городах</W> 
+<W ACCTSTRING="Шхем" DOM="9" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="10" KSNAME="ШХЕМ" LEMMA="ШХЕМ" LINK="аппоз">Шхем</W> 
+<W DOM="10" FEAT="CONJ" HYPOT="сочин.13" ID="11" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="11" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="соч-союзн.10" ID="12" KSNAME="ДЖЕНИН" LEMMA="ДЖЕНИН" LINK="соч-союзн">Дженин</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="13" KSNAME="НА3" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="15" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ ПР" HYPOT="опред.01" ID="14" KSNAME="ЗАПАДНЫЙ" LEMMA="ЗАПАДНЫЙ" LINK="опред">Западном</W> 
+<W DOM="13" FEAT="S ЕД МУЖ МЕСТН НЕОД" HYPOT="предл.10" ID="15" KSNAME="БЕРЕГ" LEMMA="БЕРЕГ" LINK="предл">берегу</W> 
+<W DOM="15" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="16" KSNAME="РЕКА" LEMMA="РЕКА" LINK="квазиагент">реки</W> 
+<W DOM="16" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="17" KSNAME="ИОРДАН" LEMMA="ИОРДАН" LINK="аппоз">Иордан</W>. 
+<LF LFARG="9" LFFUNC="_LOC" LFVAL="8"/>
+<LF LFARG="15" LFFUNC="_LOC" LFVAL="13"/>
+</S>
+<S COMMENT="traced" DATE="09 03 2024 13:27:25" ID="4">
+<W DOM="2" EXTRAFEAT="ALTJO CAP" FEAT="PART" HYPOT="огранич.10" ID="1" KSNAME="ЕЩЕ1" LEMMA="ЕЩЕ" LINK="огранич">Еще</W> 
+<W DOM="3" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.14" ID="2" KSNAME="ЧИСЛ-ДВАДВА" LEMMA="24" LINK="количест">24</W> 
+<W DOM="7" FEAT="S ЕД МУЖ РОД ОД" HYPOT="предик.02" ID="3" KSNAME="ПАЛЕСТИНЕЦ" LEMMA="ПАЛЕСТИНЕЦ" LINK="предик">палестинца</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="4" KSNAME="ЗА1" LEMMA="ЗА" LINK="обст">за</W> 
+<W DOM="6" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="5" KSNAME="МИНУВШИЙ" LEMMA="МИНУВШИЙ" LINK="опред">минувшую</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="НОЧЬ" LEMMA="НОЧЬ" LINK="предл">ночь</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" HYPOT="root" ID="7" KSNAME="БЫТЬ" LEMMA="БЫТЬ">были</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" HYPOT="пасс-анал.10" ID="8" KSNAME="РАНИТЬ" LEMMA="РАНИТЬ" LINK="пасс-анал">ранены</W>. 
+</S>
+</body>
+</text>

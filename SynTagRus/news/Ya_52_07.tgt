@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_52_07.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; ALTTR=$TRUE; MWORDFORM=$TRUE; WEAKDESCR=$FALSE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; SOFTGEOMFILTR=$TRUE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; USECORPLF=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2002</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2002</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>РИА Новости</publication>
+<publication_date>05.04.2002</publication_date>
+<publisher>-</publisher>
+<source>https://ria.ru/20020405/111100.html</source>
+<sphere>публицистика</sphere>
+<title>Владимир Путин включил Юрия Башмета в состав Совета при президенте России по культуре и искусству</title>
+<topic>политика и общественная жизнь</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S CLASS="LF" COMMENT="traced" DATE="09 03 2024 13:33:49" ID="1" TRANS="Vladimir Putin has included Yury Bashmet into composition of the council with the president of Russia for culture and art ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="ВЛАДИМИР2" LEMMA="ВЛАДИМИР" LINK="предик">Владимир</W> 
+<W DOM="1" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="2" KSNAME="ПУТИН" LEMMA="ПУТИН" LINK="аппоз">Путин</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" ID="3" KSNAME="ВКЛЮЧАТЬ1" LEMMA="ВКЛЮЧАТЬ">включил</W> 
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="1-компл.11" ID="4" KSNAME="ЮРИЙ" LEMMA="ЮРИЙ" LINK="1-компл">Юрия</W> 
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="аппоз.01" ID="5" KSNAME="БАШМЕТ1" LEMMA="БАШМЕТ" LINK="аппоз">Башмета</W> 
+<W DOM="3" FEAT="PR" HYPOT="2-компл.17" ID="6" KSNAME="В1" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="6" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="7" KSNAME="СОСТАВ1" LEMMA="СОСТАВ" LINK="предл">состав</W> 
+<W DOM="7" EXTRAFEAT="ALT CAP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="СОВЕТ2" LEMMA="СОВЕТ" LINK="квазиагент">Совета</W> 
+<W DOM="8" FEAT="PR" HYPOT="атриб.18" ID="9" KSNAME="ПРИ" LEMMA="ПРИ" LINK="атриб">при</W> 
+<W DOM="9" FEAT="S ЕД МУЖ ПР ОД" HYPOT="предл.10" ID="10" KSNAME="ПРЕЗИДЕНТ" LEMMA="ПРЕЗИДЕНТ" LINK="предл">президенте</W> 
+<W DOM="10" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="РОССИЯ" LEMMA="РОССИЯ" LINK="1-компл">России</W> 
+<W DOM="8" FEAT="PR" HYPOT="2-компл.17" ID="12" KSNAME="ПО1" LEMMA="ПО" LINK="2-компл">по</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="13" KSNAME="КУЛЬТУРА" LEMMA="КУЛЬТУРА" LINK="предл">культуре</W> 
+<W DOM="13" FEAT="CONJ" HYPOT="сочин.13" ID="14" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="14" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="соч-союзн.10" ID="15" KSNAME="ИСКУССТВО" LEMMA="ИСКУССТВО" LINK="соч-союзн">искусству</W>
+<LF LFARG="7" LFFUNC="_CAUSOPER1" LFPREP="6" LFVAL="3"/>
+<LF LFARG="8" LFFUNC="_EQUIP" LFVAL="7"/>
+<LF LFARG="10" LFFUNC="_LOC" LFVAL="9"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="09 03 2024 13:33:49" ID="2">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="1" KSNAME="ХУДОЖЕСТВЕННЫЙ" LEMMA="ХУДОЖЕСТВЕННЫЙ" LINK="опред">Художественный</W> 
+<W DOM="10" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.04" ID="2" KSNAME="РУКОВОДИТЕЛЬ" LEMMA="РУКОВОДИТЕЛЬ" LINK="предик">руководитель</W> 
+<W DOM="5" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="3" KSNAME="ГОСУДАРСТВЕННЫЙ" LEMMA="ГОСУДАРСТВЕННЫЙ" LINK="опред">Государственного</W> 
+<W DOM="5" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="4" KSNAME="КАМЕРНЫЙ" LEMMA="КАМЕРНЫЙ" LINK="опред">камерного</W> 
+<W DOM="2" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="ОРКЕСТР" LEMMA="ОРКЕСТР" LINK="1-компл">оркестра</W> 
+"<W DOM="5" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S МН МУЖ ИМ ОД" HYPOT="аппоз.01" ID="6" KSNAME="СОЛИСТ" LEMMA="СОЛИСТ" LINK="аппоз">Солисты</W> 
+<W DOM="6" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="атриб.01" ID="7" KSNAME="МОСКВА" LEMMA="МОСКВА" LINK="атриб">Москвы</W>" 
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="8" KSNAME="ЮРИЙ" LEMMA="ЮРИЙ" LINK="аппоз">Юрий</W> 
+<W DOM="8" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="9" KSNAME="БАШМЕТ1" LEMMA="БАШМЕТ" LINK="аппоз">Башмет</W> 
+<W DOM="_root" EXTRAFEAT="ALTJO ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="root" ID="10" KSNAME="ВКЛЮЧАТЬ1" LEMMA="ВКЛЮЧАТЬ">включен</W> 
+<W DOM="10" FEAT="PR" HYPOT="2-компл.17" ID="11" KSNAME="В1" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="11" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="12" KSNAME="СОСТАВ1" LEMMA="СОСТАВ" LINK="предл">состав</W> 
+<W ACCTSTRING="Совета" DOM="12" EXTRAFEAT="ALT CAP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="13" KSNAME="СОВЕТ2" LEMMA="СОВЕТ" LINK="квазиагент">Совета</W> 
+<W DOM="13" FEAT="PR" HYPOT="атриб.18" ID="14" KSNAME="ПРИ" LEMMA="ПРИ" LINK="атриб">при</W> 
+<W DOM="14" FEAT="S ЕД МУЖ ПР ОД" HYPOT="предл.10" ID="15" KSNAME="ПРЕЗИДЕНТ" LEMMA="ПРЕЗИДЕНТ" LINK="предл">президенте</W> 
+<W DOM="15" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="16" KSNAME="РОССИЯ" LEMMA="РОССИЯ" LINK="1-компл">России</W> 
+<W DOM="13" FEAT="PR" HYPOT="атриб.18" ID="17" KSNAME="ПО1" LEMMA="ПО" LINK="атриб">по</W> 
+<W DOM="17" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="18" KSNAME="КУЛЬТУРА" LEMMA="КУЛЬТУРА" LINK="предл">культуре</W> 
+<W DOM="18" FEAT="CONJ" HYPOT="сочин.13" ID="19" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="19" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="соч-союзн.10" ID="20" KSNAME="ИСКУССТВО" LEMMA="ИСКУССТВО" LINK="соч-союзн">искусству</W>. 
+<LF LFARG="12" LFFUNC="_CAUSOPER1" LFPREP="11" LFVAL="10"/>
+<LF LFARG="5" LFFUNC="_CAP" LFVAL="2"/>
+<LF LFARG="13" LFFUNC="_EQUIP" LFVAL="12"/>
+<LF LFARG="15" LFFUNC="_LOC" LFVAL="14"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="09 03 2024 13:33:55" ID="3">
+<W DOM="15" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="вводн.16" ID="1" KSNAME="КАК1" LEMMA="КАК" LINK="вводн">Как</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="сравн-союзн.11" ID="2" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="сравн-союзн">сообщили</W> 
+<W ACCTSTRING="РИА" DOM="2" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="3" KSNAME="РИА" LEMMA="РИА" LINK="2-компл">РИА</W> 
+"<W ACCTSTRING="Новости" DOM="3" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="аппоз.01" ID="4" KSNAME="НОВОСТЬ" LEMMA="НОВОСТЬ" LINK="аппоз">Новости</W>" 
+<W ACCTSTRING="в" DOM="2" FEAT="PR" HYPOT="обст.23" ID="5" KSNAME="В1" LEMMA="В" LINK="обст">в</W> 
+<W ACCTSTRING="пятницу" DOM="5" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="ПЯТНИЦА" LEMMA="ПЯТНИЦА" LINK="предл">пятницу</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="7" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="8" KSNAME="ПРЕСС-СЛУЖБА" LEMMA="ПРЕСС-СЛУЖБА" LINK="предл">пресс-службе</W> 
+<W DOM="8" FEAT="S ЕД МУЖ РОД ОД" HYPOT="атриб.01" ID="9" KSNAME="ГЛАВА2" LEMMA="ГЛАВА" LINK="атриб">главы</W> 
+<W DOM="11" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="10" KSNAME="РОССИЙСКИЙ" LEMMA="РОССИЙСКИЙ" LINK="опред">российского</W> 
+<W DOM="9" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ГОСУДАРСТВО" LEMMA="ГОСУДАРСТВО" LINK="1-компл">государства</W>, 
+<W DOM="15" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="12" KSNAME="УКАЗ1" LEMMA="УКАЗ" LINK="1-компл">указ</W> 
+<W DOM="12" EXTRAFEAT="ALT" FEAT="PR" HYPOT="1-компл.17" ID="13" KSNAME="О2" LEMMA="О" LINK="1-компл">об</W> 
+<W DOM="13" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="14" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предл">этом</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="root" ID="15" KSNAME="ПОДПИСЫВАТЬ" LEMMA="ПОДПИСЫВАТЬ">подписал</W> 
+<W DOM="15" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="16" KSNAME="ПРЕЗИДЕНТ" LEMMA="ПРЕЗИДЕНТ" LINK="предик">президент</W> 
+<W ACCTSTRING="РФ" DOM="16" EXTRAFEAT="UPP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="17" KSNAME="РФ" LEMMA="РФ" LINK="1-компл">РФ</W> 
+<W ACCTSTRING="Владимир" DOM="16" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="18" KSNAME="ВЛАДИМИР2" LEMMA="ВЛАДИМИР" LINK="аппоз">Владимир</W> 
+<W ACCTSTRING="Путин" DOM="18" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="19" KSNAME="ПУТИН" LEMMA="ПУТИН" LINK="аппоз">Путин</W>. 
+<LF LFARG="6" LFFUNC="_LOC" LFVAL="5"/>
+</S>
+</body>
+</text>

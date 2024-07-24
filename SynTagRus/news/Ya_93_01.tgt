@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_93_01.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; USESTAT=USESTATNO; ALTTR=$TRUE; MWORDFORM=$TRUE; CORDESCRMODE=CORDESCROLDMODE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=LARGENUM; SPEECHMODE=SPEECHMODENO; JOFICATION=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2001</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2001</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>Delfi</publication>
+<publication_date>30.10.2001</publication_date>
+<publisher>-</publisher>
+<source>https://rus.delfi.ee/statja/2411254/amerikancy-teryayut-veru-v-otvetnyy-udar</source>
+<sphere>публицистика</sphere>
+<title>Американцы теряют веру в ответный удар</title>
+<topic>политика и общественная жизнь</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="1" TRANS="The Americans relinquish belief in an answering blow ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="АМЕРИКАНЕЦ" LEMMA="АМЕРИКАНЕЦ" LINK="предик">Американцы</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="2" KSNAME="ТЕРЯТЬ" LEMMA="ТЕРЯТЬ">теряют</W> 
+<W DOM="2" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="3" KSNAME="ВЕРА1" LEMMA="ВЕРА" LINK="1-компл">веру</W> 
+<W DOM="3" FEAT="PR" HYPOT="1-компл.17" ID="4" KSNAME="В1" LEMMA="В" LINK="1-компл">в</W> 
+<W DOM="6" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="5" KSNAME="ОТВЕТНЫЙ" LEMMA="ОТВЕТНЫЙ" LINK="опред" MSNAME="ОТВЕТНЫЙ">ответный</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="УДАР" LEMMA="УДАР" LINK="предл">удар</W>
+<LF LFARG="3" LFFUNC="_FINOPER1" LFVAL="2"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="2">
+<W DOM="10" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="ВПЕРВЫЕ" LEMMA="ВПЕРВЫЕ" LINK="обст">Впервые</W> 
+<W ACCTSTRING="с" DOM="1" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.20" ID="2" KSNAME="С1" LEMMA="С" LINK="атриб">с</W> 
+<W DOM="2" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="3" KSNAME="НАЧАЛО1" LEMMA="НАЧАЛО" LINK="предл">начала</W> 
+<W DOM="5" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="4" KSNAME="ВОЕННЫЙ1" LEMMA="ВОЕННЫЙ" LINK="опред">военной</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="5" KSNAME="ОПЕРАЦИЯ" LEMMA="ОПЕРАЦИЯ" LINK="квазиагент">операции</W> 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="6" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="6" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="7" KSNAME="АФГАНИСТАН" LEMMA="АФГАНИСТАН" LINK="предл">Афганистане</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="У1" LEMMA="У" LINK="обст">у</W> 
+<W DOM="8" FEAT="S МН МУЖ РОД ОД" HYPOT="предл.10" ID="9" KSNAME="АМЕРИКАНЕЦ" LEMMA="АМЕРИКАНЕЦ" LINK="предл">американцев</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД ЖЕН" ID="10" KSNAME="СТАТЬ1" LEMMA="СТАТЬ">стала</W> 
+<W DOM="10" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="11" KSNAME="УМЕНЬШАТЬСЯ" LEMMA="УМЕНЬШАТЬСЯ" LINK="1-компл">уменьшаться</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="12" KSNAME="УВЕРЕННОСТЬ" LEMMA="УВЕРЕННОСТЬ" LINK="предик">уверенность</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="13" KSNAME="В2" LEMMA="В" LINK="1-компл">в</W> 
+<W DOM="13" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="14" KSNAME="ТО1" LEMMA="ТО" LINK="предл">том</W>, 
+<W DOM="14" FEAT="CONJ" HYPOT="эксплет.10" ID="15" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="эксплет">что</W> 
+<W DOM="17" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="16" KSNAME="ПРАВИТЕЛЬСТВО" LEMMA="ПРАВИТЕЛЬСТВО" LINK="предик">правительство</W> 
+<W DOM="15" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="17" KSNAME="МОЧЬ" LEMMA="МОЧЬ" LINK="подч-союзн">может</W> 
+<W DOM="17" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="18" KSNAME="ВЫПОЛНЯТЬ" LEMMA="ВЫПОЛНЯТЬ" LINK="1-компл">выполнить</W> 
+<W DOM="21" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="19" KSNAME="ВЕСЬ" LEMMA="ВЕСЬ" LINK="опред">все</W> 
+<W DOM="21" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="20" KSNAME="СВОЙ" LEMMA="СВОЙ" LINK="опред">свои</W> 
+<W DOM="18" FEAT="S МН СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="21" KSNAME="ОБЯЗАТЕЛЬСТВО" LEMMA="ОБЯЗАТЕЛЬСТВО" LINK="1-компл">обязательства</W> 
+<W DOM="21" FEAT="PR" HYPOT="1-компл.17" ID="22" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="22" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="23" KSNAME="ЗАЩИТА1" LEMMA="ЗАЩИТА" LINK="предл">защите</W> 
+<W DOM="23" FEAT="S МН МУЖ РОД ОД" HYPOT="1-компл.20" ID="24" KSNAME="ГРАЖДАНИН" LEMMA="ГРАЖДАНИН" LINK="1-компл">граждан</W> 
+<W DOM="23" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="25" KSNAME="ОТ" LEMMA="ОТ" LINK="2-компл">от</W> 
+<W DOM="29" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="26" KSNAME="ВНЕШНИЙ" LEMMA="ВНЕШНИЙ" LINK="опред">внешнего</W> 
+<W DOM="26" FEAT="CONJ" HYPOT="сочин.13" ID="27" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="27" FEAT="A ЕД МУЖ РОД" HYPOT="соч-союзн.10" ID="28" KSNAME="ВНУТРЕННИЙ" LEMMA="ВНУТРЕННИЙ" LINK="соч-союзн">внутреннего</W> 
+<W DOM="25" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="29" KSNAME="ТЕРРОРИЗМ" LEMMA="ТЕРРОРИЗМ" LINK="предл">терроризма</W>, 
+<W DOM="17" FEAT="CONJ" HYPOT="сент-соч.10" ID="30" KSNAME="А1" LEMMA="А" LINK="сент-соч">а</W> 
+<W DOM="32" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="31" KSNAME="СПЕЦСЛУЖБА" LEMMA="СПЕЦСЛУЖБА" LINK="предик">спецслужбы</W> 
+<W DOM="30" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="соч-союзн.14" ID="32" KSNAME="МОЧЬ" LEMMA="МОЧЬ" LINK="соч-союзн">могут</W> 
+<W DOM="32" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="33" KSNAME="ПОЙМАТЬ" LEMMA="ПОЙМАТЬ" LINK="1-компл">поймать</W> 
+<W DOM="33" FEAT="CONJ" HYPOT="сочин.13" ID="34" KSNAME="ИЛИ1" LEMMA="ИЛИ" LINK="сочин">или</W> 
+<W DOM="34" FEAT="V СОВ ИНФ" HYPOT="соч-союзн.10" ID="35" KSNAME="УНИЧТОЖАТЬ" LEMMA="УНИЧТОЖАТЬ" LINK="соч-союзн">уничтожить</W> 
+<W ACCTSTRING="Усаму" DOM="35" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="1-компл.11" ID="36" KSNAME="УСАМА" LEMMA="УСАМА" LINK="1-компл">Усаму</W> 
+<W ACCTSTRING="бин Ладена" DOM="36" EXTRAFEAT="ALT" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="аппоз.01" ID="37" KSNAME="БЕН$ЛАДЕН" LEMMA="БЕН ЛАДЕН" LINK="аппоз">бин Ладена</W>, 
+<W ACCTSTRING="сообщает" DOM="10" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="вводн.12" ID="38" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="вводн">сообщает</W> 
+<W ACCTSTRING="The New York Times" DOM="38" EXTRAFEAT="ALT1 CAP" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="39" KSNAME="НЬЮ-ЙОРК$ТАЙМС" LEMMA="НЬЮ-ЙОРК ТАЙМС" LINK="предик">The New York Times</W>. 
+<LF LFARG="21" LFFUNC="_REAL1-M" LFVAL="18"/>
+<LF LFARG="7" LFFUNC="_LOC" LFVAL="6"/>
+</S>
+<S COMMENT="traced" DATE="15 03 2024 01:17:15" ID="3" TRANS="The question about a possibility of repetition of the terrorist attacks against 53 percent of Americans has been answered that they are quite possible. ">
+<W DOM="11" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="3-компл.11" ID="1" KSNAME="НА1" LEMMA="НА" LINK="3-компл">На</W> 
+<W DOM="1" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="2" KSNAME="ВОПРОС" LEMMA="ВОПРОС" LINK="предл">вопрос</W> 
+<W DOM="2" FEAT="PR" HYPOT="1-компл.17" ID="3" KSNAME="О2" LEMMA="О" LINK="1-компл">о</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="4" KSNAME="ВОЗМОЖНОСТЬ" LEMMA="ВОЗМОЖНОСТЬ" LINK="предл">возможности</W> 
+<W DOM="4" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="ПОВТОРЕНИЕ" LEMMA="ПОВТОРЕНИЕ" LINK="1-компл">повторения</W> 
+<W DOM="7" FEAT="A МН РОД" HYPOT="опред.01" ID="6" KSNAME="ТЕРРОРИСТИЧЕСКИЙ" LEMMA="ТЕРРОРИСТИЧЕСКИЙ" LINK="опред" MSNAME="ТЕРРОРИСТИЧЕСКИЙ">террористических</W> 
+<W DOM="5" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="АТАКА" LEMMA="АТАКА" LINK="1-компл">атак</W> 
+<W DOM="9" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.14" ID="8" KSNAME="ЧИСЛ-ДВАДВА" LEMMA="53" LINK="количест">53</W> 
+<W DOM="11" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предик.02" ID="9" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процента</W> 
+<W DOM="9" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="10" KSNAME="АМЕРИКАНЕЦ" LEMMA="АМЕРИКАНЕЦ" LINK="квазиагент">американцев</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="root" ID="11" KSNAME="ОТВЕЧАТЬ1" LEMMA="ОТВЕЧАТЬ">ответили</W>, 
+<W DOM="11" FEAT="CONJ" HYPOT="1-компл.23" ID="12" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="15" EXTRAFEAT="ЗЕРО" FEAT="S МН ИМ ОД" HYPOT="предик.04" ID="13" KSNAME="ОНИ" LEMMA="ОНИ" LINK="предик">они</W> 
+<W DOM="15" FEAT="ADV" HYPOT="огранич.22" ID="14" KSNAME="ВПОЛНЕ" LEMMA="ВПОЛНЕ" LINK="огранич">вполне</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="A КР МН" HYPOT="подч-союзн.10" ID="15" KSNAME="ВОЗМОЖНЫЙ" LEMMA="ВОЗМОЖНЫЙ" LINK="подч-союзн">возможны</W>. 
+<LF LFARG="2" LFFUNC="_REAL3-M" LFPREP="1" LFVAL="11"/>
+<LF LFARG="15" LFFUNC="_MAGN" LFVAL="14"/>
+</S>
+<S DATE="15 03 2024 01:17:15" ID="4" TRANS="Two weeks ago 46 percent in it were sure, the month ago - only 36. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="NUM ЖЕН ВИН НЕОД" HYPOT="количест.14" ID="1" KSNAME="ДВА" LEMMA="ДВА" LINK="количест">Две</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="предл.15" ID="2" KSNAME="НЕДЕЛЯ" LEMMA="НЕДЕЛЯ" LINK="предл">недели</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="НАЗАД1" LEMMA="НАЗАД" LINK="обст">назад</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.57" ID="4" KSNAME="В2" LEMMA="В" LINK="1-компл">в</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="5" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предл">этом</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" HYPOT="root" ID="6" KSNAME="БЫТЬ" LEMMA="БЫТЬ">были</W> 
+<W ACCTSTRING="уверены" DOM="6" EXTRAFEAT="ЗЕРО" FEAT="A КР МН" HYPOT="присвяз.14" ID="7" KSNAME="УВЕРЕННЫЙ1" LEMMA="УВЕРЕННЫЙ" LINK="присвяз" PAFT=" ">уверены</W> 
+<W DOM="9" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="8" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="46" LINK="количест">46</W> 
+<W DOM="6" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="9" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процентов</W>, 
+<W DOM="11" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.15" ID="10" KSNAME="МЕСЯЦ1" LEMMA="МЕСЯЦ" LINK="предл">месяц</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="11" KSNAME="НАЗАД1" LEMMA="НАЗАД" LINK="обст">назад</W> - 
+<W DOM="6" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" HYPOT="сент-соч.01" ID="12" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="сент-соч" NODETYPE="FANTOM"/>
+<W DOM="12" FEAT="A КР МН" HYPOT="присвяз.14" ID="13" KSNAME="УВЕРЕННЫЙ1" LEMMA="УВЕРЕННЫЙ" LINK="присвяз" NODETYPE="FANTOM"/>
+<W DOM="15" FEAT="PART" HYPOT="огранич.27" ID="14" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">только</W> 
+<W DOM="12" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="предик.01" ID="15" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="36" LINK="предик">36</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="5" TRANS="The vast majority believe that it will be the shares with an application of the battle poisoning substances. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД СРЕД ИМ" HYPOT="опред.01" ID="1" KSNAME="ПОДАВЛЯЮЩИЙ" LEMMA="ПОДАВЛЯЮЩИЙ" LINK="опред">Подавляющее</W> 
+<W DOM="3" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="БОЛЬШИНСТВО" LEMMA="БОЛЬШИНСТВО" LINK="предик">большинство</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="СЧИТАТЬ2" LEMMA="СЧИТАТЬ">считает</W>, 
+<W DOM="3" FEAT="CONJ" HYPOT="1-компл.23" ID="4" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="6" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.d0" ID="5" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предик">это</W> 
+<W DOM="4" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="подч-союзн.10" ID="6" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="подч-союзн">будут</W> 
+<W ACCTSTRING="акции" DOM="6" EXTRAFEAT="ЗЕРО" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="присвяз.26" ID="7" KSNAME="АКЦИЯ2" LEMMA="АКЦИЯ" LINK="присвяз">акции</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="8" KSNAME="С3" LEMMA="С" LINK="атриб">с</W> 
+<W DOM="8" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="9" KSNAME="ПРИМЕНЕНИЕ" LEMMA="ПРИМЕНЕНИЕ" LINK="предл">применением</W> 
+<W DOM="12" FEAT="A МН РОД" HYPOT="опред.01" ID="10" KSNAME="БОЕВОЙ" LEMMA="БОЕВОЙ" LINK="опред" MSNAME="БОЕВОЙ">боевых</W> 
+<W DOM="12" FEAT="V НЕСОВ ПРИЧ НЕПРОШ МН РОД" HYPOT="опред.01" ID="11" KSNAME="ОТРАВЛЯТЬ" LEMMA="ОТРАВЛЯТЬ" LINK="опред">отравляющих</W> 
+<W DOM="9" FEAT="S МН СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="12" KSNAME="ВЕЩЕСТВО" LEMMA="ВЕЩЕСТВО" LINK="1-компл">веществ</W>.
+<LF LFARG="2" LFFUNC="_MAGN" LFVAL="1"/>
+</S>
+<S COMMENT="traced" DATE="15 03 2024 01:17:15" ID="6" TRANS="More the wife of interrogated believes that the government and the state structures have made insufficiently to prevent a bacteriological attack against the USA. ">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="предик.17" ID="1" KSNAME="БОЛЕЕ" LEMMA="БОЛЕЕ" LINK="предик">Более</W> 
+<W ACCTSTRING="половины" DOM="1" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="сравнит.01" ID="2" KSNAME="ПОЛОВИНА1" LEMMA="ПОЛОВИНА" LINK="сравнит" PAFT=" ">половины</W> 
+<W ADDFEAT="common@Agent" DOM="2" EXTRAFEAT="СУБСТ" FEAT="V СОВ СТРАД ПРИЧ ПРОШ МН РОД" HYPOT="квазиагент.01" ID="3" KSNAME="ОПРАШИВАТЬ" LEMMA="ОПРАШИВАТЬ" LINK="квазиагент">опрошенных</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="root" ID="4" KSNAME="СЧИТАТЬ2" LEMMA="СЧИТАТЬ">считает</W>, 
+<W DOM="4" FEAT="CONJ" HYPOT="1-компл.23" ID="5" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="6" KSNAME="ПРАВИТЕЛЬСТВО" LEMMA="ПРАВИТЕЛЬСТВО" LINK="предик">правительство</W> 
+<W DOM="6" FEAT="CONJ" HYPOT="сочин.13" ID="7" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="9" FEAT="A МН ИМ" HYPOT="опред.01" ID="8" KSNAME="ГОСУДАРСТВЕННЫЙ" LEMMA="ГОСУДАРСТВЕННЫЙ" LINK="опред">государственные</W> 
+<W DOM="7" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="соч-союзн.10" ID="9" KSNAME="СТРУКТУРА" LEMMA="СТРУКТУРА" LINK="соч-союзн">структуры</W> 
+<W DOM="5" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="подч-союзн.10" ID="10" KSNAME="ДЕЛАТЬ" LEMMA="ДЕЛАТЬ" LINK="подч-союзн">сделали</W> 
+<W DOM="10" FEAT="ADV" HYPOT="1-компл.13" ID="11" KSNAME="НЕДОСТАТОЧНО" LEMMA="НЕДОСТАТОЧНО" LINK="1-компл">недостаточно</W>, 
+<W DOM="11" FEAT="CONJ" HYPOT="2-компл.34" ID="12" KSNAME="ЧТОБЫ" LEMMA="ЧТОБЫ" LINK="2-компл">чтобы</W> 
+<W DOM="12" FEAT="V СОВ ИНФ" HYPOT="инф-союзн.11" ID="13" KSNAME="ПРЕДОТВРАЩАТЬ" LEMMA="ПРЕДОТВРАЩАТЬ" LINK="инф-союзн">предотвратить</W> 
+<W DOM="15" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="14" KSNAME="БАКТЕРИОЛОГИЧЕСКИЙ" LEMMA="БАКТЕРИОЛОГИЧЕСКИЙ" LINK="опред">бактериологическую</W> 
+<W DOM="13" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="15" KSNAME="АТАКА" LEMMA="АТАКА" LINK="1-компл">атаку</W> 
+<W DOM="15" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="16" KSNAME="НА1" LEMMA="НА" LINK="1-компл">на</W> 
+<W DOM="16" EXTRAFEAT="UPP" FEAT="S МН ВИН НЕОД" HYPOT="предл.10" ID="17" KSNAME="США" LEMMA="США" LINK="предл">США</W>.
+</S>
+<S COMMENT="traced" DATE="15 03 2024 01:17:15" ID="7" TRANS="Only only 18 percent of Americans are sure that the government will be able to protect them against 35 percent the month ago. ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="PART" HYPOT="огранич.28" ID="1" KSNAME="ВСЕГО1" LEMMA="ВСЕГО" LINK="огранич">Всего</W> 
+<W DOM="3" FEAT="PART" HYPOT="огранич.12" ID="2" KSNAME="ЛИШЬ" LEMMA="ЛИШЬ" LINK="огранич">лишь</W> 
+<W DOM="4" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="3" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="18" LINK="количест">18</W> 
+<W DOM="6" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="4" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процентов</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="5" KSNAME="АМЕРИКАНЕЦ" LEMMA="АМЕРИКАНЕЦ" LINK="квазиагент">американцев</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР МН" ID="6" KSNAME="УВЕРЕННЫЙ1" LEMMA="УВЕРЕННЫЙ">уверены</W>, 
+<W DOM="6" FEAT="CONJ" HYPOT="1-компл.23" ID="7" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="9" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="8" KSNAME="ПРАВИТЕЛЬСТВО" LEMMA="ПРАВИТЕЛЬСТВО" LINK="предик">правительство</W> 
+<W DOM="7" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="9" KSNAME="МОЧЬ" LEMMA="МОЧЬ" LINK="подч-союзн">сможет</W> 
+<W DOM="9" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="10" KSNAME="ЗАЩИЩАТЬ" LEMMA="ЗАЩИЩАТЬ" LINK="1-компл">защитить</W> 
+<W DOM="10" FEAT="S МН ВИН ОД" HYPOT="1-компл.11" ID="11" KSNAME="ОНИ" LEMMA="ОНИ" LINK="1-компл">их</W>, 
+<W ACCTSTRING="против" DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="12" KSNAME="ПРОТИВ1" LEMMA="ПРОТИВ" LINK="обст" PAFT=" ">против</W> 
+<W DOM="14" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="13" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="35" LINK="количест">35</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="14" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предл">процентов</W> 
+<W DOM="16" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.15" ID="15" KSNAME="МЕСЯЦ1" LEMMA="МЕСЯЦ" LINK="предл">месяц</W> 
+<W DOM="14" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="16" KSNAME="НАЗАД1" LEMMA="НАЗАД" LINK="атриб">назад</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="8" MICROSYNT="(такой как,{15:таких...16:как})&#xA;" TRANS="Also only 15 percent are absolutely sure that the state structures will be able to prevent an outbreak of the dangerous diseases such as anthrax. ">
+<W DOM="6" EXTRAFEAT="CAP" FEAT="PART" HYPOT="огранич.20" ID="1" KSNAME="ТАКЖЕ" LEMMA="ТАКЖЕ" LINK="огранич">Также</W> 
+<W DOM="3" FEAT="PART" HYPOT="огранич.12" ID="2" KSNAME="ЛИШЬ" LEMMA="ЛИШЬ" LINK="огранич">лишь</W> 
+<W DOM="4" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="3" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="15" LINK="количест">15</W> 
+<W DOM="6" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="4" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процентов</W> 
+<W DOM="6" FEAT="ADV" HYPOT="огранич.12" ID="5" KSNAME="АБСОЛЮТНО" LEMMA="АБСОЛЮТНО" LINK="огранич">абсолютно</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР МН" HYPOT="root" ID="6" KSNAME="УВЕРЕННЫЙ1" LEMMA="УВЕРЕННЫЙ">уверены</W>, 
+<W DOM="6" FEAT="CONJ" HYPOT="1-компл.23" ID="7" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="9" FEAT="A МН ИМ" HYPOT="опред.01" ID="8" KSNAME="ГОСУДАРСТВЕННЫЙ" LEMMA="ГОСУДАРСТВЕННЫЙ" LINK="опред">государственные</W> 
+<W DOM="10" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="9" KSNAME="СТРУКТУРА" LEMMA="СТРУКТУРА" LINK="предик">структуры</W> 
+<W DOM="7" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="подч-союзн.10" ID="10" KSNAME="МОЧЬ" LEMMA="МОЧЬ" LINK="подч-союзн">смогут</W> 
+<W DOM="10" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="11" KSNAME="ПРЕДОТВРАЩАТЬ" LEMMA="ПРЕДОТВРАЩАТЬ" LINK="1-компл">предотвратить</W> 
+<W ACCTSTRING="вспышку" DOM="11" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="12" KSNAME="ВСПЫШКА" LEMMA="ВСПЫШКА" LINK="1-компл" PAFT=" ">вспышку</W> 
+<W DOM="14" FEAT="A МН РОД" HYPOT="опред.01" ID="13" KSNAME="ОПАСНЫЙ" LEMMA="ОПАСНЫЙ" LINK="опред">опасных</W> 
+<W DOM="12" FEAT="S МН СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="14" KSNAME="ЗАБОЛЕВАНИЕ" LEMMA="ЗАБОЛЕВАНИЕ" LINK="квазиагент">заболеваний</W>, 
+<W DOM="14" FEAT="A МН РОД" HYPOT="оп-опред.02" ID="15" KSNAME="ТАКОЙ" LEMMA="ТАКОЙ" LINK="оп-опред">таких</W> 
+<W DOM="15" FEAT="CONJ" HYPOT="сравнит.d0" ID="16" KSNAME="КАК1" LEMMA="КАК" LINK="сравнит">как</W> 
+<W DOM="18" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="17" KSNAME="СИБИРСКИЙ" LEMMA="СИБИРСКИЙ" LINK="опред">сибирская</W> 
+<W DOM="16" EXTRAFEAT="ЗЕРО" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="сравн-союзн.11" ID="18" KSNAME="ЯЗВА" LEMMA="ЯЗВА" LINK="сравн-союзн">язва</W>.
+<LF LFARG="6" LFFUNC="_MAGN" LFVAL="5"/>
+</S>
+<S COMMENT="traced" DATE="15 03 2024 01:17:15" ID="9" TRANS="28 percent of interrogated don't doubt that Usama Bin Laden will be ????? caught or destroyed. ">
+<W DOM="2" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="1" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="28" LINK="количест">28</W> 
+<W DOM="5" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="2" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процентов</W> 
+<W ADDFEAT="common@Agent" DOM="2" EXTRAFEAT="СУБСТ" FEAT="V СОВ СТРАД ПРИЧ ПРОШ МН РОД" HYPOT="квазиагент.01" ID="3" KSNAME="ОПРАШИВАТЬ" LEMMA="ОПРАШИВАТЬ" LINK="квазиагент">опрошенных</W> 
+<W DOM="5" FEAT="PART" HYPOT="огранич.10" ID="4" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="root" ID="5" KSNAME="СОМНЕВАТЬСЯ" LEMMA="СОМНЕВАТЬСЯ">сомневаются</W>, 
+<W DOM="5" FEAT="CONJ" HYPOT="1-компл.23" ID="6" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="9" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="7" KSNAME="УСАМА" LEMMA="УСАМА" LINK="предик">Усама</W> 
+<W DOM="7" EXTRAFEAT="ALT" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="8" KSNAME="БЕН$ЛАДЕН" LEMMA="БЕН ЛАДЕН" LINK="аппоз">бин Ладен</W> 
+<W DOM="6" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="9" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="подч-союзн">будет</W> 
+<W DOM="9" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="пасс-анал.10" ID="10" KSNAME="ПОЙМАТЬ" LEMMA="ПОЙМАТЬ" LINK="пасс-анал">пойман</W> 
+<W DOM="10" FEAT="CONJ" HYPOT="сочин.13" ID="11" KSNAME="ИЛИ1" LEMMA="ИЛИ" LINK="сочин">или</W> 
+<W DOM="11" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="соч-союзн.10" ID="12" KSNAME="УНИЧТОЖАТЬ" LEMMA="УНИЧТОЖАТЬ" LINK="соч-союзн">уничтожен</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="10" TRANS="38 percent of respondents the month ago had the same opinion. ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="1" KSNAME="ТАКОЙ" LEMMA="ТАКОЙ" LINK="опред">Такого</W> 
+<W DOM="1" FEAT="PART" HYPOT="огранич.16" ID="2" KSNAME="ЖЕ" LEMMA="ЖЕ" LINK="огранич" MSNAME="ЖЕ">же</W> 
+<W DOM="6" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="МНЕНИЕ" LEMMA="МНЕНИЕ" LINK="1-компл">мнения</W> 
+<W DOM="5" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.15" ID="4" KSNAME="МЕСЯЦ1" LEMMA="МЕСЯЦ" LINK="предл">месяц</W> 
+<W DOM="6" FEAT="PR" HYPOT="обст.23" ID="5" KSNAME="НАЗАД1" LEMMA="НАЗАД" LINK="обст">назад</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" ID="6" KSNAME="ПРИДЕРЖИВАТЬСЯ" LEMMA="ПРИДЕРЖИВАТЬСЯ">придерживались</W> 
+<W DOM="8" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="7" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="38" LINK="количест">38</W> 
+<W DOM="6" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="8" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процентов</W> 
+<W DOM="8" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="9" KSNAME="РЕСПОНДЕНТ" LEMMA="РЕСПОНДЕНТ" LINK="квазиагент">респондентов</W>. 
+<LF LFARG="3" LFFUNC="_OPER1" LFVAL="6"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="11" TRANS="The Americans' majority however support a military operation of the USA in Afghanistan as before. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="огранич.30" ID="1" KSNAME="ОДНАКО" LEMMA="ОДНАКО" LINK="огранич">Однако</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="root" ID="2" KSNAME="ПОДДЕРЖИВАТЬ" LEMMA="ПОДДЕРЖИВАТЬ">поддерживают</W> 
+<W DOM="4" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="3" KSNAME="ВОЕННЫЙ1" LEMMA="ВОЕННЫЙ" LINK="опред">военную</W> 
+<W ACCTSTRING="операцию" DOM="2" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="4" KSNAME="ОПЕРАЦИЯ" LEMMA="ОПЕРАЦИЯ" LINK="1-компл" PAFT=" ">операцию</W> 
+<W DOM="4" EXTRAFEAT="UPP" FEAT="S МН РОД НЕОД" HYPOT="квазиагент.01" ID="5" KSNAME="США" LEMMA="США" LINK="квазиагент">США</W> 
+<W DOM="4" FEAT="PR" HYPOT="атриб.18" ID="6" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="6" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="7" KSNAME="АФГАНИСТАН" LEMMA="АФГАНИСТАН" LINK="предл">Афганистане</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="ADV" HYPOT="обст.01" ID="8" KSNAME="ПО-ПРЕЖНЕМУ" LEMMA="ПО-ПРЕЖНЕМУ" LINK="обст" MSNAME="ПО-ПРЕЖНЕМУ">по-прежнему</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.17" ID="9" KSNAME="БОЛЬШИНСТВО" LEMMA="БОЛЬШИНСТВО" LINK="предик">большинство</W> 
+<W DOM="9" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="10" KSNAME="АМЕРИКАНЕЦ" LEMMA="АМЕРИКАНЕЦ" LINK="квазиагент">американцев</W>. 
+<LF LFARG="7" LFFUNC="_LOC" LFVAL="6"/>
+</S>
+<S COMMENT="traced" DATE="15 03 2024 01:17:15" ID="12" MICROSYNT="(в целом,{5:в...6:целом})&#xA;" TRANS="58 percent believe that on the whole she develops successfully. ">
+<W DOM="2" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="1" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="58" LINK="количест">58</W> 
+<W DOM="3" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="2" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процентов</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="3" KSNAME="СЧИТАТЬ2" LEMMA="СЧИТАТЬ">считают</W>, 
+<W DOM="3" FEAT="CONJ" HYPOT="1-компл.23" ID="4" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W>, 
+<W DOM="8" EXTRAFEAT="ОГРАН" FEAT="PR" HYPOT="вводн.10" ID="5" KSNAME="В2" LEMMA="В" LINK="вводн">в</W> 
+<W DOM="5" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="6" KSNAME="ЦЕЛОЕ" LEMMA="ЦЕЛОЕ" LINK="предл">целом</W>, 
+<W DOM="8" FEAT="S ЕД ЖЕН ИМ ОД" HYPOT="предик.01" ID="7" KSNAME="ОНА" LEMMA="ОНА" LINK="предик">она</W> 
+<W DOM="4" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="8" KSNAME="РАЗВИВАТЬСЯ" LEMMA="РАЗВИВАТЬСЯ" LINK="подч-союзн">развивается</W> 
+<W DOM="8" FEAT="ADV" HYPOT="обст.01" ID="9" KSNAME="УСПЕШНО" LEMMA="УСПЕШНО" LINK="обст">успешно</W>.
+</S>
+<S COMMENT="traced" DATE="15 03 2024 01:17:15" ID="13" TRANS="Also the number of Americans, sure in endurance of the antiterrorist coalition, has significantly gone down. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="огранич.22" ID="1" KSNAME="ЗНАЧИТЕЛЬНО" LEMMA="ЗНАЧИТЕЛЬНО" LINK="огранич">Значительно</W> 
+<W ACCTSTRING="снизилось" DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД СРЕД" ID="2" KSNAME="СНИЖАТЬСЯ" LEMMA="СНИЖАТЬСЯ" PAFT=" ">снизилось</W> 
+<W DOM="4" FEAT="PART" HYPOT="огранич.10" ID="3" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="2" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="4" KSNAME="ЧИСЛО" LEMMA="ЧИСЛО" LINK="предик">число</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="5" KSNAME="АМЕРИКАНЕЦ" LEMMA="АМЕРИКАНЕЦ" LINK="квазиагент">американцев</W>, 
+<W DOM="5" FEAT="A МН РОД" HYPOT="опред.02" ID="6" KSNAME="УВЕРЕННЫЙ1" LEMMA="УВЕРЕННЫЙ" LINK="опред">уверенных</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="7" KSNAME="В2" LEMMA="В" LINK="1-компл">в</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="8" KSNAME="ПРОЧНОСТЬ" LEMMA="ПРОЧНОСТЬ" LINK="предл">прочности</W> 
+<W DOM="10" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="9" KSNAME="АНТИТЕРРОРИСТИЧЕСКИЙ" LEMMA="АНТИТЕРРОРИСТИЧЕСКИЙ" LINK="опред">антитеррористической</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="10" KSNAME="КОАЛИЦИЯ" LEMMA="КОАЛИЦИЯ" LINK="квазиагент">коалиции</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="14" TRANS="29 percent believe that the coalition is durable, whereas two weeks ago 46 percent of interrogated in it were sure. ">
+<W DOM="2" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="1" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="29" LINK="количест">29</W> 
+<W DOM="3" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="2" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процентов</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="root" ID="3" KSNAME="СЧИТАТЬ2" LEMMA="СЧИТАТЬ">считают</W>, 
+<W DOM="3" FEAT="CONJ" HYPOT="1-компл.23" ID="4" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="5" KSNAME="КОАЛИЦИЯ" LEMMA="КОАЛИЦИЯ" LINK="предик">коалиция</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД ЖЕН" HYPOT="подч-союзн.10" ID="6" KSNAME="ПРОЧНЫЙ" LEMMA="ПРОЧНЫЙ" LINK="подч-союзн">прочна</W>, 
+<W DOM="3" FEAT="CONJ" HYPOT="обст.27" ID="7" KSNAME="ТОГДА$КАК" LEMMA="ТОГДА КАК" LINK="обст">тогда как</W> 
+<W DOM="9" FEAT="NUM ЖЕН ВИН НЕОД" HYPOT="количест.14" ID="8" KSNAME="ДВА" LEMMA="ДВА" LINK="количест">две</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="предл.15" ID="9" KSNAME="НЕДЕЛЯ" LEMMA="НЕДЕЛЯ" LINK="предл">недели</W> 
+<W DOM="13" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="10" KSNAME="НАЗАД1" LEMMA="НАЗАД" LINK="обст">назад</W> 
+<W DOM="13" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="11" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="11" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="12" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предл">этом</W> 
+<W DOM="7" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" HYPOT="подч-союзн.10" ID="13" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="подч-союзн">были</W> 
+<W DOM="13" EXTRAFEAT="ЗЕРО" FEAT="A КР МН" HYPOT="присвяз.14" ID="14" KSNAME="УВЕРЕННЫЙ1" LEMMA="УВЕРЕННЫЙ" LINK="присвяз">уверены</W> 
+<W DOM="16" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="15" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="46" LINK="количест">46</W> 
+<W DOM="13" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="16" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="предик">процентов</W> 
+<W ADDFEAT="common@Agent" DOM="16" EXTRAFEAT="СУБСТ" FEAT="V СОВ СТРАД ПРИЧ ПРОШ МН РОД" HYPOT="квазиагент.01" ID="17" KSNAME="ОПРАШИВАТЬ" LEMMA="ОПРАШИВАТЬ" LINK="квазиагент">опрошенных</W>.
+<LF LFARG="5" LFFUNC="_MAGN" LFVAL="6"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="15" MICROSYNT="(несмотря на,{1:Несмотря на...1:Несмотря на})&#xA;">
+<W DOM="20" EXTRAFEAT="CAP" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="НЕСМОТРЯ$НА" LEMMA="НЕСМОТРЯ НА" LINK="обст">Несмотря на</W> 
+<W DOM="3" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="2" KSNAME="ОБЩИЙ" LEMMA="ОБЩИЙ" LINK="опред">общую</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="3" KSNAME="ТЕНДЕНЦИЯ" LEMMA="ТЕНДЕНЦИЯ" LINK="предл">тенденцию</W> 
+<W DOM="3" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="4" KSNAME="СНИЖЕНИЕ" LEMMA="СНИЖЕНИЕ" LINK="1-компл">снижения</W> 
+<W DOM="4" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="ДОВЕРИЕ" LEMMA="ДОВЕРИЕ" LINK="1-компл">доверия</W> 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="6" KSNAME="К" LEMMA="К" LINK="1-компл">к</W> 
+<W DOM="6" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="7" KSNAME="ДЕЙСТВИЕ1" LEMMA="ДЕЙСТВИЕ" LINK="предл">действиям</W> 
+<W DOM="9" FEAT="A МН РОД" HYPOT="опред.01" ID="8" KSNAME="АМЕРИКАНСКИЙ" LEMMA="АМЕРИКАНСКИЙ" LINK="опред">американских</W> 
+<W DOM="7" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="9" KSNAME="ВЛАСТЬ" LEMMA="ВЛАСТЬ" LINK="квазиагент">властей</W> 
+<W DOM="7" FEAT="CONJ" HYPOT="сочин.13" ID="10" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="10" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="соч-союзн.10" ID="11" KSNAME="УСИЛИЕ" LEMMA="УСИЛИЕ" LINK="соч-союзн">усилиям</W> 
+<W DOM="11" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="12" KSNAME="КОАЛИЦИЯ" LEMMA="КОАЛИЦИЯ" LINK="квазиагент">коалиции</W> 
+<W DOM="11" FEAT="PR" HYPOT="1-компл.17" ID="13" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="13" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="14" KSNAME="БОРЬБА" LEMMA="БОРЬБА" LINK="предл">борьбе</W> 
+<W DOM="14" FEAT="PR" HYPOT="1-компл.17" ID="15" KSNAME="С3" LEMMA="С" LINK="1-компл">с</W> 
+<W DOM="15" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="предл.10" ID="16" KSNAME="ТЕРРОРИЗМ" LEMMA="ТЕРРОРИЗМ" LINK="предл">терроризмом</W>, 
+<W DOM="18" FEAT="A ЕД СРЕД ИМ" HYPOT="опред.01" ID="17" KSNAME="ПОДАВЛЯЮЩИЙ" LEMMA="ПОДАВЛЯЮЩИЙ" LINK="опред">подавляющее</W> 
+<W DOM="20" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.17" ID="18" KSNAME="БОЛЬШИНСТВО" LEMMA="БОЛЬШИНСТВО" LINK="предик">большинство</W> 
+<W DOM="18" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="19" KSNAME="АМЕРИКАНЕЦ" LEMMA="АМЕРИКАНЕЦ" LINK="квазиагент">американцев</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="20" KSNAME="ПОДДЕРЖИВАТЬ" LEMMA="ПОДДЕРЖИВАТЬ">поддерживают</W> 
+<W DOM="20" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="1-компл.11" ID="21" KSNAME="ПРЕЗИДЕНТ" LEMMA="ПРЕЗИДЕНТ" LINK="1-компл">президента</W> 
+<W DOM="21" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="аппоз.01" ID="22" KSNAME="ДЖОРДЖ" LEMMA="ДЖОРДЖ" LINK="аппоз">Джорджа</W> 
+<W DOM="22" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="аппоз.01" ID="23" KSNAME="БУШ" LEMMA="БУШ" LINK="аппоз">Буша</W>. 
+<LF LFARG="18" LFFUNC="_MAGN" LFVAL="17"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="16" TRANS="His personal rating is 87 percent, 67 percent are rating of the Congress of the USA. ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="квазиагент.17" ID="1" KSNAME="ОН" LEMMA="ОН" LINK="квазиагент">Его</W> 
+<W DOM="3" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="2" KSNAME="ЛИЧНЫЙ" LEMMA="ЛИЧНЫЙ" LINK="опред">личный</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="3" KSNAME="РЕЙТИНГ" LEMMA="РЕЙТИНГ" LINK="предик">рейтинг</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="root" ID="4" KSNAME="СОСТАВЛЯТЬ1" LEMMA="СОСТАВЛЯТЬ">составляет</W> 
+<W DOM="6" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="5" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="87" LINK="количест">87</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="1-компл">процентов</W>, 
+<W DOM="11" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.04" ID="7" KSNAME="РЕЙТИНГ" LEMMA="РЕЙТИНГ" LINK="предик">рейтинг</W> 
+<W DOM="7" EXTRAFEAT="CAP CAPIT" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="КОНГРЕСС" LEMMA="КОНГРЕСС" LINK="квазиагент">Конгресса</W> 
+<W DOM="8" EXTRAFEAT="UPP" FEAT="S МН РОД НЕОД" HYPOT="квазиагент.01" ID="9" KSNAME="США" LEMMA="США" LINK="квазиагент">США</W> - 
+<W DOM="11" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="10" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="67" LINK="количест">67</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ РОД НЕОД" HYPOT="сент-соч.01" ID="11" KSNAME="ПРОЦЕНТ" LEMMA="ПРОЦЕНТ" LINK="сент-соч">процентов</W>.
+<LF LFARG="6" LFFUNC="_OPER2" LFVAL="4"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="15 03 2024 01:17:15" ID="17">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.04" ID="1" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предик">Это</W> 
+<W DOM="3" FEAT="A МН ИМ" HYPOT="опред.d0" ID="2" KSNAME="САМЫЙ" LEMMA="САМЫЙ" LINK="опред">самые</W> 
+<W DOM="4" FEAT="A МН ИМ" HYPOT="опред.01" ID="3" KSNAME="ВЫСОКИЙ" LEMMA="ВЫСОКИЙ" LINK="опред">высокие</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ ИМ НЕОД" ID="4" KSNAME="ПОКАЗАТЕЛЬ" LEMMA="ПОКАЗАТЕЛЬ">показатели</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="5" KSNAME="ЗА1" LEMMA="ЗА" LINK="атриб">за</W> 
+<W DOM="7" FEAT="A МН ВИН НЕОД" HYPOT="опред.12" ID="6" KSNAME="ПОСЛЕДНИЙ" LEMMA="ПОСЛЕДНИЙ" LINK="опред">последние</W> 
+<W DOM="8" FEAT="NUM" HYPOT="количест.11" ID="7" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="30" LINK="количест">30</W> 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="8" KSNAME="ЛЕТ1" LEMMA="ГОД" LINK="предл">лет</W>. 
+<LF LFARG="4" LFFUNC="_MAGN" LFVAL="3"/>
+</S>
+</body>
+</text>

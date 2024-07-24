@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_23_07.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; ALTTR=$TRUE; MWORDFORM=$TRUE; WEAKDESCR=$FALSE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; SOFTGEOMFILTR=$TRUE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; USECORPLF=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2002</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2002</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>РИА Новости</publication>
+<publication_date>14.01.2002</publication_date>
+<publisher>-</publisher>
+<source>https://ria.ru/20020114/51489.html</source>
+<sphere>публицистика</sphere>
+<title>В Москве изъята крупная партия героина</title>
+<topic>криминал</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S DATE="05 06 2024 23:03:23" ID="1" TRANS="a ">
+<W DOM="3" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="В2" LEMMA="В" LINK="обст">В</W> 
+<W DOM="1" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="МОСКВА" LEMMA="МОСКВА" LINK="предл">Москве</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД ЖЕН" HYPOT="root" ID="3" KSNAME="ИЗЫМАТЬ" LEMMA="ИЗЫМАТЬ">изъята</W> 
+<W DOM="5" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="4" KSNAME="КРУПНЫЙ" LEMMA="КРУПНЫЙ" LINK="опред">крупная</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="5" KSNAME="ПАРТИЯ1" LEMMA="ПАРТИЯ" LINK="предик">партия</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="ГЕРОИН" LEMMA="ГЕРОИН" LINK="квазиагент">героина</W> 
+<LF LFARG="2" LFFUNC="_LOC" LFVAL="1"/>
+<LF LFARG="5" LFFUNC="_MAGN" LFVAL="4"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="05 06 2024 23:03:23" ID="2">
+<W DOM="3" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="В2" LEMMA="В" LINK="обст">В</W> 
+<W DOM="1" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="МОСКВА" LEMMA="МОСКВА" LINK="предл">Москве</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД ЖЕН" ID="3" KSNAME="ИЗЫМАТЬ" LEMMA="ИЗЫМАТЬ">изъята</W> 
+<W DOM="5" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="4" KSNAME="КРУПНЫЙ" LEMMA="КРУПНЫЙ" LINK="опред">крупная</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="5" KSNAME="ПАРТИЯ1" LEMMA="ПАРТИЯ" LINK="предик">партия</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="ГЕРОИН" LEMMA="ГЕРОИН" LINK="квазиагент">героина</W>. 
+<LF LFARG="2" LFFUNC="_LOC" LFVAL="1"/>
+<LF LFARG="5" LFFUNC="_MAGN" LFVAL="4"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="05 06 2024 23:03:23" ID="3">
+<W DOM="18" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="вводн.16" ID="1" KSNAME="КАК1" LEMMA="КАК" LINK="вводн">Как</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="сравн-союзн.11" ID="2" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="сравн-союзн">сообщили</W> 
+<W ACCTSTRING="РИА" DOM="2" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="3" KSNAME="РИА" LEMMA="РИА" LINK="2-компл">РИА</W> 
+"<W ACCTSTRING="Новости" DOM="3" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="аппоз" ID="4" KSNAME="НОВОСТЬ" LEMMA="НОВОСТЬ" LINK="аппоз">Новости</W>" 
+<W DOM="2" FEAT="PR" HYPOT="обст.23" ID="5" KSNAME="В1" LEMMA="В" LINK="обст">в</W> 
+<W DOM="5" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="ПОНЕДЕЛЬНИК" LEMMA="ПОНЕДЕЛЬНИК" LINK="предл">понедельник</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="7" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W ACCTSTRING="ГУВД" DOM="7" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="8" KSNAME="ГУВД" LEMMA="ГУВД" LINK="предл">ГУВД</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент" ID="9" KSNAME="СТОЛИЦА" LEMMA="СТОЛИЦА" LINK="квазиагент">столицы</W>, 
+<W DOM="18" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="10" KSNAME="У1" LEMMA="У" LINK="обст">у</W> 
+<W ADDFEAT="common@Human" DOM="17" EXTRAFEAT="СУБСТ" FEAT="V СОВ СТРАД ПРИЧ ПРОШ ЕД МУЖ РОД" HYPOT="опред.01" ID="11" KSNAME="ЗАДЕРЖИВАТЬ2" LEMMA="ЗАДЕРЖИВАТЬ" LINK="опред">задержанного</W> 
+<W DOM="11" FEAT="ADV" HYPOT="обст.01" ID="12" KSNAME="НАКАНУНЕ1" LEMMA="НАКАНУНЕ" LINK="обст">накануне</W> 
+<W DOM="11" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="13" KSNAME="НА2" LEMMA="НА" LINK="обст">на</W> 
+<W DOM="13" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="14" KSNAME="ВОСТОК" LEMMA="ВОСТОК" LINK="предл">востоке</W> 
+<W DOM="14" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="15" KSNAME="МОСКВА" LEMMA="МОСКВА" LINK="1-компл">Москвы</W> 
+<W DOM="17" EXTRAFEAT="SEMI-FICTIVE" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="16" KSNAME="ФИКТ-ПРИЛ" LEMMA="44-ЛЕТНИЙ" LINK="опред">44-летнего</W> 
+<W ACCTSTRING="неработающего" DOM="10" FEAT="S ЕД МУЖ РОД ОД" HYPOT="предл.10" ID="17" KSNAME="НЕРАБОТАЮЩИЙ2" LEMMA="НЕРАБОТАЮЩИЙ" LINK="предл">неработающего</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="root" ID="18" KSNAME="ИЗЫМАТЬ" LEMMA="ИЗЫМАТЬ">изъят</W> 
+<W DOM="20" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="19" KSNAME="ЧИСЛ-ОДИН" LEMMA="1" LINK="количест">1</W> 
+<W DOM="18" EXTRAFEAT="TRUN ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.04" ID="20" KSNAME="КИЛОГРАММ" LEMMA="КИЛОГРАММ" LINK="предик">кг</W> 
+<W DOM="22" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="21" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="676" LINK="количест">676</W> 
+<W DOM="20" EXTRAFEAT="ALT ЗЕРО" FEAT="S МН МУЖ РОД НЕОД" HYPOT="аддит.10" ID="22" KSNAME="ГРАММ" LEMMA="ГРАММ" LINK="аддит">грамм</W> 
+<W DOM="20" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="23" KSNAME="ГЕРОИН" LEMMA="ГЕРОИН" LINK="квазиагент">героина</W>. 
+<LF LFARG="6" LFFUNC="_LOC" LFVAL="5"/>
+<LF LFARG="14" LFFUNC="_LOC" LFVAL="13"/>
+</S>
+<S COMMENT="traced" DATE="05 06 2024 23:03:23" ID="4">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="ПРЕСТУПНИК" LEMMA="ПРЕСТУПНИК" LINK="предик">Преступник</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="root" ID="2" KSNAME="БЫТЬ" LEMMA="БЫТЬ">был</W> 
+<W DOM="2" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="пасс-анал.10" ID="3" KSNAME="ЗАДЕРЖИВАТЬ2" LEMMA="ЗАДЕРЖИВАТЬ" LINK="пасс-анал">задержан</W> 
+<W DOM="3" FEAT="PR" HYPOT="обст.23" ID="4" KSNAME="У1" LEMMA="У" LINK="обст">у</W> 
+<W DOM="4" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="5" KSNAME="ДОМ" LEMMA="ДОМ" LINK="предл">дома</W> 
+<W DOM="5" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="нум-аппоз.01" ID="6" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="13" LINK="нум-аппоз">13</W> 
+<W DOM="5" EXTRAFEAT="ЛОКАТ" FEAT="PR" HYPOT="атриб.18" ID="7" KSNAME="ПО1" LEMMA="ПО" LINK="атриб">по</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="8" KSNAME="УЛИЦА" LEMMA="УЛИЦА" LINK="предл">улице</W> 
+<W DOM="8" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД ЖЕН ИМ" HYPOT="аппоз.01" ID="9" KSNAME="УРАЛЬСКИЙ" LEMMA="УРАЛЬСКИЙ" LINK="аппоз">Уральская</W> 
+<W DOM="3" FEAT="S МН МУЖ ТВОР ОД" HYPOT="агент.01" ID="10" KSNAME="СОТРУДНИК" LEMMA="СОТРУДНИК" LINK="агент">сотрудниками</W> 
+<W DOM="10" EXTRAFEAT="UPP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ОВД" LEMMA="ОВД" LINK="1-компл">ОВД</W> 
+"<W ACCTSTRING="Гольяново" DOM="11" EXTRAFEAT="CAP IN-QUOT ЗЕРО" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="аппоз.01" ID="12" KSNAME="ГОЛЬЯНОВО" LEMMA="ГОЛЬЯНОВО" LINK="аппоз">Гольяново</W>". 
+</S>
+<S CLASS="LF" DATE="05 06 2024 23:03:23" ID="5" MICROSYNT="(в размере,{17:в...20:размерах})&#xA;" TRANS="Only in past twenty four hours in the territory of 25 regions of the Russian Federation 81 facts of a withdrawal of narcotic means in specially large sizes are registered. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="PART" HYPOT="огранич.22" ID="1" KSNAME="ВСЕГО1" LEMMA="ВСЕГО" LINK="огранич">Всего</W> 
+<W DOM="11" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="2" KSNAME="ЗА1" LEMMA="ЗА" LINK="обст">за</W> 
+<W DOM="4" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="3" KSNAME="МИНУВШИЙ" LEMMA="МИНУВШИЙ" LINK="опред">минувшие</W> 
+<W DOM="2" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="4" KSNAME="СУТКИ" LEMMA="СУТКИ" LINK="предл">сутки</W> 
+<W DOM="11" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="3-компл.11" ID="5" KSNAME="НА2" LEMMA="НА" LINK="3-компл">на</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="6" KSNAME="ТЕРРИТОРИЯ" LEMMA="ТЕРРИТОРИЯ" LINK="предл">территории</W> 
+<W DOM="8" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="7" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="25" LINK="количест">25</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="РЕГИОН" LEMMA="РЕГИОН" LINK="квазиагент">регионов</W> 
+<W DOM="10" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="9" KSNAME="РОССИЙСКИЙ" LEMMA="РОССИЙСКИЙ" LINK="опред">Российской</W> 
+<W DOM="8" EXTRAFEAT="CAP CAPIT" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="10" KSNAME="ФЕДЕРАЦИЯ" LEMMA="ФЕДЕРАЦИЯ" LINK="квазиагент">Федерации</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" ID="11" KSNAME="РЕГИСТРИРОВАТЬ" LEMMA="РЕГИСТРИРОВАТЬ">зарегистрирован</W> 
+<W DOM="13" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="12" KSNAME="ЧИСЛ-ДВАДОД" LEMMA="81" LINK="количест">81</W> 
+<W DOM="11" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.04" ID="13" KSNAME="ФАКТ" LEMMA="ФАКТ" LINK="предик">факт</W> 
+<W DOM="13" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="14" KSNAME="ИЗЪЯТИЕ" LEMMA="ИЗЪЯТИЕ" LINK="1-компл">изъятия</W> 
+<W DOM="16" FEAT="A МН РОД" HYPOT="опред.01" ID="15" KSNAME="НАРКОТИЧЕСКИЙ" LEMMA="НАРКОТИЧЕСКИЙ" LINK="опред">наркотических</W> 
+<W DOM="14" FEAT="S МН СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="16" KSNAME="СРЕДСТВА" LEMMA="СРЕДСТВА" LINK="1-компл">средств</W> 
+<W DOM="14" FEAT="PR" HYPOT="атриб.18" ID="17" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="19" FEAT="ADV" HYPOT="огранич.22" ID="18" KSNAME="ОСОБО" LEMMA="ОСОБО" LINK="огранич">особо</W> 
+<W DOM="20" FEAT="A МН ПР" HYPOT="опред.01" ID="19" KSNAME="КРУПНЫЙ" LEMMA="КРУПНЫЙ" LINK="опред">крупных</W> 
+<W DOM="17" FEAT="S МН МУЖ ПР НЕОД" HYPOT="предл.10" ID="20" KSNAME="РАЗМЕР" LEMMA="РАЗМЕР" LINK="предл">размерах</W>. 
+<LF LFARG="6" LFFUNC="_LOC" LFVAL="5"/>
+</S>
+<S DATE="05 06 2024 23:03:23" ID="6" TRANS="2 kilograms 128 grams of hasheesh, the 1 kilogram 968,4 grams of heroin, the 1 kilogram of marihuana and 13,2 grams of opium are withdrawn. ">
+<W DOM="_root" EXTRAFEAT="CAP ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" ID="1" KSNAME="ИЗЫМАТЬ" LEMMA="ИЗЫМАТЬ">Изъято</W> 
+<W DOM="3" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.14" ID="2" KSNAME="ЧИСЛ-МАЛ" LEMMA="2" LINK="количест">2</W> 
+<W DOM="1" EXTRAFEAT="TRUN" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="3" KSNAME="КИЛОГРАММ" LEMMA="КИЛОГРАММ" LINK="предик">кг</W> 
+<W DOM="5" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="4" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="128" LINK="количест">128</W> 
+<W DOM="3" EXTRAFEAT="ALT ЗЕРО" FEAT="S МН МУЖ РОД НЕОД" HYPOT="аддит.10" ID="5" KSNAME="ГРАММ" LEMMA="ГРАММ" LINK="аддит">грамм</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="ГАШИШ" LEMMA="ГАШИШ" LINK="квазиагент">гашиша</W>, 
+<W DOM="8" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="7" KSNAME="ЧИСЛ-ОДИН" LEMMA="1" LINK="количест">1</W> 
+<W DOM="5" EXTRAFEAT="TRUN ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="сочин.01" ID="8" KSNAME="КИЛОГРАММ" LEMMA="КИЛОГРАММ" LINK="сочин">кг</W> 
+<W DOM="10" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.14" ID="9" KSNAME="ЧИСЛ-ДЕСЯТИЧ" LEMMA="968,4" LINK="количест">968,4</W> 
+<W DOM="8" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="аддит.10" ID="10" KSNAME="ГРАММ" LEMMA="ГРАММ" LINK="аддит">грамма</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="11" KSNAME="ГЕРОИН" LEMMA="ГЕРОИН" LINK="квазиагент">героина</W>, 
+<W DOM="13" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="12" KSNAME="ЧИСЛ-ОДИН" LEMMA="1" LINK="количест">1</W> 
+<W DOM="10" EXTRAFEAT="TRUN ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="сочин.01" ID="13" KSNAME="КИЛОГРАММ" LEMMA="КИЛОГРАММ" LINK="сочин">кг</W> 
+<W DOM="13" EXTRAFEAT="ЗЕРО" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="14" KSNAME="МАРИХУАНА" LEMMA="МАРИХУАНА" LINK="квазиагент">марихуаны</W> 
+<W DOM="13" FEAT="CONJ" HYPOT="сочин.13" ID="15" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="17" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="16" KSNAME="ЧИСЛ-ДЕСЯТИЧ" LEMMA="13,2" LINK="количест">13,2</W> 
+<W DOM="15" EXTRAFEAT="TRUN ЗЕРО" FEAT="S МН МУЖ РОД НЕОД" HYPOT="соч-союзн.10" ID="17" KSNAME="ГРАММ" LEMMA="ГРАММ" LINK="соч-союзн">г</W> 
+<W DOM="17" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="18" KSNAME="ОПИЙ" LEMMA="ОПИЙ" LINK="квазиагент">опия</W>.
+</S>
+</body>
+</text>

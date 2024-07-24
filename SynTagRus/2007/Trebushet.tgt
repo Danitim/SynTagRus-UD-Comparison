@@ -1,0 +1,207 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\2007\\Trebushet.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; USESTAT=USESTATNO; ALTTR=$TRUE; MWORDFORM=$TRUE; CORDESCRMODE=CORDESCROLDMODE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=LARGENUM; SPEECHMODE=SPEECHMODENO; JOFICATION=$FALSE; " ver="1.1">
+<inf>
+<annot>Светлана Григорьева</annot>
+<annotation_year>2007</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>Врезка в статье "Хулиганские изобретения"</comment>
+<creation_date>2006</creation_date>
+<date/>
+<editor>Леонид Иомдин</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>Популярная механика</publication>
+<publication_date>11.2006</publication_date>
+<publisher>-</publisher>
+<source>http://www.popmech.ru/part/?articleid=1295&amp;rubricid=8</source>
+<sphere>публицистика</sphere>
+<title>Назад в Средневековье: Требушет</title>
+<topic>техника</topic>
+<type>заметка</type>
+</inf>
+<body>
+<S DATE="12 07 2024 18:45:01" ID="1" PARAMS="DOMAINS=COMMON-DOMAIN;WEAKPRED=$FALSE;PARAFR=$FALSE;SENTFEATS=STDSENT;SYNTMODE=STDSYNT;ALTTR=$TRUE;MWORDFORM=$TRUE;WEAKDESCR=$FALSE;SYNTAXONLY=$FALSE;SOFTSENTBR=$FALSE;SOFTGEOMFILTR=$TRUE;EXPERMODE=EXPER_OFF;DISAMBMODE=DISAMB_OFF;MAXALTNUM=NORMALNUM;">
+<W DOM="_root" EXTRAFEAT="CAP ЗЕРО" FEAT="ADV" ID="1" KSNAME="НАЗАД2" LEMMA="НАЗАД">Назад</W> 
+<W DOM="1" FEAT="PR" HYPOT="уточн" ID="2" KSNAME="В1" LEMMA="В" LINK="уточн">в</W> 
+<W DOM="2" EXTRAFEAT="CAP CAPIT" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="предл.10" ID="3" KSNAME="СРЕДНЕВЕКОВЬЕ" LEMMA="СРЕДНЕВЕКОВЬЕ" LINK="предл">Средневековье</W>: 
+<W DOM="1" EXTRAFEAT="CAP CAPIT ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="разъяснит.01" ID="4" KSNAME="ТРЕБУШЕТ" LEMMA="ТРЕБУШЕТ" LINK="разъяснит">Требушет</W>
+</S>
+<S DATE="12 07 2024 18:46:05" ID="2" MICROSYNT="(сам за себя,{3:само...5:себя})&#xA;">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="НАЗВАНИЕ" LEMMA="НАЗВАНИЕ" LINK="предик">Название</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="2" KSNAME="ГОВОРИТЬ1" LEMMA="ГОВОРИТЬ">говорит</W> 
+<W DOM="2" FEAT="A ЕД СРЕД ИМ" HYPOT="суб-копр.11" ID="3" KSNAME="САМ" LEMMA="САМ" LINK="суб-копр">само</W> 
+<W DOM="3" FEAT="PR" ID="4" KSNAME="ЗА1" LEMMA="ЗА" LINK="вспом">за</W> 
+<W DOM="4" FEAT="S ВИН" HYPOT="предл.10" ID="5" KSNAME="СЕБЯ" LEMMA="СЕБЯ" LINK="предл">себя</W> - 
+<W DOM="2" EXTRAFEAT="FICTIVE IN-DASH" FEAT="NID" ID="6" KSNAME="ФИКТ-ЛЕКС" LEMMA="ТРРЕ" LINK="разъяснит">трре</W> - 
+<W DOM="6" EXTRAFEAT="FICTIVE" FEAT="NID" HYPOT="аппоз.d1" ID="7" KSNAME="ФИКТ-ЛЕКС" LEMMA="БУХ" LINK="аппоз">бух</W> - 
+<W DOM="7" EXTRAFEAT="FICTIVE" FEAT="NID" HYPOT="аппоз.d1" ID="8" KSNAME="ФИКТ-ЛЕКС" LEMMA="ШШЕТТ" LINK="аппоз">шшетт</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="12 07 2024 18:46:05" ID="3" MICROSYNT="(в отличие от,{1:В отличие от...1:В отличие от})&#xA;" TRANS="Which unlike a catapult is built on the basis of the torsional spring. ">
+<W DOM="4" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="В$ОТЛИЧИЕ$ОТ" LEMMA="В ОТЛИЧИЕ ОТ" LINK="обст">В отличие от</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="предл.10" ID="2" KSNAME="КАТАПУЛЬТА" LEMMA="КАТАПУЛЬТА" LINK="предл">катапульты</W>, 
+<W DOM="4" FEAT="S ЕД ЖЕН ИМ" HYPOT="предик.04" ID="3" KSNAME="КОТОРЫЙ" LEMMA="КОТОРЫЙ" LINK="предик">которая</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД ЖЕН" ID="4" KSNAME="СТРОИТЬ" LEMMA="СТРОИТЬ">построена</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="5" KSNAME="НА2" LEMMA="НА" LINK="обст">на</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="6" KSNAME="ОСНОВА" LEMMA="ОСНОВА" LINK="предл">основе</W> 
+<W DOM="8" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="7" KSNAME="ТОРСИОННЫЙ" LEMMA="ТОРСИОННЫЙ" LINK="опред">торсионной</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="ПРУЖИНА" LEMMA="ПРУЖИНА" LINK="квазиагент">пружины</W>, 
+<W DOM="10" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="9" KSNAME="ТРЕБУШЕТ" LEMMA="ТРЕБУШЕТ" LINK="предик">требушет</W> 
+<W DOM="4" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="сент-соч.01" ID="10" KSNAME="ДЕЙСТВОВАТЬ" LEMMA="ДЕЙСТВОВАТЬ" LINK="сент-соч">действует</W> 
+<W DOM="10" FEAT="PR" HYPOT="обст.23" ID="11" KSNAME="ПО1" LEMMA="ПО" LINK="обст">по</W> 
+<W DOM="11" FEAT="S ЕД МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="12" KSNAME="ПРИНЦИП" LEMMA="ПРИНЦИП" LINK="предл">принципу</W> 
+<W DOM="14" FEAT="A МН РОД" HYPOT="опред.01" ID="13" KSNAME="НЕУРАВНОВЕШЕННЫЙ" LEMMA="НЕУРАВНОВЕШЕННЫЙ" LINK="опред">неуравновешенных</W> 
+<W DOM="12" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="14" KSNAME="КАЧЕЛИ" LEMMA="КАЧЕЛИ" LINK="1-компл">качелей</W>.
+<LF LFARG="6" LFFUNC="_ADV2-UN" LFVAL="5"/>
+</S>
+<S COMMENT="traced" DATE="12 07 2024 18:46:05" ID="4" PARAMS="DOMAINS=COMMON-DOMAIN;WEAKPRED=$FALSE;PARAFR=$FALSE;SENTFEATS=STDSENT;SYNTMODE=STDSYNT;ALTTR=$TRUE;MWORDFORM=$TRUE;WEAKDESCR=$FALSE;SYNTAXONLY=$FALSE;SOFTSENTBR=$FALSE;SOFTGEOMFILTR=$TRUE;EXPERMODE=EXPER_OFF;DISAMBMODE=DISAMB_OFF;MAXALTNUM=NORMALNUM;">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="1" KSNAME="БОЛЬШОЙ" LEMMA="БОЛЬШОЙ" LINK="опред">Большой</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="ГРУЗ" LEMMA="ГРУЗ" LINK="предик">груз</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="ТЯНУТЬ" LEMMA="ТЯНУТЬ">тянет</W> 
+<W DOM="3" FEAT="ADV" HYPOT="4-компл.11" ID="4" KSNAME="ВНИЗ" LEMMA="ВНИЗ" LINK="4-компл">вниз</W>, 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="A ЕД МУЖ ИМ" HYPOT="предик.01" ID="5" KSNAME="МАЛЕНЬКИЙ" LEMMA="МАЛЕНЬКИЙ" LINK="предик">маленький</W> 
+<W DOM="3" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="сент-соч.01" ID="6" KSNAME="УЛЕТАТЬ" LEMMA="УЛЕТАТЬ" LINK="сент-соч">улетает</W> 
+<W DOM="6" FEAT="ADV" HYPOT="2-компл.17" ID="7" KSNAME="ВВЕРХ" LEMMA="ВВЕРХ" LINK="2-компл">вверх</W>.
+</S>
+<S COMMENT="traced" DATE="12 07 2024 18:46:05" ID="5" MICROSYNT="(на случай,{3:на...4:случай})&#xA;" PARAMS="DOMAINS=COMMON-DOMAIN;WEAKPRED=$FALSE;PARAFR=$FALSE;SENTFEATS=STDSENT;SYNTMODE=STDSYNT;ALTTR=$TRUE;MWORDFORM=$TRUE;WEAKDESCR=$FALSE;SYNTAXONLY=$FALSE;SOFTSENTBR=$FALSE;SOFTGEOMFILTR=$TRUE;EXPERMODE=EXPER_OFF;DISAMBMODE=DISAMB_OFF;MAXALTNUM=NORMALNUM;">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="1" KSNAME="БЕСЦЕННЫЙ" LEMMA="БЕСЦЕННЫЙ" LINK="опред">Бесценная</W> 
+<W DOM="_root" FEAT="S ЕД ЖЕН ИМ НЕОД" ID="2" KSNAME="ШТУКОВИНА" LEMMA="ШТУКОВИНА">штуковина</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="3" KSNAME="НА1" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="4" KSNAME="СЛУЧАЙ" LEMMA="СЛУЧАЙ" LINK="предл">случай</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="ОСАДА" LEMMA="ОСАДА" LINK="1-компл">осады</W>.
+</S>
+<S COMMENT="traced" DATE="12 07 2024 18:46:05" ID="6" MICROSYNT="(как только,{1:Как только...1:Как только})&#xA;" TRANS="Once&quot; to a fortress rolled these machines. ">
+"<W DOM="9" EXTRAFEAT="CAP IN-QUOT" FEAT="CONJ" HYPOT="обст.27" ID="1" KSNAME="КАК$ТОЛЬКО" LEMMA="КАК ТОЛЬКО" LINK="обст">Как только</W> 
+<W DOM="4" EXTRAFEAT="IN-QUOT" FEAT="PR" HYPOT="2-компл.17" ID="2" KSNAME="К" LEMMA="К" LINK="2-компл">к</W> 
+<W DOM="2" EXTRAFEAT="IN-QUOT" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="3" KSNAME="КРЕПОСТЬ1" LEMMA="КРЕПОСТЬ" LINK="предл">крепости</W> 
+<W DOM="1" EXTRAFEAT="IN-QUOT ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" HYPOT="подч-союзн.10" ID="4" KSNAME="ПОДКАТЫВАТЬ2" LEMMA="ПОДКАТЫВАТЬ" LINK="подч-союзн">подкатывали</W> 
+<W DOM="6" EXTRAFEAT="IN-QUOT" FEAT="A МН ИМ" HYPOT="опред.01" ID="5" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">эти</W> 
+<W DOM="4" EXTRAFEAT="IN-QUOT" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="6" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предик">машины</W>, 
+<W DOM="8" EXTRAFEAT="ALTJO IN-QUOT" FEAT="S ЕД ЖЕН РОД ОД" HYPOT="квазиагент.17" ID="7" KSNAME="ОНА" LEMMA="ОНА" LINK="квазиагент">ее</W> 
+<W DOM="9" EXTRAFEAT="IN-QUOT" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="8" KSNAME="ДЕНЬ" LEMMA="ДЕНЬ" LINK="предик">дни</W> 
+<W DOM="_root" EXTRAFEAT="IN-QUOT ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" ID="9" KSNAME="БЫТЬ" LEMMA="БЫТЬ">были</W> 
+<W DOM="9" EXTRAFEAT="ALT IN-QUOT ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" HYPOT="пасс-анал.10" ID="10" KSNAME="СЧИТАТЬ1" LEMMA="СЧИТАТЬ" LINK="пасс-анал">сочтены</W>, - 
+<W DOM="12" EXTRAFEAT="IN-QUOT" FEAT="ADV" HYPOT="обст.01" ID="11" KSNAME="ЖИЗНЕРАДОСТНО" LEMMA="ЖИЗНЕРАДОСТНО" LINK="обст">жизнерадостно</W> 
+<W DOM="9" EXTRAFEAT="IN-QUOT ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="вводн.12" ID="12" KSNAME="ГОВОРИТЬ1" LEMMA="ГОВОРИТЬ" LINK="вводн">говорит</W> 
+<W DOM="12" EXTRAFEAT="IN-QUOT" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="13" KSNAME="МАСТЕР" LEMMA="МАСТЕР" LINK="предик">мастер</W> 
+<W DOM="13" EXTRAFEAT="IN-QUOT ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="14" KSNAME="ПО1" LEMMA="ПО" LINK="атриб">по</W> 
+<W DOM="14" EXTRAFEAT="IN-QUOT" FEAT="S МН МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="15" KSNAME="ТРЕБУШЕТ" LEMMA="ТРЕБУШЕТ" LINK="предл">требушетам</W> 
+<W DOM="13" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="16" KSNAME="КЕВИН" LEMMA="КЕВИН" LINK="аппоз">Кевин</W> 
+<W DOM="16" EXTRAFEAT="FICTIVE IN-QUOT" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.d0" ID="17" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="ГЕЙЗЕЛЬМАН" LINK="аппоз">Гейзельман</W>.
+</S>
+<S COMMENT="traced" DATE="12 07 2024 18:46:05" ID="7" PARAMS="DOMAINS=COMMON-DOMAIN;WEAKPRED=$FALSE;PARAFR=$FALSE;STAT=N;SENTFEATS=STDSENT;SYNTMODE=STDSYNT;ALTTR=$TRUE;MWORDFORM=$TRUE;WEAKDESCR=$FALSE;SYNTAXONLY=$FALSE;SOFTSENTBR=$FALSE;SOFTGEOMFILTR=$TRUE;EXPERMODE=EXPER_OFF;DISAMBMODE=DISAMB_OFF;MAXALTNUM=LARGENUM;">
+- <W DOM="2" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ТРЕБУШЕТ" LEMMA="ТРЕБУШЕТ" LINK="предик">Требушеты</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="2" KSNAME="ОБЛАДАТЬ" LEMMA="ОБЛАДАТЬ">обладают</W> 
+<W DOM="5" FEAT="A ЕД ЖЕН ТВОР" HYPOT="опред.01" ID="3" KSNAME="СТРАШНЫЙ" LEMMA="СТРАШНЫЙ" LINK="опред">страшной</W> 
+<W DOM="5" FEAT="A ЕД ЖЕН ТВОР" HYPOT="опред.01" ID="4" KSNAME="РАЗРУШИТЕЛЬНЫЙ" LEMMA="РАЗРУШИТЕЛЬНЫЙ" LINK="опред">разрушительной</W> 
+<W DOM="2" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="СИЛА" LEMMA="СИЛА" LINK="1-компл">силой</W>".
+</S>
+<S COMMENT="traced" DATE="12 07 2024 18:46:05" ID="8" PARAMS="DOMAINS=COMMON-DOMAIN;WEAKPRED=$FALSE;PARAFR=$FALSE;SENTFEATS=STDSENT;SYNTMODE=STDSYNT;ALTTR=$TRUE;MWORDFORM=$TRUE;WEAKDESCR=$FALSE;SYNTAXONLY=$FALSE;SOFTSENTBR=$FALSE;SOFTGEOMFILTR=$TRUE;EXPERMODE=EXPER_OFF;DISAMBMODE=DISAMB_OFF;MAXALTNUM=NORMALNUM;">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.04" ID="1" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предик">Это</W> 
+<W DOM="3" FEAT="ADV" HYPOT="огранич.22" ID="2" KSNAME="СОВСЕМ" LEMMA="СОВСЕМ" LINK="огранич">совсем</W> 
+<W DOM="4" FEAT="PART" HYPOT="огранич.10" ID="3" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД СРЕД" ID="4" KSNAME="СЛОЖНЫЙ" LEMMA="СЛОЖНЫЙ">сложно</W>.
+</S>
+<S DATE="12 07 2024 18:46:05" ID="9">
+<W DOM="3" EXTRAFEAT="ALTJO CAP" FEAT="V СОВ СТРАД ПРИЧ ПРОШ ЕД ЖЕН ИМ" HYPOT="опред.01" ID="1" KSNAME="ИЗОБРАЖАТЬ" LEMMA="ИЗОБРАЖАТЬ" LINK="опред">Изображенная</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="ADV" HYPOT="обст.01" ID="2" KSNAME="ЗДЕСЬ" LEMMA="ЗДЕСЬ" LINK="обст">здесь</W> 
+<W DOM="9" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="3" KSNAME="МОДЕЛЬ1" LEMMA="МОДЕЛЬ" LINK="предик">модель</W> 
+(<W DOM="3" EXTRAFEAT="IN-BR ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 1-Л" HYPOT="примыкат.01" ID="4" KSNAME="БЛАГОДАРИТЬ" LEMMA="БЛАГОДАРИТЬ" LINK="примыкат">благодарим</W> 
+<W DOM="4" EXTRAFEAT="IN-BR" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="1-компл.11" ID="5" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="ГЕЙЗЕЛЬМАН" LINK="1-компл">Гейзельмана</W> 
+<W DOM="4" EXTRAFEAT="IN-BR" FEAT="PR" HYPOT="2-компл.17" ID="6" KSNAME="ЗА1" LEMMA="ЗА" LINK="2-компл">за</W> 
+<W DOM="8" EXTRAFEAT="IN-BR" FEAT="V СОВ СТРАД ПРИЧ ПРОШ ЕД СРЕД ВИН" HYPOT="опред.01" ID="7" KSNAME="ПРОЯВЛЯТЬ" LEMMA="ПРОЯВЛЯТЬ" LINK="опред">проявленное</W> 
+<W DOM="6" EXTRAFEAT="IN-BR" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="предл.10" ID="8" KSNAME="УЧАСТИЕ" LEMMA="УЧАСТИЕ" LINK="предл">участие</W>) 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД ЖЕН" ID="9" KSNAME="СПОСОБНЫЙ" LEMMA="СПОСОБНЫЙ">способна</W> 
+<W DOM="9" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="10" KSNAME="ПЕРЕКИДЫВАТЬ" LEMMA="ПЕРЕКИДЫВАТЬ" LINK="1-компл">перекинуть</W> 
+<W DOM="12" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="11" KSNAME="ТЕННИСНЫЙ" LEMMA="ТЕННИСНЫЙ" LINK="опред">теннисный</W> 
+<W DOM="10" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="12" KSNAME="МЯЧИК" LEMMA="МЯЧИК" LINK="1-компл">мячик</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="3-компл.11" ID="13" KSNAME="ЧЕРЕЗ" LEMMA="ЧЕРЕЗ" LINK="3-компл">через</W> 
+<W DOM="15" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="14" KSNAME="ВЕСЬ" LEMMA="ВЕСЬ" LINK="опред">весь</W> 
+<W DOM="13" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="15" KSNAME="ДВОР1" LEMMA="ДВОР" LINK="предл">двор</W>.
+</S>
+<S COMMENT="traced" DATE="12 07 2024 18:46:05" ID="10">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="ПОТИХОНЬКУ" LEMMA="ПОТИХОНЬКУ" LINK="обст">Потихоньку</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ПОВ МН 2-Л" ID="2" KSNAME="ПРИВОДИТЬ1" LEMMA="ПРИВОДИТЬ">приведите</W> 
+<W DOM="2" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="3" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="1-компл">машину</W> 
+<W DOM="2" FEAT="PR" HYPOT="3-компл.11" ID="4" KSNAME="В1" LEMMA="В" LINK="3-компл">в</W> 
+<W DOM="6" FEAT="A ЕД СРЕД ВИН" HYPOT="опред.01" ID="5" KSNAME="БОЕВОЙ" LEMMA="БОЕВОЙ" LINK="опред">боевое</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="ПОЛОЖЕНИЕ1" LEMMA="ПОЛОЖЕНИЕ" LINK="предл">положение</W>, 
+<W DOM="2" FEAT="CONJ" HYPOT="сочин.20" ID="7" KSNAME="А1" LEMMA="А" LINK="сочин">а</W> 
+<W DOM="10" FEAT="ADV" HYPOT="обст.01" ID="8" KSNAME="ПОТОМ" LEMMA="ПОТОМ" LINK="обст">потом</W> 
+<W DOM="10" FEAT="ADV" HYPOT="обст.01" ID="9" KSNAME="НЕОЖИДАННО" LEMMA="НЕОЖИДАННО" LINK="обст">неожиданно</W> 
+<W ACCTSTRING="запустите" DOM="7" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ПОВ МН 2-Л" HYPOT="соч-союзн.15" ID="10" KSNAME="ЗАПУСКАТЬ3" LEMMA="ЗАПУСКАТЬ" LINK="соч-союзн">запустите</W> 
+<W ACCTSTRING="в" DOM="10" FEAT="PR" HYPOT="2-компл.17" ID="11" KSNAME="В1" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="11" FEAT="S МН МУЖ ВИН ОД" HYPOT="предл.10" ID="12" KSNAME="ПРИЯТЕЛЬ" LEMMA="ПРИЯТЕЛЬ" LINK="предл">приятелей</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="13" KSNAME="ПАЧКА" LEMMA="ПАЧКА" LINK="1-компл">пачку</W> 
+<W DOM="13" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="14" KSNAME="МАКУЛАТУРА" LEMMA="МАКУЛАТУРА" LINK="квазиагент">макулатуры</W>.
+</S>
+<S COMMENT="traced" DATE="12 07 2024 18:46:05" ID="11" PARAMS="DOMAINS=COMMON-DOMAIN;WEAKPRED=$FALSE;PARAFR=$FALSE;SENTFEATS=STDSENT;SYNTMODE=STDSYNT;ALTTR=$TRUE;MWORDFORM=$TRUE;WEAKDESCR=$FALSE;SYNTAXONLY=$FALSE;SOFTSENTBR=$FALSE;SOFTGEOMFILTR=$TRUE;EXPERMODE=EXPER_OFF;DISAMBMODE=DISAMB_OFF;MAXALTNUM=NORMALNUM;">
+<W DOM="_root" EXTRAFEAT="CAP ЗЕРО" FEAT="S ЕД СРЕД ИМ НЕОД" ID="1" KSNAME="ГЛАВНОЕ2" LEMMA="ГЛАВНОЕ">Главное</W> - 
+<W DOM="3" FEAT="PART" HYPOT="огранич.10" ID="2" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="1" FEAT="V НЕСОВ ИНФ" HYPOT="предик.19" ID="3" KSNAME="КОЛЕБАТЬСЯ" LEMMA="КОЛЕБАТЬСЯ" LINK="предик">колебаться</W>.
+</S>
+<S DATE="12 07 2024 18:46:05" ID="12" MICROSYNT="(приходить в голову,{9:в...12:приходило})&#xA;">
+"<W DOM="12" EXTRAFEAT="CAP IN-QUOT" FEAT="CONJ" HYPOT="обст.27" ID="1" KSNAME="ПОКА1" LEMMA="ПОКА" LINK="обст" MSNAME="ПОКА2">Пока</W> 
+<W DOM="4" EXTRAFEAT="IN-QUOT" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="2" KSNAME="Я" LEMMA="Я" LINK="предик">я</W> 
+<W DOM="4" EXTRAFEAT="IN-QUOT" FEAT="PART" HYPOT="огранич.10" ID="3" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="1" EXTRAFEAT="IN-QUOT ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="подч-союзн.10" ID="4" KSNAME="СТРОИТЬ" LEMMA="СТРОИТЬ" LINK="подч-союзн">построил</W> 
+<W DOM="6" EXTRAFEAT="IN-QUOT" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="5" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">эту</W> 
+<W DOM="4" EXTRAFEAT="IN-QUOT" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="1-компл">машину</W>, 
+<W DOM="12" EXTRAFEAT="IN-QUOT" FEAT="S ЕД МУЖ ДАТ ОД" HYPOT="1-компл.20" ID="7" KSNAME="Я" LEMMA="Я" LINK="1-компл">мне</W> 
+<W DOM="9" EXTRAFEAT="IN-QUOT" FEAT="PART" HYPOT="огранич.10" ID="8" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="12" EXTRAFEAT="IN-QUOT ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="9" KSNAME="В1" LEMMA="В" LINK="обст">в</W> 
+<W DOM="9" EXTRAFEAT="IN-QUOT" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="10" KSNAME="ГОЛОВА1" LEMMA="ГОЛОВА" LINK="предл">голову</W> 
+<W DOM="12" EXTRAFEAT="IN-QUOT" FEAT="PART" HYPOT="огранич.10" ID="11" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="IN-QUOT ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ ЕД СРЕД" ID="12" KSNAME="ПРИХОДИТЬ2" LEMMA="ПРИХОДИТЬ">приходило</W>, 
+<W DOM="15" EXTRAFEAT="IN-QUOT" FEAT="ADV" HYPOT="обст.01" ID="13" KSNAME="КАК2" LEMMA="КАК" LINK="обст">как</W> 
+<W DOM="16" EXTRAFEAT="ALTJO IN-QUOT" FEAT="S ЕД ЖЕН ВИН ОД" HYPOT="1-компл.51" ID="14" KSNAME="ОНА" LEMMA="ОНА" LINK="1-компл">ее</W> 
+<W DOM="12" EXTRAFEAT="IN-QUOT ЗЕРО" FEAT="ADV" HYPOT="предик" ID="15" KSNAME="МОЖНО" LEMMA="МОЖНО" LINK="предик" MSNAME="МОЖНО">можно</W> 
+<W DOM="15" EXTRAFEAT="IN-QUOT" FEAT="V НЕСОВ ИНФ" HYPOT="предик" ID="16" KSNAME="ИСПОЛЬЗОВАТЬ" LEMMA="ИСПОЛЬЗОВАТЬ" LINK="предик">использовать</W>", - 
+<W DOM="12" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="вводн.12" ID="17" KSNAME="РАССКАЗЫВАТЬ" LEMMA="РАССКАЗЫВАТЬ" LINK="вводн">рассказывает</W> 
+<W DOM="17" EXTRAFEAT="FICTIVE" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="18" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="ГЕЙЗЕЛЬМАН" LINK="предик">Гейзельман</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="12 07 2024 18:46:05" ID="13">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД МУЖ ТВОР" HYPOT="опред.01" ID="1" KSNAME="СПУСКОВОЙ" LEMMA="СПУСКОВОЙ" LINK="опред">Спусковым</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="1-компл.20" ID="2" KSNAME="КРЮЧОК" LEMMA="КРЮЧОК" LINK="1-компл">крючком</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="СЛУЖИТЬ2" LEMMA="СЛУЖИТЬ">служит</W> 
+<W DOM="5" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="4" KSNAME="ОБЫЧНЫЙ" LEMMA="ОБЫЧНЫЙ" LINK="опред">обычный</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="ГВОЗДЬ" LEMMA="ГВОЗДЬ" LINK="предик">гвоздь</W>, 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="V НЕСОВ СТРАД ПРИЧ НЕПРОШ ЕД МУЖ ИМ" HYPOT="опред.02" ID="6" KSNAME="ВСТАВЛЯТЬ" LEMMA="ВСТАВЛЯТЬ" LINK="опред">вставляемый</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="7" KSNAME="НАПОДОБИЕ" LEMMA="НАПОДОБИЕ" LINK="обст">наподобие</W> 
+<W DOM="7" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="8" KSNAME="ЗАСОВ" LEMMA="ЗАСОВ" LINK="предл">засова</W> 
+<W DOM="6" FEAT="PR" HYPOT="2-компл.17" ID="9" KSNAME="В1" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="11" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="10" KSNAME="ПРОВОЛОЧНЫЙ" LEMMA="ПРОВОЛОЧНЫЙ" LINK="опред">проволочные</W> 
+<W DOM="9" FEAT="S МН СРЕД ВИН НЕОД" HYPOT="предл.10" ID="11" KSNAME="КОЛЬЦО" LEMMA="КОЛЬЦО" LINK="предл">кольца</W> 
+<W DOM="11" FEAT="PR" HYPOT="атриб.18" ID="12" KSNAME="НА2" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="12" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="13" KSNAME="ОСНОВАНИЕ1" LEMMA="ОСНОВАНИЕ" LINK="предл">основании</W> 
+<W DOM="13" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="14" KSNAME="ТРЕБУШЕТ" LEMMA="ТРЕБУШЕТ" LINK="1-компл">требушета</W> 
+<W DOM="13" FEAT="CONJ" HYPOT="сочин.13" ID="15" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="15" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="соч-союзн.10" ID="16" KSNAME="КОНЕЦ" LEMMA="КОНЕЦ" LINK="соч-союзн">конце</W> 
+<W DOM="16" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="17" KSNAME="РЫЧАГ" LEMMA="РЫЧАГ" LINK="квазиагент">рычага</W>.
+<LF LFARG="13" LFFUNC="_ADV2-UN" LFVAL="12"/>
+</S>
+<S COMMENT="traced" DATE="12 07 2024 18:46:05" ID="14" MICROSYNT="(как только,{1:Как только...1:Как только})&#xA;" PARAMS="DOMAINS=COMMON-DOMAIN;WEAKPRED=$FALSE;PARAFR=$FALSE;SENTFEATS=STDSENT;SYNTMODE=STDSYNT;ALTTR=$TRUE;MWORDFORM=$TRUE;WEAKDESCR=$FALSE;SYNTAXONLY=$FALSE;SOFTSENTBR=$FALSE;SOFTGEOMFILTR=$TRUE;EXPERMODE=EXPER_OFF;DISAMBMODE=DISAMB_OFF;MAXALTNUM=NORMALNUM;">
+<W DOM="10" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="обст.27" ID="1" KSNAME="КАК$ТОЛЬКО" LEMMA="КАК ТОЛЬКО" LINK="обст">Как только</W> 
+<W DOM="3" FEAT="S МН ИМ ОД" HYPOT="предик.01" ID="2" KSNAME="ВЫ" LEMMA="ВЫ" LINK="предик">вы</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 2-Л" HYPOT="подч-союзн.10" ID="3" KSNAME="ВЫДЕРГИВАТЬ" LEMMA="ВЫДЕРГИВАТЬ" LINK="подч-союзн">выдергиваете</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="4" KSNAME="ГВОЗДЬ" LEMMA="ГВОЗДЬ" LINK="1-компл">гвоздь</W>, 
+<W DOM="6" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="5" KSNAME="ТЕННИСНЫЙ" LEMMA="ТЕННИСНЫЙ" LINK="опред">теннисный</W> 
+<W DOM="10" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="6" KSNAME="МЯЧ" LEMMA="МЯЧ" LINK="предик">мяч</W>, 
+<W DOM="6" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="сочин.01" ID="7" KSNAME="КАРТОШКА" LEMMA="КАРТОШКА" LINK="сочин">картошка</W> 
+<W DOM="7" FEAT="CONJ" HYPOT="сочин.13" ID="8" KSNAME="ИЛИ1" LEMMA="ИЛИ" LINK="сочин">или</W> 
+<W DOM="8" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="соч-союзн.10" ID="9" KSNAME="СНЕЖОК" LEMMA="СНЕЖОК" LINK="соч-союзн">снежок</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="10" KSNAME="УЛЕТАТЬ" LEMMA="УЛЕТАТЬ">улетают</W> 
+<W DOM="10" FEAT="PR" HYPOT="обст.23" ID="11" KSNAME="ЧЕРЕЗ" LEMMA="ЧЕРЕЗ" LINK="обст">через</W> 
+<W DOM="11" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="12" KSNAME="ДВОР1" LEMMA="ДВОР" LINK="предл">двор</W>.
+</S>
+<S DATE="12 07 2024 18:46:26" ID="15" TRANS="The cost of the materials is $ 12. ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="1" KSNAME="СТОИМОСТЬ" LEMMA="СТОИМОСТЬ" LINK="предик">Стоимость</W> 
+<W DOM="1" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="2" KSNAME="МАТЕРИАЛ" LEMMA="МАТЕРИАЛ" LINK="квазиагент">материалов</W> - 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="root" ID="3" KSNAME="ДОЛЛАР-ЗНАК" LEMMA=" ">$</W>
+<W DOM="3" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.16" ID="4" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="12" LINK="количест">12</W>. 
+</S>
+</body>
+</text>

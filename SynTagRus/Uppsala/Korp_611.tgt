@@ -1,0 +1,1003 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\Uppsala\\Korp_611.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; ALTTR=$TRUE; MWORDFORM=$TRUE; WEAKDESCR=$FALSE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; SOFTGEOMFILTR=$TRUE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; USECORPLF=$FALSE; " ver="1.1">
+<inf>
+<annot>Леонид Митюшин</annot>
+<annotation_year>2000</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>Автор: Н. Харитонова\nАннотатор и редактор указаны для фраз 39-68</comment>
+<creation_date>1986</creation_date>
+<editor>Леонид Иомдин</editor>
+<genre>-</genre>
+<medium>журнал</medium>
+<part>-</part>
+<publication>Техника и наука</publication>
+<publication_date>06.1986</publication_date>
+<publisher>-</publisher>
+<source>Уппсальский корпус русских текстов</source>
+<sphere>публицистика</sphere>
+<title>Груз лишних килограммов</title>
+<topic>техника</topic>
+<type>статья</type>
+</inf>
+<body>
+<S COMMENT="traced" DATE="28 01 2023 00:56:36" ID="1">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ НЕОД" ID="1" KSNAME="ГРУЗ" LEMMA="ГРУЗ">Груз</W> 
+<W DOM="3" FEAT="A МН РОД" HYPOT="опред.01" ID="2" KSNAME="ЛИШНИЙ" LEMMA="ЛИШНИЙ" LINK="опред">лишних</W> 
+<W ACCTSTRING="килограммов" DOM="1" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="КИЛОГРАММ" LEMMA="КИЛОГРАММ" LINK="1-компл">килограммов</W> 
+</S>
+<S COMMENT="traced" DATE="07 06 2016 16:34:48" ID="2">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ЧТО2" LEMMA="ЧТО" LINK="предик">Что</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="2" KSNAME="МЕШАТЬ1" LEMMA="МЕШАТЬ">мешает</W> 
+<W DOM="2" FEAT="V НЕСОВ ИНФ" HYPOT="2-компл.11" ID="3" KSNAME="СНИЖАТЬ" LEMMA="СНИЖАТЬ" LINK="2-компл">снижать</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="4" KSNAME="ВЕС" LEMMA="ВЕС" LINK="1-компл">вес</W> 
+<W DOM="6" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="5" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфической</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="квазиагент">техники</W>? 
+</S>
+<S COMMENT="traced" DATE="14 07 2023 12:35:39" ID="3" MICROSYNT="(на N-ом месте,{7:на...11:мест})&#xA;">
+<W DOM="6" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ЭКОНОМИЯ" LEMMA="ЭКОНОМИЯ" LINK="предик">Экономия</W> 
+<W DOM="1" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="2" KSNAME="СЫРЬЕ" LEMMA="СЫРЬЕ" LINK="1-компл">сырья</W> 
+<W DOM="2" FEAT="CONJ" HYPOT="сочин.13" ID="3" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="3" FEAT="S МН МУЖ РОД НЕОД" HYPOT="соч-союзн.10" ID="4" KSNAME="МАТЕРИАЛ" LEMMA="МАТЕРИАЛ" LINK="соч-союзн">материалов</W> 
+<W DOM="6" FEAT="ADV" HYPOT="обст.01" ID="5" KSNAME="СЕГОДНЯ1" LEMMA="СЕГОДНЯ" LINK="обст">сегодня</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="6" KSNAME="СТОЯТЬ" LEMMA="СТОЯТЬ">стоит</W> 
+<W DOM="6" FEAT="PR" HYPOT="1-компл.17" ID="7" KSNAME="НА2" LEMMA="НА" LINK="1-компл">на</W> 
+<W DOM="7" FEAT="NUM ЕД СРЕД ПР" HYPOT="предл.10" ID="8" KSNAME="ОДИН1" LEMMA="ОДИН" LINK="предл">одном</W> 
+<W DOM="8" FEAT="PR" HYPOT="электив.11" ID="9" KSNAME="ИЗ" LEMMA="ИЗ" LINK="электив">из</W> 
+<W DOM="11" FEAT="A МН РОД" HYPOT="опред.01" ID="10" KSNAME="ПЕРВЫЙ" LEMMA="ПЕРВЫЙ" LINK="опред">первых</W> 
+<W DOM="9" FEAT="S МН СРЕД РОД НЕОД" HYPOT="предл.10" ID="11" KSNAME="МЕСТО" LEMMA="МЕСТО" LINK="предл">мест</W> 
+<W DOM="11" FEAT="PR" HYPOT="атриб.18" ID="12" KSNAME="СРЕДИ" LEMMA="СРЕДИ" LINK="атриб">среди</W> 
+<W DOM="14" FEAT="A МН РОД" HYPOT="опред.01" ID="13" KSNAME="КЛЮЧЕВОЙ1" LEMMA="КЛЮЧЕВОЙ" LINK="опред">ключевых</W> 
+<W DOM="12" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предл.10" ID="14" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА" LINK="предл">проблем</W> 
+<W DOM="14" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="15" KSNAME="ЭКОНОМИКА" LEMMA="ЭКОНОМИКА" LINK="1-компл">экономики</W>. 
+</S>
+<S DATE="12 05 2011 16:57:40" ID="4">
+<W DOM="16" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ВЫПОЛНЕНИЕ" LEMMA="ВЫПОЛНЕНИЕ" LINK="предик">Выполнение</W> 
+<W DOM="7" FEAT="V СОВ СТРАД ПРИЧ ПРОШ ЕД ЖЕН РОД" HYPOT="опред.01" ID="2" KSNAME="НАМЕЧАТЬ" LEMMA="НАМЕЧАТЬ" LINK="опред">намеченной</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="НА2" LEMMA="НА" LINK="обст">на</W> 
+<W DOM="5" EXTRAFEAT="UPP" FEAT="NUM" HYPOT="опред.13" ID="4" KSNAME="ДВАДЦАТЬ-СЕМЬ-РИМСКОЕ" LEMMA="XXVII" LINK="опред">XXVII</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="5" KSNAME="СЪЕЗД1" LEMMA="СЪЕЗД" LINK="предл">съезде</W> 
+<W DOM="5" EXTRAFEAT="UPP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="КПСС" LEMMA="КПСС" LINK="квазиагент">КПСС</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="ЗАДАЧА" LEMMA="ЗАДАЧА" LINK="1-компл">задачи</W> 
+<W DOM="7" FEAT="PR" HYPOT="атриб.18" ID="8" KSNAME="ПО1" LEMMA="ПО" LINK="атриб">по</W> 
+<W DOM="8" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="9" KSNAME="СНИЖЕНИЕ" LEMMA="СНИЖЕНИЕ" LINK="предл">снижению</W> 
+<W DOM="11" FEAT="S МУЖ НЕОД СЛ" HYPOT="композ" ID="10" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="композ">металло</W>-
+<W DOM="9" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ЕМКОСТЬ1" LEMMA="ЕМКОСТЬ" LINK="1-компл" NODETYPE="FANTOM"/> 
+<W DOM="11" FEAT="CONJ" HYPOT="сочин.13" ID="12" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="соч-союзн.10" ID="13" KSNAME="ФИКТ-СУЩ-Ж" LEMMA="МАТЕРИАЛОЕМКОСТЬ" LINK="соч-союзн">материалоемкости</W> 
+<W DOM="13" FEAT="S МН СРЕД РОД НЕОД" HYPOT="квазиагент" ID="14" KSNAME="ИЗДЕЛИЕ" LEMMA="ИЗДЕЛИЕ" LINK="квазиагент">изделий</W> 
+<W DOM="14" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="атриб.01" ID="15" KSNAME="ПРОМЫШЛЕННОСТЬ" LEMMA="ПРОМЫШЛЕННОСТЬ" LINK="атриб">промышленности</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="16" KSNAME="ПОЗВОЛЯТЬ" LEMMA="ПОЗВОЛЯТЬ">позволит</W> 
+<W DOM="18" FEAT="A ЕД СРЕД ДАТ" HYPOT="опред.01" ID="17" KSNAME="НАРОДНЫЙ" LEMMA="НАРОДНЫЙ" LINK="опред">народному</W> 
+<W DOM="16" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="18" KSNAME="ХОЗЯЙСТВО" LEMMA="ХОЗЯЙСТВО" LINK="2-компл">хозяйству</W> 
+<W DOM="16" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="19" KSNAME="ПОЛУЧАТЬ" LEMMA="ПОЛУЧАТЬ" LINK="1-компл">получить</W> 
+<W DOM="19" FEAT="ADV" HYPOT="обст.01" ID="20" KSNAME="ДОПОЛНИТЕЛЬНО" LEMMA="ДОПОЛНИТЕЛЬНО" LINK="обст">дополнительно</W> 
+<W DOM="22" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="21" KSNAME="МАТЕРИАЛЬНЫЙ" LEMMA="МАТЕРИАЛЬНЫЙ" LINK="опред">материальные</W> 
+<W DOM="19" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="22" KSNAME="РЕСУРС" LEMMA="РЕСУРС" LINK="1-компл">ресурсы</W>. 
+</S>
+<S COMMENT="traced" DATE="13 07 2009 21:26:13" ID="5">
+<W DOM="4" EXTRAFEAT="ALT CAP" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ЦЕХ1" LEMMA="ЦЕХ" LINK="предик">Цехи</W> 
+<W DOM="3" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="2" KSNAME="КРУПНЫЙ" LEMMA="КРУПНЫЙ" LINK="опред">крупной</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="3" KSNAME="ТИПОГРАФИЯ" LEMMA="ТИПОГРАФИЯ" LINK="квазиагент">типографии</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="4" KSNAME="НАПОМИНАТЬ2" LEMMA="НАПОМИНАТЬ">напоминают</W> 
+<W DOM="6" FEAT="A ЕД СРЕД ВИН" HYPOT="опред.01" ID="5" KSNAME="МАШИННЫЙ" LEMMA="МАШИННЫЙ" LINK="опред">машинное</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="ОТДЕЛЕНИЕ1" LEMMA="ОТДЕЛЕНИЕ" LINK="1-компл">отделение</W> 
+<W DOM="8" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="7" KSNAME="ОКЕАНСКИЙ" LEMMA="ОКЕАНСКИЙ" LINK="опред">океанского</W> 
+<W DOM="6" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="ЛАЙНЕР" LEMMA="ЛАЙНЕР" LINK="квазиагент">лайнера</W>: 
+<W DOM="10" FEAT="ADV" HYPOT="обст.01" ID="9" KSNAME="БЕШЕНО" LEMMA="БЕШЕНО" LINK="обст">бешено</W> 
+<W DOM="4" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="разъяснит.01" ID="10" KSNAME="ВРАЩАТЬСЯ" LEMMA="ВРАЩАТЬСЯ" LINK="разъяснит">вращаются</W> 
+<W DOM="10" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="11" KSNAME="БАРАБАН" LEMMA="БАРАБАН" LINK="предик">барабаны</W>, 
+<W DOM="10" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="сент-соч.01" ID="12" KSNAME="ВЫСИТЬСЯ" LEMMA="ВЫСИТЬСЯ" LINK="сент-соч">высятся</W> 
+<W DOM="14" FEAT="A МН ИМ" HYPOT="опред.01" ID="13" KSNAME="СТАЛЬНОЙ" LEMMA="СТАЛЬНОЙ" LINK="опред">стальные</W> 
+<W DOM="12" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="14" KSNAME="КОРПУС1" LEMMA="КОРПУС" LINK="предик">корпуса</W> 
+<W DOM="16" FEAT="A МН РОД" HYPOT="опред.01" ID="15" KSNAME="МНОГОЭТАЖНЫЙ" LEMMA="МНОГОЭТАЖНЫЙ" LINK="опред">многоэтажных</W> 
+<W DOM="14" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="16" KSNAME="УСТАНОВКА2" LEMMA="УСТАНОВКА" LINK="квазиагент">установок</W>, 
+<W DOM="16" FEAT="V СОВ СТРАД ПРИЧ ПРОШ МН РОД" HYPOT="опред.02" ID="17" KSNAME="СОЕДИНЯТЬ" LEMMA="СОЕДИНЯТЬ" LINK="опред">соединенных</W> 
+<W DOM="19" FEAT="A МН ТВОР" HYPOT="опред.01" ID="18" KSNAME="ПЕШЕХОДНЫЙ" LEMMA="ПЕШЕХОДНЫЙ" LINK="опред">пешеходными</W> 
+<W DOM="17" FEAT="S МН МУЖ ТВОР НЕОД" HYPOT="4-компл.14" ID="19" KSNAME="МОСТИК" LEMMA="МОСТИК" LINK="4-компл">мостиками</W> 
+<W DOM="19" FEAT="CONJ" HYPOT="сочин.13" ID="20" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="22" FEAT="A МН ТВОР" HYPOT="опред.01" ID="21" KSNAME="КРУТОЙ" LEMMA="КРУТОЙ" LINK="опред">крутыми</W> 
+<W DOM="20" FEAT="S МН ЖЕН ТВОР НЕОД" HYPOT="соч-союзн.10" ID="22" KSNAME="ЛЕСЕНКА" LEMMA="ЛЕСЕНКА" LINK="соч-союзн">лесенками</W>. 
+</S>
+<S DATE="31 10 2011 17:53:33" ID="6">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="1" KSNAME="ПЕЧАТНЫЙ" LEMMA="ПЕЧАТНЫЙ" LINK="опред">Печатная</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предик">машина</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="МОЧЬ" LEMMA="МОЧЬ">может</W> 
+<W DOM="3" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="4" KSNAME="ВЕСИТЬ" LEMMA="ВЕСИТЬ" LINK="1-компл">весить</W> 
+<W DOM="6" FEAT="PART" HYPOT="огранич.10" ID="5" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.12" ID="6" KSNAME="ОКОЛО" LEMMA="ОКОЛО" LINK="1-компл">около</W> 
+<W DOM="8" FEAT="NUM" HYPOT="количест.14" ID="7" KSNAME="ЧИСЛ-МАЛ" LEMMA="3" LINK="количест">3</W> 
+<W DOM="6" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предл.10" ID="8" KSNAME="ТОННА" LEMMA="ТОННА" LINK="предл">тонн</W>, 
+<W DOM="3" FEAT="CONJ" HYPOT="сочин.20" ID="9" KSNAME="А1" LEMMA="А" LINK="сочин">а</W> 
+<W DOM="9" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="соч-союзн.15" ID="10" KSNAME="МОЧЬ" LEMMA="МОЧЬ" LINK="соч-союзн">может</W> 
+<W DOM="10" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="11" KSNAME="ВЕСИТЬ" LEMMA="ВЕСИТЬ" LINK="1-компл" NODETYPE="FANTOM"/>
+<W DOM="13" FEAT="PART" HYPOT="огранич.10" ID="12" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="11" FEAT="PR" HYPOT="1-компл.12" ID="13" KSNAME="СВЫШЕ1" LEMMA="СВЫШЕ" LINK="1-компл">свыше</W> 
+<W DOM="15" FEAT="NUM" HYPOT="количест.11" ID="14" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="100" LINK="количест">100</W> 
+<W DOM="13" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предл.10" ID="15" KSNAME="ТОННА" LEMMA="ТОННА" LINK="предл">тонн</W>. 
+</S>
+<S COMMENT="traced" COREF="(7:техники,-5;6:техники)&#xA;" DATE="20 07 2023 19:48:51" ID="7" MICROSYNT="(тем самым,{8:тем...9:самым})&#xA;">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="ПОЭТОМУ" LEMMA="ПОЭТОМУ" LINK="обст">Поэтому</W> 
+<W DOM="3" FEAT="ADV" HYPOT="огранич.22" ID="2" KSNAME="ОЧЕНЬ" LEMMA="ОЧЕНЬ" LINK="огранич">очень</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД СРЕД" ID="3" KSNAME="ВАЖНЫЙ" LEMMA="ВАЖНЫЙ">важно</W> 
+<W DOM="3" FEAT="V НЕСОВ ИНФ" HYPOT="предик.19" ID="4" KSNAME="СНИЖАТЬ" LEMMA="СНИЖАТЬ" LINK="предик">снижать</W> 
+<W DOM="4" EXTRAFEAT="ALTJO" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="5" KSNAME="МЕТАЛЛОЕМКОСТЬ" LEMMA="МЕТАЛЛОЕМКОСТЬ" LINK="1-компл">металлоемкость</W> 
+<W DOM="7" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="6" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфической</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="7" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="квазиагент">техники</W>, 
+<W DOM="10" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="огранич.d0" ID="8" KSNAME="ТО1" LEMMA="ТО" LINK="огранич">тем</W> 
+<W DOM="8" FEAT="A ЕД СРЕД ТВОР" HYPOT="опред.d0" ID="9" KSNAME="САМЫЙ" LEMMA="САМЫЙ" LINK="опред">самым</W> 
+<W DOM="4" FEAT="V НЕСОВ ДЕЕПР НЕПРОШ" HYPOT="обст.02" ID="10" KSNAME="ДОБИВАТЬСЯ" LEMMA="ДОБИВАТЬСЯ" LINK="обст">добиваясь</W> 
+<W DOM="12" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="11" KSNAME="НАИБОЛЬШИЙ" LEMMA="НАИБОЛЬШИЙ" LINK="опред">наибольшей</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="12" KSNAME="ЭКОНОМИЯ" LEMMA="ЭКОНОМИЯ" LINK="1-компл">экономии</W> 
+<W DOM="12" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металла</W>.
+</S>
+<S COMMENT="traced" COREF="(12:металла,-1;13:металла)&#xA;" DATE="20 07 2023 19:50:18" ID="8">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="А1" LEMMA="А">А</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="ADV" HYPOT="соч-союзн.20" ID="2" KSNAME="НЕЛЬЗЯ" LEMMA="НЕЛЬЗЯ" LINK="соч-союзн">нельзя</W> 
+<W DOM="2" FEAT="PART" HYPOT="огранич.15" ID="3" KSNAME="ЛИ1" LEMMA="ЛИ" LINK="огранич">ли</W> 
+<W DOM="2" FEAT="V СОВ ИНФ" HYPOT="предик.19" ID="4" KSNAME="ПРИДУМЫВАТЬ" LEMMA="ПРИДУМЫВАТЬ" LINK="предик">придумать</W> 
+<W DOM="6" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="5" KSNAME="ТАКОЙ" LEMMA="ТАКОЙ" LINK="опред">такой</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="СПОСОБ" LEMMA="СПОСОБ" LINK="1-компл">способ</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="ПЕЧАТЬ1" LEMMA="ПЕЧАТЬ" LINK="1-компл">печати</W>, 
+<W DOM="5" FEAT="CONJ" HYPOT="1-компл.40" ID="8" KSNAME="ЧТОБЫ" LEMMA="ЧТОБЫ" LINK="1-компл">чтобы</W> 
+<W DOM="8" FEAT="V НЕСОВ ИНФ" HYPOT="инф-союзн.11" ID="9" KSNAME="ОБХОДИТЬСЯ1" LEMMA="ОБХОДИТЬСЯ" LINK="инф-союзн">обходиться</W> 
+<W DOM="11" FEAT="ADV" HYPOT="огранич.12" ID="10" KSNAME="ВООБЩЕ" LEMMA="ВООБЩЕ" LINK="огранич">вообще</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="11" KSNAME="БЕЗ" LEMMA="БЕЗ" LINK="1-компл">без</W> 
+<W DOM="11" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="12" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="предл">металла</W>? 
+</S>
+<S COMMENT="traced" COREF="(10:печати,-1;7:печати)&#xA;" DATE="20 07 2023 19:51:00" ID="9">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="вводн.10" ID="1" KSNAME="УВЫ" LEMMA="УВЫ" LINK="вводн">Увы</W>, 
+<W DOM="3" FEAT="A ЕД СРЕД ИМ" HYPOT="предик.01" ID="2" KSNAME="ТАКОЙ" LEMMA="ТАКОЙ" LINK="предик">такое</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="БЫТЬ" LEMMA="БЫТЬ">будет</W> 
+<W DOM="3" FEAT="A КР ЕД СРЕД" HYPOT="присвяз.14" ID="4" KSNAME="ВОЗМОЖНЫЙ" LEMMA="ВОЗМОЖНЫЙ" LINK="присвяз">возможно</W> 
+<W DOM="6" FEAT="PART" HYPOT="огранич.12" ID="5" KSNAME="ЛИШЬ" LEMMA="ЛИШЬ" LINK="огранич">лишь</W> 
+<W DOM="3" FEAT="PR" HYPOT="обст.23" ID="6" KSNAME="ПРИ" LEMMA="ПРИ" LINK="обст">при</W> 
+<W DOM="8" FEAT="A ЕД ЖЕН ПР" HYPOT="опред.01" ID="7" KSNAME="ПОЛНЫЙ" LEMMA="ПОЛНЫЙ" LINK="опред">полной</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="8" KSNAME="СМЕНА" LEMMA="СМЕНА" LINK="предл">смене</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="ТЕХНОЛОГИЯ" LEMMA="ТЕХНОЛОГИЯ" LINK="1-компл">технологии</W> 
+<W DOM="9" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="10" KSNAME="ПЕЧАТЬ1" LEMMA="ПЕЧАТЬ" LINK="квазиагент">печати</W>. 
+</S>
+<S COMMENT="traced" DATE="11 02 2020 17:28:11" ID="10">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="A ЕД МУЖ ТВОР" HYPOT="присвяз.21" ID="1" KSNAME="МАГИСТРАЛЬНЫЙ" LEMMA="МАГИСТРАЛЬНЫЙ" LINK="присвяз">Магистральным</W> 
+<W DOM="1" FEAT="PART" HYPOT="огранич.16" ID="2" KSNAME="ЖЕ" LEMMA="ЖЕ" LINK="огранич">же</W> 
+<W DOM="4" FEAT="ADV" HYPOT="огранич.12" ID="3" KSNAME="ПОКА2" LEMMA="ПОКА" LINK="огранич">пока</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="4" KSNAME="ОСТАВАТЬСЯ1" LEMMA="ОСТАВАТЬСЯ">остается</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="ПУТЬ" LEMMA="ПУТЬ" LINK="предик">путь</W> 
+<W DOM="7" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="6" KSNAME="ПОСТОЯННЫЙ" LEMMA="ПОСТОЯННЫЙ" LINK="опред">постоянного</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="ПОИСК" LEMMA="ПОИСК" LINK="1-компл">поиска</W> 
+<W DOM="7" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="8" KSNAME="ОБЛЕГЧЕНИЕ1" LEMMA="ОБЛЕГЧЕНИЕ" LINK="1-компл">облегчения</W> 
+<W DOM="8" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="КОНСТРУКЦИЯ" LEMMA="КОНСТРУКЦИЯ" LINK="1-компл">конструкций</W>. 
+</S>
+<S COMMENT="traced" DATE="29 08 2018 00:02:03" ID="11">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S МН МУЖ ВИН ОД" HYPOT="1-компл.51" ID="1" KSNAME="МАШИНОСТРОИТЕЛЬ" LEMMA="МАШИНОСТРОИТЕЛЬ" LINK="1-компл">Машиностроителей</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="ADV" ID="2" KSNAME="НЕЛЬЗЯ" LEMMA="НЕЛЬЗЯ">нельзя</W> 
+<W DOM="2" FEAT="V СОВ ИНФ" HYPOT="предик.19" ID="3" KSNAME="УПРЕКАТЬ" LEMMA="УПРЕКАТЬ" LINK="предик">упрекнуть</W> 
+<W DOM="3" FEAT="PR" HYPOT="2-компл.17" ID="4" KSNAME="В2" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="5" KSNAME="БЕЗДЕЙСТВИЕ" LEMMA="БЕЗДЕЙСТВИЕ" LINK="предл">бездействии</W>. 
+</S>
+<S COMMENT="traced" COREF="(4:металлоемкости,-5;5:металлоемкость)&#xA;" DATE="25 11 2023 17:33:21" ID="12">
+<W DOM="5" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="1" KSNAME="РАБОТА1" LEMMA="РАБОТА" LINK="предик">Работа</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="2" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="2" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="3" KSNAME="СНИЖЕНИЕ" LEMMA="СНИЖЕНИЕ" LINK="предл">снижению</W> 
+<W DOM="3" EXTRAFEAT="ALTJO" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="4" KSNAME="МЕТАЛЛОЕМКОСТЬ" LEMMA="МЕТАЛЛОЕМКОСТЬ" LINK="1-компл">металлоемкости</W> 
+<W DOM="_root" EXTRAFEAT="ALTJO ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД ЖЕН" ID="5" KSNAME="РАЗВЕРТЫВАТЬ1" LEMMA="РАЗВЕРТЫВАТЬ">развернута</W> 
+<W DOM="5" FEAT="ADV" HYPOT="обст.01" ID="6" KSNAME="ШИРОКО" LEMMA="ШИРОКО" LINK="обст">широко</W>. 
+</S>
+<S COMMENT="traced" COREF="(13:металла,-5;12:металла)&#xA;" DATE="20 07 2023 19:53:16" ID="13" MICROSYNT="(по возможности,{10:по...11:возможности})&#xA;">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.17" ID="1" KSNAME="БОЛЬШИНСТВО" LEMMA="БОЛЬШИНСТВО" LINK="предик">Большинство</W> 
+<W DOM="1" FEAT="S МН СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="2" KSNAME="МЕРОПРИЯТИЕ" LEMMA="МЕРОПРИЯТИЕ" LINK="квазиагент">мероприятий</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" ID="3" KSNAME="ПРИЗЫВАТЬ1" LEMMA="ПРИЗЫВАТЬ">призваны</W> 
+<W DOM="3" FEAT="V СОВ ИНФ" HYPOT="2-компл.11" ID="4" KSNAME="ОБЕСПЕЧИВАТЬ1" LEMMA="ОБЕСПЕЧИВАТЬ" LINK="2-компл">обеспечить</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="5" KSNAME="ВЫПОЛНЕНИЕ" LEMMA="ВЫПОЛНЕНИЕ" LINK="1-компл">выполнение</W> 
+<W DOM="8" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="6" KSNAME="ГЛАВНЫЙ" LEMMA="ГЛАВНЫЙ" LINK="опред">главного</W> 
+<W DOM="8" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="7" KSNAME="СОВРЕМЕННЫЙ" LEMMA="СОВРЕМЕННЫЙ" LINK="опред">современного</W> 
+<W DOM="5" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="8" KSNAME="ТРЕБОВАНИЕ" LEMMA="ТРЕБОВАНИЕ" LINK="1-компл">требования</W>: 
+<W DOM="8" FEAT="V НЕСОВ ИНФ" HYPOT="разъяснит.01" ID="9" KSNAME="ЭКОНОМИТЬ" LEMMA="ЭКОНОМИТЬ" LINK="разъяснит">экономить</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="10" KSNAME="ПО1" LEMMA="ПО" LINK="обст">по</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="11" KSNAME="ВОЗМОЖНОСТЬ" LEMMA="ВОЗМОЖНОСТЬ" LINK="предл">возможности</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="ADV СРАВ" HYPOT="1-компл.13" ID="12" KSNAME="МНОГО1" LEMMA="МНОГО" LINK="1-компл">больше</W> 
+<W DOM="12" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металла</W>. 
+</S>
+<S COMMENT="traced" DATE="28 08 2018 23:52:41" ID="14" MICROSYNT="(тем не менее,{2:тем не менее...2:тем не менее})&#xA;">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="И1" LEMMA="И">И</W> 
+<W DOM="3" FEAT="ADV" HYPOT="огранич.30" ID="2" KSNAME="ТЕМ$НЕ$МЕНЕЕ" LEMMA="ТЕМ НЕ МЕНЕЕ" LINK="огранич">тем не менее</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="соч-союзн.20" ID="3" KSNAME="ОСТАВАТЬСЯ1" LEMMA="ОСТАВАТЬСЯ" LINK="соч-союзн">остаются</W> 
+<W DOM="3" EXTRAFEAT="ALTJO" FEAT="A МН ТВОР" HYPOT="присвяз.21" ID="4" KSNAME="НЕРЕШЕННЫЙ" LEMMA="НЕРЕШЕННЫЙ" LINK="присвяз">нерешенными</W> 
+<W DOM="6" FEAT="NUM ИМ" HYPOT="количест.11" ID="5" KSNAME="НЕСКОЛЬКО1" LEMMA="НЕСКОЛЬКО" LINK="количест">несколько</W> 
+<W DOM="3" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предик.02" ID="6" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА" LINK="предик">проблем</W>. 
+</S>
+<S COMMENT="traced" DATE="28 08 2018 23:55:14" ID="15">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="1" KSNAME="ЭКОНОМИЯ" LEMMA="ЭКОНОМИЯ" LINK="предик">Экономия</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД ЖЕН" ID="2" KSNAME="ДОЛЖЕН1" LEMMA="ДОЛЖЕН">должна</W> 
+<W DOM="2" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="3" KSNAME="НАЧИНАТЬСЯ" LEMMA="НАЧИНАТЬСЯ" LINK="1-компл">начинаться</W> 
+<W DOM="3" FEAT="ADV" HYPOT="2-компл.17" ID="4" KSNAME="ТОГДА" LEMMA="ТОГДА" LINK="2-компл">тогда</W>, 
+<W DOM="8" FEAT="ADV" HYPOT="обст.01" ID="5" KSNAME="КОГДА1" LEMMA="КОГДА" LINK="обст">когда</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="6" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предик">машина</W> 
+<W DOM="8" EXTRAFEAT="ALTJO" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="ЕЩЕ2" LEMMA="ЕЩЕ" LINK="огранич">еще</W> 
+<W DOM="4" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ СТРАД ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="релят.14" ID="8" KSNAME="ПРОЕКТИРОВАТЬ" LEMMA="ПРОЕКТИРОВАТЬ" LINK="релят">проектируется</W>. 
+</S>
+<S COMMENT="traced" DATE="29 01 2016 19:10:58" ID="16">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="огранич.30" ID="1" KSNAME="ОДНАКО" LEMMA="ОДНАКО" LINK="огранич">Однако</W> 
+<W DOM="4" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="2" KSNAME="КОНСТРУКТОР1" LEMMA="КОНСТРУКТОР" LINK="предик">конструкторы</W> 
+<W DOM="4" FEAT="ADV" HYPOT="огранич.19" ID="3" KSNAME="ПОРОЙ" LEMMA="ПОРОЙ" LINK="огранич">порой</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="4" KSNAME="ПОСТУПАТЬ2" LEMMA="ПОСТУПАТЬ">поступают</W> 
+<W DOM="4" FEAT="ADV" HYPOT="обст.01" ID="5" KSNAME="НАОБОРОТ" LEMMA="НАОБОРОТ" LINK="обст">наоборот</W>, 
+<W DOM="4" EXTRAFEAT="ALTJO" FEAT="CONJ" HYPOT="сочин.20" ID="6" KSNAME="ПРИЧЕМ1" LEMMA="ПРИЧЕМ" LINK="сочин">причем</W> 
+<W DOM="6" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="соч-союзн.15" ID="7" KSNAME="ДЕЛАТЬ" LEMMA="ДЕЛАТЬ" LINK="соч-союзн">делают</W> 
+<W DOM="7" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="8" KSNAME="ЭТО" LEMMA="ЭТО" LINK="1-компл">это</W> 
+<W DOM="7" FEAT="ADV" HYPOT="обст.01" ID="9" KSNAME="СОЗНАТЕЛЬНО" LEMMA="СОЗНАТЕЛЬНО" LINK="обст">сознательно</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(11:металл,-4;13:металла)&#xA;" DATE="25 11 2023 17:34:37" ID="17">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="И1" LEMMA="И">И</W> 
+<W DOM="14" FEAT="CONJ" HYPOT="обст.27" ID="2" KSNAME="ЕСЛИ" LEMMA="ЕСЛИ" LINK="обст">если</W> 
+<W DOM="4" FEAT="PART" HYPOT="огранич.d1" ID="3" KSNAME="ДАЖЕ" LEMMA="ДАЖЕ" LINK="огранич">даже</W> 
+<W DOM="2" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НАСТ ЕД 3-Л" HYPOT="подч-союзн.10" ID="4" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="подч-союзн">есть</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="ВОЗМОЖНОСТЬ" LEMMA="ВОЗМОЖНОСТЬ" LINK="предик">возможность</W> 
+<W DOM="5" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="6" KSNAME="ОБЛЕГЧАТЬ" LEMMA="ОБЛЕГЧАТЬ" LINK="1-компл">облегчить</W> 
+<W DOM="6" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="7" KSNAME="УЗЕЛ1" LEMMA="УЗЕЛ" LINK="1-компл">узел</W> 
+<W DOM="7" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="8" KSNAME="МЕХАНИЗМ" LEMMA="МЕХАНИЗМ" LINK="1-компл">механизма</W>, 
+<W DOM="2" FEAT="CONJ" HYPOT="соотнос.11" ID="9" KSNAME="ТО2" LEMMA="ТО" LINK="соотнос">то</W> 
+<W DOM="11" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="10" KSNAME="ЛИШНИЙ" LEMMA="ЛИШНИЙ" LINK="опред">лишний</W> 
+<W DOM="12" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="11" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металл</W> 
+"<W DOM="14" EXTRAFEAT="IN-QUOT" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="12" KSNAME="СНИМАТЬ1" LEMMA="СНИМАТЬ" LINK="1-компл">снимать</W>" 
+<W DOM="14" FEAT="PART" HYPOT="огранич.10" ID="13" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="соч-союзн.20" ID="14" KSNAME="ТОРОПИТЬСЯ" LEMMA="ТОРОПИТЬСЯ" LINK="соч-союзн">торопятся</W>.
+<LF LFARG="5" LFFUNC="_FUNC0" LFVAL="4"/>
+</S>
+<S DATE="31 10 2011 17:31:44" ID="18">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="ADV" ID="1" KSNAME="ПОЧЕМУ" LEMMA="ПОЧЕМУ">Почему</W>?
+</S>
+<S DATE="09 03 2021 00:40:02" ID="19" MICROSYNT="(может быть,{1:Быть...2:может})&#xA;">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="1" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="1-компл">Быть</W> 
+<W DOM="5" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="вводн.17" ID="2" KSNAME="МОЧЬ" LEMMA="МОЧЬ" LINK="вводн">может</W>, 
+<W DOM="4" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="3" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">этот</W> 
+<W DOM="5" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="4" KSNAME="ПАРАДОКС" LEMMA="ПАРАДОКС" LINK="1-компл">парадокс</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="5" KSNAME="ОБЪЯСНЯТЬ" LEMMA="ОБЪЯСНЯТЬ">объяснит</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="6" KSNAME="СУДЬБА" LEMMA="СУДЬБА" LINK="предик">судьба</W> 
+<W DOM="8" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="7" KSNAME="РЕЗАЛЬНЫЙ" LEMMA="РЕЗАЛЬНЫЙ" LINK="опред">резальной</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="квазиагент">машины</W>, 
+<W DOM="8" FEAT="V НЕСОВ СТРАД ПРИЧ НЕПРОШ ЕД ЖЕН РОД" HYPOT="опред.02" ID="9" KSNAME="ИЗГОТОВЛЯТЬ" LEMMA="ИЗГОТОВЛЯТЬ" LINK="опред">изготовляемой</W> 
+<W DOM="11" EXTRAFEAT="SEMI-FICTIVE" FEAT="A ЕД МУЖ ТВОР" HYPOT="опред.01" ID="10" KSNAME="ФИКТ-ПРИЛ" LEMMA="РОМЕНСКИЙ" LINK="опред">Роменским</W> 
+<W DOM="9" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="агент.01" ID="11" KSNAME="ЗАВОД1" LEMMA="ЗАВОД" LINK="агент">заводом</W> 
+<W DOM="13" FEAT="A МН РОД" HYPOT="опред.01" ID="12" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфических</W> 
+<W DOM="11" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="1-компл">машин</W>. 
+</S>
+<S CLASS="LF" COREF="(16:ею,1:Машина)&#xA;(1:Машина,-1;8:машины)&#xA;" DATE="20 07 2023 19:57:03" ID="20" StateInfo="&#xA;Hypotheses 40">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="1" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предик">Машина</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД ЖЕН" ID="2" KSNAME="СОЗДАВАТЬ" LEMMA="СОЗДАВАТЬ">создана</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="ДЛЯ" LEMMA="ДЛЯ" LINK="обст">для</W> 
+<W DOM="3" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="4" KSNAME="РЕЗАНИЕ" LEMMA="РЕЗАНИЕ" LINK="предл">резания</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="БУМАГА" LEMMA="БУМАГА" LINK="1-компл">бумаги</W> 
+<W DOM="4" FEAT="PR" HYPOT="атриб.18" ID="6" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="7" KSNAME="ТИПОГРАФИЯ" LEMMA="ТИПОГРАФИЯ" LINK="предл">типографии</W>, 
+<W DOM="2" FEAT="CONJ" HYPOT="сочин.20" ID="8" KSNAME="НО" LEMMA="НО" LINK="сочин">но</W> 
+<W DOM="8" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="соч-союзн.15" ID="9" KSNAME="ВСТРЕЧАТЬСЯ2" LEMMA="ВСТРЕЧАТЬСЯ" LINK="соч-союзн">встречается</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="10" KSNAME="В2" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="12" FEAT="A МН ПР" HYPOT="опред.d0" ID="11" KSNAME="САМЫЙ" LEMMA="САМЫЙ" LINK="опред">самых</W> 
+<W DOM="13" FEAT="A МН ПР" HYPOT="опред.01" ID="12" KSNAME="НЕОЖИДАННЫЙ" LEMMA="НЕОЖИДАННЫЙ" LINK="опред">неожиданных</W> 
+<W DOM="10" FEAT="S МН СРЕД ПР НЕОД" HYPOT="предл.10" ID="13" KSNAME="МЕСТО" LEMMA="МЕСТО" LINK="предл">местах</W>: 
+<W DOM="15" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="14" KSNAME="ХИМИК" LEMMA="ХИМИК" LINK="предик">химики</W> 
+<W DOM="9" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="разъяснит.01" ID="15" KSNAME="РЕЗАТЬ1" LEMMA="РЕЗАТЬ" LINK="разъяснит">режут</W> 
+<W DOM="15" FEAT="S ЕД ЖЕН ТВОР ОД" HYPOT="3-компл.14" ID="16" KSNAME="ОНА" LEMMA="ОНА" LINK="3-компл">ею</W> 
+<W DOM="15" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="17" KSNAME="ПЛАСТМАССА" LEMMA="ПЛАСТМАССА" LINK="1-компл">пластмассу</W>, 
+<W DOM="19" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="18" KSNAME="МЕБЕЛЬЩИК" LEMMA="МЕБЕЛЬЩИК" LINK="предик">мебельщики</W> - 
+<W DOM="15" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="сент-соч.01" ID="19" KSNAME="РЕЗАТЬ1" LEMMA="РЕЗАТЬ" LINK="сент-соч" NODETYPE="FANTOM"/>
+<W DOM="19" EXTRAFEAT="IN-DASH" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="20" KSNAME="ШПОН" LEMMA="ШПОН" LINK="1-компл">шпон</W>, 
+<W DOM="22" EXTRAFEAT="IN-DASH ЗЕРО" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="21" KSNAME="ГАЛАНТЕРЕЙЩИК" LEMMA="ГАЛАНТЕРЕЙЩИК" LINK="предик">галантерейщики</W> - 
+<W DOM="19" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="сент-соч.01" ID="22" KSNAME="РЕЗАТЬ1" LEMMA="РЕЗАТЬ" LINK="сент-соч" NODETYPE="FANTOM"/>
+<W DOM="24" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="23" KSNAME="ТОЛСТЫЙ" LEMMA="ТОЛСТЫЙ" LINK="опред">толстый</W> 
+<W DOM="22" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="24" KSNAME="КАРТОН" LEMMA="КАРТОН" LINK="1-компл">картон</W> 
+<W DOM="24" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="25" KSNAME="ДЛЯ" LEMMA="ДЛЯ" LINK="атриб">для</W> 
+<W DOM="25" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="26" KSNAME="ЧЕМОДАН" LEMMA="ЧЕМОДАН" LINK="предл">чемоданов</W>. 
+<LF LFARG="13" LFFUNC="_LOC" LFVAL="10"/>
+</S>
+<S COMMENT="traced" DATE="20 06 2022 18:26:16" ID="21" MICROSYNT="(почему же,{1:Почему...2:же})&#xA;">
+<W DOM="_root" EXTRAFEAT="CAP ЗЕРО" FEAT="ADV" ID="1" KSNAME="ПОЧЕМУ" LEMMA="ПОЧЕМУ">Почему</W> 
+<W DOM="1" FEAT="PART" HYPOT="огранич.16" ID="2" KSNAME="ЖЕ" LEMMA="ЖЕ" LINK="огранич">же</W>?
+</S>
+<S COMMENT="traced" DATE="26 09 2014 16:00:16" ID="22">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="PART" HYPOT="огранич.10" ID="1" KSNAME="ДА1" LEMMA="ДА" LINK="огранич">Да</W> 
+<W DOM="_root" FEAT="ADV" ID="2" KSNAME="ПОТОМУ" LEMMA="ПОТОМУ">потому</W>, 
+<W DOM="2" FEAT="CONJ" HYPOT="эксплет.d0" ID="3" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="эксплет">что</W> 
+<W DOM="8" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="4" KSNAME="У1" LEMMA="У" LINK="обст">у</W> 
+<W DOM="6" FEAT="A МН РОД" HYPOT="опред.01" ID="5" KSNAME="ДРУГОЙ" LEMMA="ДРУГОЙ" LINK="опред">других</W> 
+<W DOM="4" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предл.10" ID="6" KSNAME="ОТРАСЛЬ" LEMMA="ОТРАСЛЬ" LINK="предл">отраслей</W> 
+<W DOM="8" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="3" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="8" KSNAME="ХВАТАТЬ1" LEMMA="ХВАТАТЬ" LINK="подч-союзн">хватает</W> 
+<W DOM="11" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="9" KSNAME="СООТВЕТСТВУЮЩИЙ" LEMMA="СООТВЕТСТВУЮЩИЙ" LINK="опред">соответствующего</W> 
+<W DOM="11" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="10" KSNAME="РЕЗАЛЬНЫЙ" LEMMA="РЕЗАЛЬНЫЙ" LINK="опред">резального</W> 
+<W DOM="8" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предик.11" ID="11" KSNAME="ОБОРУДОВАНИЕ" LEMMA="ОБОРУДОВАНИЕ" LINK="предик">оборудования</W> 
+<W DOM="8" FEAT="CONJ" HYPOT="сент-соч.10" ID="12" KSNAME="И1" LEMMA="И" LINK="сент-соч">и</W> 
+<W DOM="15" FEAT="V СОВ СТРАД ПРИЧ ПРОШ МН ИМ" HYPOT="опред.01" ID="13" KSNAME="СПИСЫВАТЬ1" LEMMA="СПИСЫВАТЬ" LINK="опред">списанные</W> 
+<W DOM="13" FEAT="S МН ЖЕН ТВОР НЕОД" HYPOT="агент.01" ID="14" KSNAME="ТИПОГРАФИЯ" LEMMA="ТИПОГРАФИЯ" LINK="агент">типографиями</W> 
+<W DOM="20" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="15" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предик">машины</W> 
+<W DOM="17" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="16" KSNAME="ФИКТ-ПРИЛ" LEMMA="РОМЕНСКИЙ" LINK="опред">роменского</W> 
+<W DOM="15" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="атриб.10" ID="17" KSNAME="ПРОИЗВОДСТВО" LEMMA="ПРОИЗВОДСТВО" LINK="атриб">производства</W> 
+<W DOM="19" EXTRAFEAT="ALTJO" FEAT="PART" HYPOT="огранич.10" ID="18" KSNAME="ЕЩЕ1" LEMMA="ЕЩЕ" LINK="огранич">еще</W> 
+<W DOM="20" FEAT="ADV" HYPOT="обст.01" ID="19" KSNAME="ДОЛГО" LEMMA="ДОЛГО" LINK="обст">долго</W> 
+<W DOM="12" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="соч-союзн.14" ID="20" KSNAME="СЛУЖИТЬ2" LEMMA="СЛУЖИТЬ" LINK="соч-союзн">служат</W> 
+<W DOM="22" FEAT="A МН ДАТ" HYPOT="опред.01" ID="21" KSNAME="ДРУГОЙ" LEMMA="ДРУГОЙ" LINK="опред">другим</W> 
+<W DOM="20" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="22" KSNAME="ПРЕДПРИЯТИЕ" LEMMA="ПРЕДПРИЯТИЕ" LINK="2-компл">предприятиям</W>. 
+</S>
+<S COMMENT="traced" DATE="05 04 2016 13:47:02" ID="23">
+<W DOM="6" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="НА2" LEMMA="НА" LINK="обст">На</W> 
+<W DOM="1" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предл">этом</W> 
+<W DOM="6" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="3" KSNAME="ПРИЧУДА" LEMMA="ПРИЧУДА" LINK="предик">причуды</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="4" KSNAME="ЭКСПЛУАТАЦИЯ" LEMMA="ЭКСПЛУАТАЦИЯ" LINK="квазиагент">эксплуатации</W> 
+<W DOM="6" FEAT="PART" HYPOT="огранич.10" ID="5" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="6" KSNAME="КОНЧАТЬСЯ" LEMMA="КОНЧАТЬСЯ">кончаются</W>. 
+</S>
+<S CLASS="LF" COREF="(12:которые,11:ножами)&#xA;(23:когда,22:тогда)&#xA;(24:они,11:ножами)&#xA;" DATE="20 07 2023 20:10:29" ID="24" MICROSYNT="(и без того,{13:и...15:того})&#xA;" StateInfo="&#xA;Hypotheses 59">
+<W DOM="7" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" ID="1" KSNAME="НЕХВАТКА" LEMMA="НЕХВАТКА" LINK="предик">Нехватка</W> 
+<W DOM="3" FEAT="A ЕД СРЕД РОД" ID="2" KSNAME="ТОЧИЛЬНЫЙ" LEMMA="ТОЧИЛЬНЫЙ" LINK="опред">точильного</W> 
+<W DOM="1" FEAT="S ЕД СРЕД РОД НЕОД" ID="3" KSNAME="ОБОРУДОВАНИЕ" LEMMA="ОБОРУДОВАНИЕ" LINK="1-компл">оборудования</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="PR" ID="4" KSNAME="НА2" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="6" FEAT="A МН ПР" ID="5" KSNAME="НЕКОТОРЫЙ" LEMMA="НЕКОТОРЫЙ" LINK="опред">некоторых</W> 
+<W DOM="4" FEAT="S МН СРЕД ПР НЕОД" ID="6" KSNAME="ПРОИЗВОДСТВО" LEMMA="ПРОИЗВОДСТВО" LINK="предл">производствах</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="7" KSNAME="ПРИВОДИТЬ2" LEMMA="ПРИВОДИТЬ">приводит</W> 
+<W DOM="7" FEAT="PR" ID="8" KSNAME="К" LEMMA="К" LINK="1-компл">к</W> 
+<W DOM="8" FEAT="S ЕД СРЕД ДАТ НЕОД" ID="9" KSNAME="ТО1" LEMMA="ТО" LINK="предл">тому</W>, 
+<W DOM="9" FEAT="CONJ" ID="10" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="эксплет">что</W> 
+<W DOM="20" FEAT="S МН МУЖ ТВОР НЕОД" ID="11" KSNAME="НОЖ" LEMMA="НОЖ" LINK="3-компл">ножами</W>, 
+<W DOM="16" FEAT="S МН ИМ" ID="12" KSNAME="КОТОРЫЙ" LEMMA="КОТОРЫЙ" LINK="предик">которые</W> 
+<W DOM="14" FEAT="PART" ID="13" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="16" FEAT="PR" ID="14" KSNAME="БЕЗ" LEMMA="БЕЗ" LINK="обст">без</W> 
+<W DOM="14" FEAT="S ЕД СРЕД РОД НЕОД" ID="15" KSNAME="ТО1" LEMMA="ТО" LINK="предл">того</W> 
+<W DOM="11" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="16" KSNAME="ИСПЫТЫВАТЬ2" LEMMA="ИСПЫТЫВАТЬ" LINK="релят">испытывают</W> 
+<W DOM="18" FEAT="A МН ВИН НЕОД" ID="17" KSNAME="БОЛЬШОЙ" LEMMA="БОЛЬШОЙ" LINK="опред">большие</W> 
+<W DOM="16" FEAT="S МН ЖЕН ВИН НЕОД" ID="18" KSNAME="ПЕРЕГРУЗКА" LEMMA="ПЕРЕГРУЗКА" LINK="1-компл">перегрузки</W>, 
+<W DOM="10" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="19" KSNAME="ПЫТАТЬСЯ" LEMMA="ПЫТАТЬСЯ" LINK="подч-союзн">пытаются</W> 
+<W DOM="19" FEAT="V НЕСОВ ИНФ" ID="20" KSNAME="РЕЗАТЬ1" LEMMA="РЕЗАТЬ" LINK="1-компл">резать</W> 
+<W DOM="22" FEAT="PART" ID="21" KSNAME="ДАЖЕ" LEMMA="ДАЖЕ" LINK="огранич">даже</W> 
+<W DOM="20" FEAT="ADV" ID="22" KSNAME="ТОГДА" LEMMA="ТОГДА" LINK="обст">тогда</W>, 
+<W DOM="31" FEAT="ADV" ID="23" KSNAME="КОГДА1" LEMMA="КОГДА" LINK="обст">когда</W> 
+<W DOM="31" FEAT="S МН ИМ ОД" ID="24" KSNAME="ОНИ" LEMMA="ОНИ" LINK="предик">они</W> 
+<W DOM="31" FEAT="PR" ID="25" KSNAME="ОТ" LEMMA="ОТ" LINK="обст">от</W> 
+<W DOM="27" FEAT="A ЕД ЖЕН РОД" ID="26" KSNAME="ПРЕДЕЛЬНЫЙ" LEMMA="ПРЕДЕЛЬНЫЙ" LINK="опред">предельной</W> 
+<W DOM="25" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="предл" ID="27" KSNAME="ФИКТ-СУЩ-Ж" LEMMA="ЗАТУПЛЕННОСТЬ" LINK="предл">затупленности</W> 
+<W DOM="31" FEAT="PART" ID="28" KSNAME="УЖЕ" LEMMA="УЖЕ" LINK="огранич">уже</W> 
+<W DOM="31" FEAT="PART" ID="29" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="31" FEAT="PART" ID="30" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="22" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="31" KSNAME="РЕЗАТЬ1" LEMMA="РЕЗАТЬ" LINK="релят">режут</W>.
+<LF LFARG="18" LFFUNC="_OPER2" LFVAL="16"/>
+<LF LFARG="11" LFFUNC="_LABREAL1-2" LFVAL="20"/>
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(9:она,3:машина)&#xA;" DATE="20 07 2023 20:10:38" ID="25" StateInfo="&#xA;Hypotheses 48">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="PART" HYPOT="огранич.10" ID="1" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">Не</W> 
+<W DOM="3" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="2" KSNAME="КАЖДЫЙ" LEMMA="КАЖДЫЙ" LINK="опред">каждая</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="3" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предик">машина</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="4" KSNAME="ВЫДЕРЖИВАТЬ1" LEMMA="ВЫДЕРЖИВАТЬ">выдержит</W> 
+<W DOM="6" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="5" KSNAME="ТАКОЙ" LEMMA="ТАКОЙ" LINK="опред">такую</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="НАГРУЗКА" LEMMA="НАГРУЗКА" LINK="1-компл">нагрузку</W>, 
+<W DOM="8" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="4" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ПОВ ЕД 2-Л" HYPOT="обст.32" ID="8" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="обст">будь</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ИМ ОД" HYPOT="предик.54" ID="9" KSNAME="ОНА" LEMMA="ОНА" LINK="предик">она</W> 
+<W DOM="11" FEAT="ADV" HYPOT="огранич.22" ID="10" KSNAME="ОСОБО" LEMMA="ОСОБО" LINK="огранич">особо</W> 
+<W DOM="8" FEAT="A ЕД ЖЕН ТВОР" HYPOT="присвяз.21" ID="11" KSNAME="ПРОЧНЫЙ" LEMMA="ПРОЧНЫЙ" LINK="присвяз">прочной</W>. 
+<LF LFARG="6" LFFUNC="_REAL2-M" LFVAL="4"/>
+</S>
+<S CLASS="LF" COREF="(6:ее,-1;3:машина)&#xA;(10:себя,1:Конструкторы)&#xA;" DATE="20 07 2023 20:11:37" ID="26" MICROSYNT="(чувствовать себя,{9:чувствуют...10:себя})&#xA;">
+<W DOM="9" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="КОНСТРУКТОР1" LEMMA="КОНСТРУКТОР" LINK="предик">Конструкторы</W>, 
+<W DOM="3" FEAT="ADV" HYPOT="обст.01" ID="2" KSNAME="ОТЛИЧНО1" LEMMA="ОТЛИЧНО" LINK="обст">отлично</W> 
+<W DOM="9" FEAT="V НЕСОВ ДЕЕПР НЕПРОШ" HYPOT="обст.02" ID="3" KSNAME="ЗНАТЬ1" LEMMA="ЗНАТЬ" LINK="обст">зная</W> 
+<W DOM="5" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="4" KSNAME="РЕАЛЬНЫЙ" LEMMA="РЕАЛЬНЫЙ" LINK="опред">реальные</W> 
+<W DOM="3" FEAT="S МН СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="5" KSNAME="УСЛОВИЕ" LEMMA="УСЛОВИЕ" LINK="1-компл">условия</W> 
+<W DOM="7" EXTRAFEAT="ALTJO" FEAT="S ЕД ЖЕН РОД ОД" HYPOT="1-компл.20" ID="6" KSNAME="ОНА" LEMMA="ОНА" LINK="1-компл">ее</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН РОД НЕОД" ID="7" KSNAME="ЭКСПЛУАТАЦИЯ" LEMMA="ЭКСПЛУАТАЦИЯ" LINK="квазиагент">эксплуатации</W>, 
+<W DOM="9" FEAT="PART" HYPOT="огранич.10" ID="8" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="9" KSNAME="ЧУВСТВОВАТЬ" LEMMA="ЧУВСТВОВАТЬ">чувствуют</W> 
+<W DOM="9" FEAT="S ВИН" HYPOT="1-компл.11" ID="10" KSNAME="СЕБЯ" LEMMA="СЕБЯ" LINK="1-компл">себя</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="ADV" HYPOT="2-компл.35" ID="11" KSNAME="ВПРАВЕ" LEMMA="ВПРАВЕ" LINK="2-компл">вправе</W> 
+<W DOM="11" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="12" KSNAME="СОЗДАВАТЬ" LEMMA="СОЗДАВАТЬ" LINK="1-компл">создавать</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="13" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="1-компл">технику</W> 
+<W DOM="13" FEAT="PR" HYPOT="атриб.18" ID="14" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+"<W DOM="16" EXTRAFEAT="IN-QUOT" FEAT="A ЕД СРЕД ПР" HYPOT="опред.01" ID="15" KSNAME="НЕЖНЫЙ" LEMMA="НЕЖНЫЙ" LINK="опред">нежном</W> 
+<W DOM="14" EXTRAFEAT="IN-QUOT" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="16" KSNAME="ИСПОЛНЕНИЕ" LEMMA="ИСПОЛНЕНИЕ" LINK="предл">исполнении</W>". 
+<LF LFARG="3" LFFUNC="_MAGN" LFVAL="2"/>
+<LF LFARG="16" LFFUNC="_ADV2-UN" LFVAL="14"/>
+</S>
+<S COMMENT="traced" COREF="(2:они,-1;1:Конструкторы)&#xA;" DATE="20 07 2023 20:11:46" ID="27" StateInfo="&#xA;Hypotheses 33">
+<W DOM="3" EXTRAFEAT="CAP ЗЕРО" FEAT="ADV" HYPOT="вводн.10" ID="1" KSNAME="НАОБОРОТ" LEMMA="НАОБОРОТ" LINK="вводн">Наоборот</W>, 
+<W DOM="3" FEAT="S МН ИМ ОД" HYPOT="предик.04" ID="2" KSNAME="ОНИ" LEMMA="ОНИ" LINK="предик">они</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" ID="3" KSNAME="ОЗАБОЧИВАТЬ" LEMMA="ОЗАБОЧИВАТЬ">озабочены</W> 
+<W DOM="3" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="2-компл.21" ID="4" KSNAME="ПОВЫШЕНИЕ" LEMMA="ПОВЫШЕНИЕ" LINK="2-компл">повышением</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="ПРОЧНОСТЬ" LEMMA="ПРОЧНОСТЬ" LINK="1-компл">прочности</W> 
+<W DOM="5" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="УЗЕЛ1" LEMMA="УЗЕЛ" LINK="квазиагент">узлов</W>. 
+</S>
+<S COMMENT="traced" DATE="22 03 2019 17:56:26" ID="28" MICROSYNT="(далеко не,{2:далеко...3:не})&#xA;">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.04" ID="1" KSNAME="ПРИМЕР" LEMMA="ПРИМЕР" LINK="предик">Пример</W> 
+<W DOM="3" EXTRAFEAT="ЗЕРО" FEAT="ADV" HYPOT="огранич.22" ID="2" KSNAME="ДАЛЕКО" LEMMA="ДАЛЕКО" LINK="огранич">далеко</W> 
+<W DOM="4" FEAT="PART" HYPOT="огранич.10" ID="3" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A ЕД МУЖ ИМ" ID="4" KSNAME="УНИКАЛЬНЫЙ" LEMMA="УНИКАЛЬНЫЙ">уникальный</W>. 
+</S>
+<S CLASS="LF" COREF="(7:когда,6:процессов)&#xA;" DATE="20 07 2023 20:12:21" ID="29" StateInfo="&#xA;Hypotheses 21">
+<W DOM="4" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст" ID="1" KSNAME="В2" LEMMA="В" LINK="обст">В</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="предл">технике</W> 
+<W DOM="2" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="ПОЛИГРАФИЯ" LEMMA="ПОЛИГРАФИЯ" LINK="1-компл">полиграфии</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="ADV" ID="4" KSNAME="НЕМАЛО" LEMMA="НЕМАЛО">немало</W> 
+<W DOM="6" FEAT="A МН РОД" HYPOT="опред.01" ID="5" KSNAME="ТЕХНОЛОГИЧЕСКИЙ" LEMMA="ТЕХНОЛОГИЧЕСКИЙ" LINK="опред">технологических</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.12" ID="6" KSNAME="ПРОЦЕСС" LEMMA="ПРОЦЕСС" LINK="предик">процессов</W>, 
+<W DOM="8" FEAT="ADV" HYPOT="обст.01" ID="7" KSNAME="КОГДА1" LEMMA="КОГДА" LINK="обст">когда</W> 
+<W DOM="6" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="релят" ID="8" KSNAME="ПРИХОДИТЬСЯ1" LEMMA="ПРИХОДИТЬСЯ" LINK="релят">приходится</W> 
+<W DOM="8" FEAT="V НЕСОВ ИНФ" HYPOT="предик.27" ID="9" KSNAME="ИДТИ1" LEMMA="ИДТИ" LINK="предик">идти</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="10" KSNAME="НА1" LEMMA="НА" LINK="2-компл">на</W> 
+<W DOM="10" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="предл.10" ID="11" KSNAME="КОМПРОМИСС" LEMMA="КОМПРОМИСС" LINK="предл">компромиссы</W>. 
+<LF LFARG="11" LFFUNC="_OPER1" LFPREP="10" LFVAL="9"/>
+</S>
+<S COREF="(14:его,12:бумвинил)&#xA;" DATE="20 07 2023 20:12:38" ID="30" StateInfo="&#xA;Hypotheses 37">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="1" KSNAME="ФОТОТЕХНИЧЕСКИЙ" LEMMA="ФОТОТЕХНИЧЕСКИЙ" LINK="опред">Фототехническая</W> 
+<W DOM="4" EXTRAFEAT="ALTJO" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="ПЛЕНКА" LEMMA="ПЛЕНКА" LINK="предик">пленка</W> 
+<W DOM="4" FEAT="ADV" HYPOT="обст.01" ID="3" KSNAME="КАПРИЗНО" LEMMA="КАПРИЗНО" LINK="обст">капризно</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="4" KSNAME="ЗАКРУЧИВАТЬСЯ" LEMMA="ЗАКРУЧИВАТЬСЯ">закручивается</W> 
+<W DOM="4" FEAT="PR" HYPOT="обст.23" ID="5" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="7" FEAT="A МН ПР" HYPOT="опред.01" ID="6" KSNAME="ПРОЯВОЧНЫЙ" LEMMA="ПРОЯВОЧНЫЙ" LINK="опред">проявочных</W> 
+<W DOM="5" FEAT="S МН ЖЕН ПР НЕОД" HYPOT="предл.10" ID="7" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предл">машинах</W>, 
+<W DOM="12" FEAT="V НЕСОВ СТРАД ПРИЧ НЕПРОШ ЕД МУЖ ИМ" HYPOT="опред.01" ID="8" KSNAME="ПРИМЕНЯТЬ" LEMMA="ПРИМЕНЯТЬ" LINK="опред">применяемый</W> 
+<W DOM="8" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="9" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="11" EXTRAFEAT="ALTJO" FEAT="A МН ПР" HYPOT="опред.01" ID="10" KSNAME="ПЕРЕПЛЕТНЫЙ" LEMMA="ПЕРЕПЛЕТНЫЙ" LINK="опред">переплетных</W> 
+<W DOM="9" FEAT="S МН МУЖ ПР НЕОД" HYPOT="предл.10" ID="11" KSNAME="ПРОЦЕСС" LEMMA="ПРОЦЕСС" LINK="предл">процессах</W> 
+<W DOM="17" EXTRAFEAT="SEMI-FICTIVE" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="12" KSNAME="ФИКТ-СУЩ-М" LEMMA="БУМВИНИЛ" LINK="предик">бумвинил</W>, 
+<W DOM="17" FEAT="CONJ" HYPOT="обст.27" ID="13" KSNAME="КОГДА2" LEMMA="КОГДА" LINK="обст">когда</W> 
+<W DOM="15" FEAT="S ЕД МУЖ ВИН ОД" HYPOT="1-компл.11" ID="14" KSNAME="ОН" LEMMA="ОН" LINK="1-компл">его</W> 
+<W DOM="13" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ ЕД 2-Л" HYPOT="подч-союзн.10" ID="15" KSNAME="НАМАЗЫВАТЬ" LEMMA="НАМАЗЫВАТЬ" LINK="подч-союзн">намажешь</W> 
+<W DOM="15" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="2-компл.21" ID="16" KSNAME="КЛЕЙ" LEMMA="КЛЕЙ" LINK="2-компл">клеем</W>, 
+<W DOM="4" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="сент-соч.01" ID="17" KSNAME="ПРУЖИНИТЬ" LEMMA="ПРУЖИНИТЬ" LINK="сент-соч">пружинит</W> 
+<W DOM="17" FEAT="CONJ" HYPOT="сочин.20" ID="18" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="18" EXTRAFEAT="ALT ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="соч-союзн.15" ID="19" KSNAME="СВЕРТЫВАТЬСЯ1" LEMMA="СВЕРТЫВАТЬСЯ" LINK="соч-союзн">сворачивается</W> 
+<W DOM="19" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="20" KSNAME="В1" LEMMA="В" LINK="1-компл">в</W> 
+<W DOM="22" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="21" KSNAME="ТУГОЙ" LEMMA="ТУГОЙ" LINK="опред">тугую</W> 
+<W DOM="20" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="22" KSNAME="ТРУБОЧКА" LEMMA="ТРУБОЧКА" LINK="предл">трубочку</W>. 
+</S>
+<S COMMENT="traced" COREF="(9:машине,-16;6:машина)&#xA;" DATE="20 07 2023 20:41:31" ID="31">
+<W DOM="_root" EXTRAFEAT="CAP ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="1" KSNAME="ПРИХОДИТЬСЯ1" LEMMA="ПРИХОДИТЬСЯ">Приходится</W> 
+<W DOM="1" FEAT="V НЕСОВ ИНФ" HYPOT="предик.27" ID="2" KSNAME="УЧИТЫВАТЬ" LEMMA="УЧИТЫВАТЬ" LINK="предик">учитывать</W> 
+<W DOM="4" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="3" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">эти</W> 
+"<W DOM="2" EXTRAFEAT="IN-QUOT" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="4" KSNAME="ОСОБЕННОСТЬ" LEMMA="ОСОБЕННОСТЬ" LINK="1-компл">особенности</W>" 
+<W DOM="4" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="5" KSNAME="МАТЕРИАЛ" LEMMA="МАТЕРИАЛ" LINK="квазиагент">материалов</W> 
+<W DOM="2" FEAT="CONJ" HYPOT="сочин.13" ID="6" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="6" FEAT="V НЕСОВ ИНФ" HYPOT="соч-союзн.10" ID="7" KSNAME="ДЕЛАТЬ" LEMMA="ДЕЛАТЬ" LINK="соч-союзн">делать</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="9" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предл">машине</W> 
+<W DOM="11" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="10" KSNAME="ДОПОЛНИТЕЛЬНЫЙ" LEMMA="ДОПОЛНИТЕЛЬНЫЙ" LINK="опред">дополнительные</W> 
+<W DOM="7" FEAT="S МН СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="11" KSNAME="УСТРОЙСТВО1" LEMMA="УСТРОЙСТВО" LINK="1-компл">устройства</W>. 
+</S>
+<S COMMENT="traced" COREF="(4:металл,-15;11:металл)&#xA;" DATE="20 07 2023 20:15:50" ID="32">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="ТАК" LEMMA="ТАК" LINK="обст">Так</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="2" KSNAME="ПОЯВЛЯТЬСЯ" LEMMA="ПОЯВЛЯТЬСЯ">появляется</W> 
+"<W DOM="4" EXTRAFEAT="IN-QUOT" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="3" KSNAME="ЛИШНИЙ" LEMMA="ЛИШНИЙ" LINK="опред">лишний</W>" 
+<W DOM="2" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="4" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="предик">металл</W>… 
+</S>
+<S COREF="(10:металла,-1;4:металл)&#xA;(19:они,5:конструкторов)&#xA;(28:машин,-14;13:машин)&#xA;" DATE="20 07 2023 20:38:58" ID="33" MICROSYNT="(по вине,{3:по...4:вине})&#xA;" StateInfo="&#xA;Hypotheses 43">
+- <W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="НО" LEMMA="НО">Но</W> 
+<W DOM="3" FEAT="PART" HYPOT="огранич.10" ID="2" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="8" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="ПО1" LEMMA="ПО" LINK="обст">по</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="4" KSNAME="ВИНА" LEMMA="ВИНА" LINK="предл">вине</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="5" KSNAME="КОНСТРУКТОР1" LEMMA="КОНСТРУКТОР" LINK="квазиагент">конструкторов</W> 
+<W DOM="8" FEAT="S МН ИМ ОД" HYPOT="предик.01" ID="6" KSNAME="МЫ" LEMMA="МЫ" LINK="предик">мы</W> 
+<W DOM="8" EXTRAFEAT="ALTJO" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="ЕЩЕ2" LEMMA="ЕЩЕ" LINK="огранич">еще</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 1-Л" HYPOT="соч-союзн.20" ID="8" KSNAME="ТЕРЯТЬ" LEMMA="ТЕРЯТЬ" LINK="соч-союзн">теряем</W> 
+<W DOM="8" FEAT="ADV" HYPOT="1-компл.13" ID="9" KSNAME="НЕМАЛО" LEMMA="НЕМАЛО" LINK="1-компл">немало</W> 
+<W DOM="9" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="10" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металла</W>, - 
+<W DOM="8" EXTRAFEAT="IN-DASH ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="вводн.12" ID="11" KSNAME="СЧИТАТЬ2" LEMMA="СЧИТАТЬ" LINK="вводн">считает</W> 
+<W DOM="11" EXTRAFEAT="IN-DASH" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="12" KSNAME="ЗАВЕДУЮЩИЙ" LEMMA="ЗАВЕДУЮЩИЙ" LINK="предик">заведующий</W> 
+<W DOM="12" EXTRAFEAT="IN-DASH" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="ОТДЕЛ" LEMMA="ОТДЕЛ" LINK="1-компл">отделом</W> 
+<W DOM="13" EXTRAFEAT="IN-DASH" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="14" KSNAME="ТЕХНОЛОГИЯ" LEMMA="ТЕХНОЛОГИЯ" LINK="1-компл">технологии</W> 
+<W DOM="13" EXTRAFEAT="IN-DASH ЗЕРО" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="атриб" ID="15" KSNAME="ФИКТ-СУЩ-М" LEMMA="ВНИИПОЛИГРАФМАШ" LINK="атриб">ВНИИполиграфмаша</W> 
+<W DOM="18" EXTRAFEAT="CAP IN-DASH STRICT_ABBR" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="вспом.d0" ID="16" KSNAME="ФИКТ-ИНИЦИАЛ" LEMMA="А." LINK="вспом" NOCHECK="Wrong spaces after word">А.</W>
+<W DOM="16" EXTRAFEAT="CAP IN-DASH STRICT_ABBR" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="вспом" ID="17" KSNAME="ФИКТ-ИНИЦИАЛ" LEMMA="С." LINK="вспом">С.</W> 
+<W DOM="12" EXTRAFEAT="IN-DASH" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="18" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="ПТУШКИН" LINK="аппоз">Птушкин</W>, - 
+<W DOM="21" FEAT="S МН ИМ ОД" HYPOT="предик.01" ID="19" KSNAME="ОНИ" LEMMA="ОНИ" LINK="предик">они</W> 
+<W DOM="21" FEAT="PART" HYPOT="огранич.10" ID="20" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="8" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="сент-соч.01" ID="21" KSNAME="ДОБИВАТЬСЯ" LEMMA="ДОБИВАТЬСЯ" LINK="сент-соч">добились</W> 
+<W DOM="23" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="22" KSNAME="ВЫСОКИЙ" LEMMA="ВЫСОКИЙ" LINK="опред">высокой</W> 
+<W DOM="21" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="23" KSNAME="СТЕПЕНЬ" LEMMA="СТЕПЕНЬ" LINK="1-компл">степени</W> 
+<W DOM="23" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="24" KSNAME="УНИФИКАЦИЯ" LEMMA="УНИФИКАЦИЯ" LINK="квазиагент">унификации</W> 
+<W DOM="24" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="25" KSNAME="УЗЕЛ1" LEMMA="УЗЕЛ" LINK="1-компл">узлов</W> 
+<W DOM="25" FEAT="CONJ" HYPOT="сочин.13" ID="26" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="26" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="соч-союзн.10" ID="27" KSNAME="ДЕТАЛЬ" LEMMA="ДЕТАЛЬ" LINK="соч-союзн">деталей</W> 
+<W DOM="27" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент" ID="28" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="квазиагент">машин</W>. 
+</S>
+<S COREF="(3:технике,-8;13:технику)&#xA;" DATE="20 07 2023 20:18:09" ID="34">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="PR" ID="1" KSNAME="В2" LEMMA="В">В</W> 
+<W DOM="3" FEAT="A ЕД ЖЕН ПР" HYPOT="опред.01" ID="2" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфической</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="3" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="предл">технике</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="предик" ID="4" KSNAME="ОКОЛО" LEMMA="ОКОЛО" LINK="предик">около</W> 
+<W DOM="6" EXTRAFEAT="ALTJO" FEAT="NUM РОД" HYPOT="количест.11" ID="5" KSNAME="ТРИСТА" LEMMA="ТРИСТА" LINK="количест">трехсот</W> 
+<W DOM="4" FEAT="S МН СРЕД РОД НЕОД" HYPOT="предл.10" ID="6" KSNAME="НАИМЕНОВАНИЕ" LEMMA="НАИМЕНОВАНИЕ" LINK="предл">наименований</W> 
+<W DOM="6" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="7" KSNAME="ДЕТАЛЬ" LEMMA="ДЕТАЛЬ" LINK="квазиагент">деталей</W> 
+<W DOM="9" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="8" KSNAME="ОДИН2" LEMMA="ОДИН" LINK="опред">одного</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="атриб" ID="9" KSNAME="ПРЕДНАЗНАЧЕНИЕ" LEMMA="ПРЕДНАЗНАЧЕНИЕ" LINK="атриб">предназначения</W>, 
+<W DOM="9" FEAT="CONJ" HYPOT="сочин.13" ID="10" KSNAME="НО" LEMMA="НО" LINK="сочин">но</W> 
+<W DOM="12" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="11" KSNAME="РАЗНЫЙ" LEMMA="РАЗНЫЙ" LINK="опред">разного</W> 
+<W DOM="10" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="соч-союзн.10" ID="12" KSNAME="ИСПОЛНЕНИЕ" LEMMA="ИСПОЛНЕНИЕ" LINK="соч-союзн">исполнения</W>. 
+</S>
+<S COMMENT="traced" COREF="(6:металла,-2;10:металла)&#xA;" DATE="20 07 2023 20:18:20" ID="35" StateInfo="&#xA;Hypotheses 46">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД СРЕД ИМ" HYPOT="опред.01" ID="1" KSNAME="ВЕСЬ" LEMMA="ВЕСЬ" LINK="опред">Все</W> 
+<W DOM="3" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предик">это</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="ОБОРАЧИВАТЬСЯ3" LEMMA="ОБОРАЧИВАТЬСЯ">оборачивается</W> 
+<W DOM="5" FEAT="A МН ТВОР" HYPOT="опред.01" ID="4" KSNAME="ДОПОЛНИТЕЛЬНЫЙ" LEMMA="ДОПОЛНИТЕЛЬНЫЙ" LINK="опред">дополнительными</W> 
+<W DOM="3" FEAT="S МН ЖЕН ТВОР НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="ПОТЕРЯ" LEMMA="ПОТЕРЯ" LINK="1-компл">потерями</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="6" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металла</W>. 
+</S>
+<S CLASS="LF" DATE="28 08 2018 23:59:52" ID="36">
+<W DOM="6" EXTRAFEAT="CAP ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ МН 1-Л" HYPOT="вводн.12" ID="1" KSNAME="СКАЗАТЬ" LEMMA="СКАЗАТЬ" LINK="вводн">Скажем</W>, 
+<W DOM="3" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="2" KSNAME="ФИКТ-ПРИЛ" LEMMA="МАЛООТХОДНЫЙ" LINK="опред">малоотходную</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.51" ID="3" KSNAME="ТЕХНОЛОГИЯ" LEMMA="ТЕХНОЛОГИЯ" LINK="1-компл">технологию</W> 
+<W DOM="5" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="4" KSNAME="ПОРОШКОВЫЙ" LEMMA="ПОРОШКОВЫЙ" LINK="опред">порошковой</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="МЕТАЛЛУРГИЯ" LEMMA="МЕТАЛЛУРГИЯ" LINK="1-компл">металлургии</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="ADV" ID="6" KSNAME="МОЖНО" LEMMA="МОЖНО">можно</W> 
+<W DOM="6" FEAT="V НЕСОВ ИНФ" HYPOT="предик.19" ID="7" KSNAME="ИСПОЛЬЗОВАТЬ" LEMMA="ИСПОЛЬЗОВАТЬ" LINK="предик">использовать</W> 
+<W DOM="9" FEAT="PART" HYPOT="огранич.27" ID="8" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">только</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="9" KSNAME="ПРИ" LEMMA="ПРИ" LINK="обст">при</W> 
+<W DOM="9" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="10" KSNAME="ИЗГОТОВЛЕНИЕ" LEMMA="ИЗГОТОВЛЕНИЕ" LINK="предл">изготовлении</W> 
+<W DOM="10" FEAT="S МН СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ИЗДЕЛИЕ" LEMMA="ИЗДЕЛИЕ" LINK="1-компл">изделий</W> 
+<W DOM="13" FEAT="A МН РОД" HYPOT="опред.01" ID="12" KSNAME="БОЛЬШОЙ" LEMMA="БОЛЬШОЙ" LINK="опред">больших</W> 
+<W DOM="11" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="атриб.01" ID="13" KSNAME="СЕРИЯ" LEMMA="СЕРИЯ" LINK="атриб">серий</W>. 
+<LF LFARG="3" LFFUNC="_REAL1" LFVAL="7"/>
+</S>
+<S COMMENT="traced" COREF="(7:которая,6:техники)&#xA;" DATE="20 07 2023 20:18:35" ID="37" StateInfo="&#xA;Hypotheses 30">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="НО" LEMMA="НО">Но</W> 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="2" KSNAME="В2" LEMMA="В" LINK="1-компл">в</W> 
+<W DOM="4" FEAT="A ЕД СРЕД ПР" HYPOT="опред.01" ID="3" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфическом</W> 
+<W DOM="2" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="4" KSNAME="МАШИНОСТРОЕНИЕ" LEMMA="МАШИНОСТРОЕНИЕ" LINK="предл">машиностроении</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="соч-союзн.20" ID="5" KSNAME="НЕТ2" LEMMA="НЕТ" LINK="соч-союзн">нет</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="предик.11" ID="6" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="предик">техники</W>, 
+<W DOM="8" FEAT="S ЕД ЖЕН ИМ" HYPOT="предик.01" ID="7" KSNAME="КОТОРЫЙ" LEMMA="КОТОРЫЙ" LINK="предик">которая</W> 
+<W DOM="6" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ СТРАД ИЗЪЯВ ПРОШ ЕД ЖЕН" HYPOT="релят.01" ID="8" KSNAME="ВЫПУСКАТЬ1" LEMMA="ВЫПУСКАТЬ" LINK="релят">выпускалась</W> 
+<W DOM="8" FEAT="PART" HYPOT="аналит.12" ID="9" KSNAME="БЫ" LEMMA="БЫ" LINK="аналит">бы</W> 
+<W DOM="11" FEAT="A МН ТВОР" HYPOT="опред.01" ID="10" KSNAME="БОЛЬШОЙ" LEMMA="БОЛЬШОЙ" LINK="опред">большими</W> 
+<W DOM="8" FEAT="S МН ЖЕН ТВОР НЕОД" HYPOT="обст.05" ID="11" KSNAME="СЕРИЯ" LEMMA="СЕРИЯ" LINK="обст">сериями</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="19 07 2023 21:44:39" ID="38" MICROSYNT="(к тому же,{2:к...4:же})&#xA;">
+<W DOM="10" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="обст.27" ID="1" KSNAME="ЕСЛИ" LEMMA="ЕСЛИ" LINK="обст">Если</W> 
+<W DOM="8" FEAT="PR" HYPOT="обст.23" ID="2" KSNAME="К" LEMMA="К" LINK="обст">к</W> 
+<W DOM="2" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="3" KSNAME="ТО1" LEMMA="ТО" LINK="предл">тому</W> 
+<W DOM="3" FEAT="PART" HYPOT="огранич.16" ID="4" KSNAME="ЖЕ" LEMMA="ЖЕ" LINK="огранич">же</W> 
+<W DOM="8" FEAT="PART" HYPOT="огранич.10" ID="5" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="8" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="6" KSNAME="ДЕТАЛЬ" LEMMA="ДЕТАЛЬ" LINK="предик">детали</W> 
+<W DOM="8" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W ACCTSTRING="унифицированы" DOM="1" EXTRAFEAT="ALT ЗЕРО" FEAT="A КР МН" HYPOT="подч-союзн.10" ID="8" KSNAME="УНИФИЦИРОВАННЫЙ" LEMMA="УНИФИЦИРОВАННЫЙ" LINK="подч-союзн">унифицированы</W>, 
+<W DOM="1" FEAT="CONJ" HYPOT="соотнос.11" ID="9" KSNAME="ТО2" LEMMA="ТО" LINK="соотнос">то</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД СРЕД" ID="10" KSNAME="ТРУДНЫЙ" LEMMA="ТРУДНЫЙ">трудно</W> 
+<W DOM="10" FEAT="V НЕСОВ ИНФ" HYPOT="предик.19" ID="11" KSNAME="ПРИМЕНЯТЬ" LEMMA="ПРИМЕНЯТЬ" LINK="предик">применять</W> 
+<W DOM="13" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="12" KSNAME="ПРОГРЕССИВНЫЙ" LEMMA="ПРОГРЕССИВНЫЙ" LINK="опред">прогрессивные</W> 
+<W DOM="11" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="13" KSNAME="ТЕХНОЛОГИЯ" LEMMA="ТЕХНОЛОГИЯ" LINK="1-компл">технологии</W>…
+<LF LFARG="13" LFFUNC="_REAL1" LFVAL="11"/>
+</S>
+<S COMMENT="traced" COREF="(3:конструкторы,-6;5:конструкторов)&#xA;" DATE="20 07 2023 20:19:42" ID="39" TRANS="The other problem: the designers even badly believe. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="1" KSNAME="ДРУГОЙ" LEMMA="ДРУГОЙ" LINK="опред">Другая</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="S ЕД ЖЕН ИМ НЕОД" ID="2" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА">проблема</W>: 
+<W DOM="6" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="3" KSNAME="КОНСТРУКТОР1" LEMMA="КОНСТРУКТОР" LINK="предик">конструкторы</W> 
+<W DOM="6" EXTRAFEAT="ALTJO" FEAT="PART" HYPOT="огранич.10" ID="4" KSNAME="ЕЩЕ2" LEMMA="ЕЩЕ" LINK="огранич">еще</W> 
+<W DOM="6" FEAT="ADV" HYPOT="обст.01" ID="5" KSNAME="ПЛОХО" LEMMA="ПЛОХО" LINK="обст">плохо</W> 
+<W ACCTSTRING="считают" DOM="2" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="разъяснит.04" ID="6" KSNAME="СЧИТАТЬ1" LEMMA="СЧИТАТЬ" LINK="разъяснит">считают</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="19 07 2023 21:45:43" ID="40" MICROSYNT="(на базе,{5:на...6:базе})&#xA;" TRANS="Mastering of the modern computational methods in a base of the computer takes place too slowly. ">
+<W DOM="8" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ОСВОЕНИЕ" LEMMA="ОСВОЕНИЕ" LINK="предик" MSNAME="ОСВОЕНИЕ">Освоение</W> 
+<W DOM="4" FEAT="A МН РОД" HYPOT="опред.01" ID="2" KSNAME="СОВРЕМЕННЫЙ" LEMMA="СОВРЕМЕННЫЙ" LINK="опред">современных</W> 
+<W DOM="4" FEAT="A МН РОД" HYPOT="опред.01" ID="3" KSNAME="ВЫЧИСЛИТЕЛЬНЫЙ" LEMMA="ВЫЧИСЛИТЕЛЬНЫЙ" LINK="опред">вычислительных</W> 
+<W DOM="1" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="4" KSNAME="МЕТОД" LEMMA="МЕТОД" LINK="1-компл">методов</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="5" KSNAME="НА2" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="6" KSNAME="БАЗА" LEMMA="БАЗА" LINK="предл">базе</W> 
+<W DOM="6" EXTRAFEAT="UPP" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="7" KSNAME="ЭВМ" LEMMA="ЭВМ" LINK="квазиагент">ЭВМ</W> 
+<W DOM="_root" EXTRAFEAT="ALTJO ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="8" KSNAME="ИДТИ1" LEMMA="ИДТИ">идет</W> 
+<W DOM="10" FEAT="ADV" HYPOT="огранич.22" ID="9" KSNAME="СЛИШКОМ" LEMMA="СЛИШКОМ" LINK="огранич">слишком</W> 
+<W DOM="8" FEAT="ADV" HYPOT="обст.01" ID="10" KSNAME="МЕДЛЕННО" LEMMA="МЕДЛЕННО" LINK="обст">медленно</W>.
+<LF LFARG="6" LFFUNC="_LOC" LFVAL="5"/>
+<LF LFARG="6" LFFUNC="_ADV2-UN" LFVAL="5"/>
+</S>
+<S COMMENT="traced" DATE="19 07 2023 21:45:43" ID="41" TRANS="A simple example. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="1" KSNAME="ПРОСТОЙ1" LEMMA="ПРОСТОЙ" LINK="опред">Простой</W> 
+<W DOM="_root" FEAT="S ЕД МУЖ ИМ НЕОД" ID="2" KSNAME="ПРИМЕР" LEMMA="ПРИМЕР">пример</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(20:металла,-7;6:металла)&#xA;" DATE="20 07 2023 20:21:06" ID="42" TRANS="The creators of the bookbinding equipment have conducted programme calculation on endurance nitkoshvejnykh of the machines and due to it could release the equipment from two hundred kilograms of metal. ">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="СОЗДАТЕЛЬ" LEMMA="СОЗДАТЕЛЬ" LINK="предик">Создатели</W> 
+<W DOM="3" EXTRAFEAT="ALTJO" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="2" KSNAME="ПЕРЕПЛЕТНЫЙ" LEMMA="ПЕРЕПЛЕТНЫЙ" LINK="опред" MSNAME="ПЕРЕПЛЕТНЫЙ">переплетного</W> 
+<W DOM="1" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="ОБОРУДОВАНИЕ" LEMMA="ОБОРУДОВАНИЕ" LINK="1-компл">оборудования</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" ID="4" KSNAME="ПРОВОДИТЬ1" LEMMA="ПРОВОДИТЬ">провели</W> 
+<W DOM="6" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="5" KSNAME="ПРОГРАММНЫЙ" LEMMA="ПРОГРАММНЫЙ" LINK="опред" MSNAME="ПРОГРАММНЫЙ">программный</W> 
+<W DOM="4" EXTRAFEAT="ALTJO" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="РАСЧЕТ1" LEMMA="РАСЧЕТ" LINK="1-компл">расчет</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="7" KSNAME="НА1" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="8" KSNAME="ПРОЧНОСТЬ" LEMMA="ПРОЧНОСТЬ" LINK="предл">прочность</W> 
+<W ACCTSTRING="ниткошвейных" DOM="10" EXTRAFEAT="SEMI-FICTIVE" FEAT="A МН РОД" HYPOT="опред.01" ID="9" KSNAME="ФИКТ-ПРИЛ" LEMMA="НИТКОШВЕЙНЫЙ" LINK="опред">ниткошвейных</W> 
+<W DOM="8" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="10" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="квазиагент">машин</W> 
+<W DOM="4" FEAT="CONJ" HYPOT="сочин.20" ID="11" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="14" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="12" KSNAME="БЛАГОДАРЯ" LEMMA="БЛАГОДАРЯ" LINK="обст" MSNAME="БЛАГОДАРЯ">благодаря</W> 
+<W DOM="12" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="13" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предл">этому</W> 
+<W DOM="11" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="соч-союзн.15" ID="14" KSNAME="МОЧЬ" LEMMA="МОЧЬ" LINK="соч-союзн">смогли</W> 
+<W DOM="14" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="15" KSNAME="ОСВОБОЖДАТЬ" LEMMA="ОСВОБОЖДАТЬ" LINK="1-компл">освободить</W> 
+<W DOM="15" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="16" KSNAME="ОБОРУДОВАНИЕ" LEMMA="ОБОРУДОВАНИЕ" LINK="1-компл">оборудование</W> 
+<W DOM="15" FEAT="PR" HYPOT="2-компл.17" ID="17" KSNAME="ОТ" LEMMA="ОТ" LINK="2-компл">от</W> 
+<W DOM="19" FEAT="NUM РОД" HYPOT="количест.11" ID="18" KSNAME="ДВЕСТИ" LEMMA="ДВЕСТИ" LINK="количест" MSNAME="ДВЕСТИ">двухсот</W> 
+<W DOM="17" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="19" KSNAME="КИЛОГРАММ" LEMMA="КИЛОГРАММ" LINK="предл">килограммов</W> 
+<W DOM="19" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="20" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="квазиагент">металла</W>.
+<LF LFARG="6" LFFUNC="_OPER1" LFVAL="4"/>
+</S>
+<S COMMENT="traced" DATE="19 07 2023 21:45:43" ID="43" MICROSYNT="(к сожалению,{1:К...2:сожалению})&#xA;" TRANS="Regretfully it is a unitary case. ">
+<W DOM="5" EXTRAFEAT="CAP" FEAT="PR" HYPOT="вводн.10" ID="1" KSNAME="К" LEMMA="К" LINK="вводн">К</W> 
+<W DOM="1" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="2" KSNAME="СОЖАЛЕНИЕ" LEMMA="СОЖАЛЕНИЕ" LINK="предл">сожалению</W>, 
+<W DOM="5" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.04" ID="3" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предик">это</W> 
+<W DOM="5" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="4" KSNAME="ЕДИНИЧНЫЙ" LEMMA="ЕДИНИЧНЫЙ" LINK="опред">единичный</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" ID="5" KSNAME="СЛУЧАЙ" LEMMA="СЛУЧАЙ">случай</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(15:своем,12:машиностроение)&#xA;(22:те,20:центра)&#xA;(12:машиностроение,-7;4:машиностроении)&#xA;(9:техникой,-4;7:ЭВМ)&#xA;" DATE="25 11 2023 17:35:38" ID="44" MICROSYNT="(в распоряжении,{14:в...16:распоряжении})&#xA;" StateInfo="&#xA;Hypotheses 52" TRANS="The country starts teaching of possession of the electronic computer equipment to the schoolchildren, and printing machine-building has only three computational centers and that work only on the needs of production in one's disposal. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="СТРАНА" LEMMA="СТРАНА" LINK="предик">Страна</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="2" KSNAME="ПРИСТУПАТЬ" LEMMA="ПРИСТУПАТЬ">приступает</W> 
+<W DOM="2" FEAT="PR" HYPOT="1-компл.17" ID="3" KSNAME="К" LEMMA="К" LINK="1-компл">к</W> 
+<W DOM="3" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="4" KSNAME="ОБУЧЕНИЕ" LEMMA="ОБУЧЕНИЕ" LINK="предл">обучению</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД ОД" HYPOT="1-компл.20" ID="5" KSNAME="ШКОЛЬНИК" LEMMA="ШКОЛЬНИК" LINK="1-компл">школьников</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="6" KSNAME="ВЛАДЕНИЕ1" LEMMA="ВЛАДЕНИЕ" LINK="2-компл">владению</W> 
+<W DOM="9" FEAT="A ЕД ЖЕН ТВОР" HYPOT="опред.01" ID="7" KSNAME="ЭЛЕКТРОННЫЙ" LEMMA="ЭЛЕКТРОННЫЙ" LINK="опред">электронной</W> 
+<W DOM="9" FEAT="A ЕД ЖЕН ТВОР" HYPOT="опред.01" ID="8" KSNAME="ВЫЧИСЛИТЕЛЬНЫЙ" LEMMA="ВЫЧИСЛИТЕЛЬНЫЙ" LINK="опред">вычислительной</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="1-компл">техникой</W>, 
+<W DOM="2" FEAT="CONJ" HYPOT="сент-соч.10" ID="10" KSNAME="А1" LEMMA="А" LINK="сент-соч">а</W> 
+<W DOM="12" FEAT="A ЕД СРЕД ИМ" HYPOT="опред.01" ID="11" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфическое</W> 
+<W DOM="13" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="12" KSNAME="МАШИНОСТРОЕНИЕ" LEMMA="МАШИНОСТРОЕНИЕ" LINK="предик" MSNAME="МАШИНОСТРОЕНИЕ">машиностроение</W> 
+<W DOM="10" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="соч-союзн.15" ID="13" KSNAME="ИМЕТЬ" LEMMA="ИМЕТЬ" LINK="соч-союзн">имеет</W> 
+<W DOM="13" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="14" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="16" EXTRAFEAT="ALTJO" FEAT="A ЕД СРЕД ПР" HYPOT="опред.01" ID="15" KSNAME="СВОЙ" LEMMA="СВОЙ" LINK="опред">своем</W> 
+<W DOM="14" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="16" KSNAME="РАСПОРЯЖЕНИЕ2" LEMMA="РАСПОРЯЖЕНИЕ" LINK="предл">распоряжении</W> 
+<W DOM="18" FEAT="PART" HYPOT="огранич.27" ID="17" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">только</W> 
+<W DOM="20" FEAT="NUM ВИН НЕОД" HYPOT="количест.14" ID="18" KSNAME="ТРИ" LEMMA="ТРИ" LINK="количест">три</W> 
+<W DOM="20" FEAT="A МН РОД" HYPOT="опред.01" ID="19" KSNAME="ВЫЧИСЛИТЕЛЬНЫЙ" LEMMA="ВЫЧИСЛИТЕЛЬНЫЙ" LINK="опред">вычислительных</W> 
+<W DOM="13" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.11" ID="20" KSNAME="ЦЕНТР" LEMMA="ЦЕНТР" LINK="1-компл">центра</W> 
+<W DOM="13" FEAT="CONJ" HYPOT="сент-соч.10" ID="21" KSNAME="И1" LEMMA="И" LINK="сент-соч">и</W> 
+<W ACCTSTRING="те" DOM="23" EXTRAFEAT="НЕПОСЛ" FEAT="S МН ИМ ОД" HYPOT="предик.01" ID="22" KSNAME="ТОТ1" LEMMA="ТОТ" LINK="предик">те</W> 
+<W DOM="21" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="соч-союзн" ID="23" KSNAME="РАБОТАТЬ" LEMMA="РАБОТАТЬ" LINK="соч-союзн">работают</W> 
+<W DOM="25" FEAT="PART" HYPOT="огранич.27" ID="24" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">только</W> 
+<W DOM="23" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="25" KSNAME="НА1" LEMMA="НА" LINK="обст">на</W> 
+<W DOM="25" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="26" KSNAME="НУЖДА" LEMMA="НУЖДА" LINK="предл">нужды</W> 
+<W DOM="26" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="27" KSNAME="ПРОИЗВОДСТВО" LEMMA="ПРОИЗВОДСТВО" LINK="квазиагент">производства</W>.
+<LF LFARG="16" LFFUNC="_OPER1" LFPREP="14" LFVAL="13"/>
+</S>
+<S COMMENT="traced" COREF="(3:ЭВМ,-1;9:техникой)&#xA;" DATE="20 07 2023 20:25:24" ID="45" TRANS="The design offices also don't think about an application of a computer. ">
+<W DOM="8" EXTRAFEAT="CAP" FEAT="PR" HYPOT="1-компл.17" ID="1" KSNAME="О2" LEMMA="О" LINK="1-компл">О</W> 
+<W DOM="1" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="ПРИМЕНЕНИЕ" LEMMA="ПРИМЕНЕНИЕ" LINK="предл">применении</W> 
+<W DOM="2" EXTRAFEAT="UPP" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="ЭВМ" LEMMA="ЭВМ" LINK="1-компл">ЭВМ</W> 
+<W DOM="5" FEAT="A МН ИМ" HYPOT="опред.01" ID="4" KSNAME="КОНСТРУКТОРСКИЙ" LEMMA="КОНСТРУКТОРСКИЙ" LINK="опред" MSNAME="КОНСТРУКТОРСКИЙ">конструкторские</W> 
+<W DOM="8" EXTRAFEAT="ЗЕРО" FEAT="S МН СРЕД ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="БЮРО" LEMMA="БЮРО" LINK="предик">бюро</W> 
+<W DOM="8" FEAT="PART" HYPOT="огранич.10" ID="6" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="8" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W ACCTSTRING="помышляют" DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="8" KSNAME="ПОМЫШЛЯТЬ" LEMMA="ПОМЫШЛЯТЬ">помышляют</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="19 07 2023 21:45:43" ID="46" MICROSYNT="(между тем,{2:между...3:тем})&#xA;" TRANS="And in the meantime slowly mastering of the modern methods of studies directly is connected with the complaints about a shortage of the frames in the design collectives. ">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="А1" LEMMA="А">А</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="2" KSNAME="МЕЖДУ2" LEMMA="МЕЖДУ" LINK="обст">между</W> 
+<W DOM="2" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="3" KSNAME="ТО1" LEMMA="ТО" LINK="предл">тем</W> 
+<W DOM="5" FEAT="A ЕД СРЕД ИМ" HYPOT="опред.01" ID="4" KSNAME="МЕДЛЕННЫЙ" LEMMA="МЕДЛЕННЫЙ" LINK="опред">медленное</W> 
+<W DOM="10" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.04" ID="5" KSNAME="ОСВОЕНИЕ" LEMMA="ОСВОЕНИЕ" LINK="предик" MSNAME="ОСВОЕНИЕ">освоение</W> 
+<W DOM="7" FEAT="A МН РОД" HYPOT="опред.01" ID="6" KSNAME="СОВРЕМЕННЫЙ" LEMMA="СОВРЕМЕННЫЙ" LINK="опред">современных</W> 
+<W DOM="5" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="МЕТОД" LEMMA="МЕТОД" LINK="1-компл">методов</W> 
+<W DOM="7" FEAT="S МН СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="ИССЛЕДОВАНИЕ" LEMMA="ИССЛЕДОВАНИЕ" LINK="квазиагент">исследований</W> 
+<W DOM="10" FEAT="ADV" HYPOT="обст.01" ID="9" KSNAME="НАПРЯМУЮ" LEMMA="НАПРЯМУЮ" LINK="обст">напрямую</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" HYPOT="соч-союзн.20" ID="10" KSNAME="СВЯЗЫВАТЬ1" LEMMA="СВЯЗЫВАТЬ" LINK="соч-союзн">связано</W> 
+<W DOM="10" FEAT="PR" HYPOT="2-компл.17" ID="11" KSNAME="С3" LEMMA="С" LINK="2-компл">с</W> 
+<W DOM="11" FEAT="S МН ЖЕН ТВОР НЕОД" HYPOT="предл.10" ID="12" KSNAME="ЖАЛОБА" LEMMA="ЖАЛОБА" LINK="предл">жалобами</W> 
+<W DOM="12" FEAT="PR" HYPOT="1-компл.17" ID="13" KSNAME="НА1" LEMMA="НА" LINK="1-компл">на</W> 
+<W DOM="13" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="14" KSNAME="НЕХВАТКА" LEMMA="НЕХВАТКА" LINK="предл">нехватку</W> 
+<W ACCTSTRING="кадров" DOM="14" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="15" KSNAME="КАДРЫ" LEMMA="КАДРЫ" LINK="квазиагент">кадров</W> 
+<W DOM="14" FEAT="PR" HYPOT="1-компл.17" ID="16" KSNAME="В2" LEMMA="В" LINK="1-компл">в</W> 
+<W DOM="18" FEAT="A МН ПР" HYPOT="опред.01" ID="17" KSNAME="КОНСТРУКТОРСКИЙ" LEMMA="КОНСТРУКТОРСКИЙ" LINK="опред" MSNAME="КОНСТРУКТОРСКИЙ">конструкторских</W> 
+<W DOM="16" FEAT="S МН МУЖ ПР НЕОД" HYPOT="предл.10" ID="18" KSNAME="КОЛЛЕКТИВ" LEMMA="КОЛЛЕКТИВ" LINK="предл">коллективах</W>.
+<LF LFARG="10" LFFUNC="_MAGN" LFVAL="9"/>
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(11:техники,-13;3:технике)&#xA;" DATE="20 07 2023 20:27:35" ID="47" TRANS="The problems over decrease in metal content and at the phase of the production of engineering are not fewer. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="PART" HYPOT="огранич.10" ID="1" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">Не</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="ADV СРАВ" ID="2" KSNAME="МАЛО" LEMMA="МАЛО">меньше</W> 
+<W DOM="2" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предик.12" ID="3" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА" LINK="предик">проблем</W> 
+<W DOM="3" FEAT="PR" HYPOT="атриб.18" ID="4" KSNAME="ПО1" LEMMA="ПО" LINK="атриб">по</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="5" KSNAME="СНИЖЕНИЕ" LEMMA="СНИЖЕНИЕ" LINK="предл">снижению</W> 
+<W DOM="5" EXTRAFEAT="ALTJO" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="6" KSNAME="МЕТАЛЛОЕМКОСТЬ" LEMMA="МЕТАЛЛОЕМКОСТЬ" LINK="1-компл" MSNAME="МЕТАЛЛОЕМКОСТЬ">металлоемкости</W> 
+<W ACCTSTRING="и" DOM="8" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="НА2" LEMMA="НА" LINK="обст">на</W> 
+<W ACCTSTRING="этапе" DOM="8" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="9" KSNAME="ЭТАП1" LEMMA="ЭТАП" LINK="предл">этапе</W> 
+<W DOM="9" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="10" KSNAME="ПРОИЗВОДСТВО" LEMMA="ПРОИЗВОДСТВО" LINK="1-компл">производства</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="1-компл">техники</W>.
+<LF LFARG="9" LFFUNC="_LOC" LFVAL="8"/>
+</S>
+<S COREF="(11:ее,2:машина)&#xA;" DATE="20 07 2023 20:27:47" ID="48" StateInfo="&#xA;Hypotheses 44" TRANS="Flat-bed 11 tons the machine over a project must weigh 9 tons, her weight turns out after the manufacture. ">
+<W ACCTSTRING="Плоскопечатная" DOM="2" EXTRAFEAT="CAP SEMI-FICTIVE ЗЕРО" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="1" KSNAME="ФИКТ-ПРИЛ" LEMMA="ПЛОСКОПЕЧАТНЫЙ" LINK="опред" MSNAME="ПЛОСКОПЕЧАТНЫЙ">Плоскопечатная</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="2" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предик">машина</W> 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="ПО1" LEMMA="ПО" LINK="обст">по</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="4" KSNAME="ПРОЕКТ" LEMMA="ПРОЕКТ" LINK="предл">проекту</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД ЖЕН" ID="5" KSNAME="ДОЛЖЕН1" LEMMA="ДОЛЖЕН" MSNAME="ДОЛЖЕН1">должна</W> 
+<W DOM="5" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="6" KSNAME="ВЕСИТЬ" LEMMA="ВЕСИТЬ" LINK="1-компл">весить</W> 
+<W DOM="8" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="7" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="9" LINK="количест">9</W> 
+<W DOM="6" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.11" ID="8" KSNAME="ТОННА" LEMMA="ТОННА" LINK="1-компл">тонн</W>, 
+<W DOM="13" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="9" KSNAME="ПОСЛЕ1" LEMMA="ПОСЛЕ" LINK="обст">после</W> 
+<W DOM="9" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="10" KSNAME="ИЗГОТОВЛЕНИЕ" LEMMA="ИЗГОТОВЛЕНИЕ" LINK="предл">изготовления</W> 
+<W DOM="12" EXTRAFEAT="ALTJO" FEAT="S ЕД ЖЕН РОД ОД" HYPOT="квазиагент.17" ID="11" KSNAME="ОНА" LEMMA="ОНА" LINK="квазиагент">ее</W> 
+<W DOM="13" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="12" KSNAME="ВЕС" LEMMA="ВЕС" LINK="предик">вес</W> 
+<W DOM="5" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="сент-соч.01" ID="13" KSNAME="ОКАЗЫВАТЬСЯ" LEMMA="ОКАЗЫВАТЬСЯ" LINK="сент-соч">оказывается</W> 
+<W DOM="15" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="14" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="11" LINK="количест">11</W> 
+<W DOM="13" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="присвяз" ID="15" KSNAME="ТОННА" LEMMA="ТОННА" LINK="присвяз">тонн</W>.
+</S>
+<S COMMENT="traced" COREF="(4:металла,-7;20:металла)&#xA;" DATE="20 07 2023 20:28:58" ID="49" TRANS="Why is the overdraft of a metal allowed? ">
+<W DOM="2" EXTRAFEAT="CAP ЗЕРО" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="ПОЧЕМУ" LEMMA="ПОЧЕМУ" LINK="обст">Почему</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" ID="2" KSNAME="ДОПУСКАТЬ1" LEMMA="ДОПУСКАТЬ">допущен</W> 
+<W DOM="2" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.04" ID="3" KSNAME="ПЕРЕРАСХОД" LEMMA="ПЕРЕРАСХОД" LINK="предик">перерасход</W> 
+<W DOM="3" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="4" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металла</W>?
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="06 08 2023 18:14:19" ID="50" MICROSYNT="(по вине,{8:по...9:вине})&#xA;" TRANS="It turns out the thickness of the metallic buildings is greater than necessary - by a fault of foundry production. ">
+<W DOM="_root" EXTRAFEAT="CAP ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="1" KSNAME="ОКАЗЫВАТЬСЯ" LEMMA="ОКАЗЫВАТЬСЯ">Оказывается</W>, 
+<W DOM="5" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="2" KSNAME="ТОЛЩИНА" LEMMA="ТОЛЩИНА" LINK="предик">толщина</W> 
+<W DOM="4" FEAT="A МН РОД" HYPOT="опред.01" ID="3" KSNAME="МЕТАЛЛИЧЕСКИЙ" LEMMA="МЕТАЛЛИЧЕСКИЙ" LINK="опред">металлических</W> 
+<W ACCTSTRING="корпусов" DOM="2" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="4" KSNAME="КОРПУС3" LEMMA="КОРПУС" LINK="квазиагент">корпусов</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="A СРАВ" HYPOT="предик.46" ID="5" KSNAME="БОЛЬШОЙ" LEMMA="БОЛЬШОЙ" LINK="предик">больше</W>, 
+<W DOM="5" FEAT="CONJ" HYPOT="сравнит.11" ID="6" KSNAME="ЧЕМ" LEMMA="ЧЕМ" LINK="сравнит">чем</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД СРЕД" HYPOT="сравн-союзн.10" ID="7" KSNAME="НУЖНЫЙ" LEMMA="НУЖНЫЙ" LINK="сравн-союзн">нужно</W>, - 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="ПО1" LEMMA="ПО" LINK="обст">по</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="9" KSNAME="ВИНА" LEMMA="ВИНА" LINK="предл">вине</W> 
+<W DOM="11" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="10" KSNAME="ЛИТЕЙНЫЙ" LEMMA="ЛИТЕЙНЫЙ" LINK="опред" MSNAME="ЛИТЕЙНЫЙ">литейного</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="11" KSNAME="ПРОИЗВОДСТВО" LEMMA="ПРОИЗВОДСТВО" LINK="квазиагент">производства</W>.
+<LF LFARG="2" LFFUNC="_MAGN" LFVAL="5"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="19 07 2023 21:45:43" ID="51" TRANS="But you also won't receive the other result in outmoded technology. ">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="НО" LEMMA="НО">Но</W> 
+<W DOM="3" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="2" KSNAME="ИНОЙ" LEMMA="ИНОЙ" LINK="опред">иного</W> 
+<W DOM="9" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.11" ID="3" KSNAME="РЕЗУЛЬТАТ" LEMMA="РЕЗУЛЬТАТ" LINK="1-компл">результата</W> 
+<W DOM="9" FEAT="PR" HYPOT="обст.23" ID="4" KSNAME="ПО1" LEMMA="ПО" LINK="обст">по</W> 
+<W DOM="6" FEAT="A ЕД ЖЕН ДАТ" HYPOT="опред.01" ID="5" KSNAME="УСТАРЕВШИЙ" LEMMA="УСТАРЕВШИЙ" LINK="опред">устаревшей</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="6" KSNAME="ТЕХНОЛОГИЯ" LEMMA="ТЕХНОЛОГИЯ" LINK="предл">технологии</W> 
+<W DOM="9" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="9" FEAT="PART" HYPOT="огранич.10" ID="8" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ ЕД 2-Л" HYPOT="соч-союзн.20" ID="9" KSNAME="ПОЛУЧАТЬ" LEMMA="ПОЛУЧАТЬ" LINK="соч-союзн">получишь</W>.
+<LF LFARG="3" LFFUNC="_CAUSFUNC0" LFVAL="9"/>
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(5:производства,-2;11:производства)&#xA;" DATE="20 07 2023 20:29:13" ID="52" StateInfo="&#xA;Hypotheses 25" TRANS="The time of a reconstruction of foundry production has begun. ">
+<W DOM="_root" EXTRAFEAT="CAP ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД СРЕД" ID="1" KSNAME="ПРИХОДИТЬ" LEMMA="ПРИХОДИТЬ">Пришло</W> 
+<W DOM="1" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="ВРЕМЯ" LEMMA="ВРЕМЯ" LINK="предик">время</W> 
+<W DOM="2" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="РЕКОНСТРУКЦИЯ" LEMMA="РЕКОНСТРУКЦИЯ" LINK="1-компл">реконструкции</W> 
+<W DOM="5" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="4" KSNAME="ЛИТЕЙНЫЙ" LEMMA="ЛИТЕЙНЫЙ" LINK="опред" MSNAME="ЛИТЕЙНЫЙ">литейного</W> 
+<W DOM="3" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="5" KSNAME="ПРОИЗВОДСТВО" LEMMA="ПРОИЗВОДСТВО" LINK="1-компл">производства</W>.
+<LF LFARG="2" LFFUNC="_INCEPFUNC0" LFVAL="1"/>
+</S>
+<S COMMENT="traced" COREF="(6:которому,5:Минлегпищемаша)&#xA;(10:машиностроения,-9;12:машиностроение)&#xA;" DATE="20 07 2023 20:30:44" ID="53" StateInfo="&#xA;Hypotheses 27" TRANS="However in Minlegpishchemasha near-term plans the plants of printing machine-building, it to which are subordinated isn't envisaged. ">
+<W DOM="13" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="огранич.30" ID="1" KSNAME="ОДНАКО" LEMMA="ОДНАКО" LINK="огранич">Однако</W> 
+<W DOM="13" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="2" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="4" FEAT="A МН ПР" HYPOT="опред.01" ID="3" KSNAME="БЛИЖАЙШИЙ" LEMMA="БЛИЖАЙШИЙ" LINK="опред">ближайших</W> 
+<W DOM="2" FEAT="S МН МУЖ ПР НЕОД" HYPOT="предл.10" ID="4" KSNAME="ПЛАН1" LEMMA="ПЛАН" LINK="предл">планах</W> 
+<W ACCTSTRING="Минлегпищемаша" DOM="4" EXTRAFEAT="SEMI-FICTIVE" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="5" KSNAME="ФИКТ-СУЩ-М" LEMMA="МИНЛЕГПИЩЕМАШ" LINK="квазиагент">Минлегпищемаша</W>, 
+<W DOM="7" FEAT="S ЕД МУЖ ДАТ" HYPOT="1-компл.20" ID="6" KSNAME="КОТОРЫЙ" LEMMA="КОТОРЫЙ" LINK="1-компл">которому</W> 
+<W DOM="5" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="релят.01" ID="7" KSNAME="ПОДЧИНЯТЬСЯ" LEMMA="ПОДЧИНЯТЬСЯ" LINK="релят" MSNAME="ПОДЧИНЯТЬСЯ">подчиняются</W> 
+<W DOM="7" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="8" KSNAME="ЗАВОД1" LEMMA="ЗАВОД" LINK="предик">заводы</W> 
+<W DOM="10" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="9" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфического</W> 
+<W DOM="8" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="10" KSNAME="МАШИНОСТРОЕНИЕ" LEMMA="МАШИНОСТРОЕНИЕ" LINK="1-компл" MSNAME="МАШИНОСТРОЕНИЕ">машиностроения</W>, 
+<W DOM="13" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.04" ID="11" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предик">это</W> 
+<W DOM="13" FEAT="PART" HYPOT="огранич.10" ID="12" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" ID="13" KSNAME="ПРЕДУСМАТРИВАТЬ" LEMMA="ПРЕДУСМАТРИВАТЬ">предусмотрено</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(8:здесь,6:производства)&#xA;(6:производства,-2;5:производства)&#xA;" DATE="20 07 2023 20:31:37" ID="54" StateInfo="&#xA;Hypotheses 29" TRANS="Used here poor quality alteration cast iron even more aggravates difficulties with foundry production. ">
+<W DOM="2" EXTRAFEAT="ALTJO CAP" FEAT="PART" HYPOT="огранич.10" ID="1" KSNAME="ЕЩЕ1" LEMMA="ЕЩЕ" LINK="огранич">Еще</W> 
+<W DOM="3" FEAT="ADV" HYPOT="огранич.22" ID="2" KSNAME="БОЛЕЕ" LEMMA="БОЛЕЕ" LINK="огранич">более</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="УСУГУБЛЯТЬ" LEMMA="УСУГУБЛЯТЬ">усугубляет</W> 
+<W DOM="3" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="4" KSNAME="ТРУДНОСТЬ" LEMMA="ТРУДНОСТЬ" LINK="1-компл">трудности</W> 
+<W DOM="6" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="5" KSNAME="ЛИТЕЙНЫЙ" LEMMA="ЛИТЕЙНЫЙ" LINK="опред" MSNAME="ЛИТЕЙНЫЙ">литейного</W> 
+<W DOM="4" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="6" KSNAME="ПРОИЗВОДСТВО" LEMMA="ПРОИЗВОДСТВО" LINK="1-компл">производства</W> 
+<W DOM="11" FEAT="V НЕСОВ СТРАД ПРИЧ НЕПРОШ ЕД МУЖ ИМ" HYPOT="опред.01" ID="7" KSNAME="ИСПОЛЬЗОВАТЬ" LEMMA="ИСПОЛЬЗОВАТЬ" LINK="опред">используемый</W> 
+<W DOM="7" FEAT="ADV" HYPOT="обст.01" ID="8" KSNAME="ЗДЕСЬ" LEMMA="ЗДЕСЬ" LINK="обст">здесь</W> 
+<W DOM="11" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="9" KSNAME="НИЗКОКАЧЕСТВЕННЫЙ" LEMMA="НИЗКОКАЧЕСТВЕННЫЙ" LINK="опред" MSNAME="НИЗКОКАЧЕСТВЕННЫЙ">низкокачественный</W> 
+<W ACCTSTRING="передельный" DOM="11" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="10" KSNAME="ПЕРЕДЕЛЬНЫЙ" LEMMA="ПЕРЕДЕЛЬНЫЙ" LINK="опред" MSNAME="ПЕРЕДЕЛЬНЫЙ">передельный</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="11" KSNAME="ЧУГУН" LEMMA="ЧУГУН" LINK="предик" MSNAME="ЧУГУН">чугун</W>.
+<LF LFARG="4" LFFUNC="_CAUSFUNC0-NS" LFVAL="3"/>
+</S>
+<S COMMENT="traced" COREF="(11:них,8:изделий)&#xA;(4:конструкторов,-16;3:конструкторы)&#xA;" DATE="20 07 2023 20:34:51" ID="55" TRANS="The founders are forced ask the designers to increase the thickness of the metallic articles, the defect into them vozmzhen is otherwise. ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.04" ID="1" KSNAME="ЛИТЕЙЩИК" LEMMA="ЛИТЕЙЩИК" LINK="предик">Литейщики</W> 
+<W DOM="_root" EXTRAFEAT="ALT ЗЕРО" FEAT="A КР МН" ID="2" KSNAME="ВЫНУЖДЕННЫЙ" LEMMA="ВЫНУЖДЕННЫЙ">вынуждены</W> 
+<W DOM="2" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="3" KSNAME="ПРОСИТЬ1" LEMMA="ПРОСИТЬ" LINK="1-компл">просить</W> 
+<W DOM="3" FEAT="S МН МУЖ ВИН ОД" HYPOT="1-компл.11" ID="4" KSNAME="КОНСТРУКТОР1" LEMMA="КОНСТРУКТОР" LINK="1-компл">конструкторов</W> 
+<W DOM="3" FEAT="V НЕСОВ ИНФ" HYPOT="2-компл.11" ID="5" KSNAME="УВЕЛИЧИВАТЬ" LEMMA="УВЕЛИЧИВАТЬ" LINK="2-компл">увеличивать</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="ТОЛЩИНА" LEMMA="ТОЛЩИНА" LINK="1-компл">толщину</W> 
+<W DOM="8" FEAT="A МН РОД" HYPOT="опред.01" ID="7" KSNAME="МЕТАЛЛИЧЕСКИЙ" LEMMA="МЕТАЛЛИЧЕСКИЙ" LINK="опред">металлических</W> 
+<W DOM="6" FEAT="S МН СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="ИЗДЕЛИЕ" LEMMA="ИЗДЕЛИЕ" LINK="квазиагент">изделий</W>, 
+<W ACCTSTRING="иначе" DOM="2" FEAT="CONJ" HYPOT="сент-соч.10" ID="9" KSNAME="ИНАЧЕ2" LEMMA="ИНАЧЕ" LINK="сент-соч">иначе</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="10" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W ACCTSTRING="них" DOM="10" FEAT="S МН ПР ОД" HYPOT="предл.10" ID="11" KSNAME="НИХ" LEMMA="ОНИ" LINK="предл">них</W> 
+<W ACCTSTRING="возможен" DOM="9" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД МУЖ" HYPOT="соч-союзн" ID="12" KSNAME="ВОЗМОЖНЫЙ" LEMMA="ВОЗМОЖНЫЙ" LINK="соч-союзн">возможен</W> 
+<W DOM="12" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.04" ID="13" KSNAME="БРАК1" LEMMA="БРАК" LINK="предик">брак</W>.
+</S>
+<S COMMENT="traced" DATE="19 07 2023 21:45:43" ID="56" TRANS="The address to specialized foundry productions - &quot;tsentrolitam&quot; - only adds not simple bustle. ">
+<W DOM="8" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ОБРАЩЕНИЕ1" LEMMA="ОБРАЩЕНИЕ" LINK="предик">Обращение</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="2" KSNAME="К" LEMMA="К" LINK="1-компл">к</W> 
+<W DOM="5" FEAT="A МН ДАТ" HYPOT="опред.01" ID="3" KSNAME="СПЕЦИАЛИЗИРОВАННЫЙ" LEMMA="СПЕЦИАЛИЗИРОВАННЫЙ" LINK="опред" MSNAME="СПЕЦИАЛИЗИРОВАННЫЙ">специализированным</W> 
+<W DOM="5" FEAT="A МН ДАТ" HYPOT="опред.01" ID="4" KSNAME="ЛИТЕЙНЫЙ" LEMMA="ЛИТЕЙНЫЙ" LINK="опред" MSNAME="ЛИТЕЙНЫЙ">литейным</W> 
+<W DOM="2" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="5" KSNAME="ПРОИЗВОДСТВО" LEMMA="ПРОИЗВОДСТВО" LINK="предл">производствам</W> - 
+"<W ACCTSTRING="центролитам" DOM="5" EXTRAFEAT="IN-DASH IN-QUOT SEMI-FICTIVE" FEAT="S МН МУЖ ДАТ НЕОД" HYPOT="примыкат.02" ID="6" KSNAME="ФИКТ-СУЩ-М" LEMMA="ЦЕНТРОЛИТ" LINK="примыкат">центролитам</W>" - 
+<W DOM="8" FEAT="PART" HYPOT="огранич.27" ID="7" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">только</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="8" KSNAME="ДОБАВЛЯТЬ" LEMMA="ДОБАВЛЯТЬ">добавляет</W> 
+<W DOM="10" FEAT="A МН РОД" HYPOT="опред.01" ID="9" KSNAME="НЕПРОСТОЙ" LEMMA="НЕПРОСТОЙ" LINK="опред" MSNAME="НЕПРОСТОЙ">непростых</W> 
+<W DOM="8" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.11" ID="10" KSNAME="ХЛОПОТЫ" LEMMA="ХЛОПОТЫ" LINK="1-компл" MSNAME="ХЛОПОТЫ">хлопот</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(35:которому,34:министерства)&#xA;(23:изделия,-2;8:изделий)&#xA;(36:центролиты,21:предприятия)&#xA;(21:предприятия,-1;5:производствам)&#xA;(3:машина,-26;9:машине)&#xA;" DATE="04 05 2024 05:41:16" ID="57" MICROSYNT="(в соответствии с,{29:в...31:со})&#xA;" StateInfo="&#xA;Hypotheses 60" TRANS="That the printing machine was light, the thickness of the walls of the large buildings, we shall say, metal-consuming printing engineering, has to be the 12-16 millimetre, and, the foundry enterprises cast the articles of thickness not less than the millimetre 20 in correspondence to the standards of that ministry to which &quot;tsentrolity&quot; belong. ">
+<W DOM="14" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="обст.27" ID="1" KSNAME="ЧТОБЫ" LEMMA="ЧТОБЫ" LINK="обст">Чтобы</W> 
+<W DOM="3" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="2" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфическая</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="3" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="предик">машина</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ ЕД ЖЕН" HYPOT="подч-союзн.10" ID="4" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="подч-союзн">была</W> 
+<W DOM="4" EXTRAFEAT="ALTJO" FEAT="A ЕД ЖЕН ТВОР" HYPOT="присвяз.21" ID="5" KSNAME="ЛЕГКИЙ" LEMMA="ЛЕГКИЙ" LINK="присвяз">легкой</W>, 
+<W DOM="14" EXTRAFEAT="ЗЕРО" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="6" KSNAME="ТОЛЩИНА" LEMMA="ТОЛЩИНА" LINK="предик">толщина</W> 
+<W DOM="6" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="7" KSNAME="СТЕНКА" LEMMA="СТЕНКА" LINK="квазиагент">стенок</W> 
+<W DOM="9" FEAT="A МН РОД" HYPOT="опред.01" ID="8" KSNAME="БОЛЬШОЙ" LEMMA="БОЛЬШОЙ" LINK="опред">больших</W> 
+<W DOM="7" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="9" KSNAME="КОРПУС3" LEMMA="КОРПУС" LINK="квазиагент">корпусов</W>, 
+<W ACCTSTRING="скажем" DOM="13" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ МН 1-Л" HYPOT="вводн.18" ID="10" KSNAME="СКАЗАТЬ" LEMMA="СКАЗАТЬ" LINK="вводн">скажем</W>, 
+<W DOM="13" EXTRAFEAT="ALTJO" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="11" KSNAME="МЕТАЛЛОЕМКИЙ" LEMMA="МЕТАЛЛОЕМКИЙ" LINK="опред" MSNAME="МЕТАЛЛОЕМКИЙ">металлоемкой</W> 
+<W DOM="13" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="12" KSNAME="ПЕЧАТНЫЙ" LEMMA="ПЕЧАТНЫЙ" LINK="опред" MSNAME="ПЕЧАТНЫЙ">печатной</W> 
+<W DOM="9" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="13" KSNAME="ТЕХНИКА" LEMMA="ТЕХНИКА" LINK="квазиагент">техники</W>, 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД ЖЕН" ID="14" KSNAME="ДОЛЖЕН1" LEMMA="ДОЛЖЕН" MSNAME="ДОЛЖЕН1">должна</W> 
+<W DOM="14" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.35" ID="15" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="1-компл">быть</W> 
+<W ACCTSTRING="12" DOM="18" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="16" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="12" LINK="количест">12</W> - 
+<W DOM="16" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="кратн.01" ID="17" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="16" LINK="кратн">16</W> 
+<W ACCTSTRING="мм" DOM="15" EXTRAFEAT="TRUN" FEAT="S МН МУЖ РОД НЕОД" HYPOT="присвяз.28" ID="18" KSNAME="МИЛЛИМЕТР" LEMMA="МИЛЛИМЕТР" LINK="присвяз">мм</W>, 
+<W DOM="14" FEAT="CONJ" HYPOT="сент-соч.10" ID="19" KSNAME="А1" LEMMA="А" LINK="сент-соч">а</W> 
+<W DOM="21" FEAT="A МН ИМ" HYPOT="опред.01" ID="20" KSNAME="ЛИТЕЙНЫЙ" LEMMA="ЛИТЕЙНЫЙ" LINK="опред" MSNAME="ЛИТЕЙНЫЙ">литейные</W> 
+<W DOM="22" FEAT="S МН СРЕД ИМ НЕОД" HYPOT="предик.01" ID="21" KSNAME="ПРЕДПРИЯТИЕ" LEMMA="ПРЕДПРИЯТИЕ" LINK="предик">предприятия</W> 
+<W DOM="19" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="соч-союзн.15" ID="22" KSNAME="ОТЛИВАТЬ1" LEMMA="ОТЛИВАТЬ" LINK="соч-союзн">отливают</W> 
+<W DOM="22" FEAT="S МН СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="23" KSNAME="ИЗДЕЛИЕ" LEMMA="ИЗДЕЛИЕ" LINK="1-компл">изделия</W> 
+<W DOM="23" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="атриб.14" ID="24" KSNAME="ТОЛЩИНА" LEMMA="ТОЛЩИНА" LINK="атриб">толщиной</W> 
+<W DOM="26" FEAT="PART" HYPOT="огранич.10" ID="25" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="24" FEAT="ADV" HYPOT="компл-аппоз.10" ID="26" KSNAME="МЕНЕЕ" LEMMA="МЕНЕЕ" LINK="компл-аппоз">менее</W> 
+<W ACCTSTRING="20" DOM="28" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="27" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="20" LINK="количест">20</W> 
+<W ACCTSTRING="мм" DOM="26" EXTRAFEAT="TRUN" FEAT="S МН МУЖ РОД НЕОД" HYPOT="сравнит.01" ID="28" KSNAME="МИЛЛИМЕТР" LEMMA="МИЛЛИМЕТР" LINK="сравнит">мм</W> 
+<W DOM="22" FEAT="PR" HYPOT="обст.23" ID="29" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="29" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="30" KSNAME="СООТВЕТСТВИЕ" LEMMA="СООТВЕТСТВИЕ" LINK="предл">соответствии</W> 
+<W DOM="30" EXTRAFEAT="ALT ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="31" KSNAME="С3" LEMMA="С" LINK="1-компл">со</W> 
+<W DOM="31" FEAT="S МН МУЖ ТВОР НЕОД" HYPOT="предл.10" ID="32" KSNAME="СТАНДАРТ" LEMMA="СТАНДАРТ" LINK="предл">стандартами</W> 
+<W DOM="34" EXTRAFEAT="НЕПОСЛ" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="33" KSNAME="ТОТ2" LEMMA="ТОТ" LINK="опред">того</W> 
+<W DOM="32" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="атриб.01" ID="34" KSNAME="МИНИСТЕРСТВО" LEMMA="МИНИСТЕРСТВО" LINK="атриб">министерства</W>, 
+<W DOM="37" FEAT="S ЕД СРЕД ДАТ" HYPOT="1-компл.20" ID="35" KSNAME="КОТОРЫЙ" LEMMA="КОТОРЫЙ" LINK="1-компл">которому</W> 
+"<W ACCTSTRING="центролиты" DOM="37" EXTRAFEAT="IN-QUOT SEMI-FICTIVE ЗЕРО" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="36" KSNAME="ФИКТ-СУЩ-М" LEMMA="ЦЕНТРОЛИТ" LINK="предик">центролиты</W>" 
+<W DOM="34" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="релят.01" ID="37" KSNAME="ПРИНАДЛЕЖАТЬ" LEMMA="ПРИНАДЛЕЖАТЬ" LINK="релят">принадлежат</W>.
+<LF LFARG="30" LFFUNC="_ADV1-UN" LFVAL="29"/>
+</S>
+<S COMMENT="traced" COREF="(4:миллиметры,-1;28:мм)&#xA;(9:металла,-9;4:металла)&#xA;" DATE="20 07 2023 20:48:04" ID="58" MICROSYNT="(вот и,{1:Вот...5:и})&#xA;" TRANS="Here these millimetres also lead to overdraft of a metal. ">
+<W DOM="2" EXTRAFEAT="CAP ЗЕРО" FEAT="PART" HYPOT="огранич.d0" ID="1" KSNAME="ВОТ" LEMMA="ВОТ" LINK="огранич" MSNAME="ВОТ">Вот</W> 
+<W DOM="4" FEAT="A МН ИМ" HYPOT="опред.01" ID="2" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">эти</W>-
+<W DOM="2" FEAT="PART" HYPOT="огранич.d0" ID="3" KSNAME="ТО3" LEMMA="ТО" LINK="огранич" MSNAME="ТО3">то</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="4" KSNAME="МИЛЛИМЕТР" LEMMA="МИЛЛИМЕТР" LINK="предик">миллиметры</W> 
+<W DOM="6" FEAT="PART" HYPOT="огранич.10" ID="5" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="6" KSNAME="ВЕСТИ1" LEMMA="ВЕСТИ">ведут</W> 
+<W DOM="6" FEAT="PR" HYPOT="3-компл.11" ID="7" KSNAME="К" LEMMA="К" LINK="3-компл">к</W> 
+<W DOM="7" FEAT="S ЕД МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="8" KSNAME="ПЕРЕРАСХОД" LEMMA="ПЕРЕРАСХОД" LINK="предл">перерасходу</W> 
+<W DOM="8" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металла</W>.
+</S>
+<S COMMENT="traced" COREF="(6:металла,-1;9:металла)&#xA;" DATE="20 07 2023 20:48:09" ID="59" StateInfo="&#xA;Hypotheses 54" TRANS="Struggle for economy of a metal doesn't promise light successes. ">
+<W DOM="2" EXTRAFEAT="ALTJO CAP" FEAT="A МН РОД" HYPOT="опред.01" ID="1" KSNAME="ЛЕГКИЙ" LEMMA="ЛЕГКИЙ" LINK="опред">Легких</W> 
+<W DOM="8" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.11" ID="2" KSNAME="УСПЕХ" LEMMA="УСПЕХ" LINK="1-компл">успехов</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="3" KSNAME="БОРЬБА" LEMMA="БОРЬБА" LINK="предик">борьба</W> 
+<W DOM="3" FEAT="PR" HYPOT="2-компл.17" ID="4" KSNAME="ЗА1" LEMMA="ЗА" LINK="2-компл">за</W> 
+<W DOM="4" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="5" KSNAME="ЭКОНОМИЯ" LEMMA="ЭКОНОМИЯ" LINK="предл">экономию</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="6" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металла</W> 
+<W DOM="8" FEAT="PART" HYPOT="огранич.10" ID="7" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="8" KSNAME="ОБЕЩАТЬ" LEMMA="ОБЕЩАТЬ">обещает</W>.
+</S>
+<S COMMENT="traced" COREF="(2:она,-1;3:борьба)&#xA;" DATE="20 07 2023 20:48:15" ID="60" StateInfo="&#xA;Hypotheses 20" TRANS="But she is obligatory. ">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="НО" LEMMA="НО">Но</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН ИМ ОД" HYPOT="предик.04" ID="2" KSNAME="ОНА" LEMMA="ОНА" LINK="предик">она</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД ЖЕН" HYPOT="соч-союзн.20" ID="3" KSNAME="ОБЯЗАТЕЛЬНЫЙ1" LEMMA="ОБЯЗАТЕЛЬНЫЙ" LINK="соч-союзн">обязательна</W>.
+</S>
+<S COMMENT="traced" COREF="(5:деле,-2;3:борьба)&#xA;" DATE="20 07 2023 20:48:34" ID="61" TRANS="Only more with difficulty in this affair to see finite result. ">
+<W ACCTSTRING="Всего" DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="сравнит.02" ID="1" KSNAME="ВСЕ1" LEMMA="ВСЕ" LINK="сравнит">Всего</W> 
+<W ACCTSTRING="труднее" DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A СРАВ" ID="2" KSNAME="ТРУДНЫЙ" LEMMA="ТРУДНЫЙ" MSNAME="ТРУДНО">труднее</W> 
+<W DOM="2" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="5" FEAT="A ЕД СРЕД ПР" HYPOT="опред.01" ID="4" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">этом</W> 
+<W DOM="3" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="5" KSNAME="ДЕЛО1" LEMMA="ДЕЛО" LINK="предл">деле</W> 
+<W DOM="2" FEAT="V НЕСОВ ИНФ" HYPOT="предик.19" ID="6" KSNAME="ВИДЕТЬ" LEMMA="ВИДЕТЬ" LINK="предик">видеть</W> 
+<W DOM="8" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="7" KSNAME="КОНЕЧНЫЙ" LEMMA="КОНЕЧНЫЙ" LINK="опред">конечный</W> 
+<W DOM="6" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="8" KSNAME="РЕЗУЛЬТАТ" LEMMA="РЕЗУЛЬТАТ" LINK="1-компл">результат</W>.
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(23:машин,2:автомобилей)&#xA;" DATE="04 06 2024 20:43:27" ID="62" MICROSYNT="(к примеру,{5:к...6:примеру})&#xA;(в случае,{8:во...10:случаях})&#xA;" TRANS="The creators of the automobiles have already counted, to an example that in many cases of means spent on complete renovation, it is better to let to an increase of reliability and longevity of the machines. ">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="СОЗДАТЕЛЬ" LEMMA="СОЗДАТЕЛЬ" LINK="предик">Создатели</W> 
+<W DOM="1" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="2" KSNAME="АВТОМОБИЛЬ" LEMMA="АВТОМОБИЛЬ" LINK="1-компл">автомобилей</W> 
+<W DOM="4" FEAT="PART" HYPOT="огранич.10" ID="3" KSNAME="УЖЕ" LEMMA="УЖЕ" LINK="огранич">уже</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" ID="4" KSNAME="ПОДСЧИТЫВАТЬ" LEMMA="ПОДСЧИТЫВАТЬ">подсчитали</W>, 
+<W DOM="4" EXTRAFEAT="ЗЕРО ОГРАН РАЗЪЯСН" FEAT="PR" HYPOT="вводн.10" ID="5" KSNAME="К" LEMMA="К" LINK="вводн">к</W> 
+<W DOM="5" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="6" KSNAME="ПРИМЕР" LEMMA="ПРИМЕР" LINK="предл">примеру</W>, 
+<W DOM="4" FEAT="CONJ" HYPOT="1-компл.23" ID="7" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="16" EXTRAFEAT="ALT ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="В2" LEMMA="В" LINK="обст">во</W> 
+<W DOM="10" FEAT="A МН ПР" HYPOT="опред.01" ID="9" KSNAME="МНОГИЕ" LEMMA="МНОГИЕ" LINK="опред">многих</W> 
+<W DOM="8" EXTRAFEAT="ВВОДЧАСТ" FEAT="S МН МУЖ ПР НЕОД" HYPOT="предл.10" ID="10" KSNAME="СЛУЧАЙ" LEMMA="СЛУЧАЙ" LINK="предл">случаях</W> 
+<W ACCTSTRING="средства" DOM="17" FEAT="S МН СРЕД ВИН НЕОД" HYPOT="1-компл.51" ID="11" KSNAME="СРЕДСТВА" LEMMA="СРЕДСТВА" LINK="1-компл">средства</W>, 
+<W DOM="11" FEAT="V НЕСОВ СТРАД ПРИЧ НЕПРОШ МН ВИН НЕОД" HYPOT="опред.02" ID="12" KSNAME="ЗАТРАЧИВАТЬ" LEMMA="ЗАТРАЧИВАТЬ" LINK="опред">затрачиваемые</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="13" KSNAME="НА1" LEMMA="НА" LINK="2-компл">на</W> 
+<W DOM="15" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="14" KSNAME="КАПИТАЛЬНЫЙ" LEMMA="КАПИТАЛЬНЫЙ" LINK="опред">капитальный</W> 
+<W DOM="13" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="15" KSNAME="РЕМОНТ" LEMMA="РЕМОНТ" LINK="предл">ремонт</W>, 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="A СРАВ" HYPOT="подч-союзн.10" ID="16" KSNAME="ХОРОШИЙ" LEMMA="ХОРОШИЙ" LINK="подч-союзн">лучше</W> 
+<W DOM="16" FEAT="V НЕСОВ ИНФ" HYPOT="предик.19" ID="17" KSNAME="ПУСКАТЬ" LEMMA="ПУСКАТЬ" LINK="предик">пускать</W> 
+<W DOM="17" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="3-компл.11" ID="18" KSNAME="НА1" LEMMA="НА" LINK="3-компл">на</W> 
+<W DOM="18" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="предл.10" ID="19" KSNAME="УВЕЛИЧЕНИЕ" LEMMA="УВЕЛИЧЕНИЕ" LINK="предл">увеличение</W> 
+<W DOM="19" EXTRAFEAT="ALTJO" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="20" KSNAME="НАДЕЖНОСТЬ" LEMMA="НАДЕЖНОСТЬ" LINK="1-компл">надежности</W> 
+<W DOM="20" FEAT="CONJ" HYPOT="сочин.13" ID="21" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="21" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="соч-союзн.10" ID="22" KSNAME="ДОЛГОВЕЧНОСТЬ" LEMMA="ДОЛГОВЕЧНОСТЬ" LINK="соч-союзн">долговечности</W> 
+<W DOM="20" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="23" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="квазиагент">машин</W>.
+<LF LFARG="15" LFFUNC="_MAGN" LFVAL="14"/>
+</S>
+<S COREF="(6:их,-1;23:машин)&#xA;" DATE="10 05 2024 23:49:23" ID="63" MICROSYNT="(вместо того чтобы,{2:вместо...4:чтобы})&#xA;">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="И1" LEMMA="И">И</W> 
+<W ACCTSTRING="вместо" DOM="7" FEAT="PR" HYPOT="обст" ID="2" KSNAME="ВМЕСТО" LEMMA="ВМЕСТО" LINK="обст">вместо</W> 
+<W DOM="2" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="3" KSNAME="ТО1" LEMMA="ТО" LINK="предл">того</W> 
+<W DOM="3" FEAT="CONJ" HYPOT="эксплет.10" ID="4" KSNAME="ЧТОБЫ" LEMMA="ЧТОБЫ" LINK="эксплет">чтобы</W> 
+<W DOM="4" FEAT="V НЕСОВ ИНФ" HYPOT="инф-союзн.11" ID="5" KSNAME="РЕМОНТИРОВАТЬ1" LEMMA="РЕМОНТИРОВАТЬ" LINK="инф-союзн">ремонтировать</W>, 
+<W ACCTSTRING="их" DOM="8" FEAT="S МН ВИН ОД" HYPOT="1-компл.51" ID="6" KSNAME="ОНИ" LEMMA="ОНИ" LINK="1-компл">их</W> 
+<W ACCTSTRING="лучше" DOM="1" EXTRAFEAT="ЗЕРО" FEAT="A СРАВ" HYPOT="соч-союзн.20" ID="7" KSNAME="ХОРОШИЙ" LEMMA="ХОРОШИЙ" LINK="соч-союзн">лучше</W> 
+<W DOM="7" FEAT="V НЕСОВ ИНФ" HYPOT="предик.19" ID="8" KSNAME="ОТДАВАТЬ1" LEMMA="ОТДАВАТЬ" LINK="предик">отдавать</W> 
+<W DOM="10" FEAT="ADV" HYPOT="огранич.d0" ID="9" KSNAME="СРАЗУ" LEMMA="СРАЗУ" LINK="огранич">сразу</W> 
+<W DOM="8" FEAT="PR" HYPOT="2-компл.17" ID="10" KSNAME="НА1" LEMMA="НА" LINK="2-компл">на</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="11" KSNAME="ПЕРЕПЛАВКА" LEMMA="ПЕРЕПЛАВКА" LINK="предл" MSNAME="ПЕРЕПЛАВКА">переплавку</W>.
+</S>
+<S COMMENT="traced" COREF="(11:машиностроения,-11;10:машиностроения)&#xA;" DATE="20 07 2023 20:51:34" ID="64" MICROSYNT="(такой же,{3:такой...4:же})&#xA;" TRANS="It is possible that the same approach will be optimal also of printing machine-building. ">
+<W DOM="_root" EXTRAFEAT="CAP ЗЕРО" FEAT="A КР ЕД СРЕД" ID="1" KSNAME="ВОЗМОЖНЫЙ" LEMMA="ВОЗМОЖНЫЙ">Возможно</W>, 
+<W DOM="1" FEAT="CONJ" HYPOT="предик.19" ID="2" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="предик">что</W> 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="3" KSNAME="ТАКОЙ" LEMMA="ТАКОЙ" LINK="опред">такой</W> 
+<W DOM="3" FEAT="PART" HYPOT="огранич.16" ID="4" KSNAME="ЖЕ" LEMMA="ЖЕ" LINK="огранич" MSNAME="ЖЕ">же</W> 
+<W DOM="6" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="ПОДХОД" LEMMA="ПОДХОД" LINK="предик">подход</W> 
+<W DOM="2" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="6" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="подч-союзн">будет</W> 
+<W DOM="6" FEAT="A ЕД МУЖ ТВОР" HYPOT="присвяз.21" ID="7" KSNAME="ОПТИМАЛЬНЫЙ" LEMMA="ОПТИМАЛЬНЫЙ" LINK="присвяз">оптимальным</W> 
+<W DOM="9" FEAT="PART" HYPOT="огранич.10" ID="8" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="9" KSNAME="ДЛЯ" LEMMA="ДЛЯ" LINK="1-компл">для</W> 
+<W DOM="11" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="10" KSNAME="ПОЛИГРАФИЧЕСКИЙ" LEMMA="ПОЛИГРАФИЧЕСКИЙ" LINK="опред">полиграфического</W> 
+<W DOM="9" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="11" KSNAME="МАШИНОСТРОЕНИЕ" LEMMA="МАШИНОСТРОЕНИЕ" LINK="предл" MSNAME="МАШИНОСТРОЕНИЕ">машиностроения</W>.
+</S>
+<S COMMENT="traced" COREF="(7:они,5:машины)&#xA;(5:машины,-32;28:машин)&#xA;(14:металла,-6;6:металла)&#xA;" DATE="17 02 2024 13:00:37" ID="65" MICROSYNT="(может быть,{1:Может...2:быть})&#xA;(в конечном счете,{12:в конечном счете...12:в конечном счете})&#xA;" TRANS="Be may, is it necessary to load the machines, so that they longer serve and that ultimately the expenditures of a metal have turned out smaller? ">
+<W DOM="3" EXTRAFEAT="CAP ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="вводн.17" ID="1" KSNAME="МОЧЬ" LEMMA="МОЧЬ" LINK="вводн">Может</W> 
+<W DOM="1" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="2" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="1-компл">быть</W>, 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД СРЕД" ID="3" KSNAME="НУЖНЫЙ" LEMMA="НУЖНЫЙ">нужно</W> 
+<W DOM="3" FEAT="V СОВ ИНФ" HYPOT="предик.19" ID="4" KSNAME="УТЯЖЕЛЯТЬ" LEMMA="УТЯЖЕЛЯТЬ" LINK="предик">утяжелить</W> 
+<W DOM="4" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="5" KSNAME="МАШИНА" LEMMA="МАШИНА" LINK="1-компл">машины</W>, 
+<W DOM="4" FEAT="CONJ" HYPOT="обст.27" ID="6" KSNAME="ЧТОБЫ" LEMMA="ЧТОБЫ" LINK="обст">чтобы</W> 
+<W DOM="9" FEAT="S МН ИМ ОД" HYPOT="предик.01" ID="7" KSNAME="ОНИ" LEMMA="ОНИ" LINK="предик">они</W> 
+<W DOM="9" FEAT="ADV СРАВ" HYPOT="обст.01" ID="8" KSNAME="ДОЛГО" LEMMA="ДОЛГО" LINK="обст">дольше</W> 
+<W ACCTSTRING="служили" DOM="6" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" HYPOT="подч-союзн.10" ID="9" KSNAME="СЛУЖИТЬ2" LEMMA="СЛУЖИТЬ" LINK="подч-союзн">служили</W> 
+<W DOM="6" FEAT="CONJ" HYPOT="сент-соч.10" ID="10" KSNAME="И1" LEMMA="И" LINK="сент-соч">и</W> 
+<W DOM="10" FEAT="CONJ" HYPOT="соч-союзн.15" ID="11" KSNAME="ЧТОБЫ" LEMMA="ЧТОБЫ" LINK="соч-союзн">чтобы</W> 
+<W DOM="15" EXTRAFEAT="ALTJO" FEAT="ADV" HYPOT="обст.01" ID="12" KSNAME="В$КОНЕЧНОМ$СЧЕТЕ" LEMMA="В КОНЕЧНОМ СЧЕТЕ" LINK="обст">в конечном счете</W> 
+<W DOM="15" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="13" KSNAME="ЗАТРАТА" LEMMA="ЗАТРАТА" LINK="предик">затраты</W> 
+<W DOM="13" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="14" KSNAME="МЕТАЛЛ" LEMMA="МЕТАЛЛ" LINK="1-компл">металла</W> 
+<W DOM="11" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="подч-союзн.10" ID="15" KSNAME="ОКАЗЫВАТЬСЯ" LEMMA="ОКАЗЫВАТЬСЯ" LINK="подч-союзн">оказались</W> 
+<W ACCTSTRING="меньше" DOM="15" EXTRAFEAT="ЗЕРО" FEAT="A СРАВ" HYPOT="присвяз.17" ID="16" KSNAME="МАЛЫЙ1" LEMMA="МАЛЫЙ" LINK="присвяз">меньше</W>?
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="19 07 2023 21:45:43" ID="66" TRANS="Corresponding, the precise and reasonable calculation is only necessary for an answer to this question. ">
+<W ACCTSTRING="Только" DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="ТОЛЬКО3" LEMMA="ТОЛЬКО">Только</W> 
+<W DOM="7" FEAT="PR" HYPOT="1-компл.17" ID="2" KSNAME="ДЛЯ" LEMMA="ДЛЯ" LINK="1-компл">для</W> 
+<W DOM="2" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="3" KSNAME="ОТВЕТ" LEMMA="ОТВЕТ" LINK="предл">ответа</W> 
+<W DOM="3" FEAT="PR" HYPOT="3-компл.11" ID="4" KSNAME="НА1" LEMMA="НА" LINK="3-компл">на</W> 
+<W DOM="6" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="5" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">этот</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="ВОПРОС" LEMMA="ВОПРОС" LINK="предл">вопрос</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД МУЖ" HYPOT="соч-союзн.20" ID="7" KSNAME="НЕОБХОДИМЫЙ" LEMMA="НЕОБХОДИМЫЙ" LINK="соч-союзн">необходим</W> 
+<W DOM="12" FEAT="V НЕСОВ ПРИЧ НЕПРОШ ЕД МУЖ ИМ" HYPOT="опред.01" ID="8" KSNAME="СООТВЕТСТВОВАТЬ" LEMMA="СООТВЕТСТВОВАТЬ" LINK="опред">соответствующий</W>, 
+<W DOM="8" FEAT="A ЕД МУЖ ИМ" HYPOT="сочин.01" ID="9" KSNAME="ТОЧНЫЙ" LEMMA="ТОЧНЫЙ" LINK="сочин">точный</W> 
+<W DOM="9" FEAT="CONJ" HYPOT="сочин.13" ID="10" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="10" FEAT="A ЕД МУЖ ИМ" HYPOT="соч-союзн.10" ID="11" KSNAME="ОБОСНОВАННЫЙ" LEMMA="ОБОСНОВАННЫЙ" LINK="соч-союзн">обоснованный</W> 
+<W DOM="7" EXTRAFEAT="ALTJO" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.04" ID="12" KSNAME="РАСЧЕТ1" LEMMA="РАСЧЕТ" LINK="предик">расчет</W>.
+<LF LFARG="6" LFFUNC="_S0_REAL3-M" LFPREP="4" LFVAL="3"/>
+</S>
+<S CLASS="LF" COMMENT="traced" COREF="(9:экономии,-8;5:экономию)&#xA;" DATE="10 05 2024 23:46:49" ID="67" TRANS="Only orientating oneself to finite effect it is possible to solve the problems of economy. ">
+<W DOM="2" EXTRAFEAT="CAP IN-COMM-GER" FEAT="PART" HYPOT="огранич.27" ID="1" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">Только</W> 
+<W DOM="6" EXTRAFEAT="IN-COMM-GER" FEAT="V НЕСОВ ДЕЕПР НЕПРОШ" HYPOT="обст.02" ID="2" KSNAME="ОРИЕНТИРОВАТЬСЯ" LEMMA="ОРИЕНТИРОВАТЬСЯ" LINK="обст" MSNAME="ОРИЕНТИРОВАТЬСЯ">ориентируясь</W> 
+<W DOM="2" EXTRAFEAT="IN-COMM-GER" FEAT="PR" HYPOT="1-компл.17" ID="3" KSNAME="НА1" LEMMA="НА" LINK="1-компл">на</W> 
+<W DOM="5" EXTRAFEAT="IN-COMM-GER" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="4" KSNAME="КОНЕЧНЫЙ" LEMMA="КОНЕЧНЫЙ" LINK="опред">конечный</W> 
+<W DOM="3" EXTRAFEAT="IN-COMM-GER" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="5" KSNAME="ЭФФЕКТ" LEMMA="ЭФФЕКТ" LINK="предл">эффект</W>, 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="ADV" ID="6" KSNAME="МОЖНО" LEMMA="МОЖНО" MSNAME="МОЖНО">можно</W> 
+<W DOM="6" FEAT="V СОВ ИНФ" HYPOT="предик.19" ID="7" KSNAME="РЕШАТЬ1" LEMMA="РЕШАТЬ" LINK="предик">решить</W> 
+<W DOM="7" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="8" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА" LINK="1-компл">проблемы</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="9" KSNAME="ЭКОНОМИЯ" LEMMA="ЭКОНОМИЯ" LINK="квазиагент">экономии</W>.
+<LF LFARG="8" LFFUNC="_CAUSFACT0-M" LFVAL="7"/>
+</S>
+<S CLASS="LF" DATE="10 05 2024 23:48:39" ID="68" TRANS="And a style of a mind of the specialists' broad ranges in an epoch of intensification must only such must be. ">
+<W DOM="_root" EXTRAFEAT="CAP" FEAT="CONJ" ID="1" KSNAME="И1" LEMMA="И">И</W> 
+<W DOM="3" FEAT="PART" HYPOT="огранич.27" ID="2" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">только</W> 
+<W DOM="5" FEAT="A ЕД МУЖ ТВОР" HYPOT="присвяз.51" ID="3" KSNAME="ТАКОЙ" LEMMA="ТАКОЙ" LINK="присвяз">таким</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="A КР ЕД МУЖ" HYPOT="соч-союзн.20" ID="4" KSNAME="ДОЛЖЕН1" LEMMA="ДОЛЖЕН" LINK="соч-союзн" MSNAME="ДОЛЖЕН1">должен</W> 
+<W ACCTSTRING="быть" DOM="4" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.35" ID="5" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="1-компл">быть</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.04" ID="6" KSNAME="СТИЛЬ" LEMMA="СТИЛЬ" LINK="предик">стиль</W> 
+<W ACCTSTRING="мышления" DOM="6" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="7" KSNAME="МЫШЛЕНИЕ" LEMMA="МЫШЛЕНИЕ" LINK="квазиагент">мышления</W> 
+<W DOM="9" FEAT="A МН РОД" HYPOT="опред.01" ID="8" KSNAME="ШИРОКИЙ" LEMMA="ШИРОКИЙ" LINK="опред">широких</W> 
+<W DOM="7" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент" ID="9" KSNAME="КРУГ" LEMMA="КРУГ" LINK="квазиагент">кругов</W> 
+<W DOM="9" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="10" KSNAME="СПЕЦИАЛИСТ" LEMMA="СПЕЦИАЛИСТ" LINK="квазиагент">специалистов</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="11" KSNAME="В1" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="11" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="12" KSNAME="ЭПОХА" LEMMA="ЭПОХА" LINK="предл">эпоху</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="13" KSNAME="ИНТЕНСИФИКАЦИЯ" LEMMA="ИНТЕНСИФИКАЦИЯ" LINK="квазиагент">интенсификации</W>.
+<LF LFARG="12" LFFUNC="_LOC" LFVAL="11"/>
+</S>
+</body>
+</text>

@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_54_11.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; ALTTR=$TRUE; MWORDFORM=$TRUE; WEAKDESCR=$FALSE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; SOFTGEOMFILTR=$TRUE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; USECORPLF=$TRUE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2002</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2002</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>Газета.ру</publication>
+<publication_date>05.04.2002</publication_date>
+<publisher>-</publisher>
+<source>https://www.gazeta.ru/news</source>
+<sphere>публицистика</sphere>
+<title>Глава МИДа Греции: Арафат не террорист, а глава государства </title>
+<topic>политика и общественная жизнь</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S COMMENT="traced" DATE="17 03 2024 00:55:41" ID="1" TRANS="The head of the Foreign Ministry of Greece: Arafat is not a terrorist, but the head of the state ">
+<W DOM="_root" EXTRAFEAT="CAP ЗЕРО" FEAT="S ЕД МУЖ ИМ ОД" ID="1" KSNAME="ГЛАВА2" LEMMA="ГЛАВА">Глава</W> 
+<W DOM="1" EXTRAFEAT="ALT" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="2" KSNAME="МИД" LEMMA="МИД" LINK="1-компл" MSNAME="МИД">МИДа</W> 
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="3" KSNAME="ГРЕЦИЯ" LEMMA="ГРЕЦИЯ" LINK="квазиагент">Греции</W>: 
+<W DOM="6" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.04" ID="4" KSNAME="АРАФАТ" LEMMA="АРАФАТ" LINK="предик">Арафат</W> 
+<W DOM="6" FEAT="PART" HYPOT="огранич.10" ID="5" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="3" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="разъяснит.01" ID="6" KSNAME="ТЕРРОРИСТ" LEMMA="ТЕРРОРИСТ" LINK="разъяснит">террорист</W>, 
+<W DOM="6" FEAT="CONJ" HYPOT="сочин.13" ID="7" KSNAME="А1" LEMMA="А" LINK="сочин">а</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="соч-союзн.10" ID="8" KSNAME="ГЛАВА2" LEMMA="ГЛАВА" LINK="соч-союзн">глава</W> 
+<W DOM="8" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="ГОСУДАРСТВО" LEMMA="ГОСУДАРСТВО" LINK="1-компл">государства</W> 
+</S>
+<S COMMENT="traced" DATE="17 03 2024 00:55:41" ID="2">
+<W DOM="5" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="1-компл.57" ID="1" KSNAME="К" LEMMA="К" LINK="1-компл">К</W> 
+<W DOM="1" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ДАТ ОД" HYPOT="предл.10" ID="2" KSNAME="ЯСИР" LEMMA="ЯСИР" LINK="предл">Ясиру</W> 
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ДАТ ОД" HYPOT="аппоз.01" ID="3" KSNAME="АРАФАТ" LEMMA="АРАФАТ" LINK="аппоз">Арафату</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="4" KSNAME="СЛЕДОВАТЬ3" LEMMA="СЛЕДОВАТЬ">следует</W> 
+<W DOM="4" FEAT="V НЕСОВ ИНФ" HYPOT="предик.27" ID="5" KSNAME="ОТНОСИТЬСЯ" LEMMA="ОТНОСИТЬСЯ" LINK="предик">относиться</W> 
+<W DOM="5" FEAT="CONJ" HYPOT="2-компл.15" ID="6" KSNAME="КАК1" LEMMA="КАК" LINK="2-компл">как</W> 
+<W DOM="6" FEAT="PR" HYPOT="сравн-союзн.11" ID="7" KSNAME="К" LEMMA="К" LINK="сравн-союзн">к</W> 
+<W DOM="7" FEAT="S ЕД МУЖ ДАТ ОД" HYPOT="предл.10" ID="8" KSNAME="ГЛАВА2" LEMMA="ГЛАВА" LINK="предл">главе</W> 
+<W DOM="8" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="ГОСУДАРСТВО" LEMMA="ГОСУДАРСТВО" LINK="1-компл">государства</W>, 
+<W DOM="6" FEAT="CONJ" HYPOT="сочин.20" ID="10" KSNAME="А1" LEMMA="А" LINK="сочин">а</W> 
+<W DOM="12" FEAT="PART" HYPOT="огранич.10" ID="11" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="10" FEAT="CONJ" HYPOT="соч-союзн.15" ID="12" KSNAME="КАК1" LEMMA="КАК" LINK="соч-союзн">как</W> 
+<W DOM="12" FEAT="PR" HYPOT="сравн-союзн.11" ID="13" KSNAME="К" LEMMA="К" LINK="сравн-союзн">к</W> 
+<W DOM="13" FEAT="S ЕД МУЖ ДАТ ОД" HYPOT="предл.10" ID="14" KSNAME="ТЕРРОРИСТ" LEMMA="ТЕРРОРИСТ" LINK="предл">террористу</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="17 03 2024 00:55:41" ID="3">
+<W DOM="14" EXTRAFEAT="CAP" FEAT="PR" HYPOT="1-компл.17" ID="1" KSNAME="С3" LEMMA="С" LINK="1-компл">С</W> 
+<W DOM="3" FEAT="A ЕД СРЕД ТВОР" HYPOT="опред.01" ID="2" KSNAME="ТАКОЙ" LEMMA="ТАКОЙ" LINK="опред">таким</W> 
+<W DOM="1" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="3" KSNAME="ЗАЯВЛЕНИЕ1" LEMMA="ЗАЯВЛЕНИЕ" LINK="предл">заявлением</W> 
+<W DOM="14" FEAT="PR" HYPOT="обст.23" ID="4" KSNAME="НА2" LEMMA="НА" LINK="обст">на</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="5" KSNAME="ЗАСЕДАНИЕ" LEMMA="ЗАСЕДАНИЕ" LINK="предл">заседании</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="КОМИТЕТ" LEMMA="КОМИТЕТ" LINK="квазиагент">комитета</W> 
+<W DOM="6" FEAT="PR" HYPOT="2-компл.17" ID="7" KSNAME="ПО1" LEMMA="ПО" LINK="2-компл">по</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="8" KSNAME="ОБОРОНА" LEMMA="ОБОРОНА" LINK="предл">обороне</W> 
+<W DOM="8" FEAT="CONJ" HYPOT="сочин.13" ID="9" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="11" FEAT="A ЕД ЖЕН ДАТ" HYPOT="опред.01" ID="10" KSNAME="ВНЕШНИЙ" LEMMA="ВНЕШНИЙ" LINK="опред">внешней</W> 
+<W DOM="9" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="соч-союзн.10" ID="11" KSNAME="ПОЛИТИКА" LEMMA="ПОЛИТИКА" LINK="соч-союзн">политике</W> 
+<W DOM="6" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="12" KSNAME="ПАРЛАМЕНТ" LEMMA="ПАРЛАМЕНТ" LINK="1-компл">парламента</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="СТРАНА" LEMMA="СТРАНА" LINK="1-компл">страны</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" ID="14" KSNAME="ВЫСТУПАТЬ1" LEMMA="ВЫСТУПАТЬ">выступил</W> 
+<W DOM="14" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="15" KSNAME="МИНИСТР" LEMMA="МИНИСТР" LINK="предик">министр</W> 
+<W DOM="17" FEAT="A МН РОД" HYPOT="опред.01" ID="16" KSNAME="ИНОСТРАННЫЙ" LEMMA="ИНОСТРАННЫЙ" LINK="опред">иностранных</W> 
+<W DOM="15" FEAT="S МН СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="17" KSNAME="ДЕЛО1" LEMMA="ДЕЛО" LINK="1-компл">дел</W> 
+<W DOM="15" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="18" KSNAME="ГРЕЦИЯ" LEMMA="ГРЕЦИЯ" LINK="квазиагент">Греции</W> 
+<W DOM="15" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="19" KSNAME="ФИКТ-ЛИЧИМЯ" LEMMA="ГЕОРГИОС" LINK="аппоз">Георгиос</W> 
+<W DOM="19" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="20" KSNAME="ПАПАНДРЕУ" LEMMA="ПАПАНДРЕУ" LINK="аппоз">Папандреу</W>. 
+<LF LFARG="3" LFFUNC="_OPER1-NS" LFPREP="1" LFVAL="14"/>
+<LF LFARG="5" LFFUNC="_LOC" LFVAL="4"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="17 03 2024 00:55:41" ID="4" MICROSYNT="(по мнению,{1:По...3:мнению})&#xA;">
+<W DOM="8" EXTRAFEAT="CAP" FEAT="PR" HYPOT="вводн.10" ID="1" KSNAME="ПО1" LEMMA="ПО" LINK="вводн">По</W> 
+<W DOM="3" FEAT="S ЕД МУЖ РОД ОД" HYPOT="квазиагент.17" ID="2" KSNAME="ОН" LEMMA="ОН" LINK="квазиагент">его</W> 
+<W DOM="1" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="3" KSNAME="МНЕНИЕ" LEMMA="МНЕНИЕ" LINK="предл">мнению</W>, 
+<W DOM="5" FEAT="A ЕД ЖЕН ТВОР" HYPOT="опред.01" ID="4" KSNAME="ОСНОВНОЙ" LEMMA="ОСНОВНОЙ" LINK="опред">основной</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="1-компл.16" ID="5" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА" LINK="1-компл">проблемой</W> 
+<W DOM="7" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="6" KSNAME="БЛИЖНЕВОСТОЧНЫЙ" LEMMA="БЛИЖНЕВОСТОЧНЫЙ" LINK="опред">ближневосточного</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="7" KSNAME="КРИЗИС" LEMMA="КРИЗИС" LINK="квазиагент">кризиса</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="8" KSNAME="ЯВЛЯТЬСЯ1" LEMMA="ЯВЛЯТЬСЯ">является</W> 
+<W DOM="10" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="9" KSNAME="ИЗРАИЛЬСКИЙ" LEMMA="ИЗРАИЛЬСКИЙ" LINK="опред">израильская</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="10" KSNAME="ОСАДА" LEMMA="ОСАДА" LINK="предик">осада</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ШТАБ-КВАРТИРА" LEMMA="ШТАБ-КВАРТИРА" LINK="1-компл">штаб-квартиры</W> 
+<W DOM="11" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="1-компл.20" ID="12" KSNAME="АРАФАТ" LEMMA="АРАФАТ" LINK="1-компл">Арафата</W> 
+<W DOM="11" FEAT="PR" HYPOT="атриб.18" ID="13" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="13" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="14" KSNAME="РАМАЛЛА" LEMMA="РАМАЛЛА" LINK="предл">Рамалле</W>. 
+<LF LFARG="5" LFFUNC="_MAGN-NS" LFVAL="4"/>
+<LF LFARG="3" LFFUNC="_ADV2-UN" LFVAL="1"/>
+<LF LFARG="14" LFFUNC="_LOC" LFVAL="13"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="17 03 2024 00:55:41" ID="5">
+"<W DOM="2" EXTRAFEAT="CAP IN-QUOT" FEAT="A ЕД СРЕД ИМ" HYPOT="опред.01" ID="1" KSNAME="МИРОВОЙ" LEMMA="МИРОВОЙ" LINK="опред">Мировое</W> 
+<W DOM="5" EXTRAFEAT="IN-QUOT" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.04" ID="2" KSNAME="СООБЩЕСТВО" LEMMA="СООБЩЕСТВО" LINK="предик">сообщество</W> 
+<W DOM="2" EXTRAFEAT="IN-QUOT" FEAT="CONJ" HYPOT="сочин.13" ID="3" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="3" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="соч-союзн.10" ID="4" KSNAME="ИЗРАИЛЬ" LEMMA="ИЗРАИЛЬ" LINK="соч-союзн">Израиль</W> 
+<W DOM="15" EXTRAFEAT="IN-QUOT ЗЕРО" FEAT="A КР МН" HYPOT="1-компл.30" ID="5" KSNAME="ДОЛЖЕН1" LEMMA="ДОЛЖЕН" LINK="1-компл">должны</W> 
+<W DOM="5" EXTRAFEAT="IN-QUOT" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="6" KSNAME="СТРЕМИТЬСЯ" LEMMA="СТРЕМИТЬСЯ" LINK="1-компл">стремиться</W> 
+<W DOM="6" EXTRAFEAT="IN-QUOT" FEAT="V СОВ ИНФ" HYPOT="2-компл.11" ID="7" KSNAME="НАХОДИТЬ1" LEMMA="НАХОДИТЬ" LINK="2-компл">найти</W> 
+<W DOM="7" EXTRAFEAT="IN-QUOT" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="8" KSNAME="РЕШЕНИЕ1" LEMMA="РЕШЕНИЕ" LINK="1-компл">решение</W> 
+(<W DOM="10" EXTRAFEAT="IN-BR IN-QUOT" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="9" KSNAME="БЛИЖНЕВОСТОЧНЫЙ" LEMMA="БЛИЖНЕВОСТОЧНЫЙ" LINK="опред">ближневосточной</W> 
+<W DOM="8" EXTRAFEAT="IN-BR IN-QUOT" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="примыкат.01" ID="10" KSNAME="ПРОБЛЕМА" LEMMA="ПРОБЛЕМА" LINK="примыкат">проблемы</W> - 
+<W DOM="10" EXTRAFEAT="IN-BR IN-DASH IN-QUOT UPP ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="примыкат.02" ID="11" KSNAME="ИТАР-ТАСС" LEMMA="ИТАР-ТАСС" LINK="примыкат">ИТАР-ТАСС</W>) 
+<W DOM="13" EXTRAFEAT="IN-DASH IN-QUOT" FEAT="PART" HYPOT="огранич.10" ID="12" KSNAME="ИМЕННО" LEMMA="ИМЕННО" LINK="огранич">именно</W> 
+<W DOM="7" EXTRAFEAT="IN-DASH IN-QUOT ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="13" KSNAME="С3" LEMMA="С" LINK="обст">с</W> 
+<W DOM="13" EXTRAFEAT="CAP IN-DASH IN-QUOT" FEAT="S ЕД МУЖ ТВОР ОД" HYPOT="предл.10" ID="14" KSNAME="АРАФАТ" LEMMA="АРАФАТ" LINK="предл">Арафатом</W>", - 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" ID="15" KSNAME="ЗАЯВЛЯТЬ1" LEMMA="ЗАЯВЛЯТЬ">заявил</W> 
+<W DOM="15" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="16" KSNAME="ГЛАВА2" LEMMA="ГЛАВА" LINK="предик">глава</W> 
+<W DOM="16" EXTRAFEAT="UPP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="17" KSNAME="МИД" LEMMA="МИД" LINK="1-компл">МИД</W> 
+<W DOM="17" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="18" KSNAME="ГРЕЦИЯ" LEMMA="ГРЕЦИЯ" LINK="квазиагент">Греции</W>. 
+<LF LFARG="8" LFFUNC="_OPER1" LFVAL="7"/>
+</S>
+<S COMMENT="traced" DATE="17 03 2024 00:55:41" ID="6">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="ПАПАНДРЕУ" LEMMA="ПАПАНДРЕУ" LINK="предик">Папандреу</W> 
+<W DOM="3" FEAT="PART" HYPOT="огранич.20" ID="2" KSNAME="ТАКЖЕ" LEMMA="ТАКЖЕ" LINK="огранич">также</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" ID="3" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ">сообщил</W>, 
+<W DOM="3" FEAT="CONJ" HYPOT="1-компл.23" ID="4" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="6" EXTRAFEAT="CAP" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="АФИНЫ" LEMMA="АФИНЫ" LINK="предик">Афины</W> 
+<W DOM="4" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="подч-союзн.10" ID="6" KSNAME="ПОСЫЛАТЬ" LEMMA="ПОСЫЛАТЬ" LINK="подч-союзн">посылают</W> 
+<W DOM="8" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="7" KSNAME="ДИПЛОМАТИЧЕСКИЙ" LEMMA="ДИПЛОМАТИЧЕСКИЙ" LINK="опред">дипломатические</W> 
+<W DOM="6" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="8" KSNAME="МИССИЯ" LEMMA="МИССИЯ" LINK="1-компл">миссии</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="4-компл.11" ID="9" KSNAME="В1" LEMMA="В" LINK="4-компл">в</W> 
+<W DOM="11" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="10" KSNAME="АРАБСКИЙ" LEMMA="АРАБСКИЙ" LINK="опред">арабские</W> 
+<W DOM="9" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="11" KSNAME="СТРАНА" LEMMA="СТРАНА" LINK="предл">страны</W> 
+<W DOM="11" FEAT="CONJ" HYPOT="сочин.13" ID="12" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="12" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="соч-союзн.10" ID="13" KSNAME="ИЗРАИЛЬ" LEMMA="ИЗРАИЛЬ" LINK="соч-союзн">Израиль</W>. 
+</S>
+</body>
+</text>

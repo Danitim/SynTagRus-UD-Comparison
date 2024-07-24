@@ -1,0 +1,139 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_94_3.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; ALTTR=$TRUE; MWORDFORM=$TRUE; WEAKDESCR=$FALSE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; SOFTGEOMFILTR=$TRUE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; USECORPLF=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2001</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2001</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>Полит.ру</publication>
+<publication_date>22.10.2001</publication_date>
+<publisher>-</publisher>
+<source>http://polit.ru/fullnews.html?date=2001-10-22</source>
+<sphere>публицистика</sphere>
+<title>Этой ночью США в очередной раз бомбили Афганистан</title>
+<topic>армия и вооруженные конфликты</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S COMMENT="traced" DATE="24 06 2024 16:44:29" ID="1" MICROSYNT="(в очередной раз,{4:в...6:раз})&#xA;">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="A ЕД ЖЕН ТВОР" HYPOT="опред.01" ID="1" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">Этой</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="обст.05" ID="2" KSNAME="НОЧЬ" LEMMA="НОЧЬ" LINK="обст">ночью</W> 
+<W DOM="7" EXTRAFEAT="UPP" FEAT="S МН ИМ НЕОД" HYPOT="предик.01" ID="3" KSNAME="США" LEMMA="США" LINK="предик">США</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="4" KSNAME="В1" LEMMA="В" LINK="обст">в</W> 
+<W DOM="6" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="5" KSNAME="ОЧЕРЕДНОЙ" LEMMA="ОЧЕРЕДНОЙ" LINK="опред">очередной</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="РАЗ1" LEMMA="РАЗ" LINK="предл">раз</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" ID="7" KSNAME="БОМБИТЬ" LEMMA="БОМБИТЬ">бомбили</W> 
+<W DOM="7" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="8" KSNAME="АФГАНИСТАН" LEMMA="АФГАНИСТАН" LINK="1-компл">Афганистан</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="28 01 2023 01:07:34" ID="2">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="ТАЛИБ" LEMMA="ТАЛИБ" LINK="предик">Талибы</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="2" KSNAME="ГОВОРИТЬ1" LEMMA="ГОВОРИТЬ">говорят</W>, 
+<W DOM="2" FEAT="CONJ" HYPOT="1-компл.23" ID="3" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="8" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="4" KSNAME="С1" LEMMA="С" LINK="обст">с</W> 
+<W DOM="4" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="5" KSNAME="НАЧАЛО1" LEMMA="НАЧАЛО" LINK="предл">начала</W> 
+<W DOM="7" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="6" KSNAME="ВОЕННЫЙ1" LEMMA="ВОЕННЫЙ" LINK="опред">военной</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="7" KSNAME="ОПЕРАЦИЯ" LEMMA="ОПЕРАЦИЯ" LINK="квазиагент">операции</W> 
+<W DOM="3" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД СРЕД" HYPOT="подч-союзн.10" ID="8" KSNAME="ПОГИБАТЬ" LEMMA="ПОГИБАТЬ" LINK="подч-союзн">погибло</W> 
+<W DOM="10" FEAT="PART" HYPOT="огранич.10" ID="9" KSNAME="УЖЕ" LEMMA="УЖЕ" LINK="огранич">уже</W> 
+<W DOM="12" FEAT="NUM" HYPOT="количест.11" ID="10" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="900" LINK="количест">900</W> 
+<W DOM="12" FEAT="A МН РОД" HYPOT="опред.01" ID="11" KSNAME="МИРНЫЙ1" LEMMA="МИРНЫЙ" LINK="опред">мирных</W> 
+<W ACCTSTRING="жителей" DOM="8" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ РОД ОД" HYPOT="предик.02" ID="12" KSNAME="ЖИТЕЛЬ" LEMMA="ЖИТЕЛЬ" LINK="предик">жителей</W>. 
+</S>
+<S DATE="28 01 2023 01:07:18" ID="3">
+<W DOM="5" EXTRAFEAT="CAP CAPIT" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="СЕГОДНЯ1" LEMMA="СЕГОДНЯ" LINK="обст">Сегодня</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="обст.19" ID="2" KSNAME="НОЧЬ" LEMMA="НОЧЬ" LINK="обст">ночью</W> 
+<W DOM="4" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="3" KSNAME="АМЕРИКАНСКИЙ" LEMMA="АМЕРИКАНСКИЙ" LINK="опред">американская</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="4" KSNAME="АВИАЦИЯ" LEMMA="АВИАЦИЯ" LINK="предик">авиация</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД ЖЕН" ID="5" KSNAME="НАНОСИТЬ2" LEMMA="НАНОСИТЬ">нанесла</W> 
+<W DOM="7" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="6" KSNAME="НОВЫЙ" LEMMA="НОВЫЙ" LINK="опред">новые</W> 
+<W DOM="5" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="7" KSNAME="УДАР" LEMMA="УДАР" LINK="1-компл">удары</W> 
+<W DOM="7" FEAT="PR" HYPOT="1-компл.17" ID="8" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="8" FEAT="S МН ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="9" KSNAME="ПОЗИЦИЯ" LEMMA="ПОЗИЦИЯ" LINK="предл">позициям</W> 
+<W DOM="9" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="10" KSNAME="ТАЛИБ" LEMMA="ТАЛИБ" LINK="квазиагент">талибов</W> 
+<W DOM="9" FEAT="CONJ" HYPOT="сочин.13" ID="11" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="11" FEAT="S МН ЖЕН ДАТ НЕОД" HYPOT="соч-союзн.10" ID="12" KSNAME="БАЗА" LEMMA="БАЗА" LINK="соч-союзн">базам</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="13" KSNAME="ОРГАНИЗАЦИЯ1" LEMMA="ОРГАНИЗАЦИЯ" LINK="квазиагент">организации</W> 
+"<W DOM="13" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="аппоз.01" ID="14" KSNAME="АЛЬ-КАИДА" LEMMA="АЛЬ-КАИДА" LINK="аппоз">Аль-Каида</W>" 
+<W DOM="12" FEAT="PR" HYPOT="атриб.18" ID="15" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="15" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="16" KSNAME="АФГАНИСТАН" LEMMA="АФГАНИСТАН" LINK="предл">Афганистане</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="28 01 2023 01:07:18" ID="4" MICROSYNT="(а также,{18:а также...18:а также})">
+<W DOM="14" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="вводн.16" ID="1" KSNAME="КАК1" LEMMA="КАК" LINK="вводн">Как</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="сравн-союзн.11" ID="2" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="сравн-союзн">сообщает</W> 
+<W DOM="2" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="3" KSNAME="АГЕНТСТВО" LEMMA="АГЕНТСТВО" LINK="предик">агентство</W> 
+<W DOM="3" EXTRAFEAT="ALT1 CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="4" KSNAME="АССОШИЭЙТЕД$ПРЕСС" LEMMA="АССОШИЭЙТЕД ПРЕСС" LINK="квазиагент">Associated Press</W>, 
+<W DOM="14" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="5" KSNAME="С1" LEMMA="С" LINK="1-компл">с</W> 
+<W DOM="5" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="6" KSNAME="АВИАНОСЕЦ" LEMMA="АВИАНОСЕЦ" LINK="предл" MSNAME="АВИАНОСЕЦ">авианосца</W> 
+"<W DOM="6" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="ном-аппоз.10" ID="7" KSNAME="ТЕОДОР" LEMMA="ТЕОДОР" LINK="ном-аппоз">Теодор</W> 
+<W DOM="7" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="8" KSNAME="РУЗВЕЛЬТ" LEMMA="РУЗВЕЛЬТ" LINK="аппоз">Рузвельт</W>" 
+<W DOM="6" FEAT="PR" HYPOT="атриб.18" ID="9" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="11" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД СРЕД ПР" HYPOT="опред.01" ID="10" KSNAME="АРАВИЙСКИЙ" LEMMA="АРАВИЙСКИЙ" LINK="опред">Аравийском</W> 
+<W DOM="9" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="11" KSNAME="МОРЕ" LEMMA="МОРЕ" LINK="предл">море</W> 
+<W DOM="14" FEAT="PR" HYPOT="2-компл.17" ID="12" KSNAME="В1" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="12" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="13" KSNAME="ВОЗДУХ1" LEMMA="ВОЗДУХ" LINK="предл">воздух</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" ID="14" KSNAME="ПОДНИМАТЬСЯ" LEMMA="ПОДНИМАТЬСЯ">поднялись</W> 
+<W DOM="16" FEAT="NUM ИМ" HYPOT="количест.11" ID="15" KSNAME="НЕСКОЛЬКО1" LEMMA="НЕСКОЛЬКО" LINK="количест">несколько</W> 
+<W DOM="14" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="16" KSNAME="ИСТРЕБИТЕЛЬ2" LEMMA="ИСТРЕБИТЕЛЬ" LINK="предик">истребителей</W>-
+<W DOM="16" FEAT="S МН МУЖ РОД НЕОД" HYPOT="аппоз.01" ID="17" KSNAME="БОМБАРДИРОВЩИК" LEMMA="БОМБАРДИРОВЩИК" LINK="аппоз">бомбардировщиков</W>, 
+<W DOM="16" FEAT="CONJ" HYPOT="сочин.13" ID="18" KSNAME="А$ТАКЖЕ" LEMMA="А ТАКЖЕ" LINK="сочин">а также</W> 
+<W DOM="18" EXTRAFEAT="ALTJO ЗЕРО" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="соч-союзн.10" ID="19" KSNAME="САМОЛЕТ" LEMMA="САМОЛЕТ" LINK="соч-союзн">самолеты</W>-
+<W DOM="19" EXTRAFEAT="ЗЕРО" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="20" KSNAME="РАЗВЕДЧИК2" LEMMA="РАЗВЕДЧИК" LINK="аппоз" MSNAME="РАЗВЕДЧИК2">разведчики</W>. 
+<LF LFARG="11" LFFUNC="_LOC" LFVAL="9"/>
+</S>
+<S CLASS="LF" DATE="28 01 2023 01:07:18" ID="5">
+<W DOM="2" EXTRAFEAT="UPP" FEAT="S МН ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="США" LEMMA="США" LINK="предик">США</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" ID="2" KSNAME="ПОДВЕРГАТЬ" LEMMA="ПОДВЕРГАТЬ">подвергли</W> 
+<W DOM="2" FEAT="S МН ЖЕН ДАТ НЕОД" HYPOT="2-компл.21" ID="3" KSNAME="БОМБАРДИРОВКА" LEMMA="БОМБАРДИРОВКА" LINK="2-компл">бомбардировкам</W> 
+<W DOM="5" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="4" KSNAME="ПЕРЕДОВОЙ" LEMMA="ПЕРЕДОВОЙ" LINK="опред">передовые</W> 
+<W DOM="2" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="5" KSNAME="ПОЗИЦИЯ" LEMMA="ПОЗИЦИЯ" LINK="1-компл">позиции</W> 
+<W DOM="5" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="6" KSNAME="ТАЛИБ" LEMMA="ТАЛИБ" LINK="квазиагент">талибов</W> 
+<W DOM="5" FEAT="PR" HYPOT="атриб.18" ID="7" KSNAME="БЛИЗ" LEMMA="БЛИЗ" LINK="атриб">близ</W> 
+<W DOM="7" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="8" KSNAME="АЭРОПОРТ" LEMMA="АЭРОПОРТ" LINK="предл">аэропорта</W> 
+<W DOM="8" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="9" KSNAME="БАГРАМ" LEMMA="БАГРАМ" LINK="аппоз">Баграм</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="уточн" ID="10" KSNAME="В2" LEMMA="В" LINK="уточн">в</W> 
+<W DOM="12" FEAT="NUM" HYPOT="количест.11" ID="11" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="40" LINK="количест">40</W> 
+<W DOM="10" EXTRAFEAT="TRUN" FEAT="S МН МУЖ ПР НЕОД" HYPOT="предл.10" ID="12" KSNAME="КИЛОМЕТР" LEMMA="КИЛОМЕТР" LINK="предл">км</W> 
+<W DOM="12" FEAT="PR" HYPOT="атриб.18" ID="13" KSNAME="ОТ" LEMMA="ОТ" LINK="атриб">от</W> 
+<W DOM="13" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="14" KSNAME="КАБУЛ" LEMMA="КАБУЛ" LINK="предл">Кабула</W> 
+<W DOM="10" FEAT="PR" HYPOT="уточн" ID="15" KSNAME="НА2" LEMMA="НА" LINK="уточн">на</W> 
+<W DOM="15" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="16" KSNAME="ЛИНИЯ" LEMMA="ЛИНИЯ" LINK="предл">линии</W> 
+<W DOM="16" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="17" KSNAME="ФРОНТ1" LEMMA="ФРОНТ" LINK="квазиагент">фронта</W> 
+<W DOM="17" FEAT="PR" HYPOT="1-компл" ID="18" KSNAME="С3" LEMMA="С" LINK="1-компл">с</W> 
+<W DOM="20" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ ТВОР" HYPOT="опред.01" ID="19" KSNAME="СЕВЕРНЫЙ" LEMMA="СЕВЕРНЫЙ" LINK="опред">Северным</W> 
+<W DOM="18" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="предл.10" ID="20" KSNAME="АЛЬЯНС" LEMMA="АЛЬЯНС" LINK="предл">альянсом</W>. 
+<LF LFARG="3" LFFUNC="_LABOR1-2" LFVAL="2"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="28 01 2023 01:07:18" ID="6" MICROSYNT="(в результате,{13:в...14:результате})">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ИСТОЧНИК" LEMMA="ИСТОЧНИК" LINK="предик">Источники</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="2" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+"<W DOM="2" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="3" KSNAME="ТАЛИБАН" LEMMA="ТАЛИБАН" LINK="предл">Талибане</W>" 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="4" KSNAME="ЗАЯВЛЯТЬ1" LEMMA="ЗАЯВЛЯТЬ">заявляют</W>, 
+<W DOM="4" FEAT="CONJ" HYPOT="1-компл.23" ID="5" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="1-компл">что</W> 
+<W DOM="16" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="6" KSNAME="ЧИСЛО" LEMMA="ЧИСЛО" LINK="предик">число</W> 
+<W DOM="6" EXTRAFEAT="ALT" FEAT="V СОВ ПРИЧ ПРОШ МН РОД" HYPOT="квазиагент.01" ID="7" KSNAME="ПОГИБАТЬ" LEMMA="ПОГИБАТЬ" LINK="квазиагент">погибших</W> 
+<W DOM="7" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="СРЕДИ" LEMMA="СРЕДИ" LINK="обст">среди</W> 
+<W DOM="10" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="9" KSNAME="МИРНЫЙ1" LEMMA="МИРНЫЙ" LINK="опред">мирного</W> 
+<W DOM="8" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="10" KSNAME="НАСЕЛЕНИЕ" LEMMA="НАСЕЛЕНИЕ" LINK="предл">населения</W> 
+<W DOM="10" FEAT="PR" HYPOT="атриб.18" ID="11" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="11" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="12" KSNAME="АФГАНИСТАН" LEMMA="АФГАНИСТАН" LINK="предл">Афганистане</W> 
+<W DOM="7" FEAT="PR" HYPOT="обст.23" ID="13" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="13" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="14" KSNAME="РЕЗУЛЬТАТ" LEMMA="РЕЗУЛЬТАТ" LINK="предл">результате</W> 
+<W DOM="14" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="15" KSNAME="БОМБАРДИРОВКА" LEMMA="БОМБАРДИРОВКА" LINK="квазиагент">бомбардировок</W> 
+<W DOM="5" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД СРЕД" HYPOT="подч-союзн.10" ID="16" KSNAME="ДОСТИГАТЬ" LEMMA="ДОСТИГАТЬ" LINK="подч-союзн">достигло</W> 
+<W DOM="18" FEAT="PART" HYPOT="огранич.10" ID="17" KSNAME="УЖЕ" LEMMA="УЖЕ" LINK="огранич">уже</W> 
+<W DOM="19" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="18" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="900" LINK="количест">900</W> 
+<W DOM="16" FEAT="S МН МУЖ РОД ОД" HYPOT="1-компл.20" ID="19" KSNAME="ЧЕЛОВЕК" LEMMA="ЧЕЛОВЕК" LINK="1-компл">человек</W>. 
+<LF LFARG="6" LFFUNC="_FUNC2" LFVAL="16"/>
+<LF LFARG="12" LFFUNC="_LOC" LFVAL="11"/>
+<LF LFARG="14" LFFUNC="_ADV2-UN" LFVAL="13"/>
+</S>
+</body>
+</text>

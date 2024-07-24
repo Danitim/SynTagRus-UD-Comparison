@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_14_2.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; USESTAT=USESTATNO; ALTTR=$TRUE; MWORDFORM=$TRUE; CORDESCRMODE=CORDESCROLDMODE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; SPEECHMODE=SPEECHMODENO; JOFICATION=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2001</annotation_year>
+<author>Александр Иванович Архипов</author>
+<author_birth_year>-</author_birth_year>
+<author_id>640</author_id>
+<author_sex>мужской</author_sex>
+<comment>-</comment>
+<creation_date>2001</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>ИТАР-ТАСС</publication>
+<publication_date>24.12.2001</publication_date>
+<publisher>-</publisher>
+<source>https://tass.ru/</source>
+<sphere>публицистика</sphere>
+<title>Энергетики Камчатки ведут с муниципалитетами переговоры по оплате долгов за тепло и свет</title>
+<topic>политика и общественная жизнь</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S CLASS="LF" DATE="17 02 2024 19:36:25" ID="1" TRANS="The energetics specialists of Kamchatka conduct with the municipalities negotiations on payment for debts for heat and light ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="ЭНЕРГЕТИК" LEMMA="ЭНЕРГЕТИК" LINK="предик" MSNAME="ЭНЕРГЕТИК">Энергетики</W> 
+<W DOM="1" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="атриб.01" ID="2" KSNAME="КАМЧАТКА1" LEMMA="КАМЧАТКА" LINK="атриб">Камчатки</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="3" KSNAME="ВЕСТИ2" LEMMA="ВЕСТИ">ведут</W> 
+<W DOM="3" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-несобст-компл.01" ID="4" KSNAME="С3" LEMMA="С" LINK="2-несобст-компл">с</W> 
+<W DOM="4" FEAT="S МН МУЖ ТВОР НЕОД" HYPOT="предл.10" ID="5" KSNAME="МУНИЦИПАЛИТЕТ" LEMMA="МУНИЦИПАЛИТЕТ" LINK="предл">муниципалитетами</W> 
+<W DOM="3" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="ПЕРЕГОВОРЫ" LEMMA="ПЕРЕГОВОРЫ" LINK="1-компл">переговоры</W> 
+<W DOM="6" FEAT="PR" HYPOT="1-компл.17" ID="7" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="предл.10" ID="8" KSNAME="ОПЛАТА" LEMMA="ОПЛАТА" LINK="предл">оплате</W> 
+<W DOM="8" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="ДОЛГ1" LEMMA="ДОЛГ" LINK="1-компл">долгов</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="3-компл.11" ID="10" KSNAME="ЗА1" LEMMA="ЗА" LINK="3-компл">за</W> 
+<W ACCTSTRING="тепло" DOM="10" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="предл.10" ID="11" KSNAME="ТЕПЛО1" LEMMA="ТЕПЛО" LINK="предл" PAFT=" ">тепло</W> 
+<W DOM="11" FEAT="CONJ" HYPOT="сочин.13" ID="12" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W ACCTSTRING="свет" DOM="12" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="соч-союзн.10" ID="13" KSNAME="СВЕТ1" LEMMA="СВЕТ" LINK="соч-союзн">свет</W>
+<LF LFARG="6" LFFUNC="_OPER1" LFVAL="3"/>
+</S>
+<S COMMENT="traced" DATE="17 02 2024 19:36:25" ID="2">
+<W DOM="5" EXTRAFEAT="CAP" FEAT="PR" HYPOT="1-компл.17" ID="1" KSNAME="У1" LEMMA="У" LINK="1-компл">У</W> 
+<W DOM="1" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="2" KSNAME="МУНИЦИПАЛИТЕТ" LEMMA="МУНИЦИПАЛИТЕТ" LINK="предл">муниципалитетов</W> 
+<W DOM="2" FEAT="PR" HYPOT="атриб.18" ID="3" KSNAME="НА2" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="4" KSNAME="КАМЧАТКА1" LEMMA="КАМЧАТКА" LINK="предл">Камчатке</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" ID="5" KSNAME="ОСТАВАТЬСЯ2" LEMMA="ОСТАВАТЬСЯ">остался</W> 
+<W DOM="7" FEAT="NUM" HYPOT="количест.11" ID="6" KSNAME="ЧИСЛ-ОДИН" LEMMA="1" LINK="количест">1</W> 
+<W DOM="5" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="7" KSNAME="ДЕНЬ" LEMMA="ДЕНЬ" LINK="предик">день</W> 
+<W DOM="5" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="ДЛЯ" LEMMA="ДЛЯ" LINK="обст">для</W> 
+<W DOM="8" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="9" KSNAME="РЕШЕНИЕ1" LEMMA="РЕШЕНИЕ" LINK="предл">решения</W> 
+<W DOM="9" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="10" KSNAME="ВОПРОС" LEMMA="ВОПРОС" LINK="1-компл">вопроса</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ОПЛАТА" LEMMA="ОПЛАТА" LINK="1-компл">оплаты</W> 
+<W DOM="13" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="12" KSNAME="ТЕКУЩИЙ" LEMMA="ТЕКУЩИЙ" LINK="опред">текущего</W> 
+<W DOM="11" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="ПОТРЕБЛЕНИЕ" LEMMA="ПОТРЕБЛЕНИЕ" LINK="1-компл">потребления</W> 
+<W DOM="13" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="14" KSNAME="ЭНЕРГИЯ" LEMMA="ЭНЕРГИЯ" LINK="1-компл">энергии</W>. 
+</S>
+<S DATE="17 02 2024 19:36:25" ID="3">
+<W DOM="7" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="обст.27" ID="1" KSNAME="ЕСЛИ" LEMMA="ЕСЛИ" LINK="обст">Если</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="2" KSNAME="ОН" LEMMA="ОН" LINK="предик">он</W> 
+<W DOM="4" FEAT="PART" HYPOT="огранич.10" ID="3" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="4" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="подч-союзн">будет</W> 
+<W DOM="4" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="пасс-анал.10" ID="5" KSNAME="УРЕГУЛИРОВАТЬ" LEMMA="УРЕГУЛИРОВАТЬ" LINK="пасс-анал">урегулирован</W>, 
+<W DOM="7" FEAT="S МН МУЖ ИМ ОД" HYPOT="предик.01" ID="6" KSNAME="ЭНЕРГЕТИК" LEMMA="ЭНЕРГЕТИК" LINK="предик">энергетики</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" ID="7" KSNAME="ОСТАВЛЯТЬ" LEMMA="ОСТАВЛЯТЬ">оставляют</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="8" KSNAME="ЗА2" LEMMA="ЗА" LINK="2-компл">за</W> 
+<W DOM="8" FEAT="S ТВОР" HYPOT="предл.10" ID="9" KSNAME="СЕБЯ" LEMMA="СЕБЯ" LINK="предл">собой</W> 
+<W DOM="7" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="10" KSNAME="ПРАВО1" LEMMA="ПРАВО" LINK="1-компл">право</W> 
+<W DOM="10" FEAT="PR" HYPOT="1-компл.17" ID="11" KSNAME="НА1" LEMMA="НА" LINK="1-компл">на</W> 
+<W DOM="11" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="предл.10" ID="12" KSNAME="ПРЕКРАЩЕНИЕ" LEMMA="ПРЕКРАЩЕНИЕ" LINK="предл">прекращение</W> 
+<W DOM="12" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="ОТПУСК2" LEMMA="ОТПУСК" LINK="1-компл">отпуска</W> 
+<W DOM="15" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="14" KSNAME="НЕОПЛАЧЕННЫЙ" LEMMA="НЕОПЛАЧЕННЫЙ" LINK="опред">неоплаченного</W> 
+<W DOM="13" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="15" KSNAME="ЭЛЕКТРИЧЕСТВО" LEMMA="ЭЛЕКТРИЧЕСТВО" LINK="1-компл">электричества</W> 
+<W DOM="13" FEAT="S МН МУЖ ДАТ ОД" HYPOT="2-компл.21" ID="16" KSNAME="ДОЛЖНИК" LEMMA="ДОЛЖНИК" LINK="2-компл">должникам</W>, 
+<W DOM="7" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="вводн.12" ID="17" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="вводн">сообщает</W> 
+<W DOM="17" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="18" KSNAME="ПРЕСС-СЛУЖБА" LEMMA="ПРЕСС-СЛУЖБА" LINK="предик">пресс-служба</W> 
+<W DOM="18" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="19" KSNAME="ОАО" LEMMA="ОАО" LINK="квазиагент">ОАО</W> 
+"<W DOM="19" EXTRAFEAT="IN-QUOT SEMI-FICTIVE" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="аппоз.01" ID="20" KSNAME="ФИКТ-СУЩ-С" LEMMA="КАМЧАТСКЭНЕРГО" LINK="аппоз">Камчатскэнерго</W>". 
+</S>
+<S CLASS="LF" DATE="17 02 2024 19:36:25" ID="4">
+<W ACCTSTRING="Сегодня" DOM="4" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="СЕГОДНЯ1" LEMMA="СЕГОДНЯ" LINK="обст">Сегодня</W> 
+<W DOM="4" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="РУКОВОДСТВО1" LEMMA="РУКОВОДСТВО" LINK="предик">руководство</W> 
+<W DOM="2" EXTRAFEAT="FICTIVE" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="ФИКТ-СУЩ-Ж" LEMMA="ЭНЕРГОКОМПАНИЯ" LINK="1-компл">энергокомпании</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД СРЕД" HYPOT="root" ID="4" KSNAME="НАЧИНАТЬ" LEMMA="НАЧИНАТЬ">начало</W> 
+<W DOM="4" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="5" KSNAME="ПЕРЕГОВОРЫ" LEMMA="ПЕРЕГОВОРЫ" LINK="1-компл">переговоры</W> 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="6" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="8" FEAT="A ЕД МУЖ ДАТ" HYPOT="опред.01" ID="7" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">этому</W> 
+<W DOM="6" FEAT="S ЕД МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="8" KSNAME="ВОПРОС" LEMMA="ВОПРОС" LINK="предл">вопросу</W> 
+<W DOM="5" FEAT="PR" HYPOT="2-компл.17" ID="9" KSNAME="С3" LEMMA="С" LINK="2-компл">с</W> 
+<W DOM="11" FEAT="A МН ТВОР" HYPOT="опред.01" ID="10" KSNAME="МЕСТНЫЙ1" LEMMA="МЕСТНЫЙ" LINK="опред">местными</W> 
+<W DOM="9" FEAT="S МН ЖЕН ТВОР НЕОД" HYPOT="предл.10" ID="11" KSNAME="ВЛАСТЬ" LEMMA="ВЛАСТЬ" LINK="предл">властями</W>. 
+<LF LFARG="5" LFFUNC="_INCEPOPER1" LFVAL="4"/>
+</S>
+<S DATE="17 02 2024 19:36:25" ID="5">
+<W DOM="9" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="агент.01" ID="1" KSNAME="ЭНЕРГОСБЫТ" LEMMA="ЭНЕРГОСБЫТ" LINK="агент">Энергосбытом</W> 
+"<W DOM="1" EXTRAFEAT="FICTIVE IN-QUOT" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент" ID="2" KSNAME="ФИКТ-СУЩ-С" LEMMA="КАМЧАТСКЭНЕРГО" LINK="квазиагент">Камчатскэнерго</W>" 
+<W DOM="4" EXTRAFEAT="FICTIVE" FEAT="A МН ДАТ" HYPOT="опред.01" ID="3" KSNAME="ФИКТ-ПРИЛ" LEMMA="БЮДЖЕТОЗАВИСИМЫЙ" LINK="опред">бюджетозависимым</W> 
+<W DOM="9" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="2-компл" ID="4" KSNAME="ПРЕДПРИЯТИЕ" LEMMA="ПРЕДПРИЯТИЕ" LINK="2-компл">предприятиям</W> 
+<W DOM="4" FEAT="CONJ" HYPOT="сочин.13" ID="5" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="5" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="соч-союзн.10" ID="6" KSNAME="ПРЕДПРИЯТИЕ" LEMMA="ПРЕДПРИЯТИЕ" LINK="соч-союзн">предприятиям</W> 
+<W DOM="8" FEAT="A ЕД СРЕД РОД" HYPOT="опред.01" ID="7" KSNAME="ЖИЛИЩНО-КОММУНАЛЬНЫЙ" LEMMA="ЖИЛИЩНО-КОММУНАЛЬНЫЙ" LINK="опред">жилищно-коммунального</W> 
+<W DOM="6" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="8" KSNAME="ХОЗЯЙСТВО" LEMMA="ХОЗЯЙСТВО" LINK="1-компл">хозяйства</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" HYPOT="root" ID="9" KSNAME="ВЫСТАВЛЯТЬ1" LEMMA="ВЫСТАВЛЯТЬ">выставлены</W> 
+<W DOM="9" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.04" ID="10" KSNAME="СЧЕТ1" LEMMA="СЧЕТ" LINK="предик">счета</W> 
+<W DOM="10" FEAT="PR" HYPOT="атриб.18" ID="11" KSNAME="НА1" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="11" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="12" KSNAME="СУММА" LEMMA="СУММА" LINK="предл">сумму</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="ADV" HYPOT="компл-аппоз.10" ID="13" KSNAME="БОЛЕЕ" LEMMA="БОЛЕЕ" LINK="компл-аппоз">более</W> 
+<W DOM="15" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="14" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="18" LINK="количест">18</W> 
+<W ACCTSTRING="млн" DOM="13" EXTRAFEAT="STRICT_ABBR TRUN ЗЕРО" FEAT="S МН МУЖ РОД НЕОД" HYPOT="сравнит.01" ID="15" KSNAME="МИЛЛИОН" LEMMA="МИЛЛИОН" LINK="сравнит">млн</W> 
+<W DOM="15" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="16" KSNAME="РУБЛЬ" LEMMA="РУБЛЬ" LINK="квазиагент">рублей</W>. 
+</S>
+<S DATE="17 02 2024 19:36:25" ID="6" MICROSYNT="(в соответствии с,{1:В соответствии с...1:В соответствии с})&#xA;" TRANS="In accordance with signed agreement &quot;Kamchatskenergo of&quot; RAO, &quot;the united power system&quot;, the administrations of the Kamchatka region and Petropavlovsk-Kamchatka this money must be introduced on the energetics specialists' bills before 25 December. ">
+<W DOM="15" EXTRAFEAT="CAP" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="В$СООТВЕТСТВИИ$С" LEMMA="В СООТВЕТСТВИИ С" LINK="обст">В соответствии с</W> 
+<W DOM="1" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="2" KSNAME="СОГЛАШЕНИЕ" LEMMA="СОГЛАШЕНИЕ" LINK="предл">соглашением</W>, 
+<W DOM="2" FEAT="V СОВ СТРАД ПРИЧ ПРОШ ЕД СРЕД ТВОР" HYPOT="опред.02" ID="3" KSNAME="ПОДПИСЫВАТЬ" LEMMA="ПОДПИСЫВАТЬ" LINK="опред">подписанным</W> 
+"<W ACCTSTRING="Камчатскэнерго" DOM="3" EXTRAFEAT="FICTIVE IN-QUOT" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="агент.01" ID="4" KSNAME="ФИКТ-СУЩ-С" LEMMA="КАМЧАТСКЭНЕРГО" LINK="агент" PAFT="&quot;, " PBEF="&quot;">Камчатскэнерго</W>", 
+<W DOM="4" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="сочин.01" ID="5" KSNAME="РАО" LEMMA="РАО" LINK="сочин">РАО</W> 
+"<W DOM="5" EXTRAFEAT="IN-QUOT UPP ЗЕРО" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="аппоз.01" ID="6" KSNAME="ЕЭС1" LEMMA="ЕЭС" LINK="аппоз" MSNAME="ЕЭС1">ЕЭС</W>", 
+<W DOM="5" FEAT="S МН ЖЕН ТВОР НЕОД" HYPOT="сочин.01" ID="7" KSNAME="АДМИНИСТРАЦИЯ" LEMMA="АДМИНИСТРАЦИЯ" LINK="сочин">администрациями</W> 
+<W DOM="9" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="8" KSNAME="КАМЧАТСКИЙ" LEMMA="КАМЧАТСКИЙ" LINK="опред" MSNAME="КАМЧАТСКИЙ">Камчатской</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="ОБЛАСТЬ" LEMMA="ОБЛАСТЬ" LINK="1-компл">области</W> 
+<W DOM="9" FEAT="CONJ" HYPOT="сочин.13" ID="10" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="10" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="соч-союзн.10" ID="11" KSNAME="ПЕТРОПАВЛОВСК" LEMMA="ПЕТРОПАВЛОВСК" LINK="соч-союзн">Петропавловска</W>-
+<W DOM="11" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ РОД" HYPOT="опред.02" ID="12" KSNAME="КАМЧАТСКИЙ" LEMMA="КАМЧАТСКИЙ" LINK="опред" MSNAME="КАМЧАТСКИЙ">Камчатского</W>, 
+<W DOM="14" FEAT="A МН ИМ" HYPOT="опред.01" ID="13" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">эти</W> 
+<W DOM="15" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="14" KSNAME="ДЕНЬГИ" LEMMA="ДЕНЬГИ" LINK="предик">деньги</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="A КР МН" HYPOT="root" ID="15" KSNAME="ДОЛЖЕН1" LEMMA="ДОЛЖЕН" MSNAME="ДОЛЖЕН1">должны</W> 
+<W DOM="15" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.35" ID="16" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="1-компл">быть</W> 
+<W DOM="16" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" HYPOT="пасс-анал.10" ID="17" KSNAME="ВНОСИТЬ1" LEMMA="ВНОСИТЬ" LINK="пасс-анал">внесены</W> 
+<W DOM="17" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="18" KSNAME="НА1" LEMMA="НА" LINK="2-компл">на</W> 
+<W ACCTSTRING="счета" DOM="18" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="предл.10" ID="19" KSNAME="СЧЕТ2" LEMMA="СЧЕТ" LINK="предл" PAFT=" ">счета</W> 
+<W DOM="19" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="20" KSNAME="ЭНЕРГЕТИК" LEMMA="ЭНЕРГЕТИК" LINK="квазиагент" MSNAME="ЭНЕРГЕТИК">энергетиков</W> 
+<W DOM="16" FEAT="PR" HYPOT="обст.23" ID="21" KSNAME="ДО1" LEMMA="ДО" LINK="обст">до</W> 
+<W DOM="21" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="предл.10" ID="22" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="25" LINK="предл">25</W> 
+<W DOM="22" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="атриб.30" ID="23" KSNAME="ДЕКАБРЬ" LEMMA="ДЕКАБРЬ" LINK="атриб">декабря</W>.
+<LF LFARG="2" LFFUNC="_CAUSFACT0-M" LFVAL="3"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="17 02 2024 19:36:25" ID="7" MICROSYNT="(в противном случае,{1:В противном случае...1:В противном случае})&#xA;(в долг,{8:в...9:долг})&#xA;">
+<W ACCTSTRING="В противном случае" DOM="3" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="В$ПРОТИВНОМ$СЛУЧАЕ1" LEMMA="В ПРОТИВНОМ СЛУЧАЕ" LINK="обст">В противном случае</W> 
+<W DOM="3" EXTRAFEAT="FICTIVE ЗЕРО" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="ФИКТ-СУЩ-Ж" LEMMA="ЭНЕРГОКОМПАНИЯ" LINK="предик">энергокомпания</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="root" ID="3" KSNAME="ИМЕТЬ" LEMMA="ИМЕТЬ">имеет</W> 
+<W DOM="3" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="4" KSNAME="ПРАВО1" LEMMA="ПРАВО" LINK="1-компл">право</W> 
+<W DOM="4" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="5" KSNAME="ПРЕКРАЩАТЬ" LEMMA="ПРЕКРАЩАТЬ" LINK="1-компл">прекратить</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="6" KSNAME="ПОСТАВКА" LEMMA="ПОСТАВКА" LINK="1-компл">поставку</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="ЭНЕРГИЯ" LEMMA="ЭНЕРГИЯ" LINK="1-компл">энергии</W> 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="8" KSNAME="В1" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="8" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="9" KSNAME="ДОЛГ1" LEMMA="ДОЛГ" LINK="предл">долг</W>. 
+<LF LFARG="4" LFFUNC="_OPER1" LFVAL="3"/>
+</S>
+<S DATE="17 02 2024 19:36:25" ID="8" MICROSYNT="(между тем,{1:Между...2:тем})&#xA;">
+<W DOM="19" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="вводн.10" ID="1" KSNAME="МЕЖДУ2" LEMMA="МЕЖДУ" LINK="вводн">Между</W> 
+<W DOM="1" EXTRAFEAT="ВВОДЧАСТ" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="2" KSNAME="ТО1" LEMMA="ТО" LINK="предл">тем</W>, 
+<W DOM="19" FEAT="CONJ" HYPOT="вводн.16" ID="3" KSNAME="КАК1" LEMMA="КАК" LINK="вводн">как</W> 
+<W DOM="3" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="сравн-союзн.11" ID="4" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="сравн-союзн">сообщили</W> 
+<W ACCTSTRING="корр." DOM="4" EXTRAFEAT="STRICT_ABBR TRUN" FEAT="S ЕД МУЖ ДАТ ОД" HYPOT="2-компл.21" ID="5" KSNAME="КОРРЕСПОНДЕНТ" LEMMA="КОРРЕСПОНДЕНТ" LINK="2-компл">корр.</W> 
+<W ACCTSTRING="ИТАР-ТАСС" DOM="5" EXTRAFEAT="UPP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="6" KSNAME="ИТАР-ТАСС" LEMMA="ИТАР-ТАСС" LINK="1-компл">ИТАР-ТАСС</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="7" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="7" EXTRAFEAT="CAP-MIX" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="8" KSNAME="ЭНЕРГОСБЫТ" LEMMA="ЭНЕРГОСБЫТ" LINK="предл">энергосбыте</W> 
+"<W DOM="8" EXTRAFEAT="FICTIVE IN-QUOT" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="аппоз.01" ID="9" KSNAME="ФИКТ-СУЩ-М" LEMMA="КАМЧАТСКЭНЕРГО" LINK="аппоз">Камчатскэнерго</W>", 
+<W DOM="19" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="10" KSNAME="ВОПРОС" LEMMA="ВОПРОС" LINK="предик">вопрос</W> 
+<W DOM="10" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ПРЕКРАЩЕНИЕ" LEMMA="ПРЕКРАЩЕНИЕ" LINK="1-компл">прекращения</W> 
+<W DOM="11" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="12" KSNAME="ПОДАЧА1" LEMMA="ПОДАЧА" LINK="1-компл">подачи</W> 
+<W DOM="12" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="ТЕПЛО1" LEMMA="ТЕПЛО" LINK="1-компл">тепла</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="14" KSNAME="В1" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="16" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="15" KSNAME="ЖИЛОЙ" LEMMA="ЖИЛОЙ" LINK="опред">жилые</W> 
+<W DOM="14" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="предл.10" ID="16" KSNAME="МАССИВ" LEMMA="МАССИВ" LINK="предл">массивы</W> 
+<W DOM="19" FEAT="V НЕСОВ СТРАД ИНФ" HYPOT="аналит.10" ID="17" KSNAME="РАССМАТРИВАТЬ1" LEMMA="РАССМАТРИВАТЬ" LINK="аналит">рассматриваться</W> 
+<W DOM="19" FEAT="PART" HYPOT="огранич.10" ID="18" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="19" KSNAME="БЫТЬ" LEMMA="БЫТЬ">будет</W> 
+<W DOM="19" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="20" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="22" FEAT="A ЕД ЖЕН ПР" HYPOT="опред.01" ID="21" KSNAME="ЛЮБОЙ" LEMMA="ЛЮБОЙ" LINK="опред">любой</W> 
+<W DOM="20" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="22" KSNAME="СИТУАЦИЯ" LEMMA="СИТУАЦИЯ" LINK="предл">ситуации</W>.
+</S>
+</body>
+</text>

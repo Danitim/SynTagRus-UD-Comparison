@@ -1,0 +1,268 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_42_14.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; ALTTR=$TRUE; MWORDFORM=$TRUE; WEAKDESCR=$FALSE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; SOFTGEOMFILTR=$TRUE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; USECORPLF=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2002</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2002</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>РИА Новости</publication>
+<publication_date>04.03.2002</publication_date>
+<publisher>-</publisher>
+<source>https://ria.ru/20020304/82887.html</source>
+<sphere>публицистика</sphere>
+<title>"Москвич" обесточили</title>
+<topic>бизнес, коммерция, экономика, финансы</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S DATE="05 03 2024 12:22:14" ID="1" TRANS="&quot;The Muscovite&quot; has de-energized ">
+"<W ACCTSTRING="Москвич" DOM="2" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="1" KSNAME="МОСКВИЧ2" LEMMA="МОСКВИЧ" LINK="1-компл">Москвич</W>" 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" ID="2" KSNAME="ОБЕСТОЧИВАТЬ" LEMMA="ОБЕСТОЧИВАТЬ">обесточили</W>
+</S>
+<S CLASS="LF" DATE="05 03 2024 12:23:23" ID="2">
+<W DOM="7" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="АО" LEMMA="АО" LINK="предик">АО</W> 
+"<W DOM="1" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="аппоз.01" ID="2" KSNAME="МОСЭНЕРГО" LEMMA="МОСЭНЕРГО" LINK="аппоз">Мосэнерго</W>" 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="В1" LEMMA="В" LINK="обст">в</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="4" KSNAME="ПОНЕДЕЛЬНИК" LEMMA="ПОНЕДЕЛЬНИК" LINK="предл">понедельник</W> 
+<W DOM="4" FEAT="PR" HYPOT="уточн" ID="5" KSNAME="В1" LEMMA="В" LINK="уточн">в</W> 
+<W DOM="5" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="предл.10" ID="6" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="11.00" LINK="предл">11.00</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД СРЕД" ID="7" KSNAME="ПРЕКРАЩАТЬ" LEMMA="ПРЕКРАЩАТЬ">прекратило</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="8" KSNAME="ЗА1" LEMMA="ЗА" LINK="обст">за</W> 
+<W DOM="8" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="предл.10" ID="9" KSNAME="ДОЛГ1" LEMMA="ДОЛГ" LINK="предл">долги</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="10" KSNAME="ПОДАЧА1" LEMMA="ПОДАЧА" LINK="1-компл">подачу</W> 
+<W DOM="10" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="11" KSNAME="ЭЛЕКТРОЭНЕРГИЯ" LEMMA="ЭЛЕКТРОЭНЕРГИЯ" LINK="1-компл">электроэнергии</W> 
+<W DOM="10" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="12" KSNAME="ОАО" LEMMA="ОАО" LINK="2-компл">ОАО</W> 
+"<W ACCTSTRING="Москвич" DOM="12" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="13" KSNAME="МОСКВИЧ2" LEMMA="МОСКВИЧ" LINK="аппоз">Москвич</W>". 
+<LF LFARG="4" LFFUNC="_LOC" LFVAL="3"/>
+</S>
+<S COMMENT="traced" DATE="05 03 2024 12:21:42" ID="3">
+<W DOM="5" EXTRAFEAT="ALT CAP" FEAT="PR" HYPOT="3-компл.11" ID="1" KSNAME="О2" LEMMA="О" LINK="3-компл">Об</W> 
+<W DOM="1" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="ЭТО" LEMMA="ЭТО" LINK="предл">этом</W> 
+<W ACCTSTRING="РИА" DOM="5" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="3" KSNAME="РИА" LEMMA="РИА" LINK="2-компл">РИА</W> 
+"<W DOM="3" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="аппоз.01" ID="4" KSNAME="НОВОСТЬ" LEMMA="НОВОСТЬ" LINK="аппоз">Новости</W>" 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="root" ID="5" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ">сообщил</W> 
+<W DOM="5" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="6" KSNAME="ПРЕСС-СЕКРЕТАРЬ" LEMMA="ПРЕСС-СЕКРЕТАРЬ" LINK="предик">пресс-секретарь</W> 
+<W DOM="6" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="АО" LEMMA="АО" LINK="1-компл">АО</W> 
+"<W DOM="7" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="аппоз.01" ID="8" KSNAME="МОСЭНЕРГО" LEMMA="МОСЭНЕРГО" LINK="аппоз">Мосэнерго</W>" 
+<W DOM="6" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="9" KSNAME="МИХАИЛ" LEMMA="МИХАИЛ" LINK="аппоз">Михаил</W> 
+<W DOM="9" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="10" KSNAME="КОРОТКОВ" LEMMA="КОРОТКОВ" LINK="аппоз">Коротков</W>. 
+</S>
+<S CLASS="LF" DATE="05 03 2024 12:23:50" ID="4">
+<W DOM="5" EXTRAFEAT="CAP" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="В1" LEMMA="В" LINK="обст">В</W> 
+<W ACCTSTRING="пятницу" DOM="1" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="2" KSNAME="ПЯТНИЦА" LEMMA="ПЯТНИЦА" LINK="предл">пятницу</W>, 
+<W ACCTSTRING="1" DOM="2" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="атриб.12" ID="3" KSNAME="ЧИСЛ-ОДИН" LEMMA="1" LINK="атриб">1</W> 
+<W ACCTSTRING="марта" DOM="3" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="атриб.30" ID="4" KSNAME="МАРТ" LEMMA="МАРТ" LINK="атриб">марта</W>, 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="root" ID="5" KSNAME="БЫТЬ" LEMMA="БЫТЬ">был</W> 
+<W DOM="5" EXTRAFEAT="ALTJO" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="пасс-анал.10" ID="6" KSNAME="ОТКЛЮЧАТЬ" LEMMA="ОТКЛЮЧАТЬ" LINK="пасс-анал">отключен</W> 
+<W DOM="11" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="7" KSNAME="ПОСЛЕДНИЙ" LEMMA="ПОСЛЕДНИЙ" LINK="опред">последний</W> 
+<W DOM="11" FEAT="V НЕСОВ ПРИЧ НЕПРОШ ЕД МУЖ ИМ" HYPOT="опред" ID="8" KSNAME="ПИТАТЬ1" LEMMA="ПИТАТЬ" LINK="опред">питающий</W> 
+<W DOM="8" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="9" KSNAME="ОАО" LEMMA="ОАО" LINK="1-компл">ОАО</W> 
+"<W ACCTSTRING="Москвич" DOM="9" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="10" KSNAME="МОСКВИЧ2" LEMMA="МОСКВИЧ" LINK="аппоз">Москвич</W>" 
+<W ACCTSTRING="фидер" DOM="5" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="11" KSNAME="ФИДЕР" LEMMA="ФИДЕР" LINK="предик">фидер</W> 
+(<W DOM="11" EXTRAFEAT="IN-BR ЗЕРО" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="примыкат.01" ID="12" KSNAME="ЛИНИЯ" LEMMA="ЛИНИЯ" LINK="примыкат">линия</W>, 
+<W DOM="15" EXTRAFEAT="IN-BR" FEAT="PR" HYPOT="обст.23" ID="13" KSNAME="ПО1" LEMMA="ПО" LINK="обст">по</W> 
+<W DOM="13" EXTRAFEAT="IN-BR" FEAT="S ЕД ЖЕН ДАТ" HYPOT="предл.10" ID="14" KSNAME="КОТОРЫЙ" LEMMA="КОТОРЫЙ" LINK="предл">которой</W> 
+<W DOM="12" EXTRAFEAT="IN-BR ЛИЧ" FEAT="V НЕСОВ СТРАД ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="релят.02" ID="15" KSNAME="ОСУЩЕСТВЛЯТЬ" LEMMA="ОСУЩЕСТВЛЯТЬ" LINK="релят">осуществляется</W> 
+<W ACCTSTRING="энергопитание" DOM="15" EXTRAFEAT="IN-BR" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="16" KSNAME="ЭНЕРГОПИТАНИЕ" LEMMA="ЭНЕРГОПИТАНИЕ" LINK="предик">энергопитание</W> 
+<W DOM="16" EXTRAFEAT="IN-BR" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="17" KSNAME="ПРЕДПРИЯТИЕ" LEMMA="ПРЕДПРИЯТИЕ" LINK="1-компл">предприятия</W>). 
+<LF LFARG="2" LFFUNC="_LOC" LFVAL="1"/>
+</S>
+<S COMMENT="traced" DATE="05 03 2024 12:28:20" ID="5" MICROSYNT="(в течение,{6:в течение...6:в течение})&#xA;" TRANS="25 other feeders were ????? switched off during 2000-2001 years, when payments for consumed electric power stopped entering from an OAO &quot;Muscovite&quot;. ">
+<W DOM="3" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="1" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="25" LINK="количест">25</W> 
+<W DOM="3" FEAT="A МН РОД" HYPOT="опред.01" ID="2" KSNAME="ДРУГОЙ" LEMMA="ДРУГОЙ" LINK="опред">других</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предик.02" ID="3" KSNAME="ФИДЕР" LEMMA="ФИДЕР" LINK="предик">фидеров</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" ID="4" KSNAME="БЫТЬ" LEMMA="БЫТЬ">были</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" HYPOT="пасс-анал.10" ID="5" KSNAME="ОТКЛЮЧАТЬ" LEMMA="ОТКЛЮЧАТЬ" LINK="пасс-анал">отключены</W> 
+<W DOM="5" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="6" KSNAME="В$ТЕЧЕНИЕ" LEMMA="В ТЕЧЕНИЕ" LINK="обст">в течение</W> 
+<W DOM="9" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="опред.13" ID="7" KSNAME="ЧИСЛ-ТЫС" LEMMA="2000" LINK="опред">2000</W>-
+<W DOM="7" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="кратн.01" ID="8" KSNAME="ЧИСЛ-ДВАДОД" LEMMA="2001" LINK="кратн">2001</W> 
+<W DOM="6" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="9" KSNAME="ГОД" LEMMA="ГОД" LINK="предл">годов</W>, 
+<W DOM="5" FEAT="CONJ" HYPOT="обст.27" ID="10" KSNAME="КОГДА2" LEMMA="КОГДА" LINK="обст">когда</W> 
+<W DOM="15" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.57" ID="11" KSNAME="ОТ" LEMMA="ОТ" LINK="1-компл">от</W> 
+<W DOM="11" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="12" KSNAME="ОАО" LEMMA="ОАО" LINK="предл">ОАО</W> 
+"<W DOM="12" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="13" KSNAME="МОСКВИЧ2" LEMMA="МОСКВИЧ" LINK="аппоз">Москвич</W>" 
+<W DOM="10" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="подч-союзн.10" ID="14" KSNAME="ПЕРЕСТАВАТЬ" LEMMA="ПЕРЕСТАВАТЬ" LINK="подч-союзн">перестали</W> 
+<W DOM="14" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="15" KSNAME="ПОСТУПАТЬ1" LEMMA="ПОСТУПАТЬ" LINK="1-компл">поступать</W> 
+<W DOM="14" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.01" ID="16" KSNAME="ПЛАТЕЖ" LEMMA="ПЛАТЕЖ" LINK="предик">платежи</W> 
+<W DOM="16" FEAT="PR" HYPOT="3-компл.11" ID="17" KSNAME="ЗА1" LEMMA="ЗА" LINK="3-компл">за</W> 
+<W DOM="19" EXTRAFEAT="ALTJO" FEAT="V СОВ СТРАД ПРИЧ ПРОШ ЕД ЖЕН ВИН" HYPOT="опред.01" ID="18" KSNAME="ПОТРЕБЛЯТЬ" LEMMA="ПОТРЕБЛЯТЬ" LINK="опред">потребленную</W> 
+<W DOM="17" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="19" KSNAME="ЭЛЕКТРОЭНЕРГИЯ" LEMMA="ЭЛЕКТРОЭНЕРГИЯ" LINK="предл" MSNAME="ЭЛЕКТРОЭНЕРГИЯ">электроэнергию</W>. 
+</S>
+<S COMMENT="traced" DATE="05 03 2024 13:05:55" ID="6" TRANS="However for weekend the last feeder which feeds a pumping station was temporarily switched. ">
+<W DOM="10" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="огранич.30" ID="1" KSNAME="ОДНАКО" LEMMA="ОДНАКО" LINK="огранич">Однако</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="2" KSNAME="НА1" LEMMA="НА" LINK="обст">на</W> 
+<W DOM="2" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="предл.10" ID="3" KSNAME="ВЫХОДНОЙ2" LEMMA="ВЫХОДНОЙ" LINK="предл" MSNAME="ВЫХОДНОЙ2">выходные</W> 
+<W DOM="5" FEAT="A ЕД МУЖ ИМ" HYPOT="опред.01" ID="4" KSNAME="ПОСЛЕДНИЙ" LEMMA="ПОСЛЕДНИЙ" LINK="опред">последний</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="ФИДЕР" LEMMA="ФИДЕР" LINK="предик">фидер</W>, 
+<W DOM="7" FEAT="S ЕД МУЖ ИМ" HYPOT="предик.01" ID="6" KSNAME="КОТОРЫЙ" LEMMA="КОТОРЫЙ" LINK="предик">который</W> 
+<W DOM="5" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="релят.01" ID="7" KSNAME="ПИТАТЬ1" LEMMA="ПИТАТЬ" LINK="релят">питает</W> 
+<W DOM="9" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="8" KSNAME="НАСОСНЫЙ" LEMMA="НАСОСНЫЙ" LINK="опред" MSNAME="НАСОСНЫЙ">насосную</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="9" KSNAME="СТАНЦИЯ" LEMMA="СТАНЦИЯ" LINK="1-компл">станцию</W>, 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ ЕД МУЖ" ID="10" KSNAME="БЫТЬ" LEMMA="БЫТЬ">был</W> 
+<W DOM="12" FEAT="ADV" HYPOT="обст.01" ID="11" KSNAME="ВРЕМЕННО" LEMMA="ВРЕМЕННО" LINK="обст">временно</W> 
+<W DOM="10" EXTRAFEAT="ALTJO" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="пасс-анал.10" ID="12" KSNAME="ПОДКЛЮЧАТЬ" LEMMA="ПОДКЛЮЧАТЬ" LINK="пасс-анал">подключен</W>.
+</S>
+<S COMMENT="traced" DATE="05 03 2024 13:32:21" ID="7" MICROSYNT="(не исключено,{4:не...5:исключено})&#xA;(так как,{20:так как...20:так как})&#xA;(не только ... но и,{25:не...30:и})&#xA;" TRANS="As Korotkov has noted, it isn't excluded that conveying of electric power on a feeder, feeding a pumping station, will be resumed periodically for some time, for a station receive the drain waters not only from &quot;a Muscovite&quot;, but a number of nearby enterprises. ">
+<W DOM="5" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="вводн.16" ID="1" KSNAME="КАК1" LEMMA="КАК" LINK="вводн">Как</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="сравн-союзн.11" ID="2" KSNAME="ОТМЕЧАТЬ" LEMMA="ОТМЕЧАТЬ" LINK="сравн-союзн">отметил</W> 
+<W ACCTSTRING="Коротков" DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="3" KSNAME="КОРОТКОВ" LEMMA="КОРОТКОВ" LINK="предик">Коротков</W>, 
+<W DOM="5" FEAT="PART" HYPOT="огранич.10" ID="4" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ВВОД-2 ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" ID="5" KSNAME="ИСКЛЮЧАТЬ1" LEMMA="ИСКЛЮЧАТЬ">исключено</W>, 
+<W DOM="5" FEAT="CONJ" HYPOT="предик.41" ID="6" KSNAME="ЧТО1" LEMMA="ЧТО" LINK="предик">что</W> 
+<W DOM="14" EXTRAFEAT="ЗЕРО" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="7" KSNAME="ПОДАЧА1" LEMMA="ПОДАЧА" LINK="предик">подача</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="8" KSNAME="ЭЛЕКТРОЭНЕРГИЯ" LEMMA="ЭЛЕКТРОЭНЕРГИЯ" LINK="1-компл" MSNAME="ЭЛЕКТРОЭНЕРГИЯ">электроэнергии</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="9" KSNAME="НА1" LEMMA="НА" LINK="2-компл">на</W> 
+<W DOM="9" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="10" KSNAME="ФИДЕР" LEMMA="ФИДЕР" LINK="предл">фидер</W>, 
+<W DOM="10" FEAT="V НЕСОВ ПРИЧ НЕПРОШ ЕД МУЖ ВИН НЕОД" HYPOT="опред.02" ID="11" KSNAME="ПИТАТЬ1" LEMMA="ПИТАТЬ" LINK="опред">питающий</W> 
+<W DOM="13" FEAT="A ЕД ЖЕН ВИН" HYPOT="опред.01" ID="12" KSNAME="НАСОСНЫЙ" LEMMA="НАСОСНЫЙ" LINK="опред" MSNAME="НАСОСНЫЙ">насосную</W> 
+<W DOM="11" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="13" KSNAME="СТАНЦИЯ" LEMMA="СТАНЦИЯ" LINK="1-компл">станцию</W>, 
+<W DOM="6" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="14" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="подч-союзн">будет</W> 
+<W DOM="16" FEAT="ADV" HYPOT="обст.01" ID="15" KSNAME="ПЕРИОДИЧЕСКИ" LEMMA="ПЕРИОДИЧЕСКИ" LINK="обст">периодически</W> 
+<W ACCTSTRING="возобновляться" DOM="14" FEAT="V НЕСОВ СТРАД ИНФ" HYPOT="аналит.10" ID="16" KSNAME="ВОЗОБНОВЛЯТЬ" LEMMA="ВОЗОБНОВЛЯТЬ" LINK="аналит" MSNAME="ВОЗОБНОВЛЯТЬСЯ">возобновляться</W> 
+<W DOM="16" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="17" KSNAME="НА1" LEMMA="НА" LINK="обст">на</W> 
+<W DOM="19" FEAT="A ЕД СРЕД ВИН" HYPOT="опред.01" ID="18" KSNAME="НЕКОТОРЫЙ" LEMMA="НЕКОТОРЫЙ" LINK="опред">некоторое</W> 
+<W DOM="17" FEAT="S ЕД СРЕД ВИН НЕОД" HYPOT="предл.10" ID="19" KSNAME="ВРЕМЯ" LEMMA="ВРЕМЯ" LINK="предл">время</W>, 
+<W DOM="16" FEAT="CONJ" HYPOT="обст.27" ID="20" KSNAME="ТАК$КАК" LEMMA="ТАК КАК" LINK="обст">так как</W> 
+<W ACCTSTRING="станция" DOM="22" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="21" KSNAME="СТАНЦИЯ" LEMMA="СТАНЦИЯ" LINK="предик">станция</W> 
+<W ACCTSTRING="принимает" DOM="20" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="подч-союзн.10" ID="22" KSNAME="ПРИНИМАТЬ1" LEMMA="ПРИНИМАТЬ" LINK="подч-союзн">принимает</W> 
+<W DOM="24" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="23" KSNAME="СТОЧНЫЙ" LEMMA="СТОЧНЫЙ" LINK="опред" MSNAME="СТОЧНЫЙ">сточные</W> 
+<W DOM="22" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="24" KSNAME="ВОДА" LEMMA="ВОДА" LINK="1-компл">воды</W> 
+<W DOM="26" FEAT="PART" HYPOT="огранич.10" ID="25" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="27" FEAT="PART" HYPOT="огранич.27" ID="26" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">только</W> 
+<W DOM="22" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="27" KSNAME="ОТ" LEMMA="ОТ" LINK="2-компл">от</W> 
+"<W ACCTSTRING="Москвича" DOM="27" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="28" KSNAME="МОСКВИЧ2" LEMMA="МОСКВИЧ" LINK="предл">Москвича</W>", 
+<W DOM="28" FEAT="CONJ" HYPOT="сочин.13" ID="29" KSNAME="НО" LEMMA="НО" LINK="сочин">но</W> 
+<W DOM="29" FEAT="PART" HYPOT="огранич.d1" ID="30" KSNAME="И2" LEMMA="И" LINK="огранич">и</W> 
+<W DOM="29" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="соч-союзн.10" ID="31" KSNAME="РЯД" LEMMA="РЯД" LINK="соч-союзн">ряда</W> 
+<W ACCTSTRING="близлежащих" DOM="33" FEAT="A МН РОД" HYPOT="опред.01" ID="32" KSNAME="БЛИЗЛЕЖАЩИЙ" LEMMA="БЛИЗЛЕЖАЩИЙ" LINK="опред">близлежащих</W> 
+<W DOM="31" FEAT="S МН СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="33" KSNAME="ПРЕДПРИЯТИЕ" LEMMA="ПРЕДПРИЯТИЕ" LINK="квазиагент">предприятий</W>.
+</S>
+<S CLASS="LF" DATE="05 03 2024 13:40:02" ID="8" MICROSYNT="(в настоящее время,{1:В настоящее время...1:В настоящее время})&#xA;" TRANS="Currently sum of debt only for the basic agreement amounts to 435 million 374,8 thousand roubles. ">
+<W DOM="8" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="В$НАСТОЯЩЕЕ$ВРЕМЯ" LEMMA="В НАСТОЯЩЕЕ ВРЕМЯ" LINK="обст">В настоящее время</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="2" KSNAME="СУММА" LEMMA="СУММА" LINK="предик">сумма</W> 
+<W DOM="2" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="3" KSNAME="ДОЛГ1" LEMMA="ДОЛГ" LINK="квазиагент">долга</W> 
+<W DOM="5" FEAT="PART" HYPOT="огранич.27" ID="4" KSNAME="ТОЛЬКО1" LEMMA="ТОЛЬКО" LINK="огранич">только</W> 
+<W DOM="3" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="3-компл.11" ID="5" KSNAME="ПО1" LEMMA="ПО" LINK="3-компл">по</W> 
+<W DOM="7" FEAT="A ЕД МУЖ ДАТ" HYPOT="опред.01" ID="6" KSNAME="ОСНОВНОЙ" LEMMA="ОСНОВНОЙ" LINK="опред">основному</W> 
+<W DOM="5" FEAT="S ЕД МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="7" KSNAME="ДОГОВОР" LEMMA="ДОГОВОР" LINK="предл">договору</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="8" KSNAME="СОСТАВЛЯТЬ1" LEMMA="СОСТАВЛЯТЬ">составляет</W> 
+<W DOM="10" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="9" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="435" LINK="количест">435</W> 
+<W DOM="12" EXTRAFEAT="STRICT_ABBR TRUN" FEAT="S МН МУЖ РОД НЕОД" HYPOT="колич-вспом" ID="10" KSNAME="МИЛЛИОН" LEMMA="МИЛЛИОН" LINK="колич-вспом">млн</W> 
+<W DOM="12" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="11" KSNAME="ЧИСЛ-ДЕСЯТИЧ" LEMMA="374,8" LINK="количест">374,8</W> 
+<W ACCTSTRING="тыс" DOM="8" EXTRAFEAT="STRICT_ABBR TRUN" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.11" ID="12" KSNAME="ТЫСЯЧА" LEMMA="ТЫСЯЧА" LINK="1-компл">тыс</W> 
+<W DOM="12" EXTRAFEAT="TRUN" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="13" KSNAME="РУБЛЬ" LEMMA="РУБЛЬ" LINK="квазиагент">руб</W>. 
+<LF LFARG="2" LFFUNC="_FUNC2" LFVAL="8"/>
+<LF LFARG="7" LFFUNC="_ADV2-UN" LFVAL="5"/>
+</S>
+<S COMMENT="traced" DATE="05 03 2024 13:54:39" ID="9">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ЗАДОЛЖЕННОСТЬ" LEMMA="ЗАДОЛЖЕННОСТЬ" LINK="предик">Задолженность</W> 
+<W DOM="1" FEAT="PR" HYPOT="2-компл.17" ID="2" KSNAME="ЗА1" LEMMA="ЗА" LINK="2-компл">за</W> 
+<W DOM="2" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="3" KSNAME="ТЕПЛОЭНЕРГИЯ" LEMMA="ТЕПЛОЭНЕРГИЯ" LINK="предл" MSNAME="ТЕПЛОЭНЕРГИЯ">теплоэнергию</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="4" KSNAME="СОСТАВЛЯТЬ1" LEMMA="СОСТАВЛЯТЬ">составляет</W> 
+<W DOM="4" FEAT="PR" HYPOT="1-компл.12" ID="5" KSNAME="ОКОЛО" LEMMA="ОКОЛО" LINK="1-компл">около</W> 
+<W DOM="7" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="6" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="160" LINK="количест">160</W> 
+<W DOM="5" EXTRAFEAT="STRICT_ABBR TRUN" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="7" KSNAME="МИЛЛИОН" LEMMA="МИЛЛИОН" LINK="предл">млн</W> 
+<W DOM="7" EXTRAFEAT="TRUN" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="8" KSNAME="РУБЛЬ" LEMMA="РУБЛЬ" LINK="квазиагент">руб</W>. 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="05 03 2024 13:55:24" ID="10" TRANS="The shutdown of heat supply is planned in April. ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ОТКЛЮЧЕНИЕ" LEMMA="ОТКЛЮЧЕНИЕ" LINK="предик">Отключение</W> 
+<W DOM="1" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="2" KSNAME="ТЕПЛОСНАБЖЕНИЕ" LEMMA="ТЕПЛОСНАБЖЕНИЕ" LINK="1-компл" MSNAME="ТЕПЛОСНАБЖЕНИЕ">теплоснабжения</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ СТРАД ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="ПЛАНИРОВАТЬ1" LEMMA="ПЛАНИРОВАТЬ">планируется</W> 
+<W DOM="3" FEAT="PR" HYPOT="обст.23" ID="4" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="5" KSNAME="АПРЕЛЬ" LEMMA="АПРЕЛЬ" LINK="предл">апреле</W>.
+<LF LFARG="5" LFFUNC="_LOC" LFVAL="4"/>
+</S>
+<S COMMENT="traced" DATE="05 03 2024 14:34:37" ID="11" TRANS="The OAO &quot;Muscovite&quot; is the largest debtor of the energy company, have been explained to RIA &quot;News&quot; in the pressroom of Joint Stock Company &quot;Mosenergo&quot;. ">
+<W DOM="3" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ОАО" LEMMA="ОАО" LINK="предик">ОАО</W> 
+"<W DOM="1" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="2" KSNAME="МОСКВИЧ2" LEMMA="МОСКВИЧ" LINK="аппоз">Москвич</W>" 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="3" KSNAME="ЯВЛЯТЬСЯ1" LEMMA="ЯВЛЯТЬСЯ">является</W> 
+<W DOM="5" FEAT="A ПРЕВ ЕД МУЖ ТВОР" HYPOT="опред.01" ID="4" KSNAME="КРУПНЫЙ" LEMMA="КРУПНЫЙ" LINK="опред">крупнейшим</W> 
+<W DOM="3" FEAT="S ЕД МУЖ ТВОР ОД" HYPOT="1-компл.16" ID="5" KSNAME="ДОЛЖНИК" LEMMA="ДОЛЖНИК" LINK="1-компл">должником</W> 
+<W DOM="7" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="6" KSNAME="ЭНЕРГЕТИЧЕСКИЙ" LEMMA="ЭНЕРГЕТИЧЕСКИЙ" LINK="опред" MSNAME="ЭНЕРГЕТИЧЕСКИЙ">энергетической</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="2-компл.21" ID="7" KSNAME="КОМПАНИЯ" LEMMA="КОМПАНИЯ" LINK="2-компл">компании</W>, 
+<W DOM="3" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" HYPOT="вводн.12" ID="8" KSNAME="ПОЯСНЯТЬ" LEMMA="ПОЯСНЯТЬ" LINK="вводн">пояснили</W> 
+<W DOM="8" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="2-компл.21" ID="9" KSNAME="РИА" LEMMA="РИА" LINK="2-компл">РИА</W> 
+"<W DOM="9" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S МН ЖЕН ИМ НЕОД" HYPOT="аппоз.d0" ID="10" KSNAME="НОВОСТЬ" LEMMA="НОВОСТЬ" LINK="аппоз">Новости</W>" 
+<W DOM="8" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="11" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="11" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="12" KSNAME="ПРЕСС-ЦЕНТР" LEMMA="ПРЕСС-ЦЕНТР" LINK="предл">пресс-центре</W> 
+<W DOM="12" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="13" KSNAME="АО" LEMMA="АО" LINK="квазиагент" MSNAME="АО">АО</W> 
+"<W DOM="13" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="аппоз.01" ID="14" KSNAME="МОСЭНЕРГО" LEMMA="МОСЭНЕРГО" LINK="аппоз">Мосэнерго</W>". 
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="05 03 2024 14:39:34" ID="12" MICROSYNT="(на протяжении,{1:На...2:протяжении})&#xA;" TRANS="In the course of of the row the years the enterprise doesn't meet a condition of an agreement on power delivery, in connection with which his indebtedness for consumed electric power continues steadily to grow. ">
+<W DOM="7" EXTRAFEAT="CAP" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="НА2" LEMMA="НА" LINK="обст">На</W> 
+<W DOM="1" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="ПРОТЯЖЕНИЕ" LEMMA="ПРОТЯЖЕНИЕ" LINK="предл">протяжении</W> 
+<W ACCTSTRING="ряда" DOM="2" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="3" KSNAME="РЯД" LEMMA="РЯД" LINK="квазиагент">ряда</W> 
+<W ACCTSTRING="лет" DOM="3" FEAT="S МН МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="4" KSNAME="ЛЕТ1" LEMMA="ГОД" LINK="квазиагент">лет</W> 
+<W DOM="7" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="ПРЕДПРИЯТИЕ" LEMMA="ПРЕДПРИЯТИЕ" LINK="предик">предприятие</W> 
+<W DOM="7" FEAT="PART" HYPOT="огранич.10" ID="6" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="7" KSNAME="ВЫПОЛНЯТЬ" LEMMA="ВЫПОЛНЯТЬ">выполняет</W> 
+<W DOM="7" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.11" ID="8" KSNAME="УСЛОВИЕ" LEMMA="УСЛОВИЕ" LINK="1-компл">условия</W> 
+<W DOM="8" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="ДОГОВОР" LEMMA="ДОГОВОР" LINK="1-компл">договора</W> 
+<W DOM="9" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="10" KSNAME="ЭНЕРГОСНАБЖЕНИЕ" LEMMA="ЭНЕРГОСНАБЖЕНИЕ" LINK="1-компл" MSNAME="ЭНЕРГОСНАБЖЕНИЕ">энергоснабжения</W>, 
+<W DOM="18" FEAT="PR" HYPOT="обст.23" ID="11" KSNAME="В$СВЯЗИ$С" LEMMA="В СВЯЗИ С" LINK="обст">в связи с</W> 
+<W DOM="11" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="12" KSNAME="ЧТО2" LEMMA="ЧТО" LINK="предл">чем</W> 
+<W ACCTSTRING="его" DOM="14" FEAT="S ЕД СРЕД РОД ОД" HYPOT="квазиагент.17" ID="13" KSNAME="ОНО" LEMMA="ОНО" LINK="квазиагент">его</W> 
+<W DOM="18" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="14" KSNAME="ЗАДОЛЖЕННОСТЬ" LEMMA="ЗАДОЛЖЕННОСТЬ" LINK="предик">задолженность</W> 
+<W DOM="14" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="15" KSNAME="ЗА1" LEMMA="ЗА" LINK="2-компл">за</W> 
+<W DOM="17" FEAT="V НЕСОВ СТРАД ПРИЧ НЕПРОШ ЕД ЖЕН ВИН" HYPOT="опред.01" ID="16" KSNAME="ПОТРЕБЛЯТЬ" LEMMA="ПОТРЕБЛЯТЬ" LINK="опред">потребляемую</W> 
+<W DOM="15" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="17" KSNAME="ЭЛЕКТРОЭНЕРГИЯ" LEMMA="ЭЛЕКТРОЭНЕРГИЯ" LINK="предл" MSNAME="ЭЛЕКТРОЭНЕРГИЯ">электроэнергию</W> 
+<W DOM="7" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="изъясн.01" ID="18" KSNAME="ПРОДОЛЖАТЬ" LEMMA="ПРОДОЛЖАТЬ" LINK="изъясн">продолжает</W> 
+<W DOM="20" FEAT="ADV" HYPOT="обст.01" ID="19" KSNAME="НЕУКЛОННО" LEMMA="НЕУКЛОННО" LINK="обст">неуклонно</W> 
+<W DOM="18" FEAT="V НЕСОВ ИНФ" HYPOT="1-компл.14" ID="20" KSNAME="РАСТИ" LEMMA="РАСТИ" LINK="1-компл">расти</W>.
+<LF LFARG="8" LFFUNC="_REAL3-M" LFVAL="7"/>
+<LF LFARG="20" LFFUNC="_MAGN-NS1" LFVAL="19"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="24 06 2024 18:28:02" ID="13" TRANS="In the last two years no effective measures of liquidation of having accumulated debt with winding were taken. ">
+<W DOM="7" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="ЗА1" LEMMA="ЗА" LINK="обст">За</W> 
+<W DOM="3" FEAT="A МН ВИН НЕОД" HYPOT="опред.12" ID="2" KSNAME="ПОСЛЕДНИЙ" LEMMA="ПОСЛЕДНИЙ" LINK="опред">последние</W> 
+<W DOM="4" FEAT="NUM МУЖ ВИН НЕОД" HYPOT="количест.14" ID="3" KSNAME="ДВА" LEMMA="ДВА" LINK="количест">два</W> 
+<W DOM="1" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="4" KSNAME="ГОД" LEMMA="ГОД" LINK="предл">года</W> 
+<W ACCTSTRING="заводом" DOM="8" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="агент.02" ID="5" KSNAME="ЗАВОД1" LEMMA="ЗАВОД" LINK="агент">заводом</W> 
+<W DOM="7" FEAT="PART" HYPOT="огранич.10" ID="6" KSNAME="НЕ1" LEMMA="НЕ" LINK="огранич">не</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ ЕД СРЕД" HYPOT="root" ID="7" KSNAME="БЫТЬ" LEMMA="БЫТЬ">было</W> 
+<W ACCTSTRING="принято" DOM="7" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" HYPOT="пасс-анал.10" ID="8" KSNAME="ПРИНИМАТЬ2" LEMMA="ПРИНИМАТЬ" LINK="пасс-анал">принято</W> 
+<W DOM="11" FEAT="A МН РОД" HYPOT="опред.01" ID="9" KSNAME="НИКАКОЙ" LEMMA="НИКАКОЙ" LINK="опред">никаких</W> 
+<W DOM="11" FEAT="A МН РОД" HYPOT="опред.01" ID="10" KSNAME="ДЕЙСТВЕННЫЙ" LEMMA="ДЕЙСТВЕННЫЙ" LINK="опред">действенных</W> 
+<W ACCTSTRING="мер" DOM="7" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предик.10" ID="11" KSNAME="МЕРА2" LEMMA="МЕРА" LINK="предик" PAFT=" ">мер</W> 
+<W DOM="11" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="12" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="12" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="13" KSNAME="ПОГАШЕНИЕ" LEMMA="ПОГАШЕНИЕ" LINK="предл">погашению</W> 
+<W DOM="15" FEAT="V СОВ ПРИЧ ПРОШ ЕД МУЖ РОД" HYPOT="опред.01" ID="14" KSNAME="НАКАПЛИВАТЬСЯ" LEMMA="НАКАПЛИВАТЬСЯ" LINK="опред">накопившегося</W> 
+<W DOM="13" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="15" KSNAME="ДОЛГ1" LEMMA="ДОЛГ" LINK="1-компл">долга</W>. 
+<LF LFARG="11" LFFUNC="_OPER1" LFVAL="8"/>
+<LF LFARG="15" LFFUNC="_S0_REAL1-M" LFVAL="13"/>
+</S>
+<S CLASS="LF" COMMENT="traced" DATE="05 03 2024 14:51:14" ID="14" TRANS="In a connection with a having been formed situation of the Joint Stock Company &quot;Mosenergo&quot;, always striving maximally take the consumers' interests into account, was forced go to the extreme measures, envisaged by the legislation. ">
+<W DOM="14" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="В2" LEMMA="В" LINK="обст">В</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="2" KSNAME="СВЯЗЬ" LEMMA="СВЯЗЬ" LINK="предл">связи</W> 
+<W DOM="2" EXTRAFEAT="ALT ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="3" KSNAME="С3" LEMMA="С" LINK="1-компл">со</W> 
+<W DOM="5" FEAT="V СОВ ПРИЧ ПРОШ ЕД СРЕД ТВОР" HYPOT="опред.01" ID="4" KSNAME="СКЛАДЫВАТЬСЯ1" LEMMA="СКЛАДЫВАТЬСЯ" LINK="опред" MSNAME="СКЛАДЫВАТЬСЯ1">сложившимся</W> 
+<W DOM="3" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="5" KSNAME="ПОЛОЖЕНИЕ1" LEMMA="ПОЛОЖЕНИЕ" LINK="предл">положением</W> 
+<W DOM="14" EXTRAFEAT="UPP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик" ID="6" KSNAME="АО" LEMMA="АО" LINK="предик" MSNAME="АО">АО</W> 
+"<W DOM="6" EXTRAFEAT="CAP IN-QUOT ЗЕРО" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="аппоз" ID="7" KSNAME="МОСЭНЕРГО" LEMMA="МОСЭНЕРГО" LINK="аппоз">Мосэнерго</W>", 
+<W DOM="9" FEAT="ADV" HYPOT="обст.01" ID="8" KSNAME="ВСЕГДА" LEMMA="ВСЕГДА" LINK="обст">всегда</W> 
+<W DOM="6" FEAT="V НЕСОВ ПРИЧ НЕПРОШ ЕД СРЕД ИМ" HYPOT="опред.02" ID="9" KSNAME="СТРЕМИТЬСЯ" LEMMA="СТРЕМИТЬСЯ" LINK="опред">стремящееся</W> 
+<W DOM="11" FEAT="ADV" HYPOT="обст.01" ID="10" KSNAME="МАКСИМАЛЬНО" LEMMA="МАКСИМАЛЬНО" LINK="обст">максимально</W> 
+<W DOM="9" FEAT="V НЕСОВ ИНФ" HYPOT="2-компл.11" ID="11" KSNAME="УЧИТЫВАТЬ" LEMMA="УЧИТЫВАТЬ" LINK="2-компл" MSNAME="УЧИТЫВАТЬ">учитывать</W> 
+<W DOM="11" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="1-компл.11" ID="12" KSNAME="ИНТЕРЕС" LEMMA="ИНТЕРЕС" LINK="1-компл">интересы</W> 
+<W DOM="12" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="13" KSNAME="ПОТРЕБИТЕЛЬ" LEMMA="ПОТРЕБИТЕЛЬ" LINK="квазиагент">потребителей</W>, 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ ЕД СРЕД" ID="14" KSNAME="БЫТЬ" LEMMA="БЫТЬ">было</W> 
+<W ACCTSTRING="вынуждено" DOM="14" EXTRAFEAT="ALT ЗЕРО" FEAT="A КР ЕД СРЕД" HYPOT="присвяз.14" ID="15" KSNAME="ВЫНУЖДЕННЫЙ" LEMMA="ВЫНУЖДЕННЫЙ" LINK="присвяз">вынуждено</W> 
+<W DOM="15" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="16" KSNAME="ПОЙТИ" LEMMA="ПОЙТИ" LINK="1-компл">пойти</W> 
+<W DOM="16" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="17" KSNAME="НА1" LEMMA="НА" LINK="2-компл">на</W> 
+<W DOM="19" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="18" KSNAME="КРАЙНИЙ" LEMMA="КРАЙНИЙ" LINK="опред">крайние</W> 
+<W ACCTSTRING="меры" DOM="17" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="19" KSNAME="МЕРА2" LEMMA="МЕРА" LINK="предл">меры</W>, 
+<W ACCTSTRING="предусмотренные" DOM="19" FEAT="V СОВ СТРАД ПРИЧ ПРОШ МН ВИН НЕОД" HYPOT="опред.02" ID="20" KSNAME="ПРЕДУСМАТРИВАТЬ" LEMMA="ПРЕДУСМАТРИВАТЬ" LINK="опред">предусмотренные</W> 
+<W DOM="20" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="агент.01" ID="21" KSNAME="ЗАКОНОДАТЕЛЬСТВО" LEMMA="ЗАКОНОДАТЕЛЬСТВО" LINK="агент">законодательством</W>.
+<LF LFARG="19" LFFUNC="_MAGN-NS" LFVAL="18"/>
+<LF LFARG="5" LFFUNC="_INCEPFUNC0" LFVAL="4"/>
+</S>
+</body>
+</text>

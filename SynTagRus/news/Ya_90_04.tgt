@@ -1,0 +1,242 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_90_04.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; ALTTR=$TRUE; MWORDFORM=$TRUE; CORDESCRMODE=CORDESCROLDMODE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; SOFTGEOMFILTR=$TRUE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; USECORPLF=$TRUE; SPEECHMODE=SPEECHMODENO; JOFICATION=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2001</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2001</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>КоммерсантЪ</publication>
+<publication_date>30.10.2001</publication_date>
+<publisher>-</publisher>
+<source>https://www.kommersant.ru/doc/925568</source>
+<sphere>публицистика</sphere>
+<title>Опознаны тела 31 подводника с "Курска"</title>
+<topic>происшествия</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S COMMENT="traced" DATE="12 03 2024 13:40:17" ID="1" TRANS="The bodies of 31 submariners from &quot;Kursk&quot; are identified ">
+<W DOM="_root" EXTRAFEAT="CAP ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" ID="1" KSNAME="ОПОЗНАВАТЬ" LEMMA="ОПОЗНАВАТЬ">Опознаны</W> 
+<W DOM="1" FEAT="S МН СРЕД ИМ НЕОД" HYPOT="предик.04" ID="2" KSNAME="ТЕЛО" LEMMA="ТЕЛО" LINK="предик">тела</W> 
+<W DOM="4" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="3" KSNAME="ЧИСЛ-ДВАДОД" LEMMA="31" LINK="количест">31</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="S ЕД МУЖ РОД ОД" HYPOT="квазиагент.01" ID="4" KSNAME="ПОДВОДНИК" LEMMA="ПОДВОДНИК" LINK="квазиагент">подводника</W> 
+<W DOM="4" FEAT="PR" HYPOT="атриб.18" ID="5" KSNAME="С1" LEMMA="С" LINK="атриб">с</W> 
+"<W DOM="5" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="6" KSNAME="КУРСК" LEMMA="КУРСК" LINK="предл">Курска</W>"
+</S>
+<S COMMENT="traced" DATE="12 03 2024 13:41:55" ID="2" TRANS="The bodies of two more seamen have been extracted from atomic submarine &quot;Kursk&quot; in a night on 30 October. ">
+<W DOM="11" EXTRAFEAT="CAP" FEAT="PR" HYPOT="3-компл.11" ID="1" KSNAME="В1" LEMMA="В" LINK="3-компл">В</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="2" KSNAME="НОЧЬ" LEMMA="НОЧЬ" LINK="предл">ночь</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="3" KSNAME="НА1" LEMMA="НА" LINK="атриб">на</W> 
+<W DOM="3" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="предл.10" ID="4" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="30" LINK="предл">30</W> 
+<W DOM="4" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="атриб.30" ID="5" KSNAME="ОКТЯБРЬ" LEMMA="ОКТЯБРЬ" LINK="атриб">октября</W> 
+<W DOM="11" FEAT="PR" HYPOT="2-компл.17" ID="6" KSNAME="ИЗ" LEMMA="ИЗ" LINK="2-компл">из</W> 
+<W DOM="9" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="7" KSNAME="АТОМНЫЙ" LEMMA="АТОМНЫЙ" LINK="опред">атомной</W> 
+<W DOM="9" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="8" KSNAME="ПОДВОДНЫЙ" LEMMA="ПОДВОДНЫЙ" LINK="опред">подводной</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="предл.10" ID="9" KSNAME="ЛОДКА" LEMMA="ЛОДКА" LINK="предл">лодки</W> 
+"<W DOM="9" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="10" KSNAME="КУРСК" LEMMA="КУРСК" LINK="аппоз">Курск</W>" 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ МН" ID="11" KSNAME="ИЗВЛЕКАТЬ" LEMMA="ИЗВЛЕКАТЬ">извлекли</W> 
+<W DOM="11" FEAT="S МН СРЕД ВИН НЕОД" HYPOT="1-компл.11" ID="12" KSNAME="ТЕЛО" LEMMA="ТЕЛО" LINK="1-компл">тела</W> 
+<W DOM="14" EXTRAFEAT="ALTJO" FEAT="PART" HYPOT="огранич.10" ID="13" KSNAME="ЕЩЕ1" LEMMA="ЕЩЕ" LINK="огранич">еще</W> 
+<W DOM="15" FEAT="NUM РОД" HYPOT="количест.14" ID="14" KSNAME="ДВА" LEMMA="ДВА" LINK="количест">двух</W> 
+<W DOM="12" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="15" KSNAME="МОРЯК" LEMMA="МОРЯК" LINK="квазиагент">моряков</W>. 
+</S>
+<S DATE="12 03 2024 14:00:42" ID="3" TRANS="A the the how the head of the press service of the Northern fleet of Russia Vladimir Navrotskij has reported only since day beginning operation in a floating dock 47 bodies of killed are extracted. ">
+<W ACCTSTRING="Как" DOM="17" EXTRAFEAT="CAP" FEAT="CONJ" HYPOT="вводн.16" ID="1" KSNAME="КАК1" LEMMA="КАК" LINK="вводн" PAFT=" ">Как</W> 
+<W DOM="1" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" HYPOT="сравн-союзн.11" ID="2" KSNAME="СООБЩАТЬ1" LEMMA="СООБЩАТЬ" LINK="сравн-союзн">сообщил</W> 
+<W DOM="2" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="3" KSNAME="НАЧАЛЬНИК" LEMMA="НАЧАЛЬНИК" LINK="предик">начальник</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="4" KSNAME="ПРЕСС-СЛУЖБА" LEMMA="ПРЕСС-СЛУЖБА" LINK="1-компл" MSNAME="ПРЕСС-СЛУЖБА">пресс-службы</W> 
+<W DOM="6" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="5" KSNAME="СЕВЕРНЫЙ" LEMMA="СЕВЕРНЫЙ" LINK="опред">Северного</W> 
+<W DOM="4" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="ФЛОТ" LEMMA="ФЛОТ" LINK="квазиагент">флота</W> 
+<W DOM="6" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="атриб.01" ID="7" KSNAME="РОССИЯ" LEMMA="РОССИЯ" LINK="атриб">России</W> 
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.01" ID="8" KSNAME="ВЛАДИМИР2" LEMMA="ВЛАДИМИР" LINK="аппоз">Владимир</W> 
+<W DOM="8" EXTRAFEAT="FICTIVE" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.d0" ID="9" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="НАВРОЦКИЙ" LINK="аппоз">Навроцкий</W>, 
+<W ACCTSTRING="всего" DOM="17" FEAT="ADV" HYPOT="огранич" ID="10" KSNAME="ВСЕГО2" LEMMA="ВСЕГО" LINK="огранич" PAFT=" ">всего</W> 
+<W DOM="17" EXTRAFEAT="ALT ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="11" KSNAME="С1" LEMMA="С" LINK="обст">со</W> 
+<W DOM="11" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="12" KSNAME="ДЕНЬ" LEMMA="ДЕНЬ" LINK="предл">дня</W> 
+<W DOM="12" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="13" KSNAME="НАЧАЛО1" LEMMA="НАЧАЛО" LINK="квазиагент">начала</W> 
+<W DOM="13" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="14" KSNAME="ОПЕРАЦИЯ" LEMMA="ОПЕРАЦИЯ" LINK="квазиагент">операции</W> 
+<W DOM="14" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="15" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="15" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="16" KSNAME="ПЛАВДОК" LEMMA="ПЛАВДОК" LINK="предл" MSNAME="ПЛАВДОК">плавдоке</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" HYPOT="root" ID="17" KSNAME="ИЗВЛЕКАТЬ" LEMMA="ИЗВЛЕКАТЬ">извлечено</W> 
+<W DOM="19" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="18" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="47" LINK="количест">47</W> 
+<W DOM="17" FEAT="S МН СРЕД РОД НЕОД" HYPOT="предик.02" ID="19" KSNAME="ТЕЛО" LEMMA="ТЕЛО" LINK="предик">тел</W> 
+<W ADDFEAT="common@Human common@Agent" DOM="19" EXTRAFEAT="ALT СУБСТ" FEAT="V СОВ ПРИЧ ПРОШ МН РОД" HYPOT="квазиагент.01" ID="20" KSNAME="ПОГИБАТЬ" LEMMA="ПОГИБАТЬ" LINK="квазиагент">погибших</W>.
+</S>
+<S COMMENT="traced" DATE="12 03 2024 14:04:17" ID="4" MICROSYNT="(по словам,{1:По...3:словам})&#xA;" TRANS="According to his words, 31 submariners are identified already. ">
+<W DOM="7" EXTRAFEAT="CAP" FEAT="PR" HYPOT="вводн.10" ID="1" KSNAME="ПО1" LEMMA="ПО" LINK="вводн">По</W> 
+<W DOM="3" FEAT="S ЕД МУЖ РОД ОД" HYPOT="квазиагент.17" ID="2" KSNAME="ОН" LEMMA="ОН" LINK="квазиагент">его</W> 
+<W DOM="1" EXTRAFEAT="ВВОДЧАСТ" FEAT="S МН СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="3" KSNAME="СЛОВО" LEMMA="СЛОВО" LINK="предл">словам</W>, 
+<W DOM="5" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="4" KSNAME="ЧИСЛ-ДВАДОД" LEMMA="31" LINK="количест">31</W> 
+<W DOM="7" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.04" ID="5" KSNAME="ПОДВОДНИК" LEMMA="ПОДВОДНИК" LINK="предик">подводник</W> 
+<W DOM="7" FEAT="PART" HYPOT="огранич.10" ID="6" KSNAME="УЖЕ" LEMMA="УЖЕ" LINK="огранич">уже</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="root" ID="7" KSNAME="ОПОЗНАВАТЬ" LEMMA="ОПОЗНАВАТЬ">опознан</W>.
+</S>
+<S COMMENT="traced" DATE="12 03 2024 14:10:40" ID="5" TRANS="The command of the Northern fleet has communicated with the relatives of those seamen whose personality is established already for rectification of the supposed places of the burial of the remains and the modes of their delivery. ">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД СРЕД ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="КОМАНДОВАНИЕ" LEMMA="КОМАНДОВАНИЕ" LINK="предик">Командование</W> 
+<W DOM="3" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ ТВОР" HYPOT="опред.01" ID="2" KSNAME="СЕВЕРНЫЙ" LEMMA="СЕВЕРНЫЙ" LINK="опред">Северным</W> 
+<W DOM="1" FEAT="S ЕД МУЖ ТВОР НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="ФЛОТ" LEMMA="ФЛОТ" LINK="1-компл">флотом</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД СРЕД" HYPOT="root" ID="4" KSNAME="СВЯЗЫВАТЬСЯ" LEMMA="СВЯЗЫВАТЬСЯ">связалось</W> 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="5" KSNAME="С3" LEMMA="С" LINK="1-компл">с</W> 
+<W DOM="5" FEAT="S МН ТВОР ОД" HYPOT="предл.10" ID="6" KSNAME="РОДНЫЕ" LEMMA="РОДНЫЕ" LINK="предл">родными</W> 
+<W DOM="8" EXTRAFEAT="НЕПОСЛ" FEAT="A МН РОД" HYPOT="опред.01" ID="7" KSNAME="ТОТ2" LEMMA="ТОТ" LINK="опред">тех</W> 
+<W DOM="6" FEAT="S МН МУЖ РОД ОД" HYPOT="1-компл.20" ID="8" KSNAME="МОРЯК" LEMMA="МОРЯК" LINK="1-компл">моряков</W>, 
+<W DOM="10" FEAT="A ЕД ЖЕН ИМ" HYPOT="опред.01" ID="9" KSNAME="ЧЕЙ" LEMMA="ЧЕЙ" LINK="опред">чья</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.04" ID="10" KSNAME="ЛИЧНОСТЬ" LEMMA="ЛИЧНОСТЬ" LINK="предик">личность</W> 
+<W DOM="12" FEAT="PART" HYPOT="огранич.10" ID="11" KSNAME="УЖЕ" LEMMA="УЖЕ" LINK="огранич">уже</W> 
+<W DOM="8" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД ЖЕН" HYPOT="релят.01" ID="12" KSNAME="УСТАНАВЛИВАТЬ1" LEMMA="УСТАНАВЛИВАТЬ" LINK="релят">установлена</W>, 
+<W DOM="4" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="13" KSNAME="ДЛЯ" LEMMA="ДЛЯ" LINK="обст">для</W> 
+<W DOM="13" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="предл.10" ID="14" KSNAME="УТОЧНЕНИЕ" LEMMA="УТОЧНЕНИЕ" LINK="предл">уточнения</W> 
+<W ACCTSTRING="предполагаемых" DOM="16" FEAT="V НЕСОВ СТРАД ПРИЧ НЕПРОШ МН РОД" HYPOT="опред.01" ID="15" KSNAME="ПРЕДПОЛАГАТЬ1" LEMMA="ПРЕДПОЛАГАТЬ" LINK="опред" PAFT=" ">предполагаемых</W> 
+<W DOM="14" FEAT="S МН СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="16" KSNAME="МЕСТО" LEMMA="МЕСТО" LINK="1-компл">мест</W> 
+<W DOM="16" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="17" KSNAME="ЗАХОРОНЕНИЕ" LEMMA="ЗАХОРОНЕНИЕ" LINK="квазиагент">захоронения</W> 
+<W DOM="17" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="18" KSNAME="ОСТАНКИ" LEMMA="ОСТАНКИ" LINK="1-компл">останков</W> 
+<W DOM="16" FEAT="CONJ" HYPOT="сочин.13" ID="19" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="19" FEAT="S МН МУЖ РОД НЕОД" HYPOT="соч-союзн.10" ID="20" KSNAME="СПОСОБ" LEMMA="СПОСОБ" LINK="соч-союзн">способов</W> 
+<W DOM="22" FEAT="S МН РОД ОД" HYPOT="1-компл.20" ID="21" KSNAME="ОНИ" LEMMA="ОНИ" LINK="1-компл">их</W> 
+<W DOM="20" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="22" KSNAME="ДОСТАВКА" LEMMA="ДОСТАВКА" LINK="1-компл">доставки</W>. 
+</S>
+<S COMMENT="traced" DATE="12 03 2024 14:27:37" ID="6" TRANS="16 bodies of the killed seamen of &quot;Kursk&quot; to this day are sent by the planes of the Northern fleet to a place of the burial. ">
+<W DOM="10" EXTRAFEAT="CAP" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="К" LEMMA="К" LINK="обст">К</W> 
+<W DOM="3" FEAT="A ЕД МУЖ ДАТ" HYPOT="опред.01" ID="2" KSNAME="ЭТОТ" LEMMA="ЭТОТ" LINK="опред">этому</W> 
+<W DOM="1" FEAT="S ЕД МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="3" KSNAME="ДЕНЬ" LEMMA="ДЕНЬ" LINK="предл">дню</W> 
+<W DOM="10" EXTRAFEAT="ALTJO" FEAT="S МН МУЖ ТВОР НЕОД" HYPOT="обст.05" ID="4" KSNAME="САМОЛЕТ" LEMMA="САМОЛЕТ" LINK="обст">самолетами</W> 
+<W DOM="6" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="5" KSNAME="СЕВЕРНЫЙ" LEMMA="СЕВЕРНЫЙ" LINK="опред">Северного</W> 
+<W DOM="4" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="атриб.01" ID="6" KSNAME="ФЛОТ" LEMMA="ФЛОТ" LINK="атриб">флота</W> 
+<W DOM="4" FEAT="PR" HYPOT="2-компл.17" ID="7" KSNAME="К" LEMMA="К" LINK="2-компл">к</W> 
+<W DOM="7" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="8" KSNAME="МЕСТО" LEMMA="МЕСТО" LINK="предл">месту</W> 
+<W DOM="8" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="9" KSNAME="ЗАХОРОНЕНИЕ" LEMMA="ЗАХОРОНЕНИЕ" LINK="квазиагент">захоронения</W> 
+<W ACCTSTRING="отправлено" DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД СРЕД" HYPOT="root" ID="10" KSNAME="ОТПРАВЛЯТЬ1" LEMMA="ОТПРАВЛЯТЬ" PAFT=" ">отправлено</W> 
+<W DOM="12" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.11" ID="11" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="16" LINK="количест">16</W> 
+<W DOM="10" EXTRAFEAT="ЗЕРО" FEAT="S МН СРЕД РОД НЕОД" HYPOT="предик.02" ID="12" KSNAME="ТЕЛО" LEMMA="ТЕЛО" LINK="предик">тел</W> 
+<W ADDFEAT="common@Human common@Agent" DOM="14" EXTRAFEAT="ALT СУБСТ" FEAT="V СОВ ПРИЧ ПРОШ МН РОД" HYPOT="опред.01" ID="13" KSNAME="ПОГИБАТЬ" LEMMA="ПОГИБАТЬ" LINK="опред">погибших</W> 
+<W DOM="12" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="14" KSNAME="МОРЯК" LEMMA="МОРЯК" LINK="квазиагент">моряков</W> 
+"<W DOM="14" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="атриб.01" ID="15" KSNAME="КУРСК" LEMMA="КУРСК" LINK="атриб">Курска</W>". 
+</S>
+<S COMMENT="traced" DATE="12 03 2024 14:36:49" ID="7" TRANS="So the bodies of two killed - the sergeant major of the second article of Vladimir Sadovogo and midshipman Eugene Gorbunov in the past night were delivered to Nizhniy Novgorod. ">
+<W DOM="7" EXTRAFEAT="CAP" FEAT="ADV" HYPOT="обст.01" ID="1" KSNAME="ТАК" LEMMA="ТАК" LINK="обст">Так</W> 
+<W DOM="3" FEAT="A ЕД ЖЕН ТВОР" HYPOT="опред.01" ID="2" KSNAME="МИНУВШИЙ" LEMMA="МИНУВШИЙ" LINK="опред">минувшей</W> 
+<W DOM="7" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="обст.19" ID="3" KSNAME="НОЧЬ" LEMMA="НОЧЬ" LINK="обст">ночью</W> 
+<W DOM="8" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.18" ID="4" KSNAME="В1" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="6" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="5" KSNAME="НИЖНИЙ1" LEMMA="НИЖНИЙ" LINK="опред">Нижний</W> 
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="6" KSNAME="НОВГОРОД" LEMMA="НОВГОРОД" LINK="предл">Новгород</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ ПРОШ МН" HYPOT="root" ID="7" KSNAME="БЫТЬ" LEMMA="БЫТЬ">были</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" HYPOT="пасс-анал.10" ID="8" KSNAME="ДОСТАВЛЯТЬ" LEMMA="ДОСТАВЛЯТЬ" LINK="пасс-анал">доставлены</W> 
+<W DOM="7" FEAT="S МН СРЕД ИМ НЕОД" HYPOT="предик.01" ID="9" KSNAME="ТЕЛО" LEMMA="ТЕЛО" LINK="предик">тела</W> 
+<W DOM="11" FEAT="NUM РОД" HYPOT="количест.14" ID="10" KSNAME="ДВА" LEMMA="ДВА" LINK="количест">двух</W> 
+<W ADDFEAT="common@Human common@Agent" DOM="9" EXTRAFEAT="ALT СУБСТ" FEAT="V СОВ ПРИЧ ПРОШ МН РОД" HYPOT="квазиагент.01" ID="11" KSNAME="ПОГИБАТЬ" LEMMA="ПОГИБАТЬ" LINK="квазиагент">погибших</W> - 
+<W DOM="11" FEAT="S ЕД МУЖ РОД ОД" HYPOT="разъяснит.05" ID="12" KSNAME="СТАРШИНА" LEMMA="СТАРШИНА" LINK="разъяснит">старшины</W> 
+<W DOM="14" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="13" KSNAME="ВТОРОЙ" LEMMA="ВТОРОЙ" LINK="опред">второй</W> 
+<W DOM="12" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="атриб.01" ID="14" KSNAME="СТАТЬЯ" LEMMA="СТАТЬЯ" LINK="атриб">статьи</W> 
+<W DOM="12" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="15" KSNAME="ВЛАДИМИР2" LEMMA="ВЛАДИМИР" LINK="аппоз">Владимира</W> 
+<W ACCTSTRING="Садового" DOM="15" EXTRAFEAT="CAP FICTIVE" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.d0" ID="16" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="САДОВЫЙ" LINK="аппоз" PAFT=" ">Садового</W> 
+<W DOM="12" FEAT="CONJ" HYPOT="сочин.13" ID="17" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="17" FEAT="S ЕД МУЖ РОД ОД" HYPOT="соч-союзн.10" ID="18" KSNAME="МИЧМАН" LEMMA="МИЧМАН" LINK="соч-союзн">мичмана</W> 
+<W DOM="18" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="19" KSNAME="ЕВГЕНИЙ" LEMMA="ЕВГЕНИЙ" LINK="аппоз">Евгения</W> 
+<W DOM="19" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="20" KSNAME="ГОРБУНОВ" LEMMA="ГОРБУНОВ" LINK="аппоз">Горбунова</W>. 
+</S>
+<S CLASS="LF" DATE="12 03 2024 14:40:53" ID="8" MICROSYNT="(на следующий день,{16:на...18:день})&#xA;" TRANS="A ceremony of farewell to Eugene Gorbunov will take_place in the officers' regional House 30 October, he will be buried for the next day in an urban cemetery. ">
+<W DOM="7" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="1-компл.d0" ID="1" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="30" LINK="1-компл">30</W> 
+<W DOM="1" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="атриб.30" ID="2" KSNAME="ОКТЯБРЬ" LEMMA="ОКТЯБРЬ" LINK="атриб">октября</W> 
+<W DOM="7" FEAT="PR" HYPOT="2-компл.17" ID="3" KSNAME="В2" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="5" FEAT="A ЕД МУЖ ПР" HYPOT="опред.01" ID="4" KSNAME="ОБЛАСТНОЙ" LEMMA="ОБЛАСТНОЙ" LINK="опред">областном</W> 
+<W DOM="3" EXTRAFEAT="CAP CAPIT" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="5" KSNAME="ДОМ" LEMMA="ДОМ" LINK="предл">Доме</W> 
+<W DOM="5" FEAT="S МН МУЖ РОД ОД" HYPOT="квазиагент.01" ID="6" KSNAME="ОФИЦЕР" LEMMA="ОФИЦЕР" LINK="квазиагент">офицеров</W> 
+<W DOM="_root" EXTRAFEAT="ALTJO ЛИЧ" FEAT="V СОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" ID="7" KSNAME="ПРОХОДИТЬ4" LEMMA="ПРОХОДИТЬ" MSNAME="ПРОХОДИТЬ4">пройдет</W> 
+<W ACCTSTRING="церемония" DOM="7" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="8" KSNAME="ЦЕРЕМОНИЯ" LEMMA="ЦЕРЕМОНИЯ" LINK="предик" PAFT=" ">церемония</W> 
+<W DOM="8" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="9" KSNAME="ПРОЩАНИЕ" LEMMA="ПРОЩАНИЕ" LINK="1-компл">прощания</W> 
+<W DOM="9" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="10" KSNAME="С3" LEMMA="С" LINK="1-компл">с</W> 
+<W DOM="10" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ТВОР ОД" HYPOT="предл.10" ID="11" KSNAME="ЕВГЕНИЙ" LEMMA="ЕВГЕНИЙ" LINK="предл">Евгением</W> 
+<W DOM="11" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ТВОР ОД" HYPOT="аппоз.01" ID="12" KSNAME="ГОРБУНОВ" LEMMA="ГОРБУНОВ" LINK="аппоз">Горбуновым</W>, 
+<W DOM="14" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="13" KSNAME="ОН" LEMMA="ОН" LINK="предик">он</W> 
+<W DOM="7" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="сент-соч.01" ID="14" KSNAME="БЫТЬ" LEMMA="БЫТЬ" LINK="сент-соч">будет</W> 
+<W DOM="14" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="пасс-анал.10" ID="15" KSNAME="ХОРОНИТЬ" LEMMA="ХОРОНИТЬ" LINK="пасс-анал">похоронен</W> 
+<W DOM="15" FEAT="PR" HYPOT="обст.23" ID="16" KSNAME="НА1" LEMMA="НА" LINK="обст">на</W> 
+<W DOM="18" FEAT="A ЕД МУЖ ВИН НЕОД" HYPOT="опред.01" ID="17" KSNAME="СЛЕДУЮЩИЙ" LEMMA="СЛЕДУЮЩИЙ" LINK="опред">следующий</W> 
+<W DOM="16" FEAT="S ЕД МУЖ ВИН НЕОД" HYPOT="предл.10" ID="18" KSNAME="ДЕНЬ" LEMMA="ДЕНЬ" LINK="предл">день</W> 
+<W DOM="15" FEAT="PR" HYPOT="2-компл.17" ID="19" KSNAME="НА2" LEMMA="НА" LINK="2-компл">на</W> 
+<W DOM="21" FEAT="A ЕД СРЕД ПР" HYPOT="опред.01" ID="20" KSNAME="ГОРОДСКОЙ" LEMMA="ГОРОДСКОЙ" LINK="опред">городском</W> 
+<W DOM="19" FEAT="S ЕД СРЕД ПР НЕОД" HYPOT="предл.10" ID="21" KSNAME="КЛАДБИЩЕ" LEMMA="КЛАДБИЩЕ" LINK="предл">кладбище</W>. 
+<LF LFARG="8" LFFUNC="_FUNC0" LFVAL="7"/>
+<LF LFARG="5" LFFUNC="_LOC" LFVAL="3"/>
+<LF LFARG="21" LFFUNC="_LOC" LFVAL="19"/>
+</S>
+<S DATE="12 03 2024 14:46:44" ID="9" TRANS="Vladimir Sadovyj will be buried at home - in a settlement Yuganets Volodarsky of the district of the region. ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="предик.01" ID="1" KSNAME="ВЛАДИМИР2" LEMMA="ВЛАДИМИР" LINK="предик">Владимир</W> 
+<W ACCTSTRING="Садовый" DOM="1" EXTRAFEAT="FICTIVE" FEAT="S ЕД МУЖ ИМ ОД" HYPOT="аппоз.d0" ID="2" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="САДОВЫЙ" LINK="аппоз" PAFT=" ">Садовый</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="root" ID="3" KSNAME="БЫТЬ" LEMMA="БЫТЬ">будет</W> 
+<W DOM="3" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР ЕД МУЖ" HYPOT="пасс-анал.10" ID="4" KSNAME="ХОРОНИТЬ" LEMMA="ХОРОНИТЬ" LINK="пасс-анал">похоронен</W> 
+<W DOM="4" FEAT="PR" HYPOT="2-компл.17" ID="5" KSNAME="НА2" LEMMA="НА" LINK="2-компл">на</W> 
+<W DOM="5" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="6" KSNAME="РОДИНА" LEMMA="РОДИНА" LINK="предл">родине</W> - 
+<W DOM="6" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="разъяснит.05" ID="7" KSNAME="В2" LEMMA="В" LINK="разъяснит">в</W> 
+<W DOM="7" EXTRAFEAT="ALTJO" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="8" KSNAME="ПОСЕЛОК" LEMMA="ПОСЕЛОК" LINK="предл">поселке</W> 
+<W ACCTSTRING="Юганец" DOM="8" EXTRAFEAT="CAP FICTIVE ЗЕРО" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="9" KSNAME="ФИКТ-МЕСТО" LEMMA="ЮГАНЕЦ" LINK="аппоз" PAFT=" ">Юганец</W> 
+<W ACCTSTRING="Володарского" DOM="11" EXTRAFEAT="CAP FICTIVE" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="10" KSNAME="ФИКТ-ПРИЛ" LEMMA="ВОЛОДАРСКИЙ" LINK="опред" PAFT=" ">Володарского</W> 
+<W DOM="9" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="атриб.01" ID="11" KSNAME="РАЙОН" LEMMA="РАЙОН" LINK="атриб">района</W> 
+<W DOM="11" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="12" KSNAME="ОБЛАСТЬ" LEMMA="ОБЛАСТЬ" LINK="квазиагент">области</W>. 
+<LF LFARG="6" LFFUNC="_LOC" LFVAL="5"/>
+<LF LFARG="8" LFFUNC="_LOC" LFVAL="7"/>
+</S>
+<S COMMENT="traced" DATE="12 03 2024 14:49:02" ID="10" MICROSYNT="(брать на себя,{3:взяла...5:себя})&#xA;" TRANS="The administration of the region has taken the organization of a funeral to oneself. ">
+<W DOM="3" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="1" KSNAME="ОРГАНИЗАЦИЯ2" LEMMA="ОРГАНИЗАЦИЯ" LINK="1-компл">Организацию</W> 
+<W DOM="1" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="2" KSNAME="ПОХОРОНЫ" LEMMA="ПОХОРОНЫ" LINK="1-компл">похорон</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД ЖЕН" HYPOT="root" ID="3" KSNAME="БРАТЬ" LEMMA="БРАТЬ">взяла</W> 
+<W DOM="3" FEAT="PR" HYPOT="3-компл.11" ID="4" KSNAME="НА1" LEMMA="НА" LINK="3-компл">на</W> 
+<W DOM="4" FEAT="S ВИН" HYPOT="предл.10" ID="5" KSNAME="СЕБЯ" LEMMA="СЕБЯ" LINK="предл">себя</W> 
+<W DOM="3" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="6" KSNAME="АДМИНИСТРАЦИЯ" LEMMA="АДМИНИСТРАЦИЯ" LINK="предик">администрация</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="ОБЛАСТЬ" LEMMA="ОБЛАСТЬ" LINK="1-компл">области</W>.
+</S>
+<S COMMENT="traced" DATE="12 03 2024 14:47:24" ID="11">
+<W DOM="6" EXTRAFEAT="CAP ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="1" KSNAME="ЗА1" LEMMA="ЗА" LINK="обст">За</W> 
+<W ACCTSTRING="минувшие" DOM="3" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="2" KSNAME="МИНУВШИЙ" LEMMA="МИНУВШИЙ" LINK="опред">минувшие</W> 
+<W DOM="1" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="3" KSNAME="СУТКИ" LEMMA="СУТКИ" LINK="предл">сутки</W> 
+<W DOM="6" FEAT="PR" HYPOT="2-компл.17" ID="4" KSNAME="ИЗ" LEMMA="ИЗ" LINK="2-компл">из</W> 
+"<W ACCTSTRING="Курска" DOM="4" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="предл.10" ID="5" KSNAME="КУРСК" LEMMA="КУРСК" LINK="предл">Курска</W>" 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" ID="6" KSNAME="ИЗВЛЕКАТЬ" LEMMA="ИЗВЛЕКАТЬ">извлечены</W> 
+<W DOM="6" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="предик.04" ID="7" KSNAME="ЧИСЛ-БОЛЬШ" LEMMA="6" LINK="предик">6</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="электив.11" ID="8" KSNAME="ИЗ" LEMMA="ИЗ" LINK="электив">из</W> 
+<W DOM="11" EXTRAFEAT="FICT-NUM" FEAT="NUM" HYPOT="количест.14" ID="9" KSNAME="ЧИСЛ-ДВАДВА" LEMMA="22" LINK="количест">22</W> 
+<W DOM="11" FEAT="A МН РОД" HYPOT="опред.01" ID="10" KSNAME="КРЫЛАТЫЙ" LEMMA="КРЫЛАТЫЙ" LINK="опред">крылатых</W> 
+<W DOM="8" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предл.10" ID="11" KSNAME="РАКЕТА" LEMMA="РАКЕТА" LINK="предл">ракет</W> 
+"<W DOM="11" EXTRAFEAT="CAP CAPIT IN-QUOT" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="аппоз.01" ID="12" KSNAME="ГРАНИТ" LEMMA="ГРАНИТ" LINK="аппоз">Гранит</W>". 
+</S>
+<S CLASS="LF" DATE="12 03 2024 14:49:40" ID="12">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ВЫГРУЗКА" LEMMA="ВЫГРУЗКА" LINK="предик">Выгрузка</W> 
+<W DOM="_root" EXTRAFEAT="ALTJO ЛИЧ" FEAT="V НЕСОВ СТРАД ИЗЪЯВ НЕПРОШ ЕД 3-Л" HYPOT="root" ID="2" KSNAME="ВЕСТИ2" LEMMA="ВЕСТИ">ведется</W> 
+<W DOM="2" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="обст.23" ID="3" KSNAME="С3" LEMMA="С" LINK="обст">с</W> 
+<W DOM="3" FEAT="S ЕД СРЕД ТВОР НЕОД" HYPOT="предл.10" ID="4" KSNAME="ИСПОЛЬЗОВАНИЕ" LEMMA="ИСПОЛЬЗОВАНИЕ" LINK="предл">использованием</W> 
+<W DOM="6" FEAT="A МН РОД" HYPOT="опред.01" ID="5" KSNAME="СПЕЦИАЛЬНЫЙ" LEMMA="СПЕЦИАЛЬНЫЙ" LINK="опред">специальных</W> 
+<W DOM="4" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="6" KSNAME="КРАН2" LEMMA="КРАН" LINK="1-компл">кранов</W>, 
+<W DOM="8" FEAT="S МН ИМ" HYPOT="предик.01" ID="7" KSNAME="КОТОРЫЙ" LEMMA="КОТОРЫЙ" LINK="предик">которые</W> 
+<W ACCTSTRING="достают" DOM="6" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="релят.01" ID="8" KSNAME="ДОСТАВАТЬ1" LEMMA="ДОСТАВАТЬ" LINK="релят">достают</W> 
+<W DOM="8" FEAT="S МН ЖЕН ВИН НЕОД" HYPOT="1-компл.11" ID="9" KSNAME="РАКЕТА" LEMMA="РАКЕТА" LINK="1-компл">ракеты</W> 
+<W DOM="8" FEAT="PR" HYPOT="2-компл.17" ID="10" KSNAME="ИЗ" LEMMA="ИЗ" LINK="2-компл">из</W> 
+<W DOM="10" FEAT="S МН ЖЕН РОД НЕОД" HYPOT="предл.10" ID="11" KSNAME="ШАХТА" LEMMA="ШАХТА" LINK="предл">шахт</W>, 
+<W DOM="11" FEAT="A МН РОД" HYPOT="опред.02" ID="12" KSNAME="РАСПОЛОЖЕННЫЙ1" LEMMA="РАСПОЛОЖЕННЫЙ" LINK="опред">расположенных</W> 
+<W DOM="12" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл" ID="13" KSNAME="ПО1" LEMMA="ПО" LINK="1-компл">по</W> 
+<W DOM="15" FEAT="NUM МУЖ ДАТ" HYPOT="количест.14" ID="14" KSNAME="ОБА" LEMMA="ОБА" LINK="количест">обоим</W> 
+<W DOM="13" FEAT="S МН МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="15" KSNAME="БОРТ" LEMMA="БОРТ" LINK="предл">бортам</W> 
+"<W ACCTSTRING="Курска" DOM="15" EXTRAFEAT="CAP IN-QUOT" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="16" KSNAME="КУРСК" LEMMA="КУРСК" LINK="квазиагент">Курска</W>", 
+<W ACCTSTRING="и" DOM="8" FEAT="CONJ" HYPOT="сочин.20" ID="17" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="17" EXTRAFEAT="ЛИЧ" FEAT="V НЕСОВ ИЗЪЯВ НЕПРОШ МН 3-Л" HYPOT="соч-союзн.15" ID="18" KSNAME="ПОМЕЩАТЬ" LEMMA="ПОМЕЩАТЬ" LINK="соч-союзн">помещают</W> 
+<W DOM="18" FEAT="S МН ВИН ОД" HYPOT="1-компл.11" ID="19" KSNAME="ОНИ" LEMMA="ОНИ" LINK="1-компл">их</W> 
+<W DOM="18" FEAT="PR" HYPOT="2-компл.17" ID="20" KSNAME="В1" LEMMA="В" LINK="2-компл">в</W> 
+<W DOM="23" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="21" KSNAME="СПЕЦИАЛЬНЫЙ" LEMMA="СПЕЦИАЛЬНЫЙ" LINK="опред">специальные</W> 
+<W DOM="23" FEAT="A МН ВИН НЕОД" HYPOT="опред.01" ID="22" KSNAME="ТРАНСПОРТНЫЙ" LEMMA="ТРАНСПОРТНЫЙ" LINK="опред" MSNAME="ТРАНСПОРТНЫЙ">транспортные</W> 
+<W DOM="20" FEAT="S МН МУЖ ВИН НЕОД" HYPOT="предл.10" ID="23" KSNAME="КОНТЕЙНЕР" LEMMA="КОНТЕЙНЕР" LINK="предл">контейнеры</W> 
+<W DOM="23" FEAT="PR" HYPOT="атриб.18" ID="24" KSNAME="ДЛЯ" LEMMA="ДЛЯ" LINK="атриб">для</W> 
+<W DOM="24" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="предл.10" ID="25" KSNAME="ПЕРЕВОЗКА" LEMMA="ПЕРЕВОЗКА" LINK="предл">перевозки</W> 
+<W DOM="25" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="3-компл.11" ID="26" KSNAME="НА1" LEMMA="НА" LINK="3-компл">на</W> 
+<W ACCTSTRING="базу" DOM="26" FEAT="S ЕД ЖЕН ВИН НЕОД" HYPOT="предл.10" ID="27" KSNAME="БАЗА" LEMMA="БАЗА" LINK="предл" PAFT=" ">базу</W> 
+<W DOM="27" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="1-компл.20" ID="28" KSNAME="ХРАНЕНИЕ" LEMMA="ХРАНЕНИЕ" LINK="1-компл">хранения</W>.
+<LF LFARG="1" LFFUNC="_OPER1" LFVAL="2"/>
+</S>
+</body>
+</text>

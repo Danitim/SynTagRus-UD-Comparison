@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<text DB_PATH="Y:\\corpus\\Ready_Corpus\\news\\Ya_55_07.tgt" PARAMS="ETAPOPTION=RE; DOMAINS=COMMON-DOMAIN; LEVEL=$TRUE; WEAKPRED=$FALSE; PARAFR=$FALSE; STAT=N; SENTFEATS=STDSENT; SYNTMODE=STDSYNT; USESTAT=USESTATNO; ALTTR=$TRUE; MWORDFORM=$TRUE; CORDESCRMODE=CORDESCROLDMODE; SYNTAXONLY=$FALSE; SOFTSENTBR=$FALSE; EXPERMODE=EXPER_OFF; DISAMBMODE=DISAMB_OFF; MAXALTNUM=NORMALNUM; SPEECHMODE=SPEECHMODENO; JOFICATION=$FALSE; " ver="1.1">
+<inf>
+<annot>-</annot>
+<annotation_year>2002</annotation_year>
+<author>неизвестный</author>
+<author_birth_year>-</author_birth_year>
+<author_id>-</author_id>
+<author_sex>-</author_sex>
+<comment>-</comment>
+<creation_date>2002</creation_date>
+<editor>-</editor>
+<genre>-</genre>
+<medium>электронное издание</medium>
+<part>-</part>
+<publication>Газета.ру</publication>
+<publication_date>05.04.2002</publication_date>
+<publisher>-</publisher>
+<source>https://www.gazeta.ru/news</source>
+<sphere>публицистика</sphere>
+<title>Евросоюз отказался от переговоров с Шароном</title>
+<topic>политика и общественная жизнь</topic>
+<type>информационное сообщение</type>
+</inf>
+<body>
+<S COMMENT="traced" DATE="09 03 2024 23:58:46" ID="1" TRANS="The European Union has declined negotiations with Sharon ">
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="1" KSNAME="ЕВРОСОЮЗ" LEMMA="ЕВРОСОЮЗ" LINK="предик" MSNAME="ЕВРОСОЮЗ">Евросоюз</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" ID="2" KSNAME="ОТКАЗЫВАТЬСЯ" LEMMA="ОТКАЗЫВАТЬСЯ">отказался</W> 
+<W DOM="2" FEAT="PR" HYPOT="1-компл.17" ID="3" KSNAME="ОТ" LEMMA="ОТ" LINK="1-компл">от</W> 
+<W DOM="3" FEAT="S МН МУЖ РОД НЕОД" HYPOT="предл.10" ID="4" KSNAME="ПЕРЕГОВОРЫ" LEMMA="ПЕРЕГОВОРЫ" LINK="предл">переговоров</W> 
+<W DOM="4" FEAT="PR" HYPOT="2-компл.17" ID="5" KSNAME="С3" LEMMA="С" LINK="2-компл">с</W> 
+<W DOM="5" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ТВОР ОД" HYPOT="предл.10" ID="6" KSNAME="ШАРОН" LEMMA="ШАРОН" LINK="предл">Шароном</W>
+</S>
+<S DATE="09 03 2024 23:58:46" ID="2" MICROSYNT="(в составе,{10:в...11:составе})&#xA;">
+<W DOM="29" EXTRAFEAT="CAP" FEAT="S МН МУЖ ИМ НЕОД" HYPOT="предик.04" ID="1" KSNAME="ПЕРЕГОВОРЫ" LEMMA="ПЕРЕГОВОРЫ" LINK="предик">Переговоры</W> 
+<W DOM="1" FEAT="S ЕД МУЖ РОД ОД" HYPOT="квазиагент.01" ID="2" KSNAME="ПРЕМЬЕР-МИНИСТР" LEMMA="ПРЕМЬЕР-МИНИСТР" LINK="квазиагент" MSNAME="ПРЕМЬЕР-МИНИСТР">премьер-министра</W> 
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="ИЗРАИЛЬ" LEMMA="ИЗРАИЛЬ" LINK="1-компл">Израиля</W> 
+<W DOM="2" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="4" KSNAME="АРИЭЛЬ" LEMMA="АРИЭЛЬ" LINK="аппоз">Ариэля</W> 
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="5" KSNAME="ШАРОН" LEMMA="ШАРОН" LINK="аппоз">Шарона</W> 
+<W DOM="1" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="2-компл.17" ID="6" KSNAME="С3" LEMMA="С" LINK="2-компл">с</W> 
+<W DOM="6" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="предл.10" ID="7" KSNAME="ДЕЛЕГАЦИЯ" LEMMA="ДЕЛЕГАЦИЯ" LINK="предл">делегацией</W> 
+<W DOM="9" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="8" KSNAME="ЕВРОПЕЙСКИЙ" LEMMA="ЕВРОПЕЙСКИЙ" LINK="опред">Европейского</W> 
+<W DOM="7" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="9" KSNAME="СОЮЗ" LEMMA="СОЮЗ" LINK="квазиагент">союза</W> 
+<W DOM="7" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="атриб.18" ID="10" KSNAME="В2" LEMMA="В" LINK="атриб">в</W> 
+<W DOM="10" FEAT="S ЕД МУЖ ПР НЕОД" HYPOT="предл.10" ID="11" KSNAME="СОСТАВ1" LEMMA="СОСТАВ" LINK="предл">составе</W> 
+<W DOM="11" FEAT="S ЕД МУЖ РОД ОД" HYPOT="1-компл.61" ID="12" KSNAME="ГЛАВА2" LEMMA="ГЛАВА" LINK="1-компл">главы</W> 
+<W DOM="12" EXTRAFEAT="UPP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="13" KSNAME="МИД" LEMMA="МИД" LINK="1-компл" MSNAME="МИД">МИД</W> 
+<W DOM="13" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="14" KSNAME="ИСПАНИЯ" LEMMA="ИСПАНИЯ" LINK="квазиагент">Испании</W> 
+<W DOM="12" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="15" KSNAME="ФИКТ-ЛИЧИМЯ" LEMMA="ХОСЕП" LINK="аппоз">Хосепа</W> 
+<W DOM="15" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="16" KSNAME="ФИКТ-ФАМИЛИЯ" LEMMA="ПИКЕ" LINK="аппоз">Пике</W> 
+<W DOM="12" FEAT="CONJ" HYPOT="сочин.13" ID="17" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="19" EXTRAFEAT="CAP CAPIT" FEAT="A ЕД МУЖ РОД" HYPOT="опред.01" ID="18" KSNAME="ВЕРХОВНЫЙ" LEMMA="ВЕРХОВНЫЙ" LINK="опред">Верховного</W> 
+<W DOM="17" FEAT="S ЕД МУЖ РОД ОД" HYPOT="соч-союзн.10" ID="19" KSNAME="ПРЕДСТАВИТЕЛЬ" LEMMA="ПРЕДСТАВИТЕЛЬ" LINK="соч-союзн">представителя</W> 
+<W DOM="19" EXTRAFEAT="UPP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="20" KSNAME="ЕС1" LEMMA="ЕС" LINK="1-компл">ЕС</W> 
+<W DOM="19" FEAT="PR" HYPOT="3-компл.11" ID="21" KSNAME="ПО1" LEMMA="ПО" LINK="3-компл">по</W> 
+<W DOM="21" FEAT="S МН МУЖ ДАТ НЕОД" HYPOT="предл.10" ID="22" KSNAME="ВОПРОС" LEMMA="ВОПРОС" LINK="предл">вопросам</W> 
+<W DOM="24" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="23" KSNAME="ВНЕШНИЙ" LEMMA="ВНЕШНИЙ" LINK="опред">внешней</W> 
+<W DOM="22" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="24" KSNAME="ПОЛИТИКА" LEMMA="ПОЛИТИКА" LINK="1-компл">политики</W> 
+<W DOM="24" FEAT="CONJ" HYPOT="сочин.13" ID="25" KSNAME="И1" LEMMA="И" LINK="сочин">и</W> 
+<W DOM="25" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="соч-союзн.10" ID="26" KSNAME="БЕЗОПАСНОСТЬ" LEMMA="БЕЗОПАСНОСТЬ" LINK="соч-союзн">безопасности</W> 
+<W DOM="19" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="27" KSNAME="ХАВЬЕР" LEMMA="ХАВЬЕР" LINK="аппоз">Хавьера</W> 
+<W DOM="27" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД ОД" HYPOT="аппоз.01" ID="28" KSNAME="СОЛАНА" LEMMA="СОЛАНА" LINK="аппоз">Соланы</W> 
+<W DOM="_root" EXTRAFEAT="ЗЕРО" FEAT="V СОВ СТРАД ПРИЧ ПРОШ КР МН" ID="29" KSNAME="ОТМЕНЯТЬ" LEMMA="ОТМЕНЯТЬ">отменены</W> 
+<W DOM="29" FEAT="PR" HYPOT="обст.23" ID="30" KSNAME="ПО1" LEMMA="ПО" LINK="обст">по</W> 
+<W DOM="30" FEAT="S ЕД СРЕД ДАТ НЕОД" HYPOT="предл.10" ID="31" KSNAME="НАСТОЯНИЕ" LEMMA="НАСТОЯНИЕ" LINK="предл" MSNAME="НАСТОЯНИЕ">настоянию</W> 
+<W DOM="33" FEAT="A ЕД ЖЕН РОД" HYPOT="опред.01" ID="32" KSNAME="ЕВРОПЕЙСКИЙ" LEMMA="ЕВРОПЕЙСКИЙ" LINK="опред">европейской</W> 
+<W DOM="31" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="квазиагент.01" ID="33" KSNAME="СТОРОНА" LEMMA="СТОРОНА" LINK="квазиагент">стороны</W>.
+</S>
+<S CLASS="LF (LOC)" COMMENT="traced" DATE="09 03 2024 23:58:46" ID="3">
+<W DOM="4" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ТВОР НЕОД" HYPOT="присвяз.20" ID="1" KSNAME="ПРИЧИНА" LEMMA="ПРИЧИНА" LINK="присвяз">Причиной</W> 
+<W DOM="1" FEAT="S ЕД ЖЕН РОД НЕОД" HYPOT="1-компл.20" ID="2" KSNAME="ОТМЕНА" LEMMA="ОТМЕНА" LINK="1-компл">отмены</W> 
+<W DOM="2" FEAT="S МН МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="3" KSNAME="ПЕРЕГОВОРЫ" LEMMA="ПЕРЕГОВОРЫ" LINK="1-компл">переговоров</W> 
+<W DOM="_root" EXTRAFEAT="ЛИЧ" FEAT="V СОВ ИЗЪЯВ ПРОШ ЕД МУЖ" ID="4" KSNAME="СТАНОВИТЬСЯ1" LEMMA="СТАНОВИТЬСЯ">стал</W> 
+<W DOM="4" FEAT="S ЕД МУЖ ИМ НЕОД" HYPOT="предик.01" ID="5" KSNAME="ОТКАЗ1" LEMMA="ОТКАЗ" LINK="предик">отказ</W> 
+<W DOM="5" FEAT="S ЕД СРЕД РОД НЕОД" HYPOT="квазиагент.01" ID="6" KSNAME="РУКОВОДСТВО1" LEMMA="РУКОВОДСТВО" LINK="квазиагент">руководства</W> 
+<W DOM="6" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="1-компл.20" ID="7" KSNAME="ИЗРАИЛЬ" LEMMA="ИЗРАИЛЬ" LINK="1-компл">Израиля</W> 
+<W DOM="5" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="8" KSNAME="РАЗРЕШАТЬ2" LEMMA="РАЗРЕШАТЬ" LINK="1-компл">разрешить</W> 
+<W DOM="8" FEAT="S ЕД ЖЕН ДАТ НЕОД" HYPOT="2-компл.21" ID="9" KSNAME="ДЕЛЕГАЦИЯ" LEMMA="ДЕЛЕГАЦИЯ" LINK="2-компл">делегации</W> 
+<W DOM="9" EXTRAFEAT="UPP" FEAT="S ЕД МУЖ РОД НЕОД" HYPOT="квазиагент.01" ID="10" KSNAME="ЕС1" LEMMA="ЕС" LINK="квазиагент">ЕС</W> 
+<W DOM="8" FEAT="V СОВ ИНФ" HYPOT="1-компл.14" ID="11" KSNAME="ВСТРЕЧАТЬСЯ1" LEMMA="ВСТРЕЧАТЬСЯ" LINK="1-компл">встретиться</W> 
+<W DOM="11" EXTRAFEAT="ЗЕРО" FEAT="PR" HYPOT="1-компл.17" ID="12" KSNAME="С3" LEMMA="С" LINK="1-компл">с</W> 
+<W DOM="16" FEAT="V СОВ СТРАД ПРИЧ ПРОШ ЕД МУЖ ТВОР" HYPOT="опред.01" ID="13" KSNAME="БЛОКИРОВАТЬ" LEMMA="БЛОКИРОВАТЬ" LINK="опред">блокированным</W> 
+<W DOM="13" FEAT="PR" HYPOT="обст.23" ID="14" KSNAME="В2" LEMMA="В" LINK="обст">в</W> 
+<W DOM="14" EXTRAFEAT="CAP" FEAT="S ЕД ЖЕН ПР НЕОД" HYPOT="предл.10" ID="15" KSNAME="РАМАЛЛА" LEMMA="РАМАЛЛА" LINK="предл">Рамалле</W> 
+<W DOM="12" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ТВОР ОД" HYPOT="предл.10" ID="16" KSNAME="ЯСИР" LEMMA="ЯСИР" LINK="предл">Ясиром</W> 
+<W DOM="16" EXTRAFEAT="CAP" FEAT="S ЕД МУЖ ТВОР ОД" HYPOT="аппоз.01" ID="17" KSNAME="АРАФАТ" LEMMA="АРАФАТ" LINK="аппоз">Арафатом</W>. 
+<LF LFARG="15" LFFUNC="_LOC" LFVAL="14"/>
+</S>
+</body>
+</text>
