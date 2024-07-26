@@ -4,8 +4,19 @@ import re
 import xml.etree.ElementTree as ET
 from pyconll.unit.token import Token
 
-source_pattern = r"([a-zA-Zа-яА-Я]+(?:_[a-zA-Zа-яА-Я]+)*)"
 
+def get_ud_source(sent):
+    '''
+    Extract the source name from the UD sentence.
+    '''
+    source = sent.meta_value('sent_id')
+    source = source[: source.rfind('.xml')]
+    
+    while not source[-1].isalpha():
+        source = source[:-1]
+
+    return source
+    
 
 def convert_ud_to_ud(read_path, save_path):
     '''
@@ -39,14 +50,32 @@ def convert_ud_to_ud(read_path, save_path):
                     
                     token.id = str(new_id)
             
-            source_name = re.search(source_pattern, sent.meta_value('sent_id')).group(1)
-            sent.set_meta('sent_id', f"{sent_id}_{source_name}")
+            source = get_ud_source(sent)
+            sent.set_meta('sent_id', f"{sent_id}_{source}")
         
         # save the converted corpus
         save_file_path = pathlib.Path(save_path) / file_path.name
         with open(save_file_path, 'w', encoding='utf-8') as f:
             conll.write(f)
             
+            
+def get_str_source(file_path):
+    '''
+    Extract the source name from the SynTagRus file path.
+    
+    Parameters:
+    file_path (str): path to the SynTagRus file.
+    
+    Returns:
+    str: source name.
+    '''
+    source = ''.join(file_path.parts[1:])
+    source = source[: source.rfind('.tgt')]
+    
+    while not source[-1].isalpha():
+        source = source[:-1]
+        
+    return source
             
             
 def convert_str_to_ud(read_path, save_path):
@@ -65,6 +94,8 @@ def convert_str_to_ud(read_path, save_path):
     for file_path in pathlib.Path(read_path).rglob("**/*.tgt"):
         tree = ET.parse(file_path)
         root = tree.getroot()
+        
+        source = get_str_source(file_path)
         
         conll_data = []
         for body in root.findall('body'):
@@ -119,8 +150,8 @@ def convert_str_to_ud(read_path, save_path):
             
                     token = Token(token_str)
                     tokens.append(token)
-                    
-                sentence_str = f"# sent_id = {sent_id}_\n"
+                
+                sentence_str = f"# sent_id = {sent_id}_{source}\n"
                 sentence_str += f"# text = {' '.join([token.form for token in tokens if token.form != '_'])}\n"
                 for token in tokens:
                     sentence_str += token.conll() + '\n'
@@ -128,6 +159,9 @@ def convert_str_to_ud(read_path, save_path):
                 conll_data.append(sentence_str)
         
         # save the converted corpus
-        save_file_path = pathlib.Path(save_path) / (file_path.stem + '.conllu')
+        file_name = ''.join(file_path.parts[1:])
+        file_name = file_name[: file_name.rfind('.tgt')]
+
+        save_file_path = pathlib.Path(save_path) / (file_name+ '.conllu')
         with open(save_file_path, 'w', encoding='utf-8') as f:
             f.write('\n'.join(conll_data))
