@@ -23,8 +23,8 @@ def convert_ud_to_ud(read_path, save_path):
         
         for sent_id, sent in enumerate(conll, start=1):
             
-            ellipsis = 0
-            id_map = {}
+            ellipsis = 0 
+            id_map = {'0': '0'} # handle root dependency
             for new_id, token in enumerate(sent, start=1):
                 ellipsis += 1 if token.is_empty_node() else 0
                 id_map[token.id] = new_id
@@ -32,8 +32,10 @@ def convert_ud_to_ud(read_path, save_path):
             if ellipsis:
                 for new_id, token in enumerate(sent, start=1):
                     if not token.is_empty_node():
-                        token.head = str(id_map[token.head]) if token.head != '0' else '0'
-                    token.deps = {}
+                        token.head = str(id_map[token.head])
+                    
+                    deps_keys, deps_values = token.deps.keys(), token.deps.values()
+                    token.deps = {str(id_map[key]): value for key, value in zip(deps_keys, deps_values)}
                     
                     token.id = str(new_id)
             
