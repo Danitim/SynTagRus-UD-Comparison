@@ -1,21 +1,9 @@
 import pathlib
 import pyconll
-import re
 import xml.etree.ElementTree as ET
 from pyconll.unit.token import Token
 
-
-def get_ud_source(sent):
-    '''
-    Extract the source name from the UD sentence.
-    '''
-    source = sent.meta_value('sent_id')
-    source = source[: source.rfind('.xml')]
-    
-    while not source[-1].isalpha():
-        source = source[:-1]
-
-    return source
+from utils import get_ud_source, get_str_source
     
 
 def convert_ud_to_ud(read_path, save_path):
@@ -26,6 +14,8 @@ def convert_ud_to_ud(read_path, save_path):
     read_path (str): path to the directory with extended UD files.
     save_path (str): path to save the converted corpus.  
     '''
+    print("Converting extended UD to base UD...")
+    
     # create save directory if non existent
     pathlib.Path(save_path).mkdir(parents=True, exist_ok=True)
     
@@ -57,25 +47,9 @@ def convert_ud_to_ud(read_path, save_path):
         save_file_path = pathlib.Path(save_path) / file_path.name
         with open(save_file_path, 'w', encoding='utf-8') as f:
             conll.write(f)
-            
-            
-def get_str_source(file_path):
-    '''
-    Extract the source name from the SynTagRus file path.
     
-    Parameters:
-    file_path (str): path to the SynTagRus file.
-    
-    Returns:
-    str: source name.
-    '''
-    source = ''.join(file_path.parts[1:])
-    source = source[: source.rfind('.tgt')]
-    
-    while not source[-1].isalpha():
-        source = source[:-1]
-        
-    return source
+    print("Conversion completed.")
+
             
             
 def convert_str_to_ud(read_path, save_path):
@@ -87,6 +61,8 @@ def convert_str_to_ud(read_path, save_path):
     read_path (str): path to the directory with SynTagRus files.
     save_path (str): path to save the converted corpus.
     '''
+    print("Converting SynTagRus to UD...")
+    
     # create save directory if non existent
     pathlib.Path(save_path).mkdir(parents=True, exist_ok=True)
     
@@ -165,3 +141,5 @@ def convert_str_to_ud(read_path, save_path):
         save_file_path = pathlib.Path(save_path) / (file_name+ '.conllu')
         with open(save_file_path, 'w', encoding='utf-8') as f:
             f.write('\n'.join(conll_data))
+    
+    print("Conversion completed.")
