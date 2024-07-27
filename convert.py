@@ -4,7 +4,7 @@ import xml.etree.ElementTree as ET
 from pyconll.unit.token import Token
 
 from utils import get_ud_source, get_str_source
-    
+from utils import restore_ellipsis
 
 def convert_ud_to_ud(read_path, save_path):
     '''
@@ -25,20 +25,35 @@ def convert_ud_to_ud(read_path, save_path):
         for sent_id, sent in enumerate(conll, start=1):
             
             ellipsis = 0 
-            id_map = {'0': '0'} # handle root dependency
+            id_map = {'0': '0'}
+            dependents = {}
             for new_id, token in enumerate(sent, start=1):
-                ellipsis += 1 if token.is_empty_node() else 0
+                if token.deps and len(token.deps) == 1:
+                    for head, dep in token.deps.items():
+                        deprel = dep[0]
+                        if '.' in head:
+                            if head not in dependents:
+                                dependents[head] = []
+                            dependents[head].append((token, deprel))
+                            
+                if token.is_empty_node():
+                    ellipsis += 1
+                    if token.id not in dependents:
+                        dependents[token.id] = []
+                    
                 id_map[token.id] = new_id
             
+            
             if ellipsis:
+                restore_ellipsis(sent, dependents)             
+                
                 for new_id, token in enumerate(sent, start=1):
-                    if not token.is_empty_node():
-                        token.head = str(id_map[token.head])
-                    
-                    deps_keys, deps_values = token.deps.keys(), token.deps.values()
-                    token.deps = {str(id_map[key]): value for key, value in zip(deps_keys, deps_values)}
+                    token.head = str(id_map[token.head])
                     
                     token.id = str(new_id)
+                    
+            for token in sent:
+                token.deps = {}
             
             source = get_ud_source(sent)
             sent.set_meta('sent_id', f"{sent_id}_{source}")

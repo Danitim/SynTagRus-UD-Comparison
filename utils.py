@@ -61,7 +61,6 @@ def search_source_name(source_name, path):
     for file_path in pathlib.Path(path).rglob("**/*.conllu"):
         if file_path.name.lower().find(source_name.lower()) != -1:
             return True
-        
     return False
 
 def compare_sentences(ud_sent, str_sent):
@@ -80,3 +79,61 @@ def compare_sentences(ud_sent, str_sent):
             return False
         
     return True
+
+
+def restore_ellipsis(sent, dependents):
+    '''
+    Restore the ellipsis nodes in the sentence
+    
+    Parameters:
+    sent (pyconll.unit.sentence.Sentence): sentence.
+    dependents (dict): dictionary of dependents of each ellipsis node.
+        Each element is a tuple of (token, deprel).
+    '''
+    count = len(dependents)
+    
+    while count > 0:
+        for head, deps in dependents.items():
+            ellipsis = sent[head]
+            
+            ids = [dep[0].id for dep in deps]
+            heads = [dep[0].head for dep in deps]
+            
+            # continue if at least one head in deps[2] is not restored yet
+            if any(dep[0].head is None for dep in deps) or ellipsis.head:
+                continue
+            
+            # attach empty elipsis to its head from deps
+            if not deps:
+                ellipsis.head = list(ellipsis.deps.keys())[0]
+                ellipsis.deprel = list(ellipsis.deps.values())[0][0]
+                
+                if len(ellipsis.deps) > 1:
+                    for h, rel in ellipsis.deps.items():
+                        if '.' not in h:
+                            ellipsis.head = h
+                            ellipsis.deprel = rel[0]
+                            break
+                
+                count -= 1
+                continue
+            
+            # find the promoted node
+            ids = [dep[0].id for dep in deps]
+            heads = [dep[0].head for dep in deps]
+            for h in heads:
+                if h not in ids:
+                    promoted = sent[ids[heads.index(h)]]
+                    break
+                
+            # attach ellipsis to the real head
+            ellipsis.head = promoted.head
+            ellipsis.deprel = promoted.deprel
+            
+            # attach ellipsis dependents to the ellipsis
+            for dep in deps:
+                dep[0].head = ellipsis.id
+                dep[0].deprel = dep[1]
+                
+            count -= 1
+            
