@@ -40,6 +40,8 @@ def convert_ud_to_ud(read_path, save_path):
                     ellipsis += 1
                     if token.id not in dependents:
                         dependents[token.id] = []
+                        
+                
                     
                 id_map[token.id] = new_id
             
@@ -93,7 +95,7 @@ def convert_str_to_ud(read_path, save_path):
             for sent_id, sent in enumerate(body.findall('S'), start=1):
                 sentence = []
                 link_offset = []
-                punct_offset = 0
+                
                 
                 # punctuation marks before the first word
                 for punct in sent.text.strip():
@@ -119,6 +121,7 @@ def convert_str_to_ud(read_path, save_path):
                     if type(word) == ET.Element: # word or ellipsis
                         form = word.text if word.text else '_'
                         upos = (word.get('FEAT')).split()[0]
+                        print(file_path, sent_id, word_id, len(link_offset), word.get('DOM'))
                         if word.get('DOM') == '_root':
                             head = 0
                             deprel = 'root'
