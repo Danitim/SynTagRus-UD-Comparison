@@ -4,8 +4,8 @@ import xml.etree.ElementTree as ET
 from pyconll.unit.token import Token
 from string import punctuation as punct
 
-from utils import get_ud_source, get_str_source
-from utils import restore_ellipsis
+from convert.utils import get_ud_source, get_str_source
+from convert.utils import restore_ellipsis
 
 def convert_ud_to_ud(read_path, save_path):
     '''
@@ -135,7 +135,7 @@ def convert_str_to_ud(read_path, save_path):
                         punct_offset += 1
                         
                         form = word
-                        upos = '_'
+                        upos = 'PUNCT'
                         head = '_'
                         deprel = '_'
                     

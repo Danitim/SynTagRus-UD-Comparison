@@ -1,8 +1,7 @@
 import pathlib
 import pyconll
-from tqdm import tqdm
 
-from utils import get_source, search_source_name, compare_sentences
+from convert.utils import get_source, search_source_name, compare_sentences
 
 def align_package_by_source(package, source_name, str_path, ud_save_path, 
                             str_save_path, unaligned_path, no_source_path,

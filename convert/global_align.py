@@ -2,7 +2,7 @@ import pathlib
 import pyconll
 from tqdm import tqdm
 
-from utils import compare_sentences
+from convert.utils import compare_sentences
 
 def align_corpora_globally(save_path, str_path, ud_path="source_not_found.conllu",
         ud_save_path="ud_aligned.conllu", str_save_path="str_aligned.conllu",
