@@ -2,7 +2,7 @@ import pathlib
 import pyconll
 import xml.etree.ElementTree as ET
 from pyconll.unit.token import Token
-from string import punctuation as punct
+from string import punctuation
 
 from convert.utils import get_ud_source, get_str_source
 from convert.utils import restore_ellipsis
@@ -114,7 +114,20 @@ def convert_str_to_ud(read_path, save_path):
                             punct_offset += 1
                             
                 # add point to the end of the sentence if the last word is not a punctuation mark
-                if type(sentence[-1]) == 'xml.etree.ElementTree.Element':
+                flag = False
+                for word in reversed(sentence):
+                    if type(word) == str:
+                        if word == '_':
+                            continue
+                        elif word in punctuation or word == '…':
+                            flag = True
+                            break
+                        sentence.append('.')
+                        flag = True
+                        break
+                    elif type(word) == ET.Element:
+                        continue
+                if not flag:
                     sentence.append('.')
                 
                 tokens = []
