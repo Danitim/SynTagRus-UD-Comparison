@@ -47,7 +47,7 @@
       "default": "ewt"
   },
   "Spanish": {"alias": "es"},
-  "es": {
+    "es": {
       "ancora": {
 	  "parse": "es_ancora.mbert"
       },
@@ -178,5 +178,12 @@
 	  "parse": "zh_ctb7.electra-base"
       },
       "default": "zh"
+  },
+  "Russian": {"alias": "ru"},
+  "ru": {
+      "syntagrus": {
+	  "parse": "ru_syntagrus.DeepPavlov"
+      },
+      "default": "syntagrus"
   }
 }

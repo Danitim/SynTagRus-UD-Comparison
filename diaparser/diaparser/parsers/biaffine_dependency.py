@@ -45,7 +45,7 @@ class BiaffineDependencyParser(Parser):
                                     if ispunct(s)]).to(self.args.device)
 
     def train(self, train, dev, test, buckets=32, batch_size=5000,
-              punct=False, tree=False, proj=False, verbose=True, **kwargs):
+              punct=True, tree=True, proj=False, verbose=True, **kwargs):
         r"""
         Args:
             train/dev/test (list[list] or str):
@@ -135,7 +135,11 @@ class BiaffineDependencyParser(Parser):
 
         for words, feats, arcs, rels in bar:
             self.optimizer.zero_grad()
-
+            
+            # mask ellipsis with bert masking token
+            ellipsis_mask = feats.eq(self.FEAT.vocab['_'])
+            feats[ellipsis_mask] = self.FEAT.mask_token_id
+            
             mask = words.ne(self.WORD.pad_index)
             # ignore the first token of each sentence
             mask[:, 0] = 0
@@ -243,7 +247,7 @@ class BiaffineDependencyParser(Parser):
         elif args.feat == 'bert':
             tokenizer = BertField.tokenizer(args.bert)
 
-            args.max_len = min(args.max_len or tokenizer.max_len, tokenizer.max_len)
+            args.max_len = min(args.max_len or tokenizer.model_max_length, tokenizer.model_max_length)
             FEAT = BertField('bert', tokenizer, fix_len=args.fix_len)
             WORD.bos = FEAT.bos  # ensure representations have the same length
         else:

@@ -77,7 +77,7 @@ class Transform():
         """
         lines = '\n'.join([str(i) for i in sentences]) + '\n'
         if isinstance(path, str):
-            with open(path, 'w') as f:
+            with open(path, 'w', encoding='utf-8') as f:
                 f.write(lines)
         else:
             path.write(lines)
@@ -370,8 +370,8 @@ class CoNLL(Transform):
         """
 
         if isinstance(data, str):
-            if not hasattr(self, 'reader'): self.reader = open  # back compatibility
-            with self.reader(data) as f:
+            if not hasattr(self, 'reader'): self.reader = open(encoding='utf-8')  # back compatibility
+            with self.reader(data, encoding='utf-8') as f:
                 lines = [line.strip() for line in f]
         else:
             data = [data] if isinstance(data[0], str) else data
@@ -722,7 +722,7 @@ class Tree(Transform):
             A list of :class:`TreeSentence` instances.
         """
         if isinstance(data, str):
-            with open(data, 'r') as f:
+            with open(data, 'r', encoding='utf-8') as f:
                 trees = [nltk.Tree.fromstring(string) for string in f]
             self.root = trees[0].label()
         else:
