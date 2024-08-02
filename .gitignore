@@ -1,3 +1,12 @@
+# User ignore configuration
+# Conllu files in main diaparser directory
+diaparser/*.conllu 
+
+# Diaparser data directory
+diaparser/data/
+
+
+# System ignore configuration
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

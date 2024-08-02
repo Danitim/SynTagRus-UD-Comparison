@@ -45,7 +45,7 @@ class BiaffineDependencyParser(Parser):
                                     if ispunct(s)]).to(self.args.device)
 
     def train(self, train, dev, test, buckets=32, batch_size=5000,
-              punct=True, tree=True, proj=False, verbose=True, **kwargs):
+              punct=False, tree=True, proj=False, verbose=True, **kwargs):
         r"""
         Args:
             train/dev/test (list[list] or str):
@@ -233,6 +233,7 @@ class BiaffineDependencyParser(Parser):
 
         args = Config(**locals())
         args.device = 'cuda' if torch.cuda.is_available() else 'cpu'
+        print(args.device)
         os.makedirs(os.path.dirname(path), exist_ok=True)
         if os.path.exists(path) and not args.build:
             parser = cls.load(**args)
