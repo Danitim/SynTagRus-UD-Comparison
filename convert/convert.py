@@ -113,22 +113,21 @@ def convert_str_to_ud(read_path, save_path):
                             sentence.append(punct.strip())
                             punct_offset += 1
                             
-                # add point to the end of the sentence if the last word is not a punctuation mark
-                flag = False
+                # correct last word <-> punctuation relation
+                last_word = None
+                punct_flag = False
                 for word in reversed(sentence):
                     if type(word) == str:
-                        if word == '_':
-                            continue
-                        elif word in punctuation or word == '…':
-                            flag = True
-                            break
-                        sentence.append('.')
-                        flag = True
+                        if word in punctuation or word == '…':
+                            punct_flag = True
+                    elif type(word) == ET.Element and word.text:
+                        last_word = word
                         break
-                    elif type(word) == ET.Element:
-                        continue
-                if not flag:
+                if not punct_flag:
+                    if last_word.text.endswith('.'):
+                        last_word.text = last_word.text[:-1]
                     sentence.append('.')
+                
                 
                 tokens = []
                 punct_offset = 0
