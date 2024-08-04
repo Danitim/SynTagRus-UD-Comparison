@@ -1,20 +1,28 @@
 import pyconll
 import pathlib
 
+from pyconll.unit.sentence import Sentence
+from string import punctuation
+
 def get_ud_source(sent):
     '''
-    Extract the source name from the UD sentence.
+    Extract the source name and id from the UD sentence.
     
     Parameters:
     sent (pyconll.unit.sentence.Sentence): sentence.
+    
+    Returns:
+    source (str): source name.
+    id (str): sentence id.
     '''
     source = sent.meta_value('sent_id')
+    id = source[source.rfind('.xml')+5:]
     source = source[: source.rfind('.xml')]
     
-    while not source[-1].isalpha():
-        source = source[:-1]
+    # while not source[-1].isalpha():
+    #     source = source[:-1]
 
-    return source
+    return source, id
 
 
 def get_str_source(file_path):
@@ -63,23 +71,67 @@ def search_source_name(source_name, path):
             return True
     return False
 
-def compare_sentences(ud_sent, str_sent):
+def match_sentences(ud_sent, str_sent):
     '''
-    Compare two sentences for complete word form match
+    Compare two sentences for complete word form match without
+        counting punctuation.
     
     Parameters:
     ud_sent (pyconll.unit.sentence.Sentence): UD sentence.
     str_sent (pyconll.unit.sentence.Sentence): SynTagRus sentence.
-    '''
-    if len(ud_sent) != len(str_sent):
-        return False
     
-    for ud_token, str_token in zip(ud_sent, str_sent):
-        if ud_token.form != str_token.form:
-            return False
+    Returns:
+    str_sent (pyconll.unit.sentence.Sentence): SynTagRus sentence with
+        fixed punctuation, if sentences match, None otherwise.
+    '''
+    def strip_punct(token):
+        return token.form.strip(punctuation + '…').lower() if (token.form and token.form != '_') else '_'
+    
+    
+    ud_words = [token for token in ud_sent if token.upos != 'PUNCT']
+    str_words = [token for token in str_sent if token.upos != 'PUNCT']
+    
+    if len(ud_words) != len(str_words):
+        if len([word for word in ud_words if strip_punct(word) != '_']) != len([word for word in str_words if strip_punct(word) != '_']):
+            with open("length_unmatched.txt", 'a', encoding='utf-8') as f:
+                f.write("sent_id = " + str_sent.meta_value('sent_id') + '\n')
+                f.write("UD: " + ' '.join([strip_punct(token) for token in ud_sent]) + '\n')
+                f.write("STR: " + ' '.join([strip_punct(token) for token in str_sent]) + '\n')
+                f.write("-" * 100 + '\n')
+        return None
+    
+    unmatched = []
+    for ud_word, str_word in zip(ud_words, str_words):
+        if strip_punct(ud_word) != strip_punct(str_word):
+            unmatched.append(strip_punct(ud_word) + '!=' + strip_punct(str_word))
+            
+    if len(unmatched) > 0:
+        ud_words = [strip_punct(token) for token in ud_sent]
+        str_words = [strip_punct(token) for token in str_sent]
+        with open("unmatched.txt", 'a', encoding='utf-8') as f:
+            f.write("sent_id = " + str_sent.meta_value('sent_id') + '\n')
+            for unmatched_pair in unmatched:
+                f.write(unmatched_pair + '\n')
+            f.write("UD: " + ' '.join(ud_words) + '\n')
+            f.write("STR: " + ' '.join(str_words) + '\n')
+            f.write("-" * 100 + '\n')
+                
+        return None
         
-    return True
-
+    
+    new_sent = Sentence(ud_sent.conll())
+    str_index = 0
+    for token in new_sent:
+        if token.upos != 'PUNCT':
+            str_token = str_words[str_index]
+            str_index += 1
+            
+            token.upos = str_token.upos
+            token.head = str_token.head
+            token.deprel = str_token.deprel
+            
+    return new_sent
+    
 
 def restore_ellipsis(sent, dependents):
     '''

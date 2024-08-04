@@ -56,8 +56,8 @@ def convert_ud_to_ud(read_path, save_path):
             for token in sent:
                 token.deps = {}
             
-            source = get_ud_source(sent)
-            sent.set_meta('sent_id', f"{sent_id}_{source}")
+            source, id = get_ud_source(sent)
+            sent.set_meta('sent_id', f"{id}_{source}")
         
         # save the converted corpus
         save_file_path = pathlib.Path(save_path) / file_path.name

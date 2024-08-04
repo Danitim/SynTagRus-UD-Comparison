@@ -1,7 +1,8 @@
 import pathlib
 import pyconll
 
-from convert.utils import get_source, search_source_name, compare_sentences
+from convert.utils import get_source, search_source_name
+from convert.utils import match_sentences
 
 def align_package_by_source(package, source_name, str_path, ud_save_path, 
                             str_save_path, unaligned_path, no_source_path,
@@ -25,16 +26,34 @@ def align_package_by_source(package, source_name, str_path, ud_save_path,
         found_flags = [False for _ in package]
         str_sents = [None for _ in package]
         
-        for file_path in pathlib.Path(str_path).rglob("**/*.conllu"):
-            if source_name in file_path.name:
-                conll = pyconll.load_from_file(file_path)
+        for file_path in pathlib.Path(str_path).rglob("**/*" + source_name + ".conllu"):
+            # print(source_name, file_path.name)
+            conll = pyconll.load_from_file(file_path)
             
-                for str_sent in conll:
-                    for i, ud_sent in enumerate(package):
-                        if compare_sentences(ud_sent, str_sent):
-                            found_flags[i] = True
-                            str_sents[i] = str_sent
-                            break
+            if len(conll) == len(package):
+                for i, (ud_sent, str_sent) in enumerate(zip(package, conll)):
+                    match_sent = match_sentences(ud_sent, str_sent)
+                    if match_sent:
+                        found_flags[i] = True
+                        str_sents[i] = str_sent
+            else:
+                # print("Different sentence count:", len(package), len(conll), source_name)
+                idx = [int(sent.meta_value('sent_id').split('_')[0]) - 1 for sent in package]
+                for i, sent in enumerate(conll):
+                    if i in idx:
+                        match_sent = match_sentences(package[idx.index(i)], sent)
+                        if match_sent:
+                            found_flags[idx.index(i)] = True
+                            str_sents[idx.index(i)] = match_sent
+                            
+        found = sum(found_flags)
+        print(f"Found {found} out of {len(package)} sentences in {source_name}.")
+                            
+                
+        if not (file_path in pathlib.Path(str_path).rglob("**/*" + source_name + ".conllu")):
+            print("Not found:", source_name)
+        if len([file_path for file_path in pathlib.Path(str_path).rglob("**/*" + source_name + ".conllu")]) > 1:
+            print("Multiple files found:", source_name)
         
         # save aligned and unaligned sentences
         for ud_sent, str_sent, found in zip(package, str_sents, found_flags):
