@@ -4,7 +4,6 @@ import pathlib
 from convert.convert import convert_str_to_ud, convert_ud_to_ud
 from convert.source_align import align_corpora_by_source
 from convert.global_align import align_corpora_globally
-from convert.punctuation import align_punctuation
 
 str_path = "Corpora/SynTagRus"
 str_converted_path = "Corpora/STR_converted"
@@ -15,7 +14,7 @@ aligned_path = "Aligned"
 def main():
     parser = argparse.ArgumentParser(description='Convert SynTagRus to UD and align the corpora.')
    
-    parser.add_argument('mode', type=str, help='Mode of the script: convert, align or align SynTagRus punctuation (punct).')
+    parser.add_argument('mode', type=str, help='Mode of the script: convert or align.')
     parser.add_argument('--corpus', type=str, help='Corpus to convert: STR or UD.', default="STR")
     parser.add_argument('--align_mode', type=str, help='Mode of alignment: source or global.', default="source")
    
@@ -47,9 +46,8 @@ def main():
             align_corpora_globally(args.aligned_path, args.str_converted_path)
         else:
             print("Invalid alignment mode.")
-
-    elif (args.mode == "punct"):
-        align_punctuation(args.aligned_path)
+    else:
+        print("Invalid mode.")
                     
             
 if __name__ == '__main__':

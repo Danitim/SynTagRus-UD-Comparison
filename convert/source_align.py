@@ -35,7 +35,7 @@ def align_package_by_source(package, source_name, str_path, ud_save_path,
                     match_sent = match_sentences(ud_sent, str_sent)
                     if match_sent:
                         found_flags[i] = True
-                        str_sents[i] = str_sent
+                        str_sents[i] = match_sent
             else:
                 # print("Different sentence count:", len(package), len(conll), source_name)
                 idx = [int(sent.meta_value('sent_id').split('_')[0]) - 1 for sent in package]

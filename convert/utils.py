@@ -2,6 +2,7 @@ import pyconll
 import pathlib
 
 from pyconll.unit.sentence import Sentence
+from pyconll.unit.token import Token
 from string import punctuation
 
 def get_ud_source(sent):
@@ -87,6 +88,13 @@ def match_sentences(ud_sent, str_sent):
     def strip_punct(token):
         return token.form.strip(punctuation + '…').lower() if (token.form and token.form != '_') else '_'
     
+    def set_form(token, form) -> Token:
+        token_id = token.id
+        upos = token.upos
+        head, deprel= token.head, token.deprel
+        
+        return Token(f"{token_id}\t{form}\t_\t{upos}\t_\t_\t{head}\t{deprel}\t_\t_")
+    
     
     ud_words = [token for token in ud_sent if token.upos != 'PUNCT']
     str_words = [token for token in str_sent if token.upos != 'PUNCT']
@@ -101,25 +109,33 @@ def match_sentences(ud_sent, str_sent):
         return None
     
     unmatched = []
-    for ud_word, str_word in zip(ud_words, str_words):
+    for idx, (ud_word, str_word) in enumerate(zip(ud_words, str_words)):
         if strip_punct(ud_word) != strip_punct(str_word):
+            str_words[idx] = set_form(str_word, ud_word.form)
             unmatched.append(strip_punct(ud_word) + '!=' + strip_punct(str_word))
             
     if len(unmatched) > 0:
-        ud_words = [strip_punct(token) for token in ud_sent]
-        str_words = [strip_punct(token) for token in str_sent]
+        ud_word_forms = [strip_punct(token) for token in ud_sent]
+        str_word_forms = [strip_punct(token) for token in str_sent]
         with open("unmatched.txt", 'a', encoding='utf-8') as f:
             f.write("sent_id = " + str_sent.meta_value('sent_id') + '\n')
             for unmatched_pair in unmatched:
                 f.write(unmatched_pair + '\n')
-            f.write("UD: " + ' '.join(ud_words) + '\n')
-            f.write("STR: " + ' '.join(str_words) + '\n')
+            f.write("UD: " + ' '.join(ud_word_forms) + '\n')
+            f.write("STR: " + ' '.join(str_word_forms) + '\n')
             f.write("-" * 100 + '\n')
-                
-        return None
         
     
     new_sent = Sentence(ud_sent.conll())
+    str_index = 0
+    link_map = {'0': '0'}
+    for token in new_sent:
+        if token.upos != 'PUNCT':
+            str_token = str_words[str_index]
+            str_index += 1
+            
+            link_map[str_token.id] = token.id
+            
     str_index = 0
     for token in new_sent:
         if token.upos != 'PUNCT':
@@ -127,8 +143,13 @@ def match_sentences(ud_sent, str_sent):
             str_index += 1
             
             token.upos = str_token.upos
-            token.head = str_token.head
+            token.xpos = None
+            token.head = link_map[str_token.head]
             token.deprel = str_token.deprel
+            
+        token.lemma = None
+        token.feats = {}
+        token.misc = {}
             
     return new_sent
     

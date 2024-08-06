@@ -2,9 +2,31 @@ import pathlib
 import pyconll
 import random
 
+def create_train_file(input_path, save_path = 'data.conllu'):
+    '''
+    Creates a train file from all the files in the input directory.
+    
+    Parameters:
+    input_path (str): path to the input directory.
+    save_path (str): path to save the train file.
+    '''
+    save_path = pathlib.Path(save_path)
+    save_path.open('w', encoding='utf-8').close()
+    
+    for file in pathlib.Path(input_path).rglob("**/*.conllu"):
+        conll = pyconll.load_from_file(file)
+        
+        print(f"Writing {file}")
+        with open(save_path, 'a', encoding='utf-8') as f:
+            conll.write(f)
+    
+    print("Saved")
+    
+
 def train_dev_test_split(train_size=0.85, dev_size=0.05, data_size=-1,
                          input_path = "Aligned/ud_aligned.conllu",
                          output_path = "diaparser/",
+                         corpus_tag = "ud",
                          random_seed = 42):
     '''
     Splits the data into train, dev, and test sets.
@@ -15,6 +37,7 @@ def train_dev_test_split(train_size=0.85, dev_size=0.05, data_size=-1,
     data_size (int): number of sentences to be used for training, development,
     and testing; if -1, all data is used.
     input_path (str): path to the input file.
+    corpus_tag (str): tag to be added to the train, dev, and test files.
     output_path (str): path to save the train, dev, and test files.    
     '''
     random.seed(random_seed)
@@ -35,15 +58,15 @@ def train_dev_test_split(train_size=0.85, dev_size=0.05, data_size=-1,
     test = conll[slice_2:data_size]
     print("Split")
     
-    train_path = pathlib.Path(output_path) / "ud_train.conllu"
+    train_path = pathlib.Path(output_path) / (corpus_tag + "_train.conllu")
     with open(train_path, "w", encoding='utf-8') as f:
         train.write(f)
     
-    dev_path = pathlib.Path(output_path) / "ud_dev.conllu"
+    dev_path = pathlib.Path(output_path) / (corpus_tag + "_dev.conllu")
     with open(dev_path, "w", encoding='utf-8') as f:
         dev.write(f)
         
-    test_path = pathlib.Path(output_path) / "ud_test.conllu"
+    test_path = pathlib.Path(output_path) / (corpus_tag + "_test.conllu")
     with open(test_path, "w", encoding='utf-8') as f:
         test.write(f)
     print("Saved")

@@ -92,6 +92,9 @@ def convert_str_to_ud(read_path, save_path):
         conll_data = []
         for body in root.findall('body'):
             for sent_id, sent in enumerate(body.findall('S'), start=1):
+                if not sent.text:
+                    continue
+                
                 sentence = []
                 link_offset = []
                 punct_offset = 0
@@ -134,7 +137,7 @@ def convert_str_to_ud(read_path, save_path):
                 for word_id, word in enumerate(sentence, start=1):
                         
                     if type(word) == ET.Element: # word or ellipsis
-                        form = word.text if word.text else '_'
+                        form = word.text if (word.text and word.text != 'FANTOM') else '_'
                         upos = (word.get('FEAT')).split()[0]
                         if word.get('DOM') == '_root':
                             head = 0
