@@ -1,15 +1,27 @@
-from parser_utils import *
+from utils.parser_utils import *
+from utils.ananlyzer import Analyser
 
-test_path = 'diaparser/ud_test.conllu'
-preds_path = 'diaparser/ud_preds.conllu'
+ud_test_path = "diaparser/ud_test.conllu"
+ud_preds_path = "diaparser/ud_preds.conllu"
+str_test_path = "diaparser/str_test.conllu"
+str_preds_path = "diaparser/str_preds.conllu"
+
+
+def print_scores(analyzer):
+    ucm, lcm, uas, las = analyzer.get_score('ud')
+    print(f"UD: UCM: {ucm}%, LCM: {lcm}%, UAS: {uas}%, LAS: {las}%")
+    
+    ucm, lcm, uas, las = analyzer.get_score('str')
+    print(f"STR: UCM: {ucm}%, LCM: {lcm}%, UAS: {uas}%, LAS: {las}%")
+    
 
 def main():
-    create_train_file('Corpora/STR_converted', 'data.conllu')
+    analyzer = Analyser(ud_test_path, ud_preds_path, str_test_path, str_preds_path)
     
-    train_dev_test_split(0.85, 0.05, -1, 'data.conllu', 'diaparser/', 'str')
+    print_scores(analyzer)
     
-    # ucm, lcm, uas, las = ellipsis_score(test_path, preds_path)
-    # print(f'UCM: {ucm}%  LCM: {lcm}%  UAS: {uas}%  LAS: {las}%')
+    analyzer.save_arcs()
+    
 
 if __name__ == '__main__':
     main()
