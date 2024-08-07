@@ -66,6 +66,7 @@ class Analyser:
         Saves the arcs to a csv file
         '''
         data = {
+            'word': [word.form.lower() if word.form else '_' for sent in self.ud_test for word in sent],
             'ud_test_head': [word.head for sent in self.ud_test for word in sent],
             'ud_test_deprel': [word.deprel for sent in self.ud_test for word in sent],
             'ud_preds_head': [word.head for sent in self.ud_preds for word in sent],
@@ -74,9 +75,10 @@ class Analyser:
             'str_test_deprel': [word.deprel for sent in self.str_test for word in sent],
             'str_preds_head': [word.head for sent in self.str_preds for word in sent],
             'str_preds_deprel': [word.deprel for sent in self.str_preds for word in sent],
+            'ellipsis': [0 if word.upos and word.upos != '_' else 1 for sent in self.ud_test for word in sent]
         }
         
         df = pd.DataFrame(data)
         
-        df.to_csv(save_path, index=False)
+        df.to_csv(save_path, index=False, sep=',')
             

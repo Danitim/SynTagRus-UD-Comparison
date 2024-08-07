@@ -1,5 +1,5 @@
 from utils.parser_utils import *
-from utils.ananlyser import Analyser
+from utils.analyser import Analyser
 
 ud_test_path = "diaparser/ud_test.conllu"
 ud_preds_path = "diaparser/ud_preds.conllu"
