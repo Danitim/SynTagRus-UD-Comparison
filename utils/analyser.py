@@ -75,7 +75,9 @@ class Analyser:
             'str_test_deprel': [word.deprel for sent in self.str_test for word in sent],
             'str_preds_head': [word.head for sent in self.str_preds for word in sent],
             'str_preds_deprel': [word.deprel for sent in self.str_preds for word in sent],
-            'ellipsis': [0 if word.upos and word.upos != '_' else 1 for sent in self.ud_test for word in sent]
+            'ellipsis': [0 if word.upos and word.upos != '_' else 1 for sent in self.ud_test for word in sent],
+            'text': [sent.meta_value('text') for sent in self.ud_test for word in sent],
+            'sent_id': [sent.meta_value('sent_id') for sent in self.ud_test for word in sent]
         }
         
         df = pd.DataFrame(data)
