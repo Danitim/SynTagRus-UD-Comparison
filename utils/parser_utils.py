@@ -97,7 +97,7 @@ def conllu_to_graphviz(sentence, highlight=None, punct=False):
     for token in sentence:
         if not punct and token.upos == 'PUNCT':
             continue
-        dot.node(token.id, label=(token.form if token.form else '_'))
+        dot.node(token.id, label=(token.form if token.form else '_'), fontname="Arial")
 
     # Add edges with labels
     for token in sentence:
@@ -105,8 +105,8 @@ def conllu_to_graphviz(sentence, highlight=None, punct=False):
             continue
         if token.head != '0':  # Not root
             if highlight and token.form == highlight[0] and token.deprel == highlight[1]:
-                dot.edge(token.head, token.id, label=token.deprel, color='red', fontcolor='red')
+                dot.edge(token.head, token.id, label=token.deprel, fontname="Arial", color='red', fontcolor='red')
             else:
-                dot.edge(token.head, token.id, label=token.deprel)
+                dot.edge(token.head, token.id, label=token.deprel, fontname="Arial")
 
     return dot
