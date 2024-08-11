@@ -80,33 +80,17 @@ def train_dev_test_split(train_size=0.85, dev_size=0.05, data_size=-1,
     print("Saved")
 
 
-def load_by_sent_id(path, sent_id) -> Sentence:
+def save_conllu_by_sent_id(path, sent_id, save_path) -> Sentence:
     conll = pyconll.load_from_file(path)
     
+    found = None
     for sent in conll:
         if sent.meta_value('sent_id') == sent_id:
-            return sent
+            found = sent
+            break
         
-    return None
-
-
-def conllu_to_graphviz(sentence, highlight=None, punct=False):
-    dot = Digraph(format='svg')
-
-    # Add nodes
-    for token in sentence:
-        if not punct and token.upos == 'PUNCT':
-            continue
-        dot.node(token.id, label=(token.form if token.form else '_'), fontname="Arial")
-
-    # Add edges with labels
-    for token in sentence:
-        if not punct and token.upos == 'PUNCT':
-            continue
-        if token.head != '0':  # Not root
-            if highlight and token.form == highlight[0] and token.deprel == highlight[1]:
-                dot.edge(token.head, token.id, label=token.deprel, fontname="Arial", color='red', fontcolor='red')
-            else:
-                dot.edge(token.head, token.id, label=token.deprel, fontname="Arial")
-
-    return dot
+    if not found:
+        raise ValueError(f"Sent_id {sent_id} not found")
+    
+    with open(save_path, "w", encoding='utf-8') as f:
+        f.write(found.conll())
