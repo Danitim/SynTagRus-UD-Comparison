@@ -18,9 +18,10 @@ def print_scores(analyzer):
 def main():
     analyzer = Analyser(ud_test_path, ud_preds_path, str_test_path, str_preds_path)
     
-    print_scores(analyzer)
+    # print_scores(analyzer)
     
-    analyzer.save_arcs()
+    # analyzer.save_arcs()
+    analyzer.save_ellipsis()
     
 
 if __name__ == '__main__':

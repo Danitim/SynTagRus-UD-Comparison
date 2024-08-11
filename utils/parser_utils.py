@@ -78,6 +78,24 @@ def train_dev_test_split(train_size=0.85, dev_size=0.05, data_size=-1,
     with open(test_path, "w", encoding='utf-8') as f:
         test.write(f)
     print("Saved")
+    
+    
+def ellipsis_flag(sent):
+    '''
+    Returns True if the sentence contains ellipsis
+    '''
+    for word in sent:
+        if not word.upos or word.upos == '_':
+            return True
+        
+    return False
+
+
+def get_dependents(sent, head_id):
+    '''
+    Returns the dependents of a word with the given head_id
+    '''
+    return [int(word.id) for word in sent if int(word.head) == head_id]
 
 
 def save_conllu_by_sent_id(path, sent_id, save_path) -> Sentence:
