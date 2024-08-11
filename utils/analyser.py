@@ -2,6 +2,7 @@ import pyconll
 import pandas as pd
 
 from utils.score_utils import ucm_score, lcm_score, uas_score, las_score
+from utils.parser_utils import ellipsis_flag, get_dependents
 
 class Analyser:
     def __init__(self,
@@ -65,6 +66,7 @@ class Analyser:
         '''
         Saves the arcs to a csv file
         '''
+        
         data = {
             'word': [word.form.lower() if word.form else '_' for sent in self.ud_test for word in sent],
             'ud_test_head': [word.head for sent in self.ud_test for word in sent],
@@ -79,6 +81,73 @@ class Analyser:
             'text': [sent.meta_value('text') for sent in self.ud_test for word in sent],
             'sent_id': [sent.meta_value('sent_id') for sent in self.ud_test for word in sent]
         }
+        
+        df = pd.DataFrame(data)
+        
+        df.to_csv(save_path, index=False, sep=',')
+        
+    
+    def save_ellipsis(self, save_path="ellipsis.csv"):
+        '''
+        Saves the ellipsis sentences to a csv file
+        '''
+        data = {
+            'id': [],
+            'ud_test_head': [],
+            'ud_test_deprel': [],
+            'ud_test_deps_id': [],
+            'ud_test_deps_deprel': [],
+            'ud_pred_head': [],
+            'ud_pred_deprel': [],
+            'ud_pred_deps_id': [],
+            'ud_pred_deps_deprel': [],
+            'str_test_head': [],
+            'str_test_deprel': [],
+            'str_test_deps_id': [],
+            'str_test_deps_deprel': [],
+            'str_pred_head': [],
+            'str_pred_deprel': [],
+            'str_pred_deps_id': [],
+            'str_pred_deps_deprel': [],
+            'text': [],
+            'sent_id': []           
+        }
+        
+        for ud_test_sent, ud_preds_sent, str_test_sent, str_preds_sent in zip(self.ud_test, self.ud_preds, self.str_test, self.str_preds):
+            if not ellipsis_flag(ud_test_sent):
+                continue
+            
+            ellipsis = {}
+            for word in ud_test_sent:
+                if not word.upos or word.upos == '_':
+                    ellipsis[int(word.id)] = []
+            
+            for ellipsis_id in list(ellipsis.keys()):
+                data['id'].append(ellipsis_id)
+                
+                data['ud_test_head'].append(ud_test_sent[ellipsis_id-1].head)
+                data['ud_test_deprel'].append(ud_test_sent[ellipsis_id-1].deprel)
+                data['ud_test_deps_id'].append([id for id in get_dependents(ud_test_sent, ellipsis_id)])
+                data['ud_test_deps_deprel'].append([ud_test_sent[id-1].deprel for id in get_dependents(ud_test_sent, ellipsis_id)])
+                
+                data['ud_pred_head'].append(ud_preds_sent[ellipsis_id-1].head)
+                data['ud_pred_deprel'].append(ud_preds_sent[ellipsis_id-1].deprel)
+                data['ud_pred_deps_id'].append([id for id in get_dependents(ud_preds_sent, ellipsis_id)])
+                data['ud_pred_deps_deprel'].append([ud_preds_sent[id-1].deprel for id in get_dependents(ud_preds_sent, ellipsis_id)])
+                
+                data['str_test_head'].append(str_test_sent[ellipsis_id-1].head)
+                data['str_test_deprel'].append(str_test_sent[ellipsis_id-1].deprel)
+                data['str_test_deps_id'].append([id for id in get_dependents(str_test_sent, ellipsis_id)])
+                data['str_test_deps_deprel'].append([str_test_sent[id-1].deprel for id in get_dependents(str_test_sent, ellipsis_id)])
+                
+                data['str_pred_head'].append(str_preds_sent[ellipsis_id-1].head)
+                data['str_pred_deprel'].append(str_preds_sent[ellipsis_id-1].deprel)
+                data['str_pred_deps_id'].append([id for id in get_dependents(str_preds_sent, ellipsis_id)])
+                data['str_pred_deps_deprel'].append([str_preds_sent[id-1].deprel for id in get_dependents(str_preds_sent, ellipsis_id)])
+                
+                data['text'].append(ud_test_sent.meta_value('text'))
+                data['sent_id'].append(ud_test_sent.meta_value('sent_id'))
+            
         
         df = pd.DataFrame(data)
         
