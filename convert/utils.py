@@ -61,16 +61,20 @@ def get_source(sent):
 
 def search_source_name(source_name, path):
     '''
-    Checks wheter the source name is present in the directory
+    Search for files with the given source name in the specified path.
     
     Parameters:
     source_name (str): source name to search for.
     path (str): path to the directory.
+    
+    Returns:
+    list: list of file paths containing the source name.
     '''
+    files = []
     for file_path in pathlib.Path(path).rglob("**/*.conllu"):
         if file_path.name.lower().find(source_name.lower()) != -1:
-            return True
-    return False
+            files.append(file_path)
+    return files
 
 def match_sentences(ud_sent, str_sent):
     '''
