@@ -1,9 +1,8 @@
-# convert/promote_ne4.py
 from typing import List, Dict, Set, Optional
 from pyconll.unit.sentence import Sentence
 from pyconll.unit.token import Token
 
-# Полный список НЕ4 форм и их «корней» (вторых слов)
+
 _NE4_FORMS: Set[str] = {
     "незачем", "нечего", "некуда", "неоткуда", "некого", "некогда",
     "непочем", "нечем", "негде", "некому", "нечему"
@@ -105,10 +104,6 @@ def _is_ellipsis_form(s: str) -> bool:
 
 
 def _ud_has_ellipsis(ud_sent: Optional[Sentence]) -> bool:
-    """
-    Определяем, есть ли в UD-версии явный эллипсис вида <X>.
-    Держим проверку максимально простой и безопасной.
-    """
     if ud_sent is None:
         return False
     for t in ud_sent:
@@ -118,17 +113,12 @@ def _ud_has_ellipsis(ud_sent: Optional[Sentence]) -> bool:
 
 
 def _str_has_ellipsis(rows: List[Dict[str, str]]) -> bool:
-    # Детектируем эллипсис в STR по форме "_" или "<X>"
     return any(_is_ellipsis_form(r["form"]) for r in rows)
 
 def _is_punct_token(upos: Optional[str]) -> bool:
     return (upos or "") == "PUNCT"
 
 def _ud_has_split_ne4(ud_sent: Optional[Sentence]) -> bool:
-    """
-    Проверяем, есть ли в UD последовательность: НЕ + (зачем/куда/когда/чем/...)
-    (между ними может быть пунктуация). Если есть, то в STR склейку делать не надо.
-    """
     if ud_sent is None:
         return False
     ud_tokens = list(ud_sent)
@@ -138,7 +128,6 @@ def _ud_has_split_ne4(ud_sent: Optional[Sentence]) -> bool:
         ti = ud_tokens[i]
         if _norm_form(ti.form or "") == "не":
             j = i + 1
-            # пропустим пунктуацию между "не" и словом-основанием
             while j < m and _is_punct_token(ud_tokens[j].upos):
                 j += 1
             if j < m:
@@ -154,15 +143,6 @@ def promote_ne4_constructions_in_str(
     str_sent: Sentence,
     ud_sent: Optional[Sentence] = None,
 ) -> Sentence:
-    """
-    Склейка НЕ4-конструкций в STR.
-
-    Защиты:
-    1) Если в UD есть <X> и в STR присутствует эллипсис ("_" или "<X>"),
-       то НЕ трогаем эллипсис в STR (пропускаем PASS A).
-    2) Если в UD есть раздельное написание НЕ + (зачем/куда/когда/чем/...),
-       то НЕ выполняем склейку в STR (пропускаем PASS B).
-    """
 
     rows = _rows_from_sentence(str_sent)
     if not rows:
@@ -176,11 +156,8 @@ def promote_ne4_constructions_in_str(
     protect_split_ne4 = _ud_has_split_ne4(ud_sent)
 
     # ---------- PASS A: эллипсис "_" или "<X>" + [НЕ4] ----------
-    # Если эллипсис в UD подтверждён и в STR уже есть эллипсис, не трогаем его.
     if not protect_ellipsis:
-        # индексы эллипсиса
         ell_idxs = [i for i, r in enumerate(rows) if _is_ellipsis_form(r["form"])]
-        # ищем НЕ4 только СПРАВА (не смотрим влево)
         offsets = (1, 2, 3)
 
         for i in ell_idxs:
@@ -203,39 +180,28 @@ def promote_ne4_constructions_in_str(
             first_id = first["id"]
             second_id = second["id"]
 
-            # (1) первый токен получает словоформу второго
             first["form"] = second["form"]
 
-            # (2) head/deprel:
-            #     по умолчанию сохраняем свои; если первый зависим от второго (head == second_id),
-            #     то наоборот — берём head/deprel второго (с защитой от самоссылки).
             if first["head"] == second_id:
                 new_head = second["head"]
                 new_deprel = second.get("deprel", first.get("deprel", "_"))
-                # защита от самоссылки
                 if new_head == first_id:
                     new_head = "0"
-                    # если оказались корнем — корректно проставим метку
                     if (new_deprel or "").lower() != "root":
                         new_deprel = "root"
                 first["head"] = new_head
                 first["deprel"] = new_deprel
-            # иначе head/deprel остаются как были у first
             
-            # (3) первый токен получает морфологию второго
             first["upos"] = second.get("upos", first["upos"])
             first["xpos"] = second.get("xpos", first.get("xpos", "_"))
             first["feats"] = second.get("feats", first.get("feats", "_"))
 
-            # (4) все дети второго токена привязываются к первому
             for ch_idx in deps.get(second_id, []):
-                # не переназначаем самого first (на случай странных дуг)
                 if rows[ch_idx]["id"] != first_id:
                     rows[ch_idx]["head"] = first_id
                     if (rows[ch_idx]["deprel"] or "").lower() == "root":
                         rows[ch_idx]["deprel"] = "dep"
 
-            # удалить второй токен
             to_delete.add(word_j)
 
         if to_delete:
@@ -258,17 +224,13 @@ def promote_ne4_constructions_in_str(
                 body = _norm_form(r2["form"])
                 target_form = "не" + body
                 if body in _NE4_BODIES and target_form in _NE4_FORMS:
-                    first = r1          # "не"
-                    second = r2         # {куда, когда, чем, ...}
+                    first = r1
+                    second = r2
                     first_id = first["id"]
                     second_id = second["id"]
 
-                    # (1) первый токен получает словоформу второго ИЗ СКЛЕЙКИ (слитная НЕ4-форма)
                     first["form"] = target_form
 
-                    # (2) head/deprel:
-                    #     по умолчанию сохраняем свои; если первый зависим от второго (head == second_id),
-                    #     то наоборот — берём head/deprel второго (с защитой от самоссылки).
                     if first["head"] == second_id:
                         new_head = second["head"]
                         new_deprel = second.get("deprel", first.get("deprel", "_"))
@@ -278,24 +240,19 @@ def promote_ne4_constructions_in_str(
                                 new_deprel = "root"
                         first["head"] = new_head
                         first["deprel"] = new_deprel
-                    # иначе head/deprel остаются как были у first
 
-                    # (3) первый токен получает морфологию второго
                     first["upos"] = second.get("upos", first["upos"])
                     first["xpos"] = second.get("xpos", first.get("xpos", "_"))
                     first["feats"] = second.get("feats", first.get("feats", "_"))
 
-                    # (4) все дети второго токена привязываются к первому
                     for ch_idx in deps.get(second_id, []):
                         if rows[ch_idx]["id"] != first_id:
                             rows[ch_idx]["head"] = first_id
                             if (rows[ch_idx]["deprel"] or "").lower() == "root":
                                 rows[ch_idx]["deprel"] = "dep"
 
-                    # удалить второй токен
                     to_delete.add(i + 1)
 
-                    # после удаления длина уменьшится — пересчитаем n и не перескакиваем позицию
                     i += 1
                     continue
 
