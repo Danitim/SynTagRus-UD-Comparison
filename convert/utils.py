@@ -5,17 +5,9 @@ from pyconll.unit.sentence import Sentence
 from pyconll.unit.token import Token
 from string import punctuation
 
+
 def get_ud_source(sent):
-    '''
-    Extract the source name and id from the UD sentence.
     
-    Parameters:
-    sent (pyconll.unit.sentence.Sentence): sentence.
-    
-    Returns:
-    source (str): source name.
-    id (str): sentence id.
-    '''
     source = sent.meta_value('sent_id')
     id = source[source.rfind('.xml')+5:]
     source = source[: source.rfind('.xml')]
@@ -26,22 +18,18 @@ def get_ud_source(sent):
     return source, id
 
 
-def get_str_source(file_path):
-    '''
-    Extract the source name from the SynTagRus file path.
+def get_str_source(file_path: pathlib.Path) -> str:
+    parts = list(file_path.parts)
     
-    Parameters:
-    file_path (str): path to the SynTagRus file.
-    
-    Returns:
-    str: source name.
-    '''
-    source = ''.join(file_path.parts[1:])
-    source = source[: source.rfind('.tgt')]
-    
-    while not source[-1].isalpha():
-        source = source[:-1]
+    if "SynTagRus" in parts:
+        idx = parts.index("SynTagRus")
+        parts = parts[idx+1:]
         
+    source = "".join(parts)
+    
+    if source.endswith(".tgt"):
+        source = source[:-4]
+    
     return source
 
 
