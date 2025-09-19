@@ -15,6 +15,43 @@ _NE4_BODIES: Set[str] = {
 _PUNCT_CHARS = '''"'“”«»„‚()[]{}.,;:!? \t\r\n'''
 
 
+def _serialize_feats(feats) -> str:
+    if not feats or feats == "_":
+        return "_"
+    if isinstance(feats, dict):
+        items = []
+        for k in sorted(feats.keys()):
+            v = feats[k]
+            if isinstance(v, (set, list, tuple)):
+                vv = ",".join(sorted(str(x) for x in v))
+            else:
+                vv = str(v)
+            items.append(f"{k}={vv}")
+        return "|".join(items) if items else "_"
+    return str(feats) or "_"
+
+def _serialize_misc(misc) -> str:
+    if not misc or misc == "_":
+        return "_"
+
+    if isinstance(misc, dict):
+        items = []
+        for k in sorted(misc.keys()):
+            v = misc[k]
+            if v is None or v == "":
+                items.append(str(k))
+            elif isinstance(v, (set, list, tuple)):
+                vv = ",".join(sorted(str(x) for x in v))
+                items.append(f"{k}={vv}" if vv else str(k))
+            else:
+                items.append(f"{k}={v}")
+        return "|".join(items) if items else "_"
+
+    if isinstance(misc, (set, list, tuple)):
+        return "|".join(sorted(str(x) for x in misc)) or "_"
+
+    return str(misc) or "_"
+
 def _norm_form(s: str) -> str:
     if not s:
         return ""
@@ -35,13 +72,14 @@ def _rows_from_sentence(sent: Sentence) -> List[Dict[str, str]]:
         rows.append({
             "id": str(t.id),
             "form": (t.form if t.form not in (None, "") else "_"),
-            "lemma": "_",
+            "lemma": (t.lemma if t.lemma not in (None, "") else "_"),
             "upos": (t.upos or "_"),
             "xpos": "_",
-            "feats": "_",
+            "feats": _serialize_feats(t.feats),
             "head": str(head),
             "deprel": deprel,
             "is_punct": "1" if is_punct else "0",
+            "misc": _serialize_misc(t.misc),
         })
     return rows
 
@@ -58,7 +96,7 @@ def _children_map(rows: List[Dict[str, str]]) -> Dict[str, List[int]]:
 def _build_token_line(id_: str, r: Dict[str, str]) -> str:
     return (
         f"{id_}\t{r['form']}\t{r['lemma']}\t{r['upos']}\t{r['xpos']}\t"
-        f"{r['feats']}\t{r['head']}\t{r['deprel']}\t_\t_"
+        f"{r['feats']}\t{r['head']}\t{r['deprel']}\t_\t{r['misc']}"
     )
 
 
@@ -192,9 +230,11 @@ def promote_ne4_constructions_in_str(
                 first["head"] = new_head
                 first["deprel"] = new_deprel
             
-            first["upos"] = second.get("upos", first["upos"])
-            first["xpos"] = second.get("xpos", first.get("xpos", "_"))
-            first["feats"] = second.get("feats", first.get("feats", "_"))
+            first["lemma"] = second.get("lemma", first.get("lemma", "_"))
+            first["upos"]  = second.get("upos",  first["upos"])
+            first["xpos"]  = second.get("xpos",  first.get("xpos", "_"))
+            first["feats"] = _serialize_feats(second.get("feats", first.get("feats", "_")))
+            first["misc"]  = _serialize_misc(second.get("misc", first.get("misc", "_")))
 
             for ch_idx in deps.get(second_id, []):
                 if rows[ch_idx]["id"] != first_id:
@@ -241,10 +281,12 @@ def promote_ne4_constructions_in_str(
                         first["head"] = new_head
                         first["deprel"] = new_deprel
 
-                    first["upos"] = second.get("upos", first["upos"])
-                    first["xpos"] = second.get("xpos", first.get("xpos", "_"))
-                    first["feats"] = second.get("feats", first.get("feats", "_"))
-
+                    first["lemma"] = second.get("lemma", first.get("lemma", "_"))
+                    first["upos"]  = second.get("upos",  first["upos"])
+                    first["xpos"]  = second.get("xpos",  first.get("xpos", "_"))
+                    first["feats"] = _serialize_feats(second.get("feats", first.get("feats", "_")))
+                    first["misc"]  = _serialize_misc(second.get("misc", first.get("misc", "_")))
+                    
                     for ch_idx in deps.get(second_id, []):
                         if rows[ch_idx]["id"] != first_id:
                             rows[ch_idx]["head"] = first_id

@@ -5,6 +5,7 @@ import re
 
 from convert.ellipsis import reconcile_ellipsis_by_syntax
 from convert.promote_ne4 import promote_ne4_constructions_in_str
+from convert.fix_multi_roots import fix_multi_roots
 
 _DASHES = "-–—"
 _WS_RE = re.compile(r"\s+")
@@ -144,11 +145,12 @@ def _eq_concat_either_order(a: Optional[str], b: Optional[str], u: Optional[str]
 
 def _detach_edge_quotes_in_str(str_sent: Sentence) -> Sentence:
     def _mk(form: str, upos: str, head: str, deprel: str,
-            lemma=None, xpos=None, feats=None, id_value=None) -> Token:
+            lemma=None, xpos=None, feats=None, id_value=None, misc=None) -> Token:
         tok = Token(f"1\t{form or '_'}\t_\t{upos or '_'}\t_\t_\t{head or '0'}\t{deprel or 'punct'}\t_\t_")
         tok.lemma = lemma
         tok.xpos = xpos
         tok.feats = dict(feats) if feats else {}
+        tok.misc = misc or {}
         if id_value is not None:
             tok.id = str(id_value)
         return tok
@@ -161,7 +163,7 @@ def _detach_edge_quotes_in_str(str_sent: Sentence) -> Sentence:
             new_tokens.append(_mk(form, t.upos,
                                   str(t.head) if t.head not in (None, '_') else '0', t.deprel,
                                   lemma=t.lemma, xpos=t.xpos, feats=t.feats,
-                                  id_value=t.id))
+                                  id_value=t.id, misc=t.misc))
             continue
         i, j = 0, len(form) - 1
         leading, trailing = [], []
@@ -174,7 +176,7 @@ def _detach_edge_quotes_in_str(str_sent: Sentence) -> Sentence:
             new_tokens.append(_mk(form, t.upos,
                                   str(t.head) if t.head not in (None, '_') else '0', t.deprel,
                                   lemma=t.lemma, xpos=t.xpos, feats=t.feats,
-                                  id_value=t.id))
+                                  id_value=t.id, misc=t.misc))
             continue
         for q in leading:
             qcnt += 1
@@ -183,7 +185,7 @@ def _detach_edge_quotes_in_str(str_sent: Sentence) -> Sentence:
             new_tokens.append(_mk(core, t.upos,
                                   str(t.head) if t.head not in (None, '_') else '0', t.deprel,
                                   lemma=t.lemma, xpos=t.xpos, feats=t.feats,
-                                  id_value=t.id))
+                                  id_value=t.id, misc=t.misc))
         for q in trailing:
             qcnt += 1
             new_tokens.append(_mk(q, 'PUNCT', '0', 'punct', id_value=f"q{qcnt}"))
@@ -208,6 +210,7 @@ def _multiset(lst: List[str]) -> Dict[str, int]:
 
 def normalize_str_sentence_to_ud(ud_sent: Sentence, str_sent: Sentence) -> Optional[Sentence]:
     sid_ud = (ud_sent.meta_value('sent_id') or "").strip()
+        
     str_sent = _detach_edge_quotes_in_str(str_sent)
     str_sent = promote_ne4_constructions_in_str(str_sent, ud_sent)
     str_sent = reconcile_ellipsis_by_syntax(ud_sent, str_sent)
@@ -311,17 +314,36 @@ def normalize_str_sentence_to_ud(ud_sent: Sentence, str_sent: Sentence) -> Optio
         return None
 
     new_sent = Sentence(ud_sent.conll())
+    
+    def _serialize_feats(feats) -> str:
+        if not feats:
+            return "_"
+        if isinstance(feats, dict):
+            items = []
+            for k in sorted(feats.keys()):
+                v = feats[k]
+                if isinstance(v, (set, list, tuple)):
+                    vv = ",".join(sorted(str(x) for x in v))
+                else:
+                    vv = str(v)
+                items.append(f"{k}={vv}")
+            return "|".join(items) if items else "_"
+        return str(feats) or "_"
 
-    def _mk_row_word(form: str, upos: str, head_core_idx: Optional[int], deprel: str, ud_id: str) -> dict:
+    def _mk_row_word(form: str, upos: str, head_core_idx: Optional[int], deprel: str, ud_id: str,
+                 lemma: Optional[str] = None, feats = None) -> dict:
         return {
             "kind": "word",
             "form": form or "_",
             "upos": upos or "_",
+            "lemma": (lemma if lemma not in (None, "", "_") else "_"),
+            "feats": _serialize_feats(feats),
             "head_core_idx": head_core_idx,
             "deprel": (deprel or "_"),
             "_ud_id": ud_id,
             "_new_id": None,
         }
+
 
     def _mk_row_punct(form: str, anchor_core_idx: Optional[int], ud_head_udid: str) -> dict:
         return {
@@ -337,8 +359,11 @@ def normalize_str_sentence_to_ud(ud_sent: Sentence, str_sent: Sentence) -> Optio
     ud_tokens: List[Token] = list(ud_sent)
     ud_core_positions = [i for i,t in enumerate(ud_tokens) if not _is_punct(t)]
     ud_core_tokens = [ud_tokens[i] for i in ud_core_positions]
+    ud_to_str_token = {ud.id: s for ud, s in zip(ud_core_tokens, aligned_pairs)}
 
     udid_to_core_idx: Dict[str,int] = {t.id: k for k,t in enumerate(ud_core_tokens)}
+    
+    fix_multi_roots(ud_sent, str_sent, ud_to_str_token)
 
     ud_tokens_all = list(ud_sent)
     udid_to_ud_headid = {
@@ -372,8 +397,12 @@ def normalize_str_sentence_to_ud(ud_sent: Sentence, str_sent: Sentence) -> Optio
             upos = s_tok.upos,
             head_core_idx = None,
             deprel = s_tok.deprel,
-            ud_id = u_tok.id
+            ud_id = u_tok.id,
+            lemma = getattr(s_tok, "lemma", None),
+            feats = getattr(s_tok, "feats", None),
         ))
+        
+
         strid_to_core_idx[str(s_tok.id)] = k
 
     for k, (u_tok, s_tok) in enumerate(zip(ud_core_tokens, aligned_pairs)):
@@ -490,7 +519,7 @@ def normalize_str_sentence_to_ud(ud_sent: Sentence, str_sent: Sentence) -> Optio
         meta.append(f"# sent_id = {sid}")
     meta.append(f"# text = {text}")
     body = "\n".join(
-        f"{rr['_new_id']}\t{rr['form']}\t_\t{rr['upos']}\t_\t_\t{rr['head']}\t{rr['deprel']}\t_\t_"
+        f"{rr['_new_id']}\t{rr['form']}\t{(rr.get('lemma') or '_')}\t{rr['upos']}\t_\t{(rr.get('feats') or '_')}\t{rr['head']}\t{rr['deprel']}\t_\t_"
         for rr in out_rows
     )
     res = Sentence("\n".join(meta + [body]))

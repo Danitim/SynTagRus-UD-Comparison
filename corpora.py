@@ -3,7 +3,6 @@ import pathlib
 
 from convert.convert import convert_str_to_ud, convert_ud_to_ud
 from convert.source_align import align_corpora_by_source
-from convert.global_align import align_corpora_globally
 
 str_path = "Corpora/SynTagRus"
 str_converted_path = "Corpora/STR_converted"
@@ -16,7 +15,6 @@ def main():
 
     parser.add_argument('mode', type=str, help='Mode of the script: convert or align.')
     parser.add_argument('--corpus', type=str, help='Corpus to convert: STR or UD.', default="STR")
-    parser.add_argument('--align_mode', type=str, help='Mode of alignment: source or global.', default="source")
 
     parser.add_argument('--str_path', type=str, default=str_path)
     parser.add_argument('--str_converted_path', type=str, default=str_converted_path)
@@ -49,24 +47,14 @@ def main():
     elif args.mode == "align":
         pathlib.Path(args.aligned_path).mkdir(parents=True, exist_ok=True)
 
-        if args.align_mode == "source":
-            align_corpora_by_source(
+        align_corpora_by_source(
                 save_path=args.aligned_path,
                 str_path=args.str_converted_path,
                 ud_path=args.ud_converted_path,
                 retry=args.retry,
                 retry_input=args.unaligned_in,
                 retry_output=args.unaligned_out,
-            )
-
-        elif args.align_mode == "global":
-            align_corpora_globally(
-                save_path=args.aligned_path,
-                str_path=args.str_converted_path,
-                ud_path="source_not_found.conllu"
-            )
-        else:
-            print("Invalid alignment mode.")
+        )
     else:
         print("Invalid mode.")
 

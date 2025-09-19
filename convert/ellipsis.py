@@ -1,6 +1,34 @@
 from typing import List, Dict, Set
 from pyconll.unit.sentence import Sentence
 from pyconll.unit.token import Token
+from pyconll import load_from_string
+
+def _ser_feats(feats) -> str:
+    if not feats or feats == "_": 
+        return "_"
+    try:
+        items = []
+        for k in sorted(feats.keys()):
+            v = feats[k]
+            if isinstance(v, (set, list, tuple)):
+                vv = ",".join(sorted(str(x) for x in v))
+            else:
+                vv = str(v)
+            items.append(f"{k}={vv}")
+        return "|".join(items) if items else "_"
+    except Exception:
+        return str(feats) or "_"
+
+def _ser_misc(misc) -> str:
+    if not misc or misc == "_":
+        return "_"
+    if isinstance(misc, dict):
+        items = []
+        for k in sorted(misc.keys()):
+            v = misc[k]
+            items.append(f"{k}={v}")
+        return "|".join(items) if items else "_"
+    return str(misc) or "_"
 
 
 def reconcile_ellipsis_by_syntax(ud_sent: Sentence, str_sent: Sentence) -> Sentence:
@@ -83,7 +111,6 @@ def reconcile_ellipsis_by_syntax(ud_sent: Sentence, str_sent: Sentence) -> Sente
         if sid:
             meta.append(f"# sent_id = {sid}")
         meta.append(f"# text = {text}")
-        from pyconll import load_from_string
         body = "\n".join(
             "\t".join(
                 [
@@ -92,11 +119,11 @@ def reconcile_ellipsis_by_syntax(ud_sent: Sentence, str_sent: Sentence) -> Sente
                     t.lemma or "_",
                     t.upos or "_",
                     t.xpos or "_",
-                    t.feats or "_",
+                    _ser_feats(getattr(t, "feats", None)),
                     (str(t.head) if t.head not in (None, "_") else "0"),
                     t.deprel or "_",
                     t.deps or "_",
-                    t.misc or "_",
+                    _ser_misc(getattr(t, "misc", None)),
                 ]
             )
             for t in tokens_new
@@ -276,23 +303,20 @@ def reconcile_ellipsis_by_syntax(ud_sent: Sentence, str_sent: Sentence) -> Sente
                 t.deprel = "dep"
 
     kept_tokens: List[Token] = [t for i, t in enumerate(tokens) if i not in to_delete]
-    for t in kept_tokens:
-        if t.upos != "PUNCT":
-            t.misc = {}
 
     res = _reindex(kept_tokens, str_sent)
 
-    try:
-        if _root_ellipsis_deleted:
-            with open("root_ellipsis.log", "a", encoding="utf-8") as lf:
-                lf.write("UD:\n")
-                lf.write(ud_sent.conll() + "\n")
-                lf.write("\nSynTagRus_before:\n")
-                lf.write(_str_before_conll + "\n")
-                lf.write("\nSynTagRus_after:\n")
-                lf.write(res.conll() + "\n")
-                lf.write("-" * 100 + "\n")
-    except Exception:
-        pass
+    # try:
+    #     if _root_ellipsis_deleted:
+    #         with open("root_ellipsis.log", "a", encoding="utf-8") as lf:
+    #             lf.write("UD:\n")
+    #             lf.write(ud_sent.conll() + "\n")
+    #             lf.write("\nSynTagRus_before:\n")
+    #             lf.write(_str_before_conll + "\n")
+    #             lf.write("\nSynTagRus_after:\n")
+    #             lf.write(res.conll() + "\n")
+    #             lf.write("-" * 100 + "\n")
+    # except Exception:
+    #     pass
 
     return res
