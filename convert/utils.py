@@ -177,6 +177,56 @@ def _id_key(tok_id):
         return (int(tok_id), 0)
     except Exception:
         return (10**9, 10**9)
+    
+def _would_cycle_through(by_id, start_id: str, target_ids: set, e_head_map: dict) -> bool:
+    seen = set()
+    cur = start_id
+    for _ in range(512):
+        if not cur or cur == "0":
+            return False
+        if cur in target_ids:
+            return True
+        if cur in seen:
+            return True
+        seen.add(cur)
+        if "." in cur:
+            cur = e_head_map.get(cur)
+        else:
+            t = by_id.get(cur)
+            cur = str(t.head) if t and t.head else None
+    return True
+
+def _prefer_head_candidates(cands, by_id, eid, dep_ids_future: set, e_head_map: dict):
+    """
+    Приоритеты выбора головы для эллипсиса:
+      1) conj-эллипсис, не образующий цикл
+      2) любой эллипсис, не образующий цикл
+      3) conj-обычный, без цикла
+      4) любой обычный, без цикла
+      5) как было, детерминированно (но лучше уже не дойдём)
+    """
+    filtered = [(h,b) for (h,b) in cands if h not in dep_ids_future]
+    safe = []
+    for h,b in filtered:
+        test_map = dict(e_head_map)
+        test_map[eid] = h
+        if not _would_cycle_through(by_id, h, {eid}, test_map):
+            safe.append((h,b))
+    if not safe:
+        safe = filtered or cands
+
+    def key(lst):
+        lst.sort(key=lambda x: (_id_key(x[0])))
+        return lst[0] if lst else None
+
+    conj_ell = key([c for c in safe if "." in c[0] and c[1]=="conj"])
+    if conj_ell: return conj_ell
+    any_ell  = key([c for c in safe if "." in c[0]])
+    if any_ell: return any_ell
+    conj_norm= key([c for c in safe if "." not in c[0] and c[1]=="conj"])
+    if conj_norm: return conj_norm
+    return key(safe)
+
 
 def restore_ellipsis(sent, _dependents_from_caller):
     by_id = {t.id: t for t in sent}
@@ -287,6 +337,7 @@ def restore_ellipsis(sent, _dependents_from_caller):
         token2ellipsis[tok.id] = (eid, base_rel)
 
 
+    e_head_map: dict[str, str] = {}
     empty_ids = sorted([t.id for t in sent if t.is_empty_node()], key=_id_key)
     ell_dependents = {eid: [] for eid in empty_ids}
     for tok_id, (eid, base_rel) in token2ellipsis.items():
@@ -300,17 +351,13 @@ def restore_ellipsis(sent, _dependents_from_caller):
 
         candidates = []   # (head_id, base_rel)
         wants_root = False
-        had_2cycle_skip = False
         deps_dict = E.deps or {}
         for h, rels in deps_dict.items():
             if not rels:
                 continue
             for r in rels:
                 base = _rel_base(r)
-                if base is None:
-                    continue
-                if base not in BASIC_RELATIONS:
-                    # logging.warning(f"[{sent_id_str}] drop non-basic rel at ellipsis {eid}->{h}:{r}")
+                if base is None or base not in BASIC_RELATIONS:
                     continue
                 if h == "0":
                     if base == "root":
@@ -319,52 +366,72 @@ def restore_ellipsis(sent, _dependents_from_caller):
                 if h not in by_id:
                     logging.warning(f"[{sent_id_str}] unknown head for ellipsis {eid}->{h}:{r}")
                     continue
-                if h in future_dep_ids:
-                    had_2cycle_skip = True
-                    continue
                 candidates.append((h, base))
 
+        future_dep_ids = {t.id for (t, _) in dep_list}
         chosen_head = None
-        chosen_rel = None
-        if wants_root and len(candidates) == 1:
-            chosen_head, chosen_rel = candidates[0]
-        elif wants_root and len(candidates) == 0:
+        chosen_rel  = None
+
+        if wants_root and not candidates:
             chosen_head, chosen_rel = "0", "root"
             main_root_id = E.id
-        elif len(candidates) > 1:
-            conj_ellipsis = next((c for c in candidates if "." in c[0] and c[1] == "conj"), None)
-            if conj_ellipsis is not None:
-                chosen_head, chosen_rel = conj_ellipsis
-            else:
-                any_ellipsis = sorted((c for c in candidates if "." in c[0]), key=lambda x: _id_key(x[0]))
-                if any_ellipsis:
-                    chosen_head, chosen_rel = any_ellipsis[0]
-                else:
-                    conj_normal = next((c for c in candidates if "." not in c[0] and c[1] == "conj"), None)
-                    if conj_normal is not None:
-                        chosen_head, chosen_rel = conj_normal
-                    else:
-                        # logging.warning(f"[{sent_id_str}] ellipsis {eid} has multiple heads {candidates}; no conj-head → picking deterministically")
-                        candidates.sort(key=lambda x: _id_key(x[0]))
-                        chosen_head, chosen_rel = candidates[0]
-        elif len(candidates) == 1:
-            chosen_head, chosen_rel = candidates[0]
         else:
-            if had_2cycle_skip:
-                logging.warning(f"[{sent_id_str}] ellipsis {eid} had only heads that create 2-cycle; attaching to main root")
+            pick = _prefer_head_candidates(candidates, by_id, eid, future_dep_ids, e_head_map)
+            if pick:
+                chosen_head, chosen_rel = pick
+            elif wants_root:
+                chosen_head, chosen_rel = "0", "root"
+                main_root_id = E.id
             else:
-                logging.warning(f"[{sent_id_str}] ellipsis {eid} has no valid heads; attach to main root")
-            chosen_head, chosen_rel = main_root_id, "dep"
+                chosen_head, chosen_rel = main_root_id, "dep"
 
-        E.head = chosen_head
-        E.deprel = chosen_rel
+        E.head  = chosen_head
+        E.deprel= chosen_rel
+        e_head_map[eid] = chosen_head
+
 
         for tok, rel_base in dep_list:
-            tok.head = E.id
             base_rel = rel_base or "dep"
             if base_rel not in BASIC_RELATIONS:
                 base_rel = "dep"
-            tok.deprel = base_rel
+
+            # 0) если прямая дуга к эллипсису делает цикл (или путь существует) — попробуем альтернативы
+            makes_cycle = _would_cycle_through(by_id, E.id, {tok.id}, e_head_map)
+            if not makes_cycle:
+                tok.head = E.id
+                tok.deprel = base_rel
+                continue
+
+            # 1) поднимаем зависимого "поверх" эллипсиса: вешаем на голову эллипсиса с той же меткой
+            gh = e_head_map.get(E.id) or E.head
+            if gh and not _would_cycle_through(by_id, gh, {tok.id}, e_head_map):
+                tok.head = gh
+                tok.deprel = base_rel
+                logging.info(f"[{sent_id_str}] lift {tok.id} over ellipsis {E.id} to {gh}:{base_rel}")
+                continue
+
+            # 2) попробовать не-эллиптические DEPS этого токена (кроме case) — уже предсортированы
+            info = tok_info.get(tok.id, None)
+            if info:
+                cand = next(((h, b) for (h, b) in info["non_empty_deps"] if b != "case"), None)
+                if cand and not _would_cycle_through(by_id, cand[0], {tok.id}, e_head_map):
+                    tok.head, tok.deprel = cand[0], cand[1]
+                    logging.info(f"[{sent_id_str}] use non-empty DEPS for {tok.id} -> {tok.head}:{tok.deprel}")
+                    continue
+
+                # 3) если базовая разметка валидна — вернуться к ней
+                if info["base_head"] and info["base_rel"] in BASIC_RELATIONS:
+                    if not _would_cycle_through(by_id, info["base_head"], {tok.id}, e_head_map):
+                        tok.head = info["base_head"]
+                        tok.deprel = info["base_rel"]
+                        logging.info(f"[{sent_id_str}] fallback to base for {tok.id} -> {tok.head}:{tok.deprel}")
+                        continue
+
+            # 4) последний шанс — к main_root dep (без цикла по определению)
+            tok.head = main_root_id
+            tok.deprel = "dep"
+            logging.warning(f"[{sent_id_str}] hard fallback {tok.id} -> root:dep (prevent cycle with ellipsis {E.id})")
+
     
     
     roots = [tok for tok in sent if str(tok.head) == "0"]
@@ -377,13 +444,13 @@ def restore_ellipsis(sent, _dependents_from_caller):
                 tok.head = ell.id
                 tok.deprel = "TEMP"
          
-        with open("uncertain.log", "a", encoding="utf-8") as log_file:
-            log_file.write(f"[{sent_id_str}] Multiple roots detected:\n")
-            for root in roots:
-                log_file.write(
-                    f"  - Token ID: {root.id}, "
-                    f"Form: {root.form}, "
-                    f"UPOS: {root.upos}\n"
-                )
-            log_file.write("-" * 100 + "\n")
+        # with open("uncertain.log", "a", encoding="utf-8") as log_file:
+        #     log_file.write(f"[{sent_id_str}] Multiple roots detected:\n")
+        #     for root in roots:
+        #         log_file.write(
+        #             f"  - Token ID: {root.id}, "
+        #             f"Form: {root.form}, "
+        #             f"UPOS: {root.upos}\n"
+        #         )
+        #     log_file.write("-" * 100 + "\n")
 
