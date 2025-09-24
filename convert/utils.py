@@ -162,7 +162,6 @@ BASIC_RELATIONS = {
 }
 
 def _rel_base(r):
-    """Базовая часть отношения (до первого ':'), безопасно для None/'_'/пустых."""
     if r is None:
         return None
     s = str(r).strip()
@@ -171,7 +170,6 @@ def _rel_base(r):
     return s.split(":", 1)[0]
 
 def _id_key(tok_id):
-    """Ключ сортировки id вида '12' или '12.3' -> (12, 3|0)."""
     try:
         if "." in tok_id:
             a, b = tok_id.split(".", 1)
@@ -181,29 +179,9 @@ def _id_key(tok_id):
         return (10**9, 10**9)
 
 def restore_ellipsis(sent, _dependents_from_caller):
-    """
-    Восстановление базовой структуры из ENHANCED (DEPS) с явными эллипсисами
-    по правилам куратора.
-
-    (1) Дубли базовой дуги в DEPS:
-        - Если в DEPS есть дуга с тем же базовым типом к базовой голове — игнорируем (истинный дупликат).
-        - Если базовый тип совпадает, но голова ДРУГАЯ:
-            * если голова — ЭЛЛИПСИС: СОХРАНЯЕМ (это как раз нужная дуга для переподвеса);
-            * иначе — логируем и игнорируем как ошибочный дубликат.
-    (2) Множественные хозяева:
-        2.1 Обычное слово: если есть эллипсис среди хозяев — берём эллипсис (приоритет).
-            Если эллипсисов несколько — предпочтём совпадающий по типу с базовым; иначе первый по id (и логируем).
-            Если эллипсиса нет, но есть дуга (база-голова, база-тип) — всё консистентно, остаёмся на базе.
-            Иначе логируем.
-        2.2 Эллипсис: если два отношения и одно root → берём другое.
-            Если единственная дуга — root или дуг > 2 → логируем; не делаем вторым корнем:
-            подвешиваем к главному корню с 'parataxis'.
-    (3) В итоговой базе оставляем только базовые типы (часть до ':').
-    """
     by_id = {t.id: t for t in sent}
     sent_id_str = getattr(sent, "id", None) or getattr(sent, "meta", {}).get("sent_id") or (sent.meta_value("sent_id") if hasattr(sent, "meta_value") else None) or "?"
 
-    # --- Главный корень среди НЕ пустых ---
     main_root_id = None
     for t in sent:
         if (not t.is_empty_node()) and str(t.head) == "0":
@@ -213,7 +191,6 @@ def restore_ellipsis(sent, _dependents_from_caller):
         non_empty_ids = [t.id for t in sent if not t.is_empty_node()]
         main_root_id = min(non_empty_ids, key=_id_key) if non_empty_ids else "1"
 
-    # --- Сбор enhanced-инфы для обычных токенов ---
     tok_info = {}
     for tok in sent:
         if tok.is_empty_node():
@@ -235,22 +212,17 @@ def restore_ellipsis(sent, _dependents_from_caller):
                 if base not in BASIC_RELATIONS:
                     continue
 
-                # (1) обработка дубликатов базовой дуги
                 if base_head is not None and base == base_rel:
                     if h == base_head:
-                        # точный дубликат базовой дуги в enhanced
                         info["non_empty_deps"].append((h, base))
                         continue
                     else:
                         if "." in h:
-                            # важный случай: тот же тип, но голова — эллипсис → СОХРАНЯЕМ
                             info["ellipses"].append((h, base, r))
                             continue
                         else:
-                            # та же метка, но другая НЕ-эллипсическая голова → ошибка в enhanced
                             continue
 
-                # обычная обработка
                 if "." in h:
                     info["ellipses"].append((h, base, r))
                 else:
@@ -260,7 +232,6 @@ def restore_ellipsis(sent, _dependents_from_caller):
         info["non_empty_deps"].sort(key=lambda x: _id_key(x[0]))
         tok_info[tok.id] = info
 
-    # --- Выбор эллипсиса-владельца для каждого обычного токена (2.1) ---
     ellipsis_heads = {}
     for e in (t for t in sent if t.is_empty_node()):
         heads = set()
@@ -285,15 +256,13 @@ def restore_ellipsis(sent, _dependents_from_caller):
         info = tok_info[tok.id]
         if not info["ellipses"]:
             if info["base_rel"] == "orphan" and info["non_empty_deps"]:
-                cands = info["non_empty_deps"]  # список (head_id, base_rel)
+                cands = info["non_empty_deps"]
                 pick = next(((h, b) for (h, b) in cands if b != "case"), None) or cands[0]
                 new_head, new_rel = pick
-                # применяем замену
                 tok.head = new_head
                 tok.deprel = new_rel
                 logging.info(f"[{sent_id_str}] replaced orphan on token {tok.id} -> {new_head}:{new_rel} from enhanced DEPS")
             else:
-                # прежняя проверка консистентности, без переподвеса
                 ok = any((hid == info["base_head"] and base == info["base_rel"]) for (hid, base) in info["non_empty_deps"])
                 if not ok and info["non_empty_deps"]:
                     logging.info(f"[{sent_id_str}] keep base {info['base_head']}:{info['base_rel']} for token {tok.id}; non-elliptic DEPS {info['non_empty_deps']} do not match base")
@@ -302,39 +271,33 @@ def restore_ellipsis(sent, _dependents_from_caller):
 
         ell = info["ellipses"]
 
-        # 2.1.a) отфильтруем эллипсисы, которые дадут НЕИЗБЕЖНЫЙ 2-цикл:
-        # у эллипсиса единственная возможная голова = сам токен
         safe_ell = []
         for (eid, brel, _full) in ell:
             heads = ellipsis_heads.get(eid, set())
-            if heads == {tok.id}:  # E может повеситься ТОЛЬКО на этот токен → будет T<->E
+            if heads == {tok.id}:
                 continue
             safe_ell.append((eid, brel, _full))
 
         if not safe_ell:
-            continue  # НЕ добавляем в token2ellipsis
+            continue
 
-        # 2.1.b) из безопасных — сначала совпадающие по базовой метке
         matching = [p for p in safe_ell if p[1] == info["base_rel"]]
         pick = matching[0] if matching else safe_ell[0]
         eid, base_rel, _full = pick
         token2ellipsis[tok.id] = (eid, base_rel)
 
 
-    # --- Список зависимых для каждого эллипсиса ---
     empty_ids = sorted([t.id for t in sent if t.is_empty_node()], key=_id_key)
     ell_dependents = {eid: [] for eid in empty_ids}
     for tok_id, (eid, base_rel) in token2ellipsis.items():
         if eid in ell_dependents:
             ell_dependents[eid].append((by_id[tok_id], base_rel))
 
-    # --- Выбор головы для каждого эллипсиса (2.2) и переподвес зависимых ---
     for eid in empty_ids:
         E = by_id[eid]
         dep_list = ell_dependents.get(eid, [])
         future_dep_ids = {t.id for (t, _) in dep_list}
 
-        # кандидаты-головы из DEPS эллипсиса
         candidates = []   # (head_id, base_rel)
         wants_root = False
         had_2cycle_skip = False
@@ -352,7 +315,7 @@ def restore_ellipsis(sent, _dependents_from_caller):
                 if h == "0":
                     if base == "root":
                         wants_root = True
-                    continue  # '0' как голову не добавляем, чтобы не плодить второй корень
+                    continue
                 if h not in by_id:
                     logging.warning(f"[{sent_id_str}] unknown head for ellipsis {eid}->{h}:{r}")
                     continue
@@ -361,7 +324,6 @@ def restore_ellipsis(sent, _dependents_from_caller):
                     continue
                 candidates.append((h, base))
 
-        # правило 2.2
         chosen_head = None
         chosen_rel = None
         if wants_root and len(candidates) == 1:
@@ -370,40 +332,33 @@ def restore_ellipsis(sent, _dependents_from_caller):
             chosen_head, chosen_rel = "0", "root"
             main_root_id = E.id
         elif len(candidates) > 1:
-            # 1) сначала ищем conj СРЕДИ ЭЛЛИПСИСОВ
             conj_ellipsis = next((c for c in candidates if "." in c[0] and c[1] == "conj"), None)
             if conj_ellipsis is not None:
                 chosen_head, chosen_rel = conj_ellipsis
             else:
-                # 2) иначе любой эллипсис
                 any_ellipsis = sorted((c for c in candidates if "." in c[0]), key=lambda x: _id_key(x[0]))
                 if any_ellipsis:
                     chosen_head, chosen_rel = any_ellipsis[0]
                 else:
-                    # 3) иначе conj среди обычных, если есть
                     conj_normal = next((c for c in candidates if "." not in c[0] and c[1] == "conj"), None)
                     if conj_normal is not None:
                         chosen_head, chosen_rel = conj_normal
                     else:
-                        # 4) иначе детерминированно: обычные токены по id
                         # logging.warning(f"[{sent_id_str}] ellipsis {eid} has multiple heads {candidates}; no conj-head → picking deterministically")
                         candidates.sort(key=lambda x: _id_key(x[0]))
                         chosen_head, chosen_rel = candidates[0]
         elif len(candidates) == 1:
             chosen_head, chosen_rel = candidates[0]
         else:
-            # кандидатов нет — если мы кого-то выкинули из-за 2-цикла
             if had_2cycle_skip:
                 logging.warning(f"[{sent_id_str}] ellipsis {eid} had only heads that create 2-cycle; attaching to main root")
             else:
                 logging.warning(f"[{sent_id_str}] ellipsis {eid} has no valid heads; attach to main root")
             chosen_head, chosen_rel = main_root_id, "dep"
 
-        # назначаем голову эллипсису (у пустых head/deprel ранее не было)
         E.head = chosen_head
         E.deprel = chosen_rel
 
-        # переподвешиваем зависимых под эллипсис (ставим БАЗОВУЮ метку)
         for tok, rel_base in dep_list:
             tok.head = E.id
             base_rel = rel_base or "dep"
