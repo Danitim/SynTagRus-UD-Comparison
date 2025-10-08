@@ -35,6 +35,7 @@ python vendor/udpipe2/udpipe2.py models/ud-morph \
   --train datasets/ud/train.conllu \
   --dev datasets/ud/dev.conllu \
   --max_sentence_len 256 \
+  --parse 0 \
   --threads 8
 ```
 
@@ -44,6 +45,7 @@ python vendor/udpipe2/udpipe2.py models/str-morph \
   --train datasets/str/train.conllu \
   --dev datasets/str/dev.conllu \
   --max_sentence_len 256 \
+  --parse 0 \
   --threads 8
 ```
 
