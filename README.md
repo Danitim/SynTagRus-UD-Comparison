@@ -3,7 +3,7 @@ Comparison of two corpora with different markup (SynTagRus and Universal Depende
 
 [Paper link](https://www.elibrary.ru/item.asp?id=78752085)
 
-## UDPipe 2 Training (dataset with ready wembeddings)
+## UDPipe 2 Training (with ready wembeddings)
 ### GPU (Docker + NGC Tensorflow 1 Container)
 
 0) Download and setup docker
