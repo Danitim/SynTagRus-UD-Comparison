@@ -3,7 +3,7 @@ Comparison of two corpora with different markup (SynTagRus and Universal Depende
 
 [Paper link](https://www.elibrary.ru/item.asp?id=78752085)
 
-## UDPipe 2 Training (with ready wembeddings)
+## UDPipe 2 Morphology Training (with ready wembeddings)
 ### GPU (Docker + NGC Tensorflow 1 Container)
 
 0) Download and setup docker
@@ -36,6 +36,7 @@ python vendor/udpipe2/udpipe2.py models/ud-morph \
   --dev datasets/ud/dev.conllu \
   --max_sentence_len 256 \
   --parse 0 \
+  --tags "UPOS,FEATS" \
   --threads 8
 ```
 
@@ -46,6 +47,7 @@ python vendor/udpipe2/udpipe2.py models/str-morph \
   --dev datasets/str/dev.conllu \
   --max_sentence_len 256 \
   --parse 0 \
+  --tags "UPOS,FEATS" \
   --threads 8
 ```
 
