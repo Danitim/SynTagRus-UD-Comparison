@@ -20,16 +20,11 @@ docker login nvcr.io
 docker run --gpus all -it --rm \
   -v "$PWD":/workspace -w /workspace \
   -p 6006:6006 \
-  nvcr.io/nvidia/tensorflow:22.12-tf1-py3 bash
+  nvcr.io/nvidia/tensorflow:22.12-tf1-py3 \
+  bash -c "bash docker/setup_udpipe2_env.sh && bash"
 ```
 
-3) Install UDPipe 2 dependencies inside the container:
-```
-python -m pip install --no-cache-dir \
-  "protobuf==3.20.3" tqdm "tensorboard==1.15" ufal.chu_liu_edmonds
-```
-
-4) Train UDPipe 2 on UD corpus
+3) Train UDPipe 2 on UD corpus
 ```
 python vendor/udpipe2/udpipe2.py models/ud-morph \
   --train datasets/ud/train.conllu \
@@ -40,7 +35,7 @@ python vendor/udpipe2/udpipe2.py models/ud-morph \
   --threads 8
 ```
 
-5) Train UDPipe 2 on SynTagRus corpus
+4) Train UDPipe 2 on SynTagRus corpus
 ```
 python vendor/udpipe2/udpipe2.py models/str-morph \
   --train datasets/str/train.conllu \
