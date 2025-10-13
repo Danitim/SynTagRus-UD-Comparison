@@ -10,6 +10,6 @@ PY
 
 echo "[INFO] Installing UDPipe 2 dependencies..."
 python -m pip install --no-cache-dir \
-  "protobuf==3.20.3" tqdm "tensorboard==1.15" ufal.chu_liu_edmonds
+  "protobuf==3.20.3" tqdm "tensorboard==1.15" ufal.udpipe ufal.chu_liu_edmonds
 
 echo "[INFO] Environment ready."
