@@ -6,7 +6,7 @@ Comparison of two corpora with different markup (SynTagRus and Universal Depende
 ## UDPipe 2 Morphology Training (with ready wembeddings)
 ### GPU (Docker + NGC Tensorflow 1 Container)
 
-0) Download and setup docker
+0) Download, setup and launch docker
 
 1) Login to NGC
 ```
