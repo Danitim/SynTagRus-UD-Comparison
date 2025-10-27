@@ -7,10 +7,21 @@ from convert.utils import match_sentences
 from convert.normalize import normalize_str_sentence_to_ud
 from utils.tree import check_sentence
 
+def _infer_split_name_from_filename(filename: str) -> str:
+    name = filename.lower()
+    if "train" in name:
+        return "train"
+    elif "dev" in name:
+        return "dev"
+    elif "test" in name:
+        return "test"
+    else:
+        return "unknown"
+
 def align_package_by_source(package, source_name, str_path, ud_save_path,
                             str_save_path, unaligned_path, no_source_path,
                             source_aligned, source_unaligned, retry,
-                            not_tree_path):
+                            not_tree_path, split_name):
     '''
     Align one package of sentences sharing the same source
         name by source name
@@ -59,6 +70,10 @@ def align_package_by_source(package, source_name, str_path, ud_save_path,
         for ud_sent, str_sent, found in zip(package, str_sents, found_flags):
             if found:
                 source_aligned += 1
+                
+                if split_name:
+                    ud_sent.set_meta("split", split_name)
+                    str_sent.set_meta("split", split_name)
                 
                 try:
                     errs = check_sentence(str_sent)
@@ -169,6 +184,9 @@ def align_corpora_by_source(save_path, str_path, ud_path,
 
         for file_path in pathlib.Path(ud_path).rglob("**/*.conllu"):
             conll = pyconll.load_from_file(file_path)
+            
+            split_name = _infer_split_name_from_filename(file_path.name)
+            print(f"Processing {file_path.name} (split={split_name})")
 
             package_source_name = get_source(conll[0])
             package = []
@@ -188,7 +206,8 @@ def align_corpora_by_source(save_path, str_path, ud_path,
                         source_aligned,
                         source_unaligned,
                         retry,
-                        not_tree_path
+                        not_tree_path,
+                        split_name
                     )
                     package_source_name = source_name
                     package = [ud_sent]
@@ -206,7 +225,8 @@ def align_corpora_by_source(save_path, str_path, ud_path,
                 source_aligned,
                 source_unaligned,
                 retry,
-                not_tree_path
+                not_tree_path,
+                split_name
             )
 
         source_not_found = ud_count - source_aligned - source_unaligned
