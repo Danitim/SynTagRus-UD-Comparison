@@ -10,6 +10,9 @@ class Token:
     idx: int
     upos: str
     feats_norm: str
+    
+def is_real_token(tok_form: str) -> bool:
+    return (tok_form is not None) and (tok_form != '_')
 
 def parse_feats(s: str) -> str:
     if not s or s == "_" or s.strip() == "":
@@ -46,6 +49,9 @@ def iter_words(conllu_path: str) -> Iterator[Token]:
             cols = line.rstrip("\n").split("\t")
             if len(cols) != 10:
                 raise ValueError(f"Некорректная строка (не 10 колонок): {line.strip()}")
+            tok_form = cols[FORM]
+            if not is_real_token(tok_form):
+                continue
             tok_id = cols[ID]
             try:
                 _ = int(tok_id)
@@ -61,9 +67,7 @@ def iter_words(conllu_path: str) -> Iterator[Token]:
 def check_isomorphic(gold_tokens: List[Token], pred_tokens: List[Token]) -> None:
     if len(gold_tokens) != len(pred_tokens):
         raise RuntimeError(
-            f"Несовпадение числа сравниваемых слов: gold={len(gold_tokens)}, pred={len(pred_tokens)}.\n"
-            "Убедись, что порядок предложений совпадает, и предсказание делалось на тех же входах."
-        )
+            f"Несовпадение числа сравниваемых слов: gold={len(gold_tokens)}, pred={len(pred_tokens)}.\n")
 
 def accuracy(n_correct: int, n_total: int) -> float:
     return 100.0 * n_correct / n_total if n_total else 0.0
