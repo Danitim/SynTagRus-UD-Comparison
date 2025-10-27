@@ -21,7 +21,7 @@ compute() {
     "$in" "$out"
 }
 
-for sub in str ud; do
+for sub in str str_new str_old ud ud_new ud_old; do
   for split in train dev test; do
     f="datasets/${sub}/${split}.conllu"
     if [[ ! -f "$f" ]]; then
