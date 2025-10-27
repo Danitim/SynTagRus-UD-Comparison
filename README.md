@@ -3,6 +3,37 @@ Comparison of two corpora with different markup (SynTagRus and Universal Depende
 
 [Paper link](https://www.elibrary.ru/item.asp?id=78752085)
 
+## Dataset preparation
+0) Download SynTagRus and SynTagRus UD version into `Corpora` folder (preferably with names `SynTagRus` and `UD_SynTagRus`)
+
+1) Install required libraries (e.g. ```pip install -r convert/requirements.txt```)
+
+2) Convert corpora to the same format:
+```
+python3 corpora.py convert --corpus UD
+python3 corpora.py convert --corpus STR
+```
+
+3) Align both corpora:
+```
+python3 corpora.py align
+```
+
+4) Restore the initial splits (used in UD version):
+```
+python3 scripts/restore_splits.py
+```
+
+5) Create splits for new/old data:
+```
+python3 scripts/split_new_old.py 
+```
+
+6) Fix possible last blank line errors:
+```
+./scripts/fix_conllu_eof.sh
+```
+
 ## UDPipe 2 Morphology Training (with ready wembeddings)
 ### GPU (Docker + NGC Tensorflow 1 Container)
 
@@ -15,35 +46,13 @@ docker login nvcr.io
 # Password: API key 
 ```
 
-2) Launch the TF1 Container with CUDA 11.x
+2) Launch the training process:
 ```
 docker run --gpus all -it --rm \
   -v "$PWD":/workspace -w /workspace \
   -p 6006:6006 \
   nvcr.io/nvidia/tensorflow:22.12-tf1-py3 \
-  bash -c "bash docker/setup_udpipe2_env.sh && bash"
-```
-
-1) Train UDPipe 2 on UD-SynTagRus
-```
-python vendor/udpipe2/udpipe2.py models/ud-morph \
-  --train datasets/ud/train.conllu \
-  --dev datasets/ud/dev.conllu \
-  --max_sentence_len 256 \
-  --parse 0 \
-  --tags "UPOS,FEATS" \
-  --threads 8
-```
-
-1) Train UDPipe 2 on SynTagRus
-```
-python vendor/udpipe2/udpipe2.py models/str-morph \
-  --train datasets/str/train.conllu \
-  --dev datasets/str/dev.conllu \
-  --max_sentence_len 256 \
-  --parse 0 \
-  --tags "UPOS,FEATS" \
-  --threads 8
+  bash docker/pipeline_all.sh
 ```
 
 ## UDPipe 2 Morphology Evaluating

@@ -1,87 +1,98 @@
 import argparse
-import io
-import os
-import sys
+from pathlib import Path
+import pyconll
 from typing import List, Tuple
 
-ADDED_PREFIX = "# Added to SynTagRus"
+NEW_MARKER = "Added to SynTagRus"
 
-def read_sentences(path: str) -> List[List[str]]:
-    sentences: List[List[str]] = []
-    cur: List[str] = []
-    with io.open(path, 'r', encoding='utf-8') as f:
-        for line in f:
-            if line.strip() == "":
-                if cur:
-                    sentences.append(cur)
-                    cur = []
-            else:
-                cur.append(line)
-        if cur:
-            sentences.append(cur)
-    return sentences
+def write_sentences(path: Path, sentences: List[pyconll.unit.sentence.Sentence]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8", newline="") as f:
+        for i, sent in enumerate(sentences):
+            f.write(sent.conll())
+            f.write("\n")
+            if i != len(sentences) - 1:
+                f.write("\n")
 
-def is_ud_sentence_new(ud_sent_lines: List[str]) -> bool:
-    for ln in ud_sent_lines:
-        if ln.lstrip().startswith("#") and ln.lstrip().startswith(ADDED_PREFIX):
+def sentence_is_new(ud_sent: pyconll.unit.sentence.Sentence) -> bool:
+    for line in ud_sent.conll().splitlines():
+        if f"# {NEW_MARKER}" in line.strip():
             return True
     return False
 
-def write_sentences(path: str, sents: List[List[str]]) -> None:
-    with io.open(path, 'w', encoding='utf-8', newline='') as f:
-        for i, sent in enumerate(sents):
-            for ln in sent:
-                f.write(ln if ln.endswith("\n") else ln + "\n")
-            if i != len(sents) - 1:
-                f.write("\n")
+def split_pair(
+    ud_in: Path,
+    str_in: Path,
+) -> Tuple[List[pyconll.unit.sentence.Sentence],
+           List[pyconll.unit.sentence.Sentence],
+           List[pyconll.unit.sentence.Sentence],
+           List[pyconll.unit.sentence.Sentence]]:
+    ud_conll = pyconll.load_from_file(ud_in)
+    str_conll = pyconll.load_from_file(str_in)
 
-def split_aligned(
-    ud_path: str,
-    str_path: str,
-    outdir: str,
-) -> Tuple[int, int, int]:
-    ud_sents = read_sentences(ud_path)
-    str_sents = read_sentences(str_path)
+    if len(ud_conll) != len(str_conll):
+        raise RuntimeError(
+            f"Split mismatch: {ud_in} has {len(ud_conll)} sentences, "
+            f"but {str_in} has {len(str_conll)} sentences"
+        )
 
-    if len(ud_sents) != len(str_sents):
-        msg = f"Предупреждение: число предложений не совпадает (UD={len(ud_sents)}, STR={len(str_sents)})."
-        print(msg, file=sys.stderr)
-        sys.exit(2)
+    ud_old, ud_new = [], []
+    str_old, str_new = [], []
 
-    n = min(len(ud_sents), len(str_sents))
-
-    ud_new, ud_old, str_new, str_old = [], [], [], []
-    n_new = 0
-    for i in range(n):
-        if is_ud_sentence_new(ud_sents[i]):
-            ud_new.append(ud_sents[i]); str_new.append(str_sents[i]); n_new += 1
+    for u_sent, s_sent in zip(ud_conll, str_conll):
+        if sentence_is_new(u_sent):
+            ud_new.append(u_sent)
+            str_new.append(s_sent)
         else:
-            ud_old.append(ud_sents[i]); str_old.append(str_sents[i])
+            ud_old.append(u_sent)
+            str_old.append(s_sent)
 
-    os.makedirs(outdir, exist_ok=True)
-    write_sentences(os.path.join(outdir, "ud_new.conllu"),  ud_new)
-    write_sentences(os.path.join(outdir, "ud_old.conllu"),  ud_old)
-    write_sentences(os.path.join(outdir, "str_new.conllu"), str_new)
-    write_sentences(os.path.join(outdir, "str_old.conllu"), str_old)
-
-    print(f"[OK] Записано:\n"
-          f"  UD:  new={len(ud_new)} → {os.path.join(outdir, 'ud_new.conllu')}\n"
-          f"       old={len(ud_old)} → {os.path.join(outdir, 'ud_old.conllu')}\n"
-          f"  STR: new={len(str_new)} → {os.path.join(outdir, 'str_new.conllu')}\n"
-          f"       old={len(str_old)} → {os.path.join(outdir, 'str_old.conllu')}")
-    return n, n_new, n - n_new
+    return ud_old, ud_new, str_old, str_new
 
 def main():
     ap = argparse.ArgumentParser(
-        description="Разделение выровненных UD/STR .conllu на старые/новые по строке '# Added to SynTagRus' в UD."
+        description=(
+            "Берёт datasets/ud/{train,dev,test}.conllu и datasets/str/{train,dev,test}.conllu, "
+            "делит каждую пару на old/new по маркеру '# Added to SynTagRus 2015–2020', "
+            "и пишет в datasets/{ud-old,ud-new,str-old,str-new}/{train,dev,test}.conllu"
+        )
     )
-    ap.add_argument("--ud", required=True, help="Путь к ud_aligned.conllu")
-    ap.add_argument("--str", required=True, help="Путь к str_aligned.conllu")
-    ap.add_argument("--outdir", default=".", help="Каталог для вывода (по умолчанию текущий)")
+    ap.add_argument("--datasets-root", default="datasets",
+                    help="Корень с поддиректориями ud/ и str/ (по умолчанию: datasets)")
+    ap.add_argument("--splits", nargs="+", default=["train", "dev", "test"],
+                    help="Какие сплиты обрабатывать (по умолчанию: train dev test)")
     args = ap.parse_args()
 
-    total, n_new, n_old = split_aligned(args.ud, args.str, args.outdir)
-    print(f"Итог: использовано предложений: {total}; новых: {n_new}; старых: {n_old}")
+    root = Path(args.datasets_root)
+
+    for split_name in args.splits:
+        ud_in = root / "ud" / f"{split_name.conllu if split_name.endswith('.conllu') else split_name + '.conllu'}"
+        str_in = root / "str" / f"{split_name.conllu if split_name.endswith('.conllu') else split_name + '.conllu'}"
+
+        # Вдруг кто-то вызовет со split_name='train.conllu' — поддержим оба случая.
+        if not ud_in.exists():
+            ud_in = root / "ud" / f"{split_name}.conllu"
+        if not str_in.exists():
+            str_in = root / "str" / f"{split_name}.conllu"
+
+        ud_old_sents, ud_new_sents, str_old_sents, str_new_sents = split_pair(ud_in, str_in)
+
+        # Куда писать
+        out_ud_old = root / "ud-old" / f"{split_name}.conllu"
+        out_ud_new = root / "ud-new" / f"{split_name}.conllu"
+        out_str_old = root / "str-old" / f"{split_name}.conllu"
+        out_str_new = root / "str-new" / f"{split_name}.conllu"
+
+        write_sentences(out_ud_old, ud_old_sents)
+        write_sentences(out_ud_new, ud_new_sents)
+        write_sentences(out_str_old, str_old_sents)
+        write_sentences(out_str_new, str_new_sents)
+
+        print(
+            f"[{split_name}] "
+            f"ud_old={len(ud_old_sents)} ud_new={len(ud_new_sents)} | "
+            f"str_old={len(str_old_sents)} str_new={len(str_new_sents)}"
+        )
 
 if __name__ == "__main__":
     main()
