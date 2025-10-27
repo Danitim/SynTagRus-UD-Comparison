@@ -63,11 +63,11 @@ compute_wemb () {
 
 CORPORA=(ud ud-new ud-old str str-new str-old)
 
-# for corpus in "${CORPORA[@]}"; do
-#   for split in train dev test; do
-#     compute_wemb "datasets/${corpus}/${split}.conllu"
-#   done
-# done
+for corpus in "${CORPORA[@]}"; do
+  for split in train dev test; do
+    compute_wemb "datasets/${corpus}/${split}.conllu"
+  done
+done
 
 echo "=== [STEP 2] Wembeddings done ==="
 
