@@ -49,6 +49,8 @@ docker login nvcr.io
 2) Launch the training process:
 ```
 docker run --gpus all -it --rm \
+  --ipc=host --ulimit memlock=-1 \
+  --ulimit stack=67108864 \
   -v "$PWD":/workspace -w /workspace \
   -p 6006:6006 \
   nvcr.io/nvidia/tensorflow:22.12-tf1-py3 \
