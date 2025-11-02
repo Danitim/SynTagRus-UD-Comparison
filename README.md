@@ -1,7 +1,7 @@
 # SynTagRus-UD-Comparison
 Comparison of two corpora with different markup (SynTagRus and Universal Dependencies).
 
-[Paper link](https://www.elibrary.ru/item.asp?id=78752085)
+[Paper link](https://itas2024.iitp.ru/media/upload/itas-2024.pdf#page=330)
 
 ## Dataset preparation
 0) Download SynTagRus and SynTagRus UD version into `Corpora` folder (preferably with names `SynTagRus` and `UD_SynTagRus`)
