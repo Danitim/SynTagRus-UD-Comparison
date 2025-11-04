@@ -39,7 +39,7 @@ python3 scripts/split_new_old.py
 
 0) Download, setup and launch docker
 
-1) Login to NGC
+1) Login to NGC:
 ```
 docker login nvcr.io
 # Username: $oauthtoken
@@ -59,52 +59,12 @@ docker run --gpus all -it --rm \
 
 ## UDPipe 2 Morphology Evaluating
 
-0) Create and activate environment with dependencies for inference
+1) Run prediction compute:
 ```
-pip install uv      # uv is used for example
-uv venv .venv-udpipe
-source .venv-udpipe/bin/activate
-uv pip install "tensorflow>=2.3.1" "transformers>=4,<5" ufal.chu_liu_edmonds ufal.udpipe
+./scripts/predict_all.sh
 ```
 
-1) Launch UDPipe 2 server with morphology models loaded
+2) Evaluate morphology and write results:
 ```
-python vendor/udpipe2/udpipe2_server.py 8001 ud-morph \
-ud-morph models/ud-morph/ ru_syntagrus None \
-str-morph models/str-morph/ ru_syntagrus None
-```
-
-2) Compute predictions by chunks script on UD-SynTagRus
-```
-python scripts/predict_conllu_in_chunks.py \
-  --input datasets/ud/test.conllu \
-  --service http://localhost:8001 \
-  --model ud-morph \
-  --chunk_size 2000 \
-  --chunks_dir tmp \
-  --chunks_pred_dir out/ud-morph/chunks \
-  --client_script vendor/udpipe2/udpipe2_client.py \
-  --output out/ud-morph/test.pred.conllu \
-  --tagger udpipe
-```
-
-3) Compute predictions by chunks script on SynTagRus
-```
-python scripts/predict_conllu_in_chunks.py \
-  --input datasets/str/test.conllu \
-  --service http://localhost:8001 \
-  --model str-morph \
-  --chunk_size 2000 \
-  --chunks_dir tmp \
-  --chunks_pred_dir out/str-morph/chunks \
-  --client_script vendor/udpipe2/udpipe2_client.py \
-  --output out/str-morph/test.pred.conllu \
-  --tagger udpipe
-```
-
-4) Evaluate both corpora predictions
-```
-python scripts/evaluate_morph.py datasets/ud/test.conllu out/ud-morph/test.pred.conllu
-
-python scripts/evaluate_morph.py datasets/str/test.conllu out/str-morph/test.pred.conllu
+python3 scripts/evaluate_morph.py
 ```

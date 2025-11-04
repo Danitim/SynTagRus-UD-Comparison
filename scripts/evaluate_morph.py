@@ -1,6 +1,7 @@
 import argparse
 from dataclasses import dataclass
-from typing import Dict, Iterable, List, Tuple, Iterator, Optional
+from pathlib import Path
+from typing import Dict, Iterator, List, Optional
 
 ID, FORM, LEMMA, UPOS, XPOS, FEATS, HEAD, DEPREL, DEPS, MISC = range(10)
 
@@ -10,7 +11,7 @@ class Token:
     idx: int
     upos: str
     feats_norm: str
-    
+
 def is_real_token(tok_form: str) -> bool:
     return (tok_form is not None) and (tok_form != '_')
 
@@ -67,9 +68,10 @@ def iter_words(conllu_path: str) -> Iterator[Token]:
 def check_isomorphic(gold_tokens: List[Token], pred_tokens: List[Token]) -> None:
     if len(gold_tokens) != len(pred_tokens):
         raise RuntimeError(
-            f"Несовпадение числа сравниваемых слов: gold={len(gold_tokens)}, pred={len(pred_tokens)}.\n")
+            f"Несовпадение числа сравниваемых слов: gold={len(gold_tokens)}, pred={len(pred_tokens)}.\n"
+        )
 
-def accuracy(n_correct: int, n_total: int) -> float:
+def _accuracy(n_correct: int, n_total: int) -> float:
     return 100.0 * n_correct / n_total if n_total else 0.0
 
 def eval_morph(gold_path: str, pred_path: str) -> Dict[str, float]:
@@ -88,42 +90,92 @@ def eval_morph(gold_path: str, pred_path: str) -> Dict[str, float]:
         all_ok  += int(u_ok and f_ok)
 
     return {
-        "UPOS":   accuracy(upos_ok, n),
-        "Feats":  accuracy(feats_ok, n),
-        "AllTags":accuracy(all_ok, n),
-        "Total":  n,
+        "UPOS":    _accuracy(upos_ok, n),
+        "Feats":   _accuracy(feats_ok, n),
+        "AllTags": _accuracy(all_ok, n),
+        "Total":   float(n),
     }
 
-def main():
-    ap = argparse.ArgumentParser(description="Evaluate UPOS / FEATS / AllTags on CoNLL-U (gold vs pred).")
-    ap.add_argument("gold", help="Путь к gold CoNLL-U")
-    ap.add_argument("pred", help="Путь к предсказанному CoNLL-U")
-    ap.add_argument("--show-mismatches", type=int, default=0,
-                    help="Показать первые K несовпадений (для отладки)")
+DISPLAY_NAMES: Dict[str, str] = {
+    "ud":       "UD",
+    "ud-old":   "UD-Old",
+    "ud-new":   "UD-New",
+    "str":      "SynTagRus",
+    "str-old":  "SynTagRus-Old",
+    "str-new":  "SynTagRus-New",
+}
+
+ORDER: List[str] = ["ud", "ud-new", "ud-old", "str", "str-new", "str-old"]
+
+def block_header(title: str) -> str:
+    return f"{title}:\nMetric   |   Accuracy\n---------+-----------\n"
+
+def block_body(scores: Dict[str, float]) -> str:
+    return (
+        f"UPOS     | {scores['UPOS']:9.2f}\n"
+        f"Feats    | {scores['Feats']:9.2f}\n"
+        f"AllTags  | {scores['AllTags']:9.2f}\n"
+        f"(Total tokens compared: {int(scores['Total'])})\n"
+    )
+
+def run_and_collect(
+    datasets_root: Path,
+    outputs_root: Path,
+) -> List[str]:
+    lines: List[str] = []
+    for corpus in ORDER:
+        title = DISPLAY_NAMES.get(corpus, corpus)
+
+        gold_path = datasets_root / corpus / "test.conllu"
+        pred_path = outputs_root / corpus / "test.pred.conllu"
+
+        if not gold_path.is_file():
+            print(f"[SKIP] No gold-file: {gold_path}")
+            continue
+        if not pred_path.is_file():
+            print(f"[SKIP] No predictions: {pred_path}")
+            continue
+
+        try:
+            scores = eval_morph(str(gold_path), str(pred_path))
+        except Exception as e:
+            print(f"[ERR] Error while evaluating {corpus}: {e}")
+            continue
+
+        lines.append(block_header(title))
+        lines.append(block_body(scores))
+        lines.append("")
+
+    return lines
+
+def main() -> int:
+    ap = argparse.ArgumentParser(
+        description="Evaluate morphology for six corpora and write results.txt"
+    )
+    ap.add_argument(
+        "--datasets-root", type=Path, default=Path("datasets"),
+        help="Путь к корню gold-датасетов (по умолчанию: datasets)"
+    )
+    ap.add_argument(
+        "--outputs-root", type=Path, default=Path("out"),
+        help="Путь к корню предсказаний (по умолчанию: out)"
+    )
+    ap.add_argument(
+        "--results-path", type=Path, default=Path("results.txt"),
+        help="Куда записать сводный отчёт (по умолчанию: results.txt)"
+    )
     args = ap.parse_args()
 
-    scores = eval_morph(args.gold, args.pred)
+    lines = run_and_collect(args.datasets_root, args.outputs_root)
 
-    print("Metric   |   Accuracy")
-    print("---------+-----------")
-    print(f"UPOS     | {scores['UPOS']:9.2f}")
-    print(f"Feats    | {scores['Feats']:9.2f}")
-    print(f"AllTags  | {scores['AllTags']:9.2f}")
-    print(f"(Total tokens compared: {scores['Total']})")
+    if not lines:
+        print("[WARN] No blocks collected — check paths to data and predictions.")
+        return 1
 
-    if args.show_mismatches:
-        gold = list(iter_words(args.gold))
-        pred = list(iter_words(args.pred))
-        shown = 0
-        for g, p in zip(gold, pred):
-            if (g.upos != p.upos) or (g.feats_norm != p.feats_norm):
-                print("\n--- mismatch ---")
-                print(f"sent_id: {g.sent_id}")
-                print(f"UPOS: gold={g.upos} | pred={p.upos}")
-                print(f"FEATS:\n  gold: {g.feats_norm or '_'}\n  pred: {p.feats_norm or '_'}")
-                shown += 1
-                if shown >= args.show_mismatches:
-                    break
+    text = "\n".join(lines).rstrip() + "\n"
+    args.results_path.write_text(text, encoding="utf-8")
+    print(f"[OK] Results written to {args.results_path}")
+    return 0
 
 if __name__ == "__main__":
-    main()
+    raise SystemExit(main())
