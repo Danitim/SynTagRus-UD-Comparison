@@ -40,6 +40,8 @@ echo "=== [STEP 2] Computing wembeddings for all corpora ==="
 
 WEMB_PY=".venv-wemb/bin/python"
 FORCE=0
+MASK_ELLIPSIS=1
+MASK_TOKEN="[MASK]"
 
 compute_wemb () {
   local inpath="$1"
@@ -56,9 +58,17 @@ compute_wemb () {
   fi
 
   echo "[WEMB] $inpath -> $outpath"
-  "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
-    --format=conllu \
-    "$inpath" "$outpath"
+  if [[ "$MASK_ELLIPSIS" == "1" ]]; then
+    "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
+      --format=conllu \
+      --mask_ellipsis \
+      --ellipsis_mask_token "$MASK_TOKEN" \
+      "$inpath" "$outpath"
+  else
+    "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
+      --format=conllu \
+      "$inpath" "$outpath"
+  fi
 }
 
 CORPORA=(ud ud-new ud-old str str-new str-old)
@@ -85,13 +95,13 @@ pip install \
 
 echo "=== [STEP 3] UDPipe2 deps ready ==="
 
-# 4. Train UDPipe 2 models for all corpora
-echo "=== [STEP 4] Training UDPipe 2 models ==="
+# 4. Train UDPipe 2 parsing-only models for all corpora
+echo "=== [STEP 4] Training UDPipe 2 parsing-only models ==="
 mkdir -p models
 
 train_udpipe () {
   local corpus="$1"
-  local model_dir="models/${corpus}-morph"
+  local model_dir="models/${corpus}-parse"
   local train_file="datasets/${corpus}/train.conllu"
   local dev_file="datasets/${corpus}/dev.conllu"
 
@@ -109,14 +119,16 @@ train_udpipe () {
     --train "$train_file" \
     --dev "$dev_file" \
     --max_sentence_len 256 \
-    --parse 0 \
-    --tags "UPOS,FEATS" \
-    --threads 8
+    --parse 1 \
+    --tags "" \
+    --threads 8 \
+    --mask_ellipsis \
+    --ellipsis_mask_token "$MASK_TOKEN"
 }
 
 for corpus in "${CORPORA[@]}"; do
   train_udpipe "$corpus"
 done
 
-echo "=== [ALL DONE] All models trained successfully ==="
+echo "=== [ALL DONE] All parsing-only models trained successfully ==="
 exec bash
