@@ -54,7 +54,7 @@ docker run --gpus all -it --rm \
   -v "$PWD":/workspace -w /workspace \
   -p 6006:6006 \
   nvcr.io/nvidia/tensorflow:22.12-tf1-py3 \
-  bash docker/pipeline_all.sh
+  bash docker/pipeline_tag.sh
 ```
 
 ## UDPipe 2 Morphology Evaluating
