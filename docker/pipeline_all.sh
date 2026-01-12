@@ -25,8 +25,8 @@ fi
 source .venv-wemb/bin/activate
 
 echo "=== [STEP 1] Installing wembeddings deps via uv ==="
-if [[ -f vendor/wembedding_service/requirements.txt ]]; then
-  uv pip install -r vendor/wembedding_service/requirements.txt
+if [[ -f vendor/udpipe2/wembedding_service/requirements.txt ]]; then
+  uv pip install -r vendor/udpipe2/wembedding_service/requirements.txt
 else
   echo "[WARN] requirements.txt for wembedding_service not found, installing minimal deps"
   uv pip install numpy scipy tqdm
@@ -56,7 +56,7 @@ compute_wemb () {
   fi
 
   echo "[WEMB] $inpath -> $outpath"
-  "$WEMB_PY" vendor/wembedding_service/compute_wembeddings.py \
+  "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
     --format=conllu \
     "$inpath" "$outpath"
 }
