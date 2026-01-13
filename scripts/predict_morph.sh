@@ -25,7 +25,7 @@ echo "=== [PREDICT] Running predictions ==="
 for corpus in "${CORPORA[@]}"; do
   model_dir="models/${corpus}-morph"
   in_file="datasets/${corpus}/test.conllu"
-  out_dir="out/${corpus}"
+  out_dir="out/${corpus}-morph"
   out_file="${out_dir}/test.pred.conllu"
 
   if [[ ! -d "$model_dir" ]]; then

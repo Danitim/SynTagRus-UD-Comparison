@@ -48,11 +48,11 @@ docker login nvcr.io
 
 2) Launch the training process:
 ```
-docker run --gpus all -it --rm \
+docker run --gpus '"device=0"' -it --rm \
   --ipc=host --ulimit memlock=-1 \
   --ulimit stack=67108864 \
   -v "$PWD":/workspace -w /workspace \
-  -p 6006:6006 \
+  -p 127.0.0.1:6006:6006 \
   nvcr.io/nvidia/tensorflow:22.12-tf1-py3 \
   bash docker/pipeline_tag.sh
 ```
@@ -61,7 +61,7 @@ docker run --gpus all -it --rm \
 
 1) Run prediction compute:
 ```
-./scripts/predict_all.sh
+./scripts/predict_morph.sh
 ```
 
 2) Evaluate morphology and write results:

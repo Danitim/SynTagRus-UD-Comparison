@@ -127,7 +127,7 @@ def run_and_collect(
         title = DISPLAY_NAMES.get(corpus, corpus)
 
         gold_path = datasets_root / corpus / "test.conllu"
-        pred_path = outputs_root / corpus / "test.pred.conllu"
+        pred_path = outputs_root / f"{corpus}-morph" / "test.pred.conllu"
 
         if not gold_path.is_file():
             print(f"[SKIP] No gold-file: {gold_path}")
