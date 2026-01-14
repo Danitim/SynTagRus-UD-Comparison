@@ -49,6 +49,7 @@ docker login nvcr.io
 2) Launch the training process:
 ```
 docker run --gpus '"device=0"' -it --rm \
+  -e TF_FORCE_GPU_ALLOW_GROWTH=true \
   --ipc=host --ulimit memlock=-1 \
   --ulimit stack=67108864 \
   -v "$PWD":/workspace -w /workspace \
