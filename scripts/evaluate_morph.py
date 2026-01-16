@@ -161,7 +161,7 @@ def main() -> int:
         help="Путь к корню предсказаний (по умолчанию: out)"
     )
     ap.add_argument(
-        "--results-path", type=Path, default=Path("results.txt"),
+        "--results-path", type=Path, default=Path("results_morph.txt"),
         help="Куда записать сводный отчёт (по умолчанию: results.txt)"
     )
     args = ap.parse_args()
