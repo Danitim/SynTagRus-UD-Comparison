@@ -9,7 +9,7 @@ sys.path.insert(0, os.path.join(_REPO_ROOT, "vendor", "udpipe2"))
 
 import udpipe2_eval
 
-SYNTAX_METRICS = ["UAS", "LAS", "UCM", "LCM"]
+SYNTAX_METRICS = ["UAS", "LAS", "UCM", "LCM", "UAS_ELL", "LAS_ELL"]
 
 
 def _iter_sentences(path: str) -> Iterator[List[str]]:
@@ -101,6 +101,61 @@ def _eval_ucm_lcm(gold_path: str, pred_path: str) -> Dict[str, float]:
     }
 
 
+def _iter_ellipsis_tokens(sentence_lines: List[str]) -> Iterator[Tuple[int, Optional[int], str]]:
+    # Yields (id, head, deprel_base) for ellipsis tokens.
+    for line in sentence_lines:
+        if not line or line.startswith("#"):
+            continue
+        cols = line.split("\t")
+        if len(cols) != 10:
+            raise ValueError(f"Invalid CONLLU line (expected 10 columns): {line}")
+
+        tok_id = cols[udpipe2_eval.ID]
+        if not tok_id.isdigit():
+            continue  # ignore multi-word tokens and empty nodes
+
+        form = cols[udpipe2_eval.FORM]
+        if form and form != "_":
+            continue
+
+        head = _parse_int(cols[udpipe2_eval.HEAD])
+        deprel = cols[udpipe2_eval.DEPREL].split(":", 1)[0]
+        yield (int(tok_id), head, deprel)
+
+
+def _eval_ellipsis_uas_las(gold_path: str, pred_path: str) -> Dict[str, float]:
+    gold_sents = list(_iter_sentences(gold_path))
+    pred_sents = list(_iter_sentences(pred_path))
+    if len(gold_sents) != len(pred_sents):
+        raise RuntimeError(f"Non-isomorphic data: sentences gold={len(gold_sents)} pred={len(pred_sents)}")
+
+    total = 0
+    uas_ok = 0
+    las_ok = 0
+
+    for gold_lines, pred_lines in zip(gold_sents, pred_sents):
+        gold_tokens = list(_iter_ellipsis_tokens(gold_lines))
+        pred_tokens = list(_iter_ellipsis_tokens(pred_lines))
+        if len(gold_tokens) != len(pred_tokens):
+            raise RuntimeError(
+                f"Non-isomorphic data: ellipsis tokens gold={len(gold_tokens)} pred={len(pred_tokens)}"
+            )
+
+        for (gi, g_head, g_rel), (pi, p_head, p_rel) in zip(gold_tokens, pred_tokens):
+            if gi != pi:
+                raise RuntimeError(f"Non-isomorphic data: token id mismatch gold={gi} pred={pi}")
+
+            total += 1
+            head_ok = (g_head is not None) and (p_head is not None) and (g_head == p_head)
+            uas_ok += int(head_ok)
+            las_ok += int(head_ok and (g_rel == p_rel))
+
+    return {
+        "UAS_ELL": 100.0 * uas_ok / total if total else 0.0,
+        "LAS_ELL": 100.0 * las_ok / total if total else 0.0,
+    }
+
+
 def eval_syntax(gold_path: str, pred_path: str) -> Dict[str, float]:
     gold = udpipe2_eval.load_conllu_file(gold_path, single_root=1)
     pred = udpipe2_eval.load_conllu_file(pred_path, single_root=1)
@@ -111,6 +166,7 @@ def eval_syntax(gold_path: str, pred_path: str) -> Dict[str, float]:
         "LAS": 100.0 * evaluation["LAS"].f1,
     }
     scores.update(_eval_ucm_lcm(gold_path, pred_path))
+    scores.update(_eval_ellipsis_uas_las(gold_path, pred_path))
     return scores
 
 
@@ -127,7 +183,7 @@ ORDER: List[str] = ["ud", "ud-new", "ud-old", "str", "str-new", "str-old"]
 
 
 def block_header(title: str) -> str:
-    return f"{title}:\nMetric |        F1\n-------+----------\n"
+    return f"{title}:\nMetric |     Score\n-------+----------"
 
 
 def block_body(scores: Dict[str, float]) -> str:
