@@ -101,7 +101,7 @@ mkdir -p models
 
 train_udpipe () {
   local corpus="$1"
-  local model_dir="models/${corpus}-parse"
+  local model_dir="models/${corpus}-syntax"
   local train_file="datasets/${corpus}/train.conllu"
   local dev_file="datasets/${corpus}/dev.conllu"
 
