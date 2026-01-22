@@ -105,12 +105,12 @@ def _apply_ellipsis(reference: Sentence, target: Sentence) -> int:
         if _is_ellipsis(item[1]):
             if item[1] != ref_form:
                 item[1] = ref_form
-                _mark_restored_misc(item)
+                _set_ellipsis_flag(item)
                 replaced += 1
     return replaced
 
 
-def _mark_restored_misc(token: TokenLine) -> None:
+def _set_ellipsis_flag(token: TokenLine) -> None:
     misc_index = 9
     marker = "Ellipsis=Yes"
     misc = token[misc_index] if len(token) > misc_index else "_"
