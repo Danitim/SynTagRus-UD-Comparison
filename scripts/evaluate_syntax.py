@@ -114,8 +114,11 @@ def _iter_ellipsis_tokens(sentence_lines: List[str]) -> Iterator[Tuple[int, Opti
         if not tok_id.isdigit():
             continue  # ignore multi-word tokens and empty nodes
 
-        form = cols[udpipe2_eval.FORM]
-        if form and form != "_":
+        misc = cols[udpipe2_eval.MISC]
+        if not misc or misc == "_":
+            continue
+        misc_parts = [part.strip() for part in misc.split("|")]
+        if "Ellipsis=Yes" not in misc_parts:
             continue
 
         head = _parse_int(cols[udpipe2_eval.HEAD])

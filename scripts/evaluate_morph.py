@@ -12,8 +12,18 @@ class Token:
     upos: str
     feats_norm: str
 
-def is_real_token(tok_form: str) -> bool:
-    return (tok_form is not None) and (tok_form != '_')
+def has_ellipsis_flag(misc: str) -> bool:
+    if not misc or misc == "_":
+        return False
+    return any(part.strip() == "Ellipsis=Yes" for part in misc.split("|"))
+
+
+def is_real_token(tok_form: str, misc: str) -> bool:
+    if (tok_form is None) or (tok_form == "_"):
+        return False
+    if has_ellipsis_flag(misc):
+        return False
+    return True
 
 def parse_feats(s: str) -> str:
     if not s or s == "_" or s.strip() == "":
@@ -51,7 +61,8 @@ def iter_words(conllu_path: str) -> Iterator[Token]:
             if len(cols) != 10:
                 raise ValueError(f"Некорректная строка (не 10 колонок): {line.strip()}")
             tok_form = cols[FORM]
-            if not is_real_token(tok_form):
+            tok_misc = cols[MISC]
+            if not is_real_token(tok_form, tok_misc):
                 continue
             tok_id = cols[ID]
             try:
