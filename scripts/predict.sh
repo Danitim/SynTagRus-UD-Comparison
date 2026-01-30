@@ -1,6 +1,15 @@
 #!/bin/bash
 set -euo pipefail
 
+SUFFIX="${1:-}"
+case "$SUFFIX" in
+  morph|syntax|morphsyntax) ;;
+  *)
+    echo "Usage: $0 {morph|syntax|morphsyntax}"
+    exit 1
+    ;;
+esac
+
 CORPORA=(ud ud-new ud-old str str-new str-old)
 PYTHON="${PYTHON:-python}"
 
@@ -22,11 +31,11 @@ if [[ ! -f "$UDPIPE2" ]]; then
   exit 1
 fi
 
-echo "=== [PREDICT] Running syntax predictions ==="
+echo "=== [PREDICT] Running predictions (suffix: ${SUFFIX}) ==="
 for corpus in "${CORPORA[@]}"; do
-  model_dir="models/${corpus}-syntax"
+  model_dir="models/${corpus}-${SUFFIX}"
   in_file="datasets/${corpus}/test.conllu"
-  out_dir="out/${corpus}-syntax"
+  out_dir="out/${corpus}-${SUFFIX}"
   out_file="${out_dir}/test.pred.conllu"
 
   if [[ ! -d "$model_dir" ]]; then
@@ -53,4 +62,4 @@ for corpus in "${CORPORA[@]}"; do
   fi
 done
 
-echo "=== [DONE] Done. Syntax predictions are in out/<corpus>-syntax/test.pred.conllu ==="
+echo "=== [DONE] Done. Predictions are in out/<corpus>-${SUFFIX}/test.pred.conllu ==="
