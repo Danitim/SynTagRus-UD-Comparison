@@ -56,7 +56,7 @@ def build_data_from_suffix(
     *,
     csv_dir: str = "csvs",
 ):
-    from convert import convert_conllu_list_to_csv
+    from src.convert import convert_conllu_list_to_csv
 
     manifest = [
         ("ud",      "gold", "../datasets/ud/test.conllu"),
