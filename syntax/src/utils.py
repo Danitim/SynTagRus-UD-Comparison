@@ -85,14 +85,17 @@ def build_data_from_suffix(
 
 
 def save_str_ud_deprel_mismatches(
-    str_df: pd.DataFrame,
-    ud_df: pd.DataFrame,
-    out_path: str,
-    *,
-    deprel_str: str = None,
-    deprel_ud_gold: str = None,
-    deprel_ud_predicted: str = None,
+    df: pd.DataFrame,
+    split: str,
+    deprel_str: str,
+    deprel_ud_gold: str,
+    deprel_ud_predicted: str,
+    out_path: str = None,
 ) -> pd.DataFrame:
+    
+    str_df = df[f"str-{split}"] if split != "full" else df["str"]
+    ud_df = df[f"ud-{split}"] if split != "full" else df["ud"]
+    
     if "sent_id" not in str_df.columns or "id" not in str_df.columns:
         str_df = str_df.reset_index()
     if "sent_id" not in ud_df.columns or "id" not in ud_df.columns:
@@ -140,5 +143,10 @@ def save_str_ud_deprel_mismatches(
             "deprel_ud_predicted: {deprel_ud_predicted}\n"
             "----\n".format(**row)
         )
+    if out_path is None:
+        str_name = "".join(c for c in deprel_str if c.isalnum())
+        ud_gold_name = "".join(c for c in deprel_ud_gold if c.isalnum())
+        ud_pred_name = "".join(c for c in deprel_ud_predicted if c.isalnum())
+        out_path = f"data_{split}_{str_name}_{ud_gold_name}_{ud_pred_name}.txt"
     Path(out_path).write_text("".join(lines), encoding="utf-8")
     return out
