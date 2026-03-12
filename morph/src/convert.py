@@ -7,6 +7,7 @@ from dataclasses import dataclass
 
 _SENT_ID_RE = re.compile(r"^#\s*sent_id\s*=\s*(.*)$", flags=re.IGNORECASE)
 _TEXT_RE = re.compile(r"^#\s*text\s*=\s*(.*)$", flags=re.IGNORECASE)
+_ELLIPSIS_RE = re.compile(r"(?:^|\\|)Ellipsis=Yes(?:\\||$)")
 
 @dataclass
 class ConlluToken:
@@ -87,17 +88,15 @@ def _extract_sent_id(comments: List[str]) -> Optional[str]:
             return m.group(1).strip()
     return None
 
-def _is_elliptic_token(tok: ConlluToken) -> bool:
-    form_empty = (tok.FORM is None) or (tok.FORM == "") or (tok.FORM == "_")
-    upos_empty = (tok.UPOS is None) or (tok.UPOS == "") or (tok.UPOS == "_")
-    feats_empty = (tok.FEATS is None) or (tok.FEATS == "") or (tok.FEATS == "_")
-    return form_empty or (upos_empty and feats_empty)
+def _has_ellipsis_flag(misc: str) -> bool:
+    if misc is None or misc == "" or misc == "_":
+        return False
+    return _ELLIPSIS_RE.search(str(misc)) is not None
 
 def conllu_to_csv(
     conllu_path: str,
     csv_path: str,
     *,
-    drop_ellipses: bool = True,
     reconstruct_text_if_missing: bool = True,
 ) -> None:
     sents = read_conllu(conllu_path)
@@ -109,26 +108,30 @@ def conllu_to_csv(
             text = reconstruct_sentence_text(s.tokens)
 
         for tok in s.tokens:
-            if drop_ellipses and _is_elliptic_token(tok):
-                continue
+            ellipsis = 1 if _has_ellipsis_flag(tok.MISC) else 0
             rows_out.append({
                 "sent_id": sent_id,
                 "text": text,
                 "id": tok.ID,
                 "form": tok.FORM,
-                "deprel": tok.DEPREL,
+                "lemma": tok.LEMMA,
                 "upos": tok.UPOS if tok.UPOS != "_" else "",
                 "feats": "" if tok.FEATS in (None, "", "_") else tok.FEATS,
+                "head": tok.HEAD,
+                "deprel": tok.DEPREL,
+                "ellipsis": ellipsis,
             })
 
-    df = pd.DataFrame(rows_out, columns=["sent_id", "text", "id", "form", "deprel", "upos", "feats"])
+    df = pd.DataFrame(
+        rows_out,
+        columns=["sent_id", "text", "id", "form", "lemma", "upos", "feats", "head", "deprel", "ellipsis"],
+    )
     df.to_csv(csv_path, index=False, encoding="utf-8")
 
 def convert_conllu_list_to_csv(
     input_paths: List[str],
     out_dir: str,
     *,
-    drop_ellipses: bool = True,
     reconstruct_text_if_missing: bool = True,
     suffix: str = ".csv",
 ) -> List[str]:
@@ -138,13 +141,21 @@ def convert_conllu_list_to_csv(
 
     for p in input_paths:
         p = str(p)
-        name = '.'.join(Path(p).parts[2:])[:-7]
+        path = Path(p)
+        corpus = path.parent.name
+        for sfx in ("-morphsyntax", "-morph", "-syntax"):
+            if corpus.endswith(sfx):
+                corpus = corpus[: -len(sfx)]
+                break
+        stem = path.name
+        if stem.endswith(".conllu"):
+            stem = stem[: -len(".conllu")]
+        name = f"{corpus}.{stem}"
         csv_path = str(Path(out_dir) / f"{name}{suffix}")
         if not Path(csv_path).exists():
             conllu_to_csv(
                 p,
                 csv_path,
-                drop_ellipses=drop_ellipses,
                 reconstruct_text_if_missing=reconstruct_text_if_missing,
             )
         out_paths.append(csv_path)
