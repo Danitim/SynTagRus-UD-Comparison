@@ -24,7 +24,9 @@ morph/upos/
 morph/morph_common/
 syntax/csvs/
 syntax/aligned/
-# syntax/data_*.txt
+syntax/*/data_*.txt
+syntax/matrix_*.csv
+syntax/*/matrix_*.csv
 
 # Virtual environment
 .venv-*/
