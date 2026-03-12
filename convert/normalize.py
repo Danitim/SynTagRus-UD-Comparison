@@ -218,6 +218,8 @@ def normalize_str_sentence_to_ud(ud_sent: Sentence, str_sent: Sentence) -> Optio
     ud_core: List[Token]  = [t for t in ud_sent  if not _is_punct(t)]
     str_core: List[Token] = [t for t in str_sent if not _is_punct(t)]
 
+    ud_punct_forms = {(t.form or '').strip() for t in ud_sent if _is_punct(t)}
+
     aligned_pairs: List[Token] = []
     link_map: Dict[str, str] = {"0": "0"}
 
@@ -228,6 +230,9 @@ def normalize_str_sentence_to_ud(ud_sent: Sentence, str_sent: Sentence) -> Optio
             return None
         s1, u1 = str_core[i], ud_core[j]
         if _is_plus_token(s1) and not _eq_forms(s1.form, u1.form):
+            i += 1
+            continue
+        if (s1.form or '').strip() in ud_punct_forms and not _eq_forms(s1.form, u1.form):
             i += 1
             continue
         if _is_ellipsis(u1):
