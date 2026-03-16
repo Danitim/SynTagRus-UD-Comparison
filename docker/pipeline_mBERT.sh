@@ -44,8 +44,6 @@ MASK_ELLIPSIS=1
 MASK_TOKEN="[MASK]"
 WEMB_MODEL="bert-base-multilingual-uncased-last4"
 WEMB_MODEL_TAG="mBERT"
-WEMB_MODEL="rubert-conversational-last4"
-WEMB_MODEL_TAG="RuBERT"
 
 compute_wemb () {
   local inpath="$1"
