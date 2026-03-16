@@ -40,8 +40,12 @@ echo "=== [STEP 2] Computing wembeddings for all corpora ==="
 
 WEMB_PY=".venv-wemb/bin/python"
 FORCE=1
+MASK_ELLIPSIS=1
+MASK_TOKEN="[MASK]"
 WEMB_MODEL="bert-base-multilingual-uncased-last4"
 WEMB_MODEL_TAG="mBERT"
+WEMB_MODEL="rubert-conversational-last4"
+WEMB_MODEL_TAG="RuBERT"
 
 compute_wemb () {
   local inpath="$1"
@@ -58,10 +62,19 @@ compute_wemb () {
   fi
 
   echo "[WEMB] $inpath -> $outpath"
-  "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
-    --format=conllu \
-    --model "$WEMB_MODEL" \
-    "$inpath" "$outpath"
+  if [[ "$MASK_ELLIPSIS" == "1" ]]; then
+    "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
+      --format=conllu \
+      --model "$WEMB_MODEL" \
+      --mask_ellipsis \
+      --ellipsis_mask_token "$MASK_TOKEN" \
+      "$inpath" "$outpath"
+  else
+    "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
+      --format=conllu \
+      --model "$WEMB_MODEL" \
+      "$inpath" "$outpath"
+  fi
 }
 
 CORPORA=(ud ud-new ud-old str str-new str-old)
@@ -119,9 +132,11 @@ train_udpipe () {
     --seed "$seed" \
     --wembedding_model "$WEMB_MODEL" \
     --max_sentence_len 256 \
-    --parse 0 \
+    --parse 1 \
     --tags "UPOS,FEATS" \
-    --threads 8
+    --threads 8 \
+    --mask_ellipsis \
+    --ellipsis_mask_token "$MASK_TOKEN"
 }
 
 for corpus in "${CORPORA[@]}"; do
