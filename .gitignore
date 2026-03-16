@@ -5,8 +5,9 @@ diaparser/*.conllu
 # Diaparser data directory
 diaparser/data/
 
-# Models
+# Models and output
 models*/
+out*/
 
 # Results
 results_*
@@ -15,7 +16,6 @@ results_*
 Corpora/
 Aligned/
 datasets*/
-out/
 tmp/
 
 # Analysis outputs
