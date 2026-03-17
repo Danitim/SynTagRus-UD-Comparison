@@ -38,7 +38,7 @@ fi
 source .venv-cobald/bin/activate
 
 echo "=== [STEP 1] Installing CoBaLD deps via uv ==="
-uv pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+uv pip install torch --index-url https://download.pytorch.org/whl/cu121
 uv pip install -e vendor/cobald
 
 echo "[STEP 1] venv ready."
