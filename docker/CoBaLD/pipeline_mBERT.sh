@@ -86,7 +86,7 @@ train_cobald () {
   python vendor/cobald/train.py \
     --model_config "$MODEL_CONFIG" \
     --data_dir "$data_dir" \
-    --columns "$COLUMNS" \
+    --conllu_columns "$COLUMNS" \
     --output_dir "$model_dir" \
     --seed "$seed"
 }
