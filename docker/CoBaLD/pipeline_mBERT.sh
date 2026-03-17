@@ -28,12 +28,8 @@ COLUMNS="upos feats head deprel"
 # ── Step 1: Create venv & install deps ───────────────────────
 echo "=== [STEP 1] Creating uv venv for CoBaLD ==="
 
-if [[ -d ".venv-cobald" ]]; then
-  echo "[INFO] Existing .venv-cobald found, reusing it"
-else
-  echo "[INFO] No .venv-cobald found, creating new one"
-  uv venv --python 3.12 .venv-cobald
-fi
+rm -rf .venv-cobald
+uv venv --python 3.12 .venv-cobald
 
 source .venv-cobald/bin/activate
 
