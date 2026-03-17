@@ -34,7 +34,7 @@ uv venv --python 3.12 .venv-cobald
 source .venv-cobald/bin/activate
 
 echo "=== [STEP 1] Installing CoBaLD deps via uv ==="
-uv pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu121
+uv pip install torch==2.6.0 --index-url https://download.pytorch.org/whl/cu118
 uv pip install -e vendor/cobald
 
 echo "[STEP 1] venv ready."
