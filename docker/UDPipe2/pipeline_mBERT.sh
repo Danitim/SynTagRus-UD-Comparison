@@ -110,7 +110,7 @@ train_udpipe () {
   local corpus="$1"
   local seed="$2"
   local run_idx="$3"
-  local model_dir="models/${WEMB_MODEL_TAG}/${corpus}-run${run_idx}"
+  local model_dir="models/UDPipe2/${WEMB_MODEL_TAG}/${corpus}-run${run_idx}"
   local train_file="datasets/${corpus}/train.conllu"
   local dev_file="datasets/${corpus}/dev.conllu"
 
