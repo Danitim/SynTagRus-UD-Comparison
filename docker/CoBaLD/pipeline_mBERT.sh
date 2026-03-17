@@ -23,7 +23,7 @@ CORPORA=(ud ud-new ud-old str str-new str-old)
 SEEDS=(7 91 333 678 1999)
 NUM_SEEDS=${#SEEDS[@]}
 
-COLUMNS="upos,feats,head,deprel"
+CONLLU_COLUMNS="upos,feats,head,deprel"
 
 # ── Step 1: Create venv & install deps ───────────────────────
 echo "=== [STEP 1] Creating uv venv for CoBaLD ==="
@@ -86,7 +86,7 @@ train_cobald () {
   python vendor/cobald/train.py \
     --model_config "$MODEL_CONFIG" \
     --data_dir "$data_dir" \
-    --conllu_columns "$COLUMNS" \
+    --conllu_columns "$CONLLU_COLUMNS" \
     --output_dir "$model_dir" \
     --seed "$seed"
 }
