@@ -70,7 +70,7 @@ train_cobald () {
   local corpus="$1"
   local seed="$2"
   local run_idx="$3"
-  local model_dir="models/CoBaLD/${MODEL_TAG}/${corpus}-run${run_idx}"
+  local model_dir="models/CoBaLD/${MODEL_TAG}/run${run_idx}/${corpus}"
   local data_dir="datasets/${corpus}"
   local train_file="${data_dir}/train.conllu"
 
@@ -94,6 +94,7 @@ train_cobald () {
 for corpus in "${CORPORA[@]}"; do
   for i in "${!SEEDS[@]}"; do
     run_idx=$((i + 1))
+    mkdir -p "models/CoBaLD/${MODEL_TAG}/run$run_idx"
     train_cobald "$corpus" "${SEEDS[$i]}" "$run_idx"
   done
 done
