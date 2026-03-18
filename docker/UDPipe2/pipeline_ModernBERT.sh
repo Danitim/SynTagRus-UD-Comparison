@@ -25,6 +25,7 @@ fi
 source .venv-wemb-modern/bin/activate
 
 echo "=== [STEP 1] Installing wembeddings deps via uv ==="
+uv pip install torch --index-url https://download.pytorch.org/whl/cu121
 if [[ -f vendor/udpipe2/wembedding_service/requirements.txt ]]; then
   uv pip install -r vendor/udpipe2/wembedding_service/requirements.txt
 else
