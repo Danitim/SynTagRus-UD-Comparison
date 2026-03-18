@@ -15,14 +15,14 @@ echo "[INFO] python default: $(command -v python)"
 # 1. Create env for wembeddings using uv
 echo "=== [STEP 1] Creating uv venv for wembeddings ==="
 
-if [[ -d ".venv-wemb" ]]; then
-  echo "[INFO] Existing .venv-wemb found, reusing it"
+if [[ -d ".venv-wemb-modern" ]]; then
+  echo "[INFO] Existing .venv-wemb-modern found, reusing it"
 else
-  echo "[INFO] No .venv-wemb found, creating new one"
-  uv venv .venv-wemb
+  echo "[INFO] No .venv-wemb-modern found, creating new one"
+  uv venv .venv-wemb-modern
 fi
 
-source .venv-wemb/bin/activate
+source .venv-wemb-modern/bin/activate
 
 echo "=== [STEP 1] Installing wembeddings deps via uv ==="
 if [[ -f vendor/udpipe2/wembedding_service/requirements.txt ]]; then
@@ -38,12 +38,12 @@ echo "[INFO] Python in wemb venv: $(which python)"
 # 2. Compute wembeddings for all datasets
 echo "=== [STEP 2] Computing wembeddings for all corpora ==="
 
-WEMB_PY=".venv-wemb/bin/python"
+WEMB_PY=".venv-wemb-modern/bin/python"
 FORCE=1
 MASK_ELLIPSIS=1
 MASK_TOKEN="[MASK]"
-WEMB_MODEL="bert-base-multilingual-uncased-last4"
-WEMB_MODEL_TAG="mBERT"
+WEMB_MODEL="modernbert-base-last4"
+WEMB_MODEL_TAG="ModernBERT"
 
 compute_wemb () {
   local inpath="$1"
