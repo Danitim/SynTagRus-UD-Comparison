@@ -19,7 +19,7 @@ if [[ -d ".venv-wemb-modern" ]]; then
   echo "[INFO] Existing .venv-wemb-modern found, reusing it"
 else
   echo "[INFO] No .venv-wemb-modern found, creating new one"
-  uv venv .venv-wemb-modern
+  uv venv --python 3.12 .venv-wemb-modern
 fi
 
 source .venv-wemb-modern/bin/activate
