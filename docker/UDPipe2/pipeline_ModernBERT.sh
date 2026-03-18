@@ -15,12 +15,8 @@ echo "[INFO] python default: $(command -v python)"
 # 1. Create env for wembeddings using uv
 echo "=== [STEP 1] Creating uv venv for wembeddings ==="
 
-if [[ -d ".venv-wemb-modern" ]]; then
-  echo "[INFO] Existing .venv-wemb-modern found, reusing it"
-else
-  echo "[INFO] No .venv-wemb-modern found, creating new one"
-  uv venv --python 3.12 .venv-wemb-modern
-fi
+rm -rf .venv-wemb-modern/
+uv venv --python 3.12 .venv-wemb-modern
 
 source .venv-wemb-modern/bin/activate
 
