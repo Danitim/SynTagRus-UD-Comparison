@@ -39,7 +39,11 @@ echo "[INFO] Python in wemb venv: $(which python)"
 echo "=== [STEP 2] Computing wembeddings for all corpora ==="
 
 WEMB_PY=".venv-wemb/bin/python"
-FORCE=0
+FORCE=1
+MASK_ELLIPSIS=1
+MASK_TOKEN="[MASK]"
+WEMB_MODEL="bert-base-multilingual-uncased-last4"
+WEMB_MODEL_TAG="mBERT"
 
 compute_wemb () {
   local inpath="$1"
@@ -56,9 +60,19 @@ compute_wemb () {
   fi
 
   echo "[WEMB] $inpath -> $outpath"
-  "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
-    --format=conllu \
-    "$inpath" "$outpath"
+  if [[ "$MASK_ELLIPSIS" == "1" ]]; then
+    "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
+      --format=conllu \
+      --model "$WEMB_MODEL" \
+      --mask_ellipsis \
+      --ellipsis_mask_token "$MASK_TOKEN" \
+      "$inpath" "$outpath"
+  else
+    "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
+      --format=conllu \
+      --model "$WEMB_MODEL" \
+      "$inpath" "$outpath"
+  fi
 }
 
 CORPORA=(ud ud-new ud-old str str-new str-old)
@@ -85,13 +99,19 @@ pip install \
 
 echo "=== [STEP 3] UDPipe2 deps ready ==="
 
-# 4. Train UDPipe 2 models for all corpora
-echo "=== [STEP 4] Training UDPipe 2 models ==="
-mkdir -p models
+# 4. Train 5 UDPipe 2 tagging models with different random seeds
+echo "=== [STEP 4] Training UDPipe 2 models (5 runs per corpus) ==="
+mkdir -p "models/UDPipe2/"
+mkdir -p "models/UDPipe2/${WEMB_MODEL_TAG}"
+
+SEEDS=(7 91 333 678 1999)
+NUM_SEEDS=${#SEEDS[@]}
 
 train_udpipe () {
   local corpus="$1"
-  local model_dir="models/${corpus}-morph"
+  local seed="$2"
+  local run_idx="$3"
+  local model_dir="models/UDPipe2/${WEMB_MODEL_TAG}/run${run_idx}/${corpus}"
   local train_file="datasets/${corpus}/train.conllu"
   local dev_file="datasets/${corpus}/dev.conllu"
 
@@ -100,7 +120,7 @@ train_udpipe () {
     return
   fi
 
-  echo "[train] corpus=${corpus}"
+  echo "[train] corpus=${corpus} seed=${seed} run=${run_idx}/${NUM_SEEDS}"
   echo "        train=${train_file}"
   echo "        dev=${dev_file}"
   echo "        model_dir=${model_dir}"
@@ -108,15 +128,23 @@ train_udpipe () {
   python vendor/udpipe2/udpipe2.py "$model_dir" \
     --train "$train_file" \
     --dev "$dev_file" \
+    --seed "$seed" \
+    --wembedding_model "$WEMB_MODEL" \
     --max_sentence_len 256 \
-    --parse 0 \
+    --parse 1 \
     --tags "UPOS,FEATS" \
-    --threads 8
+    --threads 8 \
+    --mask_ellipsis \
+    --ellipsis_mask_token "$MASK_TOKEN"
 }
 
 for corpus in "${CORPORA[@]}"; do
-  train_udpipe "$corpus"
+  for i in "${!SEEDS[@]}"; do
+    run_idx=$((i + 1))
+    mkdir -p "models/UDPipe2/${WEMB_MODEL_TAG}/run${run_idx}"
+    train_udpipe "$corpus" "${SEEDS[$i]}" "$run_idx"
+  done
 done
 
-echo "=== [ALL DONE] All models trained successfully ==="
+echo "=== [ALL DONE] All models (5 seeds × ${#CORPORA[@]} corpora) trained successfully ==="
 exec bash

@@ -1,6 +1,8 @@
 #!/bin/bash
 set -euo pipefail
 
+# Corpora: ud-new, str-new
+
 # 0. Ensure uv is installed and on PATH
 if ! command -v uv >/dev/null 2>&1; then
   echo "[BOOT] Installing uv..."
@@ -15,16 +17,13 @@ echo "[INFO] python default: $(command -v python)"
 # 1. Create env for wembeddings using uv
 echo "=== [STEP 1] Creating uv venv for wembeddings ==="
 
-if [[ -d ".venv-wemb" ]]; then
-  echo "[INFO] Existing .venv-wemb found, reusing it"
-else
-  echo "[INFO] No .venv-wemb found, creating new one"
-  uv venv .venv-wemb
-fi
+rm -rf .venv-wemb-mmbert-new/
+uv venv --python 3.12 .venv-wemb-mmbert-new
 
-source .venv-wemb/bin/activate
+source .venv-wemb-mmbert-new/bin/activate
 
 echo "=== [STEP 1] Installing wembeddings deps via uv ==="
+uv pip install torch --index-url https://download.pytorch.org/whl/cu121
 if [[ -f vendor/udpipe2/wembedding_service/requirements.txt ]]; then
   uv pip install -r vendor/udpipe2/wembedding_service/requirements.txt
 else
@@ -36,12 +35,14 @@ echo "[STEP 1] venv ready."
 echo "[INFO] Python in wemb venv: $(which python)"
 
 # 2. Compute wembeddings for all datasets
-echo "=== [STEP 2] Computing wembeddings for all corpora ==="
+echo "=== [STEP 2] Computing wembeddings for corpora: ud-new, str-new ==="
 
-WEMB_PY=".venv-wemb/bin/python"
-FORCE=0
+WEMB_PY=".venv-wemb-mmbert-new/bin/python"
+FORCE=1
 MASK_ELLIPSIS=1
 MASK_TOKEN="[MASK]"
+WEMB_MODEL="mmBERT-base-last4"
+WEMB_MODEL_TAG="mmBERT"
 
 compute_wemb () {
   local inpath="$1"
@@ -61,17 +62,19 @@ compute_wemb () {
   if [[ "$MASK_ELLIPSIS" == "1" ]]; then
     "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
       --format=conllu \
+      --model "$WEMB_MODEL" \
       --mask_ellipsis \
       --ellipsis_mask_token "$MASK_TOKEN" \
       "$inpath" "$outpath"
   else
     "$WEMB_PY" vendor/udpipe2/wembedding_service/compute_wembeddings.py \
       --format=conllu \
+      --model "$WEMB_MODEL" \
       "$inpath" "$outpath"
   fi
 }
 
-CORPORA=(ud ud-new ud-old str str-new str-old)
+CORPORA=(ud-new str-new)
 
 for corpus in "${CORPORA[@]}"; do
   for split in train dev test; do
@@ -95,13 +98,19 @@ pip install \
 
 echo "=== [STEP 3] UDPipe2 deps ready ==="
 
-# 4. Train UDPipe 2 parsing-only models for all corpora
-echo "=== [STEP 4] Training UDPipe 2 parsing-only models ==="
-mkdir -p models
+# 4. Train 5 UDPipe 2 models with different random seeds
+echo "=== [STEP 4] Training UDPipe 2 models (5 runs × ${#CORPORA[@]} corpora) ==="
+mkdir -p "models/UDPipe2/"
+mkdir -p "models/UDPipe2/${WEMB_MODEL_TAG}"
+
+SEEDS=(7 91 333 678 1999)
+NUM_SEEDS=${#SEEDS[@]}
 
 train_udpipe () {
   local corpus="$1"
-  local model_dir="models/${corpus}-syntax"
+  local seed="$2"
+  local run_idx="$3"
+  local model_dir="models/UDPipe2/${WEMB_MODEL_TAG}/run${run_idx}/${corpus}"
   local train_file="datasets/${corpus}/train.conllu"
   local dev_file="datasets/${corpus}/dev.conllu"
 
@@ -110,7 +119,7 @@ train_udpipe () {
     return
   fi
 
-  echo "[train] corpus=${corpus}"
+  echo "[train] corpus=${corpus} seed=${seed} run=${run_idx}/${NUM_SEEDS}"
   echo "        train=${train_file}"
   echo "        dev=${dev_file}"
   echo "        model_dir=${model_dir}"
@@ -118,17 +127,23 @@ train_udpipe () {
   python vendor/udpipe2/udpipe2.py "$model_dir" \
     --train "$train_file" \
     --dev "$dev_file" \
+    --seed "$seed" \
+    --wembedding_model "$WEMB_MODEL" \
     --max_sentence_len 256 \
     --parse 1 \
-    --tags "" \
+    --tags "UPOS,FEATS" \
     --threads 8 \
     --mask_ellipsis \
     --ellipsis_mask_token "$MASK_TOKEN"
 }
 
 for corpus in "${CORPORA[@]}"; do
-  train_udpipe "$corpus"
+  for i in "${!SEEDS[@]}"; do
+    run_idx=$((i + 1))
+    mkdir -p "models/UDPipe2/${WEMB_MODEL_TAG}/run${run_idx}"
+    train_udpipe "$corpus" "${SEEDS[$i]}" "$run_idx"
+  done
 done
 
-echo "=== [ALL DONE] All parsing-only models trained successfully ==="
+echo "=== [ALL DONE] Corpora: ud-new, str-new — models in models/UDPipe2/${WEMB_MODEL_TAG}/ ==="
 exec bash
