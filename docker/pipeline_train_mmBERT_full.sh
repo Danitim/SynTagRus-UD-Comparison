@@ -23,7 +23,7 @@ uv venv --python 3.12 .venv-wemb-mmbert-full
 source .venv-wemb-mmbert-full/bin/activate
 
 echo "=== [STEP 1] Installing wembeddings deps via uv ==="
-uv pip install torch --index-url https://download.pytorch.org/whl/cu121
+uv pip install "torch>=2.6" --index-url https://download.pytorch.org/whl/cpu
 if [[ -f vendor/udpipe2/wembedding_service/requirements.txt ]]; then
   uv pip install -r vendor/udpipe2/wembedding_service/requirements.txt
 else
@@ -31,22 +31,6 @@ else
   uv pip install numpy scipy tqdm
 fi
 uv pip install "transformers>=4.48.0" safetensors
-
-# Patch check_torch_load_is_safe to allow torch < 2.6 (no safetensors in this model)
-python - <<'PYEOF'
-import inspect, pathlib, transformers.utils.import_utils as m
-p = pathlib.Path(inspect.getfile(m))
-src = p.read_text()
-patched = src.replace(
-    "def check_torch_load_is_safe():",
-    "def check_torch_load_is_safe():  # patched: torch<2.6 compat\n    return",
-)
-if patched == src:
-    print("[WARN] patch target not found — check transformers version")
-else:
-    p.write_text(patched)
-    print("[OK] check_torch_load_is_safe patched")
-PYEOF
 
 echo "[STEP 1] venv ready."
 echo "[INFO] Python in wemb venv: $(which python)"
