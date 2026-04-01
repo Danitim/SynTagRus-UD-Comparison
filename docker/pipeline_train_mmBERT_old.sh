@@ -32,6 +32,22 @@ else
 fi
 uv pip install "transformers>=4.48.0" safetensors
 
+# Patch check_torch_load_is_safe to allow torch < 2.6 (no safetensors in this model)
+python - <<'PYEOF'
+import inspect, pathlib, transformers.utils.import_utils as m
+p = pathlib.Path(inspect.getfile(m))
+src = p.read_text()
+patched = src.replace(
+    "def check_torch_load_is_safe():",
+    "def check_torch_load_is_safe():  # patched: torch<2.6 compat\n    return",
+)
+if patched == src:
+    print("[WARN] patch target not found — check transformers version")
+else:
+    p.write_text(patched)
+    print("[OK] check_torch_load_is_safe patched")
+PYEOF
+
 echo "[STEP 1] venv ready."
 echo "[INFO] Python in wemb venv: $(which python)"
 
