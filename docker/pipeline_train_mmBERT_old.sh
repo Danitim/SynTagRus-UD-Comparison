@@ -40,7 +40,7 @@ echo "=== [STEP 2] Computing wembeddings for corpora: ud-old, str-old ==="
 WEMB_PY=".venv-wemb-mmbert-old/bin/python"
 FORCE=1
 MASK_ELLIPSIS=1
-MASK_TOKEN="[MASK]"
+MASK_TOKEN="<mask>"
 WEMB_MODEL="mmBERT-base-last4"
 WEMB_MODEL_TAG="mmBERT"
 
