@@ -30,6 +30,7 @@ else
   echo "[WARN] requirements.txt for wembedding_service not found, installing minimal deps"
   uv pip install numpy scipy tqdm
 fi
+uv pip install "transformers<4.48.0"
 
 echo "[STEP 1] venv ready."
 echo "[INFO] Python in wemb venv: $(which python)"
