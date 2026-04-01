@@ -78,7 +78,7 @@ CORPORA=(ud-old str-old)
 
 for corpus in "${CORPORA[@]}"; do
   for split in train dev test; do
-    compute_wemb "datasets/${corpus}/${split}.conllu"
+    compute_wemb "datasets_mmbert/${corpus}/${split}.conllu"
   done
 done
 
@@ -111,8 +111,8 @@ train_udpipe () {
   local seed="$2"
   local run_idx="$3"
   local model_dir="models/UDPipe2/${WEMB_MODEL_TAG}/run${run_idx}/${corpus}"
-  local train_file="datasets/${corpus}/train.conllu"
-  local dev_file="datasets/${corpus}/dev.conllu"
+  local train_file="datasets_mmbert/${corpus}/train.conllu"
+  local dev_file="datasets_mmbert/${corpus}/dev.conllu"
 
   if [[ ! -f "$train_file" ]]; then
     echo "[skip] $train_file not found, skipping ${corpus}"
