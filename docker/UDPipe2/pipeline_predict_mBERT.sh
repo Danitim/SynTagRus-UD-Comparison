@@ -96,7 +96,7 @@ NUM_RUNS=${#SEEDS[@]}
 predict_udpipe () {
   local corpus="$1"
   local run_idx="$2"
-  local model_dir="models/UDPipe2/${WEMB_MODEL_TAG}/${corpus}-run${run_idx}"
+  local model_dir="models/${WEMB_MODEL_TAG}/${corpus}-run${run_idx}"
   local in_file="datasets/${corpus}/test.conllu"
   local out_file="out/UDPipe2/${WEMB_MODEL_TAG}/run${run_idx}/${corpus}/test.pred.conllu"
 
