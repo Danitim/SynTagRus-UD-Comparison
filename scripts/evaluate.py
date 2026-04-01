@@ -6,18 +6,8 @@ from typing import Dict, Iterator, List, Optional
 ID, FORM, LEMMA, UPOS, XPOS, FEATS, HEAD, DEPREL, DEPS, MISC = range(10)
 
 
-def has_ellipsis_flag(misc: str) -> bool:
-    if not misc or misc == "_":
-        return False
-    return any(part.strip() == "Ellipsis=Yes" for part in misc.split("|"))
-
-
-def is_real_token(tok_form: str, misc: str) -> bool:
-    if (tok_form is None) or (tok_form == "_"):
-        return False
-    if has_ellipsis_flag(misc):
-        return False
-    return True
+def is_real_token(tok_form: str) -> bool:
+    return bool(tok_form) and tok_form != "_"
 
 
 def parse_feats(s: str) -> str:
@@ -65,8 +55,7 @@ def iter_words(conllu_path: str) -> Iterator[Token]:
             if len(cols) != 10:
                 raise ValueError(f"Invalid CONLLU line (expected 10 columns): {line.strip()}")
             tok_form = cols[FORM]
-            tok_misc = cols[MISC]
-            if not is_real_token(tok_form, tok_misc):
+            if not is_real_token(tok_form):
                 continue
             tok_id = cols[ID]
             try:
@@ -202,31 +191,8 @@ def _eval_ucm_lcm(gold_path: str, pred_path: str) -> Dict[str, float]:
     }
 
 
-def _iter_ellipsis_tokens(sentence_lines: List[str]) -> Iterator[tuple]:
-    for line in sentence_lines:
-        if not line or line.startswith("#"):
-            continue
-        cols = line.split("\t")
-        if len(cols) != 10:
-            raise ValueError(f"Invalid CONLLU line (expected 10 columns): {line}")
-
-        tok_id = cols[ID]
-        if not tok_id.isdigit():
-            continue
-
-        misc = cols[MISC]
-        if not misc or misc == "_":
-            continue
-        misc_parts = [part.strip() for part in misc.split("|")]
-        if "Ellipsis=Yes" not in misc_parts:
-            continue
-
-        head = _parse_int(cols[HEAD])
-        deprel = cols[DEPREL].split(":", 1)[0]
-        yield (int(tok_id), head, deprel)
-
-
 def _eval_ellipsis_uas_las(gold_path: str, pred_path: str) -> Dict[str, float]:
+    """UAS/LAS for tokens whose gold head is an ellipsis node (form == '_')."""
     gold_sents = list(_iter_sentences(gold_path))
     pred_sents = list(_iter_sentences(pred_path))
     if len(gold_sents) != len(pred_sents):
@@ -237,21 +203,60 @@ def _eval_ellipsis_uas_las(gold_path: str, pred_path: str) -> Dict[str, float]:
     las_ok = 0
 
     for gold_lines, pred_lines in zip(gold_sents, pred_sents):
-        gold_tokens = list(_iter_ellipsis_tokens(gold_lines))
-        pred_tokens = list(_iter_ellipsis_tokens(pred_lines))
-        if len(gold_tokens) != len(pred_tokens):
-            raise RuntimeError(
-                f"Non-isomorphic data: ellipsis tokens gold={len(gold_tokens)} pred={len(pred_tokens)}"
-            )
+        # Collect ellipsis node IDs from gold (form == "_")
+        ellipsis_ids: set = set()
+        for line in gold_lines:
+            if not line or line.startswith("#"):
+                continue
+            cols = line.split("\t")
+            if len(cols) != 10:
+                continue
+            if not cols[ID].isdigit():
+                continue
+            if not is_real_token(cols[FORM]):
+                ellipsis_ids.add(int(cols[ID]))
 
-        for (gi, g_head, g_rel), (pi, p_head, p_rel) in zip(gold_tokens, pred_tokens):
-            if gi != pi:
-                raise RuntimeError(f"Non-isomorphic data: token id mismatch gold={gi} pred={pi}")
+        if not ellipsis_ids:
+            continue
+
+        # Build pred map: tok_id -> (head, deprel)
+        pred_map: Dict[int, tuple] = {}
+        for line in pred_lines:
+            if not line or line.startswith("#"):
+                continue
+            cols = line.split("\t")
+            if len(cols) != 10:
+                continue
+            if not cols[ID].isdigit():
+                continue
+            head = _parse_int(cols[HEAD])
+            deprel = cols[DEPREL].split(":", 1)[0]
+            pred_map[int(cols[ID])] = (head, deprel)
+
+        # Evaluate regular tokens whose gold head is an ellipsis node
+        for line in gold_lines:
+            if not line or line.startswith("#"):
+                continue
+            cols = line.split("\t")
+            if len(cols) != 10:
+                continue
+            if not cols[ID].isdigit():
+                continue
+            if not is_real_token(cols[FORM]):
+                continue
+            g_head = _parse_int(cols[HEAD])
+            if g_head not in ellipsis_ids:
+                continue
+            g_rel = cols[DEPREL].split(":", 1)[0]
+            pred_entry = pred_map.get(int(cols[ID]))
 
             total += 1
-            head_ok = (g_head is not None) and (p_head is not None) and (g_head == p_head)
+            if pred_entry is None:
+                continue
+            p_head, p_rel = pred_entry
+            head_ok = (p_head == g_head)
             uas_ok += int(head_ok)
-            las_ok += int(head_ok and (g_rel == p_rel))
+            las_ok += int(head_ok and p_rel == g_rel)
 
     return {
         "UAS_ELL": 100.0 * uas_ok / total if total else 0.0,
