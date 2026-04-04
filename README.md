@@ -53,9 +53,11 @@ docker run --gpus '"device=0"' -it --rm \
   --ipc=host --ulimit memlock=-1 \
   --ulimit stack=67108864 \
   -v "$PWD":/workspace -w /workspace \
+  -v "$HOME/.cache/uv":/root/.cache/uv \
+  -v "$HOME/.cache/huggingface":/root/.cache/huggingface \
   -p 127.0.0.1:6006:6006 \
   nvcr.io/nvidia/tensorflow:22.12-tf1-py3 \
-  bash docker/pipeline_tag.sh
+  bash docker/pipeline_mBERT.sh
 ```
 
 ## UDPipe 2 Morphology Evaluating
