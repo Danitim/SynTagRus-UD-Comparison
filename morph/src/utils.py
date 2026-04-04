@@ -218,6 +218,7 @@ def save_sig_cases(
 
     if out_path is None:
         parts = "+".join(f"{c}_{sg}_{ug}_{up}" for c, sg, ug, up in sig)
+        parts = parts[:parts.find("+")] + "..." if parts.find("+") != -1 else parts
         out_path = f"sig_{parts}.txt"
 
     lines = []
