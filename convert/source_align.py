@@ -22,21 +22,6 @@ def align_package_by_source(package, source_name, str_path, ud_save_path,
                             str_save_path, unaligned_path, no_source_path,
                             source_aligned, source_unaligned, retry,
                             not_tree_path, split_name):
-    '''
-    Align one package of sentences sharing the same source
-        name by source name
-
-    Parameters:
-    package (list): list of UD sentences.
-    source_name (str): source name of the package.
-    str_path (str): path to the directory with SynTagRus files.
-    ud_save_path (Path): path to save the aligned Universal Dependencies corpus.
-    str_save_path (Path): path to save the aligned SynTagRus corpus.
-    unaligned_path (Path): path to save unaligned sentences.
-    no_source_path (Path): path to save sentences with no source found.
-    source_aligned (int): counter of aligned sentences.
-    source_unaligned (int): counter of unaligned sentences.
-    '''
     files = search_source_name(source_name, str_path)
     
     if files:
@@ -119,18 +104,6 @@ def align_corpora_by_source(save_path, str_path, ud_path,
     retry_input: str = "source_unaligned.conllu",
     retry_output: str = "source_unaligned_remaining.conllu",
     not_tree_path: str = "not_tree.log"):
-    '''
-    Align the Universal Dependencies and SynTagRus corpora by the source name.
-    
-    Parameters:
-    save_path (str): path to directory to save aligned corpora files.
-    str_path (str): path to the SynTagRus corpus.
-    ud_path (str): path to the Universal Dependencies corpus.
-    ud_save_path (str): path to save the aligned Universal Dependencies corpus.
-    str_save_path (str): path to save the aligned SynTagRus corpus.
-    unaligned_path (str): path to save unaligned sentences.
-    no_source_path (str): path to save sentences with no source found.
-    '''
     print("Starting to align by source name..." + (" (RETRY MODE)" if retry else ""))
 
 
@@ -231,7 +204,6 @@ def align_corpora_by_source(save_path, str_path, ud_path,
 
         source_not_found = ud_count - source_aligned - source_unaligned
 
-    # stats
     print("Finished aligning by source name." + (" (RETRY MODE)" if retry else ""))
     print(f"UD sentences processed: {ud_count}")
     print("Source aligned:", source_aligned, ", ", round((source_aligned / ud_count * 100) if ud_count else 0.0, 2), "%")

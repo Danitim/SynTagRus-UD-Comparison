@@ -8,14 +8,6 @@ from graphviz import Digraph
 
 
 def create_train_file(input_path, save_path = 'data.conllu'):
-    '''
-    Creates a train file from all the files in the input
-        file or directory.
-    
-    Parameters:
-    input_path (str): path to the input file or directory
-    save_path (str): path to save the train file.
-    '''
     save_path = pathlib.Path(save_path)
     save_path.open('w', encoding='utf-8').close()
     
@@ -36,18 +28,6 @@ def train_dev_test_split(train_size=0.85, dev_size=0.05, data_size=-1,
                          output_path = "diaparser/",
                          corpus_tag = "ud",
                          random_seed = 42):
-    '''
-    Splits the data into train, dev, and test sets.
-    
-    Parameters:
-    train_size (float): proportion of the data to be used for training.
-    dev_size (float): proportion of the data to be used for development.
-    data_size (int): number of sentences to be used for training, development,
-    and testing; if -1, all data is used.
-    input_path (str): path to the input file.
-    corpus_tag (str): tag to be added to the train, dev, and test files.
-    output_path (str): path to save the train, dev, and test files.    
-    '''
     random.seed(random_seed)
     
     path = pathlib.Path(input_path)
@@ -81,9 +61,6 @@ def train_dev_test_split(train_size=0.85, dev_size=0.05, data_size=-1,
     
     
 def ellipsis_flag(sent):
-    '''
-    Returns True if the sentence contains ellipsis
-    '''
     for word in sent:
         if not word.upos or word.upos == '_':
             return True
@@ -92,9 +69,6 @@ def ellipsis_flag(sent):
 
 
 def get_dependents(sent, head_id):
-    '''
-    Returns the dependents of a word with the given head_id
-    '''
     return [int(word.id) for word in sent if int(word.head) == head_id]
 
 

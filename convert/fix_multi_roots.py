@@ -140,7 +140,7 @@ def fix_multi_roots(ud_sent: Sentence, str_sent: Sentence,
             continue
         hid = str(t.head)
 
-        ell = copy.deepcopy(by_ud_id.get(hid)) # ud token with SynTagRus lemma, upos and feats
+        ell = copy.deepcopy(by_ud_id.get(hid))
         ell_str = ud_to_str_token.get(hid)
         if not ell or not ell_str:
             continue

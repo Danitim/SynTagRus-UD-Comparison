@@ -22,16 +22,6 @@ class Analyser:
         self.str_preds = pyconll.load_from_file(self.str_preds_path)
         
     def get_score(self, mode='ud', punct=False):
-        '''
-        Returns UCM, LCM, UAS, LAS scores
-            
-        Parameters:
-            mode (str): 'ud' or 'str'
-            punct (bool: False): whether to include punctuation in the score
-            
-        Returns:
-            tuple: (UCM, LCM, UAS, LAS), percentage
-        '''
         match mode:
             case 'ud':
                 test = self.ud_test
@@ -63,9 +53,6 @@ class Analyser:
     
     
     def save_arcs(self, save_path="results.csv"):
-        '''
-        Saves the arcs to a csv file
-        '''
         
         data = {
             'word': [word.form.lower() if word.form else '_' for sent in self.ud_test for word in sent],
@@ -88,9 +75,6 @@ class Analyser:
         
     
     def save_ellipsis(self, save_path="ellipsis.csv"):
-        '''
-        Saves the ellipsis sentences to a csv file
-        '''
         data = {
             'id': [],
             'ud_test_head': [],

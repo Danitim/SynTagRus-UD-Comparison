@@ -7,30 +7,17 @@ import pyconll
 import tqdm
 
 def is_basic_token(tok) -> bool:
-    """
-    Учитываем только базовые токены с целочисленным id (без '3.1', '1-2' и т.п.).
-    """
     tid = getattr(tok, 'id', None)
     return isinstance(tid, str) and tid.isdigit()
 
 def check_sentence(sent):
-    """
-    Проверяет, что предложение образует дерево:
-      - все head валидны (0 или существующий id),
-      - ровно один корень,
-      - нет циклов,
-      - все узлы связны с корнем.
-    Возвращает список строк-ошибок (пусто => всё ок).
-    """
     errs = []
-    # Собираем базовые узлы
     nodes = [tok for tok in sent if is_basic_token(tok)]
     ids = {tok.id for tok in nodes}
 
     if not ids:
-        return errs  # пустое предложение для нас "ок"
+        return errs
 
-    # 1) Валидация голов
     invalid_heads = []
     for tok in nodes:
         h = tok.head
@@ -41,13 +28,10 @@ def check_sentence(sent):
     if invalid_heads:
         errs.append(f"Invalid heads: {invalid_heads}")
 
-    # 2) Ровно один корень
     roots = [tok.id for tok in nodes if tok.head == '0']
     if len(roots) != 1:
         errs.append(f"Root count != 1 (roots={roots})")
 
-    # 3) Циклы и достижимость: идём по parent-у до корня
-    #    Если встречаем себя снова — цикл; если упёрлись в невалидную голову — ошибка.
     visited_global = set()
     for tok in nodes:
         if tok.id in visited_global:
@@ -69,18 +53,14 @@ def check_sentence(sent):
             if h not in ids:
                 errs.append(f"Broken parent chain from id={tok.id}: head {h} not in ids")
                 break
-            # self-loop?
             if h == cur.id:
                 errs.append(f"Self-loop at id={cur.id}")
                 break
-            # переход к родителю
-            # найдём узел с id=h (можно кеш, но для простоты линейный поиск)
             parent = next(n for n in nodes if n.id == h)
             cur = parent
         if ok_path:
             visited_global.update(seen)
 
-    # 4) Связность: каждый узел должен быть на пути до корня
     if len(visited_global) != len(ids):
         missing = sorted(ids - visited_global, key=int)
         errs.append(f"Unreachable from root (by following heads to 0): {missing}")

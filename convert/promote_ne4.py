@@ -193,7 +193,6 @@ def promote_ne4_constructions_in_str(
     protect_ellipsis = _ud_has_ellipsis(ud_sent) and _str_has_ellipsis(rows)
     protect_split_ne4 = _ud_has_split_ne4(ud_sent)
 
-    # ---------- PASS A: эллипсис "_" или "<X>" + [НЕ4] ----------
     if not protect_ellipsis:
         ell_idxs = [i for i, r in enumerate(rows) if _is_ellipsis_form(r["form"])]
         offsets = (1, 2, 3)
@@ -212,7 +211,6 @@ def promote_ne4_constructions_in_str(
             if word_j is None:
                 continue
 
-            # первый = эллипсис, второй = слитная НЕ4-форма (некуда/некогда/…)
             first = rows[i]
             second = rows[word_j]
             first_id = first["id"]
@@ -250,7 +248,6 @@ def promote_ne4_constructions_in_str(
             to_delete.clear()
             n = len(rows)
 
-    # ---------- PASS B: "не" + (зачем/куда/когда/чем/...) -> НЕ4 ----------
     if not protect_split_ne4:
         i = 0
         while i < n - 1:
