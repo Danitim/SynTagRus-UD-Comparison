@@ -11,7 +11,7 @@ fi
 
 if [[ "$MODEL_TAG" == "ModernBERT" ]]; then
   DATASETS_ROOT="${2:-datasets_modern}"
-if [[ "$MODEL_TAG" == "mmBERT" ]]; then
+elif [[ "$MODEL_TAG" == "mmBERT" ]]; then
   DATASETS_ROOT="${2:-datasets_mmbert}"
 else
   DATASETS_ROOT="${2:-datasets}"
