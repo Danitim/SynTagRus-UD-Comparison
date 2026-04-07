@@ -69,9 +69,23 @@ compute_wemb() {
     "$inpath" "$outpath"
 }
 
+WEMB_BATCH_SIZE=2
+WEMB_FILES=()
 for corpus in "${CV_CORPORA[@]}"; do
   for split in train dev test; do
-    compute_wemb "datasets_mmbert/${corpus}/${split}.conllu"
+    WEMB_FILES+=("datasets_mmbert/${corpus}/${split}.conllu")
+  done
+done
+
+total_wemb=${#WEMB_FILES[@]}
+for (( i=0; i<total_wemb; i+=WEMB_BATCH_SIZE )); do
+  PIDS=()
+  for (( j=i; j<i+WEMB_BATCH_SIZE && j<total_wemb; j++ )); do
+    compute_wemb "${WEMB_FILES[$j]}" &
+    PIDS+=($!)
+  done
+  for pid in "${PIDS[@]}"; do
+    wait "$pid"
   done
 done
 echo "=== [STEP 2] Wembeddings done ==="
