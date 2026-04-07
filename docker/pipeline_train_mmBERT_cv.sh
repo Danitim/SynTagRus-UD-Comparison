@@ -69,25 +69,30 @@ compute_wemb() {
     "$inpath" "$outpath"
 }
 
-WEMB_BATCH_SIZE=2
-WEMB_FILES=()
+WEMB_WORKERS=2
+WEMB_PIDS=()
+
+run_wemb_pool() {
+  local file="$1"
+  while (( ${#WEMB_PIDS[@]} >= WEMB_WORKERS )); do
+    wait -n
+    local alive=()
+    for pid in "${WEMB_PIDS[@]}"; do
+      kill -0 "$pid" 2>/dev/null && alive+=("$pid")
+    done
+    WEMB_PIDS=("${alive[@]}")
+  done
+  compute_wemb "$file" &
+  WEMB_PIDS+=($!)
+}
+
 for corpus in "${CV_CORPORA[@]}"; do
   for split in train dev test; do
-    WEMB_FILES+=("datasets_mmbert/${corpus}/${split}.conllu")
+    run_wemb_pool "datasets_mmbert/${corpus}/${split}.conllu"
   done
 done
 
-total_wemb=${#WEMB_FILES[@]}
-for (( i=0; i<total_wemb; i+=WEMB_BATCH_SIZE )); do
-  PIDS=()
-  for (( j=i; j<i+WEMB_BATCH_SIZE && j<total_wemb; j++ )); do
-    compute_wemb "${WEMB_FILES[$j]}" &
-    PIDS+=($!)
-  done
-  for pid in "${PIDS[@]}"; do
-    wait "$pid"
-  done
-done
+for pid in "${WEMB_PIDS[@]}"; do wait "$pid"; done
 echo "=== [STEP 2] Wembeddings done ==="
 
 # 3. Install UDPipe2 deps into TF1 env
