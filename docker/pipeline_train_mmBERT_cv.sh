@@ -69,21 +69,10 @@ compute_wemb() {
     "$inpath" "$outpath"
 }
 
-export -f compute_wemb
-export WEMB_PY WEMB_MODEL MASK_TOKEN
-
-# All wembedding files in parallel
-WEMB_PIDS=()
 for corpus in "${CV_CORPORA[@]}"; do
   for split in train dev test; do
-    compute_wemb "datasets_mmbert/${corpus}/${split}.conllu" &
-    WEMB_PIDS+=($!)
+    compute_wemb "datasets_mmbert/${corpus}/${split}.conllu"
   done
-done
-
-echo "[WEMB] Waiting for ${#WEMB_PIDS[@]} wembedding jobs..."
-for pid in "${WEMB_PIDS[@]}"; do
-  wait "$pid"
 done
 echo "=== [STEP 2] Wembeddings done ==="
 
