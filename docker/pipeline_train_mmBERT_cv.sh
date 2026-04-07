@@ -155,7 +155,7 @@ for corpus in "${CV_CORPORA[@]}"; do
 done
 
 # Run in batches in parallel
-BATCH_SIZE=12
+BATCH_SIZE=6
 total=${#ALL_PAIRS[@]}
 for (( i=0; i<total; i+=BATCH_SIZE )); do
   batch=("${ALL_PAIRS[@]:$i:$BATCH_SIZE}")
