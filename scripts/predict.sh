@@ -1,16 +1,22 @@
 #!/bin/bash
 set -euo pipefail
 
-SUFFIX="${1:-}"
-case "$SUFFIX" in
-  morph|syntax|morphsyntax) ;;
-  *)
-    echo "Usage: $0 {morph|syntax|morphsyntax}"
-    exit 1
-    ;;
-esac
+MODEL_TAG="${1:-}"
+if [[ -z "$MODEL_TAG" ]]; then
+  echo "Usage: $0 <MODEL_TAG> [DATASETS_ROOT]"
+  echo "  MODEL_TAG:     e.g. mBERT, mmBERT, ModernBERT"
+  echo "  DATASETS_ROOT: datasets dir (default: datasets_modern for ModernBERT, datasets otherwise)"
+  exit 1
+fi
+
+if [[ "$MODEL_TAG" == "ModernBERT" ]]; then
+  DATASETS_ROOT="${2:-datasets_modern}"
+else
+  DATASETS_ROOT="${2:-datasets}"
+fi
 
 CORPORA=(ud ud-new ud-old str str-new str-old)
+NUM_RUNS=5
 PYTHON="${PYTHON:-python}"
 
 if [[ ! -d ".venv-udpipe" ]]; then
@@ -31,35 +37,37 @@ if [[ ! -f "$UDPIPE2" ]]; then
   exit 1
 fi
 
-echo "=== [PREDICT] Running predictions (suffix: ${SUFFIX}) ==="
+echo "=== [PREDICT] model=${MODEL_TAG} datasets=${DATASETS_ROOT} ==="
+
 for corpus in "${CORPORA[@]}"; do
-  model_dir="models/${corpus}-${SUFFIX}"
-  in_file="datasets/${corpus}/test.conllu"
-  out_dir="out/${corpus}-${SUFFIX}"
-  out_file="${out_dir}/test.pred.conllu"
+  for run_idx in $(seq 1 "$NUM_RUNS"); do
+    model_dir="models/UDPipe2/${MODEL_TAG}/run${run_idx}/${corpus}"
+    in_file="${DATASETS_ROOT}/${corpus}/test.conllu"
+    out_file="out/UDPipe2/${MODEL_TAG}/run${run_idx}/${corpus}/test.pred.conllu"
 
-  if [[ ! -d "$model_dir" ]]; then
-    echo "[SKIP] Model not found: ${model_dir}"
-    continue
-  fi
-  if [[ ! -f "$in_file" ]]; then
-    echo "[SKIP] Input test file not found: ${in_file}"
-    continue
-  fi
+    if [[ ! -d "$model_dir" ]]; then
+      echo "[SKIP] Model not found: ${model_dir}"
+      continue
+    fi
+    if [[ ! -f "$in_file" ]]; then
+      echo "[SKIP] Input not found: ${in_file}"
+      continue
+    fi
 
-  mkdir -p "$out_dir"
-  echo "[RUN ] ${corpus}: ${in_file} -> ${out_file}"
+    mkdir -p "$(dirname "$out_file")"
+    echo "[RUN ] run${run_idx}/${corpus}: ${in_file} -> ${out_file}"
 
-  $PYTHON "$UDPIPE2" "$model_dir" \
-    --predict \
-    --predict_input "$in_file" \
-    --predict_output "$out_file"
+    $PYTHON "$UDPIPE2" "$model_dir" \
+      --predict \
+      --predict_input "$in_file" \
+      --predict_output "$out_file"
 
-  if [[ -s "$out_file" ]]; then
-    echo "[OK  ] ${corpus} -> ${out_file}"
-  else
-    echo "[WARN] Empty output for ${corpus}: ${out_file}"
-  fi
+    if [[ -s "$out_file" ]]; then
+      echo "[OK  ] ${out_file}"
+    else
+      echo "[WARN] Empty output: ${out_file}"
+    fi
+  done
 done
 
-echo "=== [DONE] Done. Predictions are in out/<corpus>-${SUFFIX}/test.pred.conllu ==="
+echo "=== [DONE] Predictions are in out/UDPipe2/${MODEL_TAG}/ ==="
