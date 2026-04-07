@@ -1,16 +1,3 @@
-"""
-Create 8-fold cross-validation dataset splits for mmBERT training.
-
-The training set is split into 8 equal continuous chunks. Each fold uses
-one chunk as the held-out "test", the remaining 7 chunks as "train", and
-keeps the original dev.conllu unchanged.
-
-Output structure:
-  datasets_mmbert/<corpus>-cv<k>/train.conllu
-  datasets_mmbert/<corpus>-cv<k>/dev.conllu
-  datasets_mmbert/<corpus>-cv<k>/test.conllu
-"""
-
 import argparse
 import shutil
 from pathlib import Path
@@ -42,7 +29,6 @@ def make_cv_splits(
 
         print(f"{corpus}: {total} train sents, {n_folds} folds")
 
-        # First `remainder` folds get one extra sentence to distribute evenly
         folds: list[list[str]] = []
         start = 0
         for i in range(n_folds):
@@ -64,6 +50,15 @@ def make_cv_splits(
 
             print(f"  fold {k}: train={len(train_for_fold)}, test={len(held_out)}")
 
+        print()
+
+        swap_dir = out_root / f"{corpus}-cv9"
+        swap_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy(src / "train.conllu", swap_dir / "train.conllu")
+        shutil.copy(src / "dev.conllu", swap_dir / "test.conllu")
+        shutil.copy(src / "test.conllu", swap_dir / "dev.conllu")
+        dev_sents = read_sentences(src / "dev.conllu")
+        print(f"  fold swap: train={total}, test={len(dev_sents)} (original dev)")
         print()
 
 
