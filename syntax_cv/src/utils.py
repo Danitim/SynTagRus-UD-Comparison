@@ -2,7 +2,10 @@ import pandas as pd
 from pathlib import Path
 
 from src.convert import convert_cv_to_csv
-from src.align_markup import find_pairs_to_swap, apply_all_swaps
+from src.align_markup import (
+    apply_swap_plan,
+    build_recursive_swap_plan_cp,
+)
 
 
 def load_pair(gold_csv, pred_csv) -> pd.DataFrame:
@@ -47,7 +50,7 @@ def _align_cv(index: dict, aligned_dir: Path, num_runs: int, force: bool) -> dic
     """
     Align str-new CSVs against ud-new CSVs and save to aligned_dir.
 
-    Swap pairs are derived from gold (same for all runs).
+    Swap pairs are derived from gold via CP (same for all runs).
     Swaps are applied to str-new gold and each str-new pred run.
     ud-new files are copied as-is.
 
@@ -92,12 +95,28 @@ def _align_cv(index: dict, aligned_dir: Path, num_runs: int, force: bool) -> dic
     str_gold_df = pd.read_csv(str_gold_csv, dtype={"sent_id": str})
     ud_gold_df  = pd.read_csv(ud_gold_csv,  dtype={"sent_id": str})
 
-    # Pairs are the same for all runs — compute once
-    pairs = find_pairs_to_swap(str_gold_df, ud_gold_df)
-    print(f"[align] found {len(pairs)} pairs to swap (str-new vs ud-new)")
+    # CP recursive swap plan computed on gold and reused for all runs
+    plan, plan_diag = build_recursive_swap_plan_cp(
+        str_gold_df,
+        ud_gold_df,
+        max_passes=20,
+        stop_on_cycle=True,
+        return_diagnostics=True,
+    )
+    n_pairs = sum(len(pass_pairs) for pass_pairs in plan)
+    if n_pairs:
+        print(f"[align] CP recursive swap: {n_pairs} pairs in {len(plan)} passes")
+    else:
+        print("[align] CP recursive swap: no pairs found")
+    if plan_diag.get("any_unresolved"):
+        unresolved = plan_diag.get("last_unresolved_ud_edges", 0)
+        unresolved_sents = plan_diag.get("last_sentences_with_unresolved", 0)
+        print(
+            "[align][warn] CP unresolved edges remain after the last pass: "
+            f"{unresolved} edges in {unresolved_sents} sentences"
+        )
 
-    # Apply all swaps to str-new gold in one pass
-    str_gold_aligned = apply_all_swaps(str_gold_df, pairs)
+    str_gold_aligned = apply_swap_plan(str_gold_df, plan)
 
     aligned_index: dict = {"str-new": {}, "ud-new": {}}
 
@@ -123,7 +142,7 @@ def _align_cv(index: dict, aligned_dir: Path, num_runs: int, force: bool) -> dic
 
         if str_pred_csv and Path(str_pred_csv).exists():
             str_pred_df = pd.read_csv(str_pred_csv, dtype={"sent_id": str})
-            str_pred_df = apply_all_swaps(str_pred_df, pairs)
+            str_pred_df = apply_swap_plan(str_pred_df, plan)
             str_pred_out = aligned_dir / Path(str_pred_csv).name
             if not str_pred_out.exists() or force:
                 str_pred_df.to_csv(str_pred_out, index=False, encoding="utf-8")
@@ -209,28 +228,24 @@ def filter_consistent(data: dict) -> dict:
     Each output df is indexed by (sent_id, id) and contains the same columns
     as a single-run df (text, form, upos, feats, head_g, head_p, deprel_g, deprel_p, ellipsis).
     """
-    ud_runs = data.get("ud-new", {})
-    if not ud_runs:
-        raise ValueError("ud-new not found in data; cannot compute consistency mask.")
+    ud_runs  = data.get("ud-new",  {})
+    str_runs = data.get("str-new", {})
+    if not ud_runs or not str_runs:
+        raise ValueError("str-new or ud-new not found in data.")
 
-    # Compute mask from UD runs only
-    deprel_runs = pd.concat(
-        [df["deprel_p"].rename(i) for i, df in ud_runs.items()], axis=1
-    )
-    head_runs = pd.concat(
-        [df["head_p"].rename(i) for i, df in ud_runs.items()], axis=1
-    )
+    def _consistent_mask(runs):
+        deprel = pd.concat([df["deprel_p"].rename(i) for i, df in runs.items()], axis=1)
+        head   = pd.concat([df["head_p"].rename(i)   for i, df in runs.items()], axis=1)
+        return (deprel.nunique(axis=1) == 1) & (head.nunique(axis=1) == 1)
 
-    consistent_mask = (
-        (deprel_runs.nunique(axis=1) == 1) &
-        (head_runs.nunique(axis=1) == 1)
-    )
+    ud_mask  = _consistent_mask(ud_runs)
+    str_mask = _consistent_mask(str_runs)
+    consistent_mask = ud_mask & str_mask
 
     n_total = len(consistent_mask)
-    n_kept  = consistent_mask.sum()
-    print(f"[filter] ud-new: {n_kept}/{n_total} tokens consistent across {len(ud_runs)} runs "
-          f"({100 * n_kept / n_total:.1f}%)")
-    print(f"[filter] applying same mask to str-new")
+    print(f"[filter] str-new consistent: {str_mask.sum()}/{n_total} ({100*str_mask.mean():.1f}%)")
+    print(f"[filter] ud-new  consistent: {ud_mask.sum()}/{n_total} ({100*ud_mask.mean():.1f}%)")
+    print(f"[filter] both    consistent: {consistent_mask.sum()}/{n_total} ({100*consistent_mask.mean():.1f}%)")
 
     result = {}
     for corpus, runs in data.items():
