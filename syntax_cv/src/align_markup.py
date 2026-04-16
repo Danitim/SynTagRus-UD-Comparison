@@ -12,6 +12,8 @@ Two approaches (see method.md):
      ud-only (D_ud) and compares deprels on matched edges directly.
 """
 
+import hashlib
+
 import pandas as pd
 
 
@@ -197,6 +199,91 @@ def apply_all_swaps(
     df[attr_cols] = attr
     df["head"]    = head
     return df
+
+
+def _head_signature(df: pd.DataFrame) -> str:
+    """
+    Compact hash of head column for cycle detection between recursive passes.
+    """
+    payload = df["head"].to_numpy(copy=False).tobytes()
+    return hashlib.blake2b(payload, digest_size=16).hexdigest()
+
+
+def build_recursive_swap_plan(
+    str_df: pd.DataFrame,
+    ud_df: pd.DataFrame,
+    max_passes: int = 20,
+    stop_on_cycle: bool = True,
+) -> list[list[tuple]]:
+    """
+    Build recursive swap plan: recompute mirrored pairs after each pass.
+
+    Pass k:
+      1) find mirrored pairs on current STR tree vs fixed UD tree;
+      2) apply all swaps from this pass;
+      3) continue until no pairs remain or max_passes reached.
+
+    Returns:
+      list of passes, where each pass is list[(sent_id, id1, id2)].
+    """
+    current = str_df.copy()
+    plan: list[list[tuple]] = []
+
+    seen_states: set[str] = {_head_signature(current)}
+
+    for _ in range(max_passes):
+        pairs = find_pairs_to_swap(current, ud_df)
+        if not pairs:
+            break
+
+        plan.append(pairs)
+        current = apply_all_swaps(current, pairs)
+
+        if stop_on_cycle:
+            sig = _head_signature(current)
+            if sig in seen_states:
+                break
+            seen_states.add(sig)
+
+    return plan
+
+
+def apply_swap_plan(df: pd.DataFrame, plan: list[list[tuple]]) -> pd.DataFrame:
+    """
+    Apply recursive swap plan produced by build_recursive_swap_plan().
+    """
+    out = df.copy()
+    for pass_pairs in plan:
+        out = apply_all_swaps(out, pass_pairs)
+    return out
+
+
+def align_recursively(
+    str_df: pd.DataFrame,
+    ud_df: pd.DataFrame,
+    max_passes: int = 20,
+    stop_on_cycle: bool = True,
+    return_plan: bool = False,
+):
+    """
+    Recursively align STR against UD by repeated swap passes.
+
+    Returns:
+      aligned_str_df
+    or
+      (aligned_str_df, plan) if return_plan=True.
+    """
+    plan = build_recursive_swap_plan(
+        str_df=str_df,
+        ud_df=ud_df,
+        max_passes=max_passes,
+        stop_on_cycle=stop_on_cycle,
+    )
+    aligned = apply_swap_plan(str_df, plan)
+
+    if return_plan:
+        return aligned, plan
+    return aligned
 
 
 # ---------------------------------------------------------------------------
