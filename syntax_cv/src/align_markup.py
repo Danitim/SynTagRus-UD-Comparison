@@ -7,6 +7,20 @@ Two approaches (see method.md):
      Detects mirrored edges and swaps str data so both corpora share
      the same arc orientation, enabling correct token-level comparison.
 
+     Two pair-finding strategies (see swap.md, Section 4.1):
+
+     a. find_pairs_to_swap()   — merge-based; finds all mirrored pairs
+        simultaneously on the current STR tree.  For intersecting pairs
+        (pairs sharing a token, e.g. a reversed chain A→B→C) the result
+        depends on DataFrame iteration order, which is not guaranteed.
+
+     b. find_pairs_to_swap_cp() + resolve_edge_matching()  — CP-based;
+        uses constraint propagation (arc consistency) over UD↔STR edge
+        candidates built by undirected endpoint equality, with fallback to
+        all currently free STR edges when exact-end candidates are empty
+        (swap.md, Sections 3-4).  This removes DataFrame-order dependence
+        for intersecting/restructuring cases before swap extraction.
+
   2. Edge-based comparison (Section 4) — auxiliary approach.
      Read-only. Classifies edges into matched (M), str-only (D_str),
      ud-only (D_ud) and compares deprels on matched edges directly.
@@ -63,6 +77,204 @@ def find_pairs_to_swap(
             for _, row in result.iterrows()]
 
 
+def resolve_edge_matching(
+    candidates: dict,
+    all_str_edges=None,
+    *,
+    return_unresolved: bool = False,
+) -> dict | tuple[dict, list]:
+    """
+    Arc consistency constraint propagation over bipartite edge matching.
+
+    Resolves UD→STR edge assignments by the method of elimination described
+    in swap.md (Sections 3-4):
+
+      1. For each unresolved UD edge, compute available candidates as:
+         (exact candidates) \ used_str.
+      2. If the set is empty, fallback to all free STR edges:
+         all_str_edges \ used_str.
+      3. If exactly one candidate remains, fix the assignment immediately.
+      4. Repeat until no further fixation is possible (stable state).
+
+    The function is monotonic: fixed STR edges are never released, so candidate
+    pools for unresolved UD edges can only shrink across iterations.
+
+    Parameters
+    ----------
+    candidates : dict mapping each UD edge (frozenset of two token IDs) to
+                 its exact STR candidates (set of frozensets), typically built
+                 from endpoint equality.
+    all_str_edges : optional iterable of all STR edges in the local zone.
+                    Used for fallback when exact candidates are empty.
+                    If omitted, inferred as the union of all candidate pools.
+    return_unresolved : when True, also return unresolved UD edges left after
+                        propagation.
+
+    Returns
+    -------
+    fixed : dict, UD edge → matched STR edge, for resolved assignments.
+            If return_unresolved=True, returns tuple:
+            (fixed, unresolved_ud_edges_in_input_order).
+    """
+    fixed: dict = {}
+    unresolved = list(candidates.keys())
+
+    if all_str_edges is None:
+        all_free_pool = set()
+        for pool in candidates.values():
+            all_free_pool |= set(pool)
+    else:
+        all_free_pool = set(all_str_edges)
+
+    made_progress = True
+    while made_progress:
+        made_progress = False
+        used_str = set(fixed.values())
+        next_unresolved = []
+
+        for e_ud in unresolved:
+            exact_pool = set(candidates.get(e_ud, set()))
+            available = exact_pool - used_str
+
+            # swap.md fallback: if exact candidates are empty, open all free STR edges
+            if not available:
+                available = all_free_pool - used_str
+
+            if len(available) == 1:
+                chosen = next(iter(available))
+                fixed[e_ud] = chosen
+                used_str.add(chosen)
+                made_progress = True
+            else:
+                next_unresolved.append(e_ud)
+
+        unresolved = next_unresolved
+
+    if return_unresolved:
+        return fixed, unresolved
+    return fixed
+
+
+def find_pairs_to_swap_cp(
+    str_df: pd.DataFrame,
+    ud_df: pd.DataFrame,
+    extra_candidates=None,
+) -> list[tuple]:
+    """
+    Find mirrored pairs via constraint propagation (Section 2.1, CP variant).
+
+    Replaces the merge-based find_pairs_to_swap() with an explicit bipartite
+    edge-matching stage that resolves ambiguities before testing for mirrored
+    directions. This directly addresses the ordering problem for intersecting
+    pairs described in swap.md Section 4.1.
+
+    Candidacy criterion (default; swap.md Sections 3-4)
+    ---------------------------------------------------
+    For each UD edge e_ud, exact STR candidates are edges with identical
+    undirected endpoints:
+
+      C(e_ud) = {e_str in E_str : ends(e_str) = ends(e_ud)}
+
+    If the exact pool is empty at a propagation step, candidate set is opened
+    to all free STR edges not yet used in fixed assignments.
+
+    Mirrored-pair extraction
+    ------------------------
+    From the fixed UD→STR matchings, a pair (i, j) is emitted when:
+      • e_ud == e_str  (same undirected skeleton, i.e. same two token IDs), AND
+      • head_str ≠ head_ud  (opposite arc directions → mirrored).
+
+    Fixed matchings where e_ud ≠ e_str (different skeletons) are skipped here;
+    they correspond to non-trivial restructurings and require separate handling.
+
+    Parameters
+    ----------
+    str_df, ud_df    : DataFrames with columns [sent_id, id, head, ...]
+    extra_candidates : optional dict  sent_id → {e_ud → set(e_str)},
+                       merged into the default candidates before propagation.
+                       Use this to inject LCA-based or other non-skeleton
+                       restructuring candidates without modifying this function.
+
+    Returns
+    -------
+    list of (sent_id, id_min, id_max) — same format as find_pairs_to_swap(),
+    in CP resolution order within each sentence.
+    """
+    # ------------------------------------------------------------------ #
+    # Build per-sentence skeletons                                       #
+    # ------------------------------------------------------------------ #
+    str_skel_by_sent: dict = {}   # sent_id -> frozenset -> head in STR
+    ud_skel_by_sent: dict = {}    # sent_id -> frozenset -> head in UD
+
+    for sent_id, grp in str_df.groupby("sent_id", sort=False):
+        edges: dict = {}
+        for _, row in grp.iterrows():
+            h, v = int(row["head"]), int(row["id"])
+            if h != 0:
+                e = frozenset({h, v})
+                edges[e] = h
+        str_skel_by_sent[sent_id] = edges
+
+    for sent_id, grp in ud_df.groupby("sent_id", sort=False):
+        edges = {}
+        for _, row in grp.iterrows():
+            h, v = int(row["head"]), int(row["id"])
+            if h != 0:
+                e = frozenset({h, v})
+                edges[e] = h
+        ud_skel_by_sent[sent_id] = edges
+
+    # ------------------------------------------------------------------ #
+    # Per-sentence: build candidates → propagate → extract mirrored pairs #
+    # ------------------------------------------------------------------ #
+    pairs: list = []
+    seen: set = set()
+
+    for sent_id, str_skel in str_skel_by_sent.items():
+        if sent_id not in ud_skel_by_sent:
+            continue
+        ud_skel = ud_skel_by_sent[sent_id]
+        all_str_edges = set(str_skel.keys())
+
+        # Default exact candidates by endpoint equality (swap.md Section 3).
+        # Since edges are undirected frozensets, equality means same endpoints.
+        candidates: dict = {}
+        for e_ud in ud_skel:
+            candidates[e_ud] = {e_ud} if e_ud in str_skel else set()
+
+        # Merge extra candidates (e.g., from LCA analysis)
+        if extra_candidates and sent_id in extra_candidates:
+            for e_ud, extra in extra_candidates[sent_id].items():
+                if e_ud in candidates:
+                    candidates[e_ud] |= extra
+                else:
+                    candidates[e_ud] = set(extra)
+
+        # Constraint propagation with swap.md fallback on empty exact pools
+        fixed, _unresolved = resolve_edge_matching(
+            candidates,
+            all_str_edges=all_str_edges,
+            return_unresolved=True,
+        )
+
+        # Extract mirrored pairs from same-skeleton fixed matchings
+        for e_ud, e_str in fixed.items():
+            if e_ud != e_str:
+                continue  # different skeleton — not a direct-swap candidate
+            head_str = str_skel.get(e_str)
+            head_ud = ud_skel.get(e_ud)
+            if head_str is None or head_ud is None:
+                continue
+            if head_str != head_ud:  # arc directions differ → mirrored
+                i, j = sorted(e_ud)
+                key = (sent_id, i, j)
+                if key not in seen:
+                    seen.add(key)
+                    pairs.append(key)
+
+    return pairs
+
+
 def swap_rows_in_df(
     df:      pd.DataFrame,
     sent_id,
@@ -73,7 +285,13 @@ def swap_rows_in_df(
     Apply swap(b, d) to df (Section 2.2).
 
     Step 1: exchange all attributes except sent_id, id, head.
-    Step 2: redirect arcs according to the formula for h'(v).
+    Step 2: rewire only the swapped pair itself:
+            former boss becomes dependent of former dependent, and
+            former dependent inherits former boss head.
+
+    Other sentence tokens keep their head IDs unchanged; ambiguity on
+    adjacent links is resolved by iterative pair selection (method of
+    exclusion in find_pairs_to_swap_cp/resolve_edge_matching).
     """
     df = df.copy()
 
@@ -92,17 +310,16 @@ def swap_rows_in_df(
     df.loc[idx1, cols_to_swap] = df.loc[idx2, cols_to_swap].values
     df.loc[idx2, cols_to_swap] = temp.values
 
-    # Step 2: redirect arcs
-    sent_mask = df["sent_id"] == sent_id
+    # Step 2: rewire swapped pair
     head1 = df.loc[idx1, "head"]
     head2 = df.loc[idx2, "head"]
 
     if head1 == id2:
-        boss_id, dep_id = id2, id1
+        dep_id = id1
         boss_idx, dep_idx = idx2, idx1
         boss_head = head2
     elif head2 == id1:
-        boss_id, dep_id = id1, id2
+        dep_id = id2
         boss_idx, dep_idx = idx1, idx2
         boss_head = head1
     else:
@@ -110,13 +327,6 @@ def swap_rows_in_df(
 
     df.loc[boss_idx, "head"] = dep_id
     df.loc[dep_idx,  "head"] = boss_head
-
-    for idx in df[sent_mask].index:
-        if idx not in (idx1, idx2):
-            if df.loc[idx, "head"] == boss_id:
-                df.loc[idx, "head"] = dep_id
-            elif df.loc[idx, "head"] == dep_id:
-                df.loc[idx, "head"] = boss_id
 
     return df
 
@@ -128,29 +338,26 @@ def apply_all_swaps(
     """
     Apply all swap pairs efficiently using numpy arrays.
 
-    Complexity: O(n_pairs × avg_sentence_length) instead of
-    O(n_pairs × n_rows) from repeated df.copy() calls.
+    Complexity: O(n_rows + n_pairs) with vectorized arrays and O(1) row lookups.
 
     Pairs within each sentence are applied sequentially (order matters
     for intersecting pairs, see Section 3.4).
+
+    Rewiring is local to each swapped pair; heads of all other tokens in
+    the sentence are left intact.
     """
-    import numpy as np
     from collections import defaultdict
 
     df = df.copy().reset_index(drop=True)
 
     # Build O(1) lookups
     row_of: dict = {}          # (sent_id, token_id) -> row index
-    sent_rows: dict = {}       # sent_id -> np.array of row indices
 
     _sent_id_col = df["sent_id"].to_numpy()
     _id_col      = df["id"].to_numpy()
 
-    tmp: dict = defaultdict(list)
     for i, (sid, tid) in enumerate(zip(_sent_id_col, _id_col)):
         row_of[(sid, tid)] = i
-        tmp[sid].append(i)
-    sent_rows = {sid: np.array(idxs) for sid, idxs in tmp.items()}
 
     # Extract numpy arrays (no pandas overhead inside the loop)
     attr_cols = [c for c in df.columns if c not in ("sent_id", "id", "head")]
@@ -163,8 +370,6 @@ def apply_all_swaps(
         pairs_by_sent[sent_id].append((id1, id2))
 
     for sent_id, sent_pairs in pairs_by_sent.items():
-        s_rows = sent_rows[sent_id]  # row indices for this sentence
-
         for id1, id2 in sent_pairs:
             i1 = row_of.get((sent_id, id1))
             i2 = row_of.get((sent_id, id2))
@@ -177,24 +382,19 @@ def apply_all_swaps(
             h1, h2 = int(head[i1]), int(head[i2])
 
             if h1 == id2:
-                boss_id, dep_id = id2, id1
+                dep_id = id1
                 boss_i,  dep_i  = i2, i1
                 boss_head = h2
             elif h2 == id1:
-                boss_id, dep_id = id1, id2
+                dep_id = id2
                 boss_i,  dep_i  = i1, i2
                 boss_head = h1
             else:
                 continue
 
-            # Step 2: redirect arcs
+            # Step 2: rewire swapped pair
             head[boss_i] = dep_id
             head[dep_i]  = boss_head
-
-            # Vectorized redirect for all other tokens in the sentence
-            other = s_rows[(s_rows != i1) & (s_rows != i2)]
-            head[other[head[other] == boss_id]] = dep_id
-            head[other[head[other] == dep_id]]  = boss_id
 
     df[attr_cols] = attr
     df["head"]    = head
