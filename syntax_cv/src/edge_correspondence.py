@@ -400,30 +400,46 @@ def build_edge_correspondence(
 
         all_str_edges = set(str_sk.edges.keys())
 
-        # Build candidate pools
-        candidates: dict[Edge, set[Edge]] = {}
+        exact_candidates: dict[Edge, set[Edge]] = {}
         for e_ud in ud_sk.edges:
             pool: set[Edge] = set()
             if e_ud in str_sk.edges:
                 pool.add(e_ud)
-            if mode == "extended" and extra_candidates:
-                extras = extra_candidates.get(sent_id, {}).get(e_ud)
-                if extras:
-                    pool |= set(extras)
-                    # Only keep candidates that actually exist in STR
-                    pool &= all_str_edges | {e_ud}
-                    pool &= all_str_edges  # keep only real STR edges
-            candidates[e_ud] = pool
+            exact_candidates[e_ud] = pool
 
-        # Run CP WITHOUT the "all free STR edges" fallback — in the immutable
-        # setting such a fallback is not a principled match and would
-        # re-introduce the class of errors that prompted this refactor.
-        fixed, unresolved = resolve_edge_matching(
-            candidates,
-            all_str_edges=None,          # disabled
+        fixed, still_unresolved = resolve_edge_matching(
+            exact_candidates,
+            all_str_edges=None,
             allow_open_fallback=False,
             return_unresolved=True,
         )
+
+        if mode == "extended" and extra_candidates and still_unresolved:
+            # Phase 2: add LCA candidates for unresolved edges only,
+            # then run CP over the remaining open positions.
+            used_str = set(fixed.values())
+            phase2_candidates: dict[Edge, set[Edge]] = {}
+            for e_ud in still_unresolved:
+                pool: set[Edge] = set()
+                # Re-include exact if it wasn't fixed (shouldn't happen,
+                # but for robustness).
+                if e_ud in str_sk.edges:
+                    pool.add(e_ud)
+                extras = extra_candidates.get(sent_id, {}).get(e_ud)
+                if extras:
+                    pool |= set(extras)
+                pool &= all_str_edges  # only real STR edges
+                pool -= used_str       # exclude already-fixed STR edges
+                phase2_candidates[e_ud] = pool
+
+            fixed2, still_unresolved = resolve_edge_matching(
+                phase2_candidates,
+                all_str_edges=None,
+                allow_open_fallback=False,
+                return_unresolved=True,
+            )
+            fixed.update(fixed2)
+        unresolved = still_unresolved
 
         matches: dict[Edge, EdgeMatch] = {}
         for e_ud in ud_sk.edges:

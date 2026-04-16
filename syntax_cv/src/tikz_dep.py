@@ -140,6 +140,19 @@ def _position_map(tokens: pd.DataFrame) -> dict[TokenID, int]:
     return {int(r["id"]): i + 1 for i, r in tokens.iterrows()}
 
 
+def _punct_token_ids(tokens: pd.DataFrame, deprel_col: str) -> set[TokenID]:
+    """
+    Token ids treated as punctuation for rendering purposes.
+    """
+    out: set[TokenID] = set()
+    for _, row in tokens.iterrows():
+        deprel = str(row.get(deprel_col, "")).lower()
+        upos = str(row.get("upos", "")).upper()
+        if deprel == "punct" or upos == "PUNCT":
+            out.add(int(row["id"]))
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Main renderer
 # ---------------------------------------------------------------------------
@@ -193,6 +206,8 @@ def render_pair(
 
     str_pos = _position_map(str_toks)
     ud_pos = _position_map(ud_toks)
+    str_punct = _punct_token_ids(str_toks, deprel_col)
+    ud_punct = _punct_token_ids(ud_toks, deprel_col)
 
     str_forms = [_escape_latex(f) for f in str_toks[form_col]]
     ud_forms = [_escape_latex(f) for f in ud_toks[form_col]]
@@ -212,6 +227,8 @@ def render_pair(
     for _, row in str_toks.iterrows():
         head = int(row["head"])
         tid = int(row["id"])
+        if tid in str_punct or (head != 0 and head in str_punct):
+            continue
         if head == 0:
             lines.append(f"  \\deproot{{{str_pos[tid]}}}{{{_escape_latex(row[deprel_col])}}}")
         else:
@@ -248,6 +265,8 @@ def render_pair(
     for _, row in ud_toks.iterrows():
         head = int(row["head"])
         tid = int(row["id"])
+        if tid in ud_punct or (head != 0 and head in ud_punct):
+            continue
         if head == 0:
             lines.append(f"  \\deproot[edge below]{{{ud_pos[tid]}}}{{{_escape_latex(row[deprel_col])}}}")
         else:
@@ -285,6 +304,8 @@ def render_pair(
             dep_ud = ud_sk.dep_of(e_ud)
             if dep_ud is None:
                 continue
+            if dep_ud in ud_punct:
+                continue
             if dep_ud not in ud_pos:
                 continue
             if m.status == "unresolved" and not show_unresolved:
@@ -296,6 +317,8 @@ def render_pair(
                 continue
             dep_str = str_sk.dep_of(m.e_str)
             if dep_str is None:
+                continue
+            if dep_str in str_punct:
                 continue
             if dep_str not in str_pos:
                 continue
