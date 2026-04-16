@@ -117,16 +117,18 @@ def build_lca_candidates(
          If a == 0 (no common ancestor) — skip.
       2. Compute path edges P_ud(v → a) in T_ud and P_str(v → a) in T_str,
          bounded by max_path_len.
-      3. For every UD edge e_ud ∈ P_ud, propose the STR edge e_str adjacent
-         to the same endpoint on the STR path. Specifically:
+      3. For every UD edge e_ud ∈ P_ud, propose every STR edge e_str ∈ P_str
+         that shares at least one endpoint with e_ud. This generalises the
+         previous lower-endpoint-only matching and correctly handles
+         conjunction restructurings where the two edges share the HEAD
+         (upper) endpoint rather than the dependent (lower) one.
 
-             ends(e_ud) = {x, parent_ud(x)}   — take x (the lower endpoint)
-             find the edge in P_str whose lower endpoint is x.
-
-         This pairs "the UD arc entering x" with "the STR arc entering x"
-         on the shared subtree. When parent_str(x) ≠ parent_ud(x) the two
-         arcs have different upper endpoints, so the candidate is a
-         genuinely restructured match.
+         Example: STR зашевелилась(2)→и(3)→зашипела(5) vs
+                  UD  зашевелилась(2)→зашипела(5).
+         UD edge {2,5} and STR edge {2,3} share endpoint 2 (the head).
+         Under the old rule (lower-only), {2,3} was never proposed;
+         now it is, and CP resolves it correctly after the exact match
+         {3,5}→{3,5} is fixed first.
 
     The resulting candidate pool is injected into extended-mode CP. Exact
     same-endpoint candidates are handled in strict mode automatically;
@@ -173,29 +175,19 @@ def build_lca_candidates(
             if not p_ud or not p_str:
                 continue
 
-            # Map every UD path edge by its lower endpoint x (the endpoint
-            # that is child of the other within T_ud), and lookup an STR
-            # path edge by the same x.
-            str_edge_by_lower: dict[TokenID, Edge] = {}
+            str_edges_by_endpoint: dict[TokenID, list[Edge]] = {}
             for e in p_str:
-                x_candidates = [u for u in e if h_str.get(u) in e]
-                if len(x_candidates) != 1:
-                    # malformed — skip this candidate
-                    continue
-                str_edge_by_lower[x_candidates[0]] = e
+                for u in e:
+                    str_edges_by_endpoint.setdefault(u, []).append(e)
 
             for e_ud in p_ud:
-                x_candidates = [u for u in e_ud if h_ud.get(u) in e_ud]
-                if len(x_candidates) != 1:
-                    continue
-                x = x_candidates[0]
-                e_str = str_edge_by_lower.get(x)
-                if e_str is None:
-                    continue
-                if e_str == e_ud:
-                    # exact match already; strict mode owns it
-                    continue
-                sent_out.setdefault(e_ud, set()).add(e_str)
+                endpoints_ud = set(e_ud)
+                for x in endpoints_ud:
+                    for e_str in str_edges_by_endpoint.get(x, ()):
+                        if e_str == e_ud:
+                            # exact match already; strict mode owns it
+                            continue
+                        sent_out.setdefault(e_ud, set()).add(e_str)
 
         if sent_out:
             result[sent_id] = sent_out

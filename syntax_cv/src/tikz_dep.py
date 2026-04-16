@@ -56,6 +56,23 @@ _STATUS_STYLE = {
 }
 
 
+def _guarded_draw_line(style: str, a: str, b: str) -> str:
+    return (
+        f"  \\ifcsname pgf@sh@ns@{a}\\endcsname"
+        f"\\ifcsname pgf@sh@ns@{b}\\endcsname"
+        f"\\draw[{style}] ({a}) -- ({b});"
+        f"\\fi\\fi"
+    )
+
+
+def _guarded_draw_circle(style: str, a: str, radius: str = "2mm") -> str:
+    return (
+        f"  \\ifcsname pgf@sh@ns@{a}\\endcsname"
+        f"\\draw[{style}] ({a}) circle ({radius});"
+        f"\\fi"
+    )
+
+
 def _escape_latex(s: object) -> str:
     if s is None:
         return ""
@@ -83,6 +100,41 @@ def _sentence_tokens(df: pd.DataFrame, sent_id: SentID) -> pd.DataFrame:
     return sub
 
 
+def _as_render_view(df: pd.DataFrame) -> pd.DataFrame:
+    """
+    Normalize input frame for rendering.
+
+    Accepts both:
+    - flat CoNLL-style frames with sent_id/id/head/deprel columns;
+    - CV pair frames where sent_id/id are in the index and gold columns
+      are named head_g/deprel_g.
+    """
+    out = df
+    if "sent_id" not in out.columns or "id" not in out.columns:
+        if isinstance(out.index, pd.MultiIndex) and {"sent_id", "id"}.issubset(set(out.index.names)):
+            out = out.reset_index()
+        else:
+            raise KeyError("DataFrame must contain sent_id and id as columns or index levels")
+
+    if "head" not in out.columns:
+        if "head_g" in out.columns:
+            out = out.assign(head=out["head_g"])
+        elif "head_p" in out.columns:
+            out = out.assign(head=out["head_p"])
+        else:
+            raise KeyError("DataFrame must contain head or head_g/head_p")
+
+    if "deprel" not in out.columns:
+        if "deprel_g" in out.columns:
+            out = out.assign(deprel=out["deprel_g"])
+        elif "deprel_p" in out.columns:
+            out = out.assign(deprel=out["deprel_p"])
+        else:
+            raise KeyError("DataFrame must contain deprel or deprel_g/deprel_p")
+
+    return out
+
+
 def _position_map(tokens: pd.DataFrame) -> dict[TokenID, int]:
     """Map token id → 1-based column index in the `\\deptext` row."""
     return {int(r["id"]): i + 1 for i, r in tokens.iterrows()}
@@ -99,6 +151,8 @@ def render_pair(
     corr: EdgeCorrespondence,
     *,
     show_unresolved: bool = True,
+    draw_root_link: bool = True,
+    root_link_style: str = "densely dashed, thick, gray!70",
     deprel_col: str = "deprel",
     form_col: str = "form",
 ) -> str:
@@ -121,8 +175,17 @@ def render_pair(
         between UD-dep and the best-guess STR token (none — just render
         the UD edge as decorative, with no STR counterpart). If False,
         skip them entirely.
+    draw_root_link
+        If True, draw an additional connector between root tokens.
+        This connector is decorative: roots are not part of the
+        edge-based correspondence map.
+    root_link_style
+        TikZ style used for the decorative root connector.
     deprel_col, form_col : column names for labels and surface forms.
     """
+    str_df = _as_render_view(str_df)
+    ud_df = _as_render_view(ud_df)
+
     str_toks = _sentence_tokens(str_df, sent_id)
     ud_toks = _sentence_tokens(ud_df, sent_id)
     if str_toks.empty or ud_toks.empty:
@@ -138,43 +201,71 @@ def render_pair(
 
     lines: list[str] = []
     lines.append(r"% ---- SynTagRus tree (top) ----")
-    lines.append(r"\begin{dependency}[theme = simple]")
+    lines.append(r"\begin{minipage}{\linewidth}")
+    lines.append(r"\centering")
+    lines.append(r"\begin{dependency}[remember picture]")
     lines.append(r"  \begin{deptext}[column sep=0.6cm]")
     lines.append("    " + " \\& ".join(str_forms) + r" \\")
     lines.append(r"  \end{deptext}")
 
+    skipped_str_edges = 0
     for _, row in str_toks.iterrows():
         head = int(row["head"])
         tid = int(row["id"])
         if head == 0:
             lines.append(f"  \\deproot{{{str_pos[tid]}}}{{{_escape_latex(row[deprel_col])}}}")
         else:
+            if head not in str_pos:
+                # Happens when caller passes token-filtered tables where
+                # some heads are missing from the sentence slice.
+                skipped_str_edges += 1
+                continue
             lines.append(
                 f"  \\depedge{{{str_pos[head]}}}{{{str_pos[tid]}}}"
                 f"{{{_escape_latex(row[deprel_col])}}}"
             )
+    if skipped_str_edges:
+        lines.append(f"% skipped STR edges with missing heads: {skipped_str_edges}")
+    for col in sorted(set(str_pos.values())):
+        lines.append(f"  \\coordinate (str-w-{col}) at (\\wordref{{1}}{{{col}}});")
     lines.append(r"\end{dependency}")
+    lines.append(r"\end{minipage}")
+    lines.append(r"\par")
+    lines.append(r"\vspace{0.6em}")
     lines.append("")
 
     # --- UD dependency block (bottom) ---------------------------------------
 
     lines.append(r"% ---- UD tree (bottom) ----")
-    lines.append(r"\begin{dependency}[theme = simple]")
+    lines.append(r"\begin{minipage}{\linewidth}")
+    lines.append(r"\centering")
+    lines.append(r"\begin{dependency}[remember picture]")
     lines.append(r"  \begin{deptext}[column sep=0.6cm]")
     lines.append("    " + " \\& ".join(ud_forms) + r" \\")
     lines.append(r"  \end{deptext}")
 
+    skipped_ud_edges = 0
     for _, row in ud_toks.iterrows():
         head = int(row["head"])
         tid = int(row["id"])
         if head == 0:
             lines.append(f"  \\deproot[edge below]{{{ud_pos[tid]}}}{{{_escape_latex(row[deprel_col])}}}")
         else:
+            if head not in ud_pos:
+                skipped_ud_edges += 1
+                continue
             lines.append(
                 f"  \\depedge[edge below]{{{ud_pos[head]}}}{{{ud_pos[tid]}}}"
                 f"{{{_escape_latex(row[deprel_col])}}}"
             )
+    if skipped_ud_edges:
+        lines.append(f"% skipped UD edges with missing heads: {skipped_ud_edges}")
+    for col in sorted(set(ud_pos.values())):
+        lines.append(f"  \\coordinate (ud-w-{col}) at (\\wordref{{1}}{{{col}}});")
     lines.append(r"\end{dependency}")
+    lines.append(r"\end{minipage}")
+    lines.append(r"\par")
+    lines.append(r"\vspace{0.4em}")
     lines.append("")
 
     # --- correspondence lines -----------------------------------------------
@@ -194,23 +285,53 @@ def render_pair(
             dep_ud = ud_sk.dep_of(e_ud)
             if dep_ud is None:
                 continue
+            if dep_ud not in ud_pos:
+                continue
             if m.status == "unresolved" and not show_unresolved:
                 continue
             style = _STATUS_STYLE[m.status]
             if m.e_str is None:
                 # Decorative marker on UD token only
-                lines.append(
-                    f"  \\draw[{style}] "
-                    f"(ud-w-{ud_pos[dep_ud]}) circle (2mm);"
-                )
+                lines.append(_guarded_draw_circle(style, f"ud-w-{ud_pos[dep_ud]}"))
                 continue
             dep_str = str_sk.dep_of(m.e_str)
             if dep_str is None:
                 continue
+            if dep_str not in str_pos:
+                continue
             lines.append(
-                f"  \\draw[{style}] "
-                f"(str-w-{str_pos[dep_str]}) -- (ud-w-{ud_pos[dep_ud]});"
+                _guarded_draw_line(
+                    style,
+                    f"str-w-{str_pos[dep_str]}",
+                    f"ud-w-{ud_pos[dep_ud]}",
+                )
             )
+
+    if draw_root_link:
+        str_roots = [int(r["id"]) for _, r in str_toks.iterrows() if int(r["head"]) == 0]
+        ud_roots = [int(r["id"]) for _, r in ud_toks.iterrows() if int(r["head"]) == 0]
+        shared = sorted(set(str_roots) & set(ud_roots))
+        if shared:
+            for rid in shared:
+                if rid in str_pos and rid in ud_pos:
+                    lines.append(
+                        _guarded_draw_line(
+                            root_link_style,
+                            f"str-w-{str_pos[rid]}",
+                            f"ud-w-{ud_pos[rid]}",
+                        )
+                    )
+        elif str_roots and ud_roots:
+            s_root = sorted(str_roots)[0]
+            u_root = sorted(ud_roots)[0]
+            if s_root in str_pos and u_root in ud_pos:
+                lines.append(
+                    _guarded_draw_line(
+                        _STATUS_STYLE["unresolved"],
+                        f"str-w-{str_pos[s_root]}",
+                        f"ud-w-{ud_pos[u_root]}",
+                    )
+                )
     lines.append(r"\end{tikzpicture}")
 
     return "\n".join(lines)
@@ -221,7 +342,13 @@ def render_pair(
 # ---------------------------------------------------------------------------
 
 _PREAMBLE = r"""
-\documentclass[border=6pt]{standalone}
+\documentclass[border=6pt]{article}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[utf8]{inputenc}
+  \usepackage[T2A]{fontenc}
+  \usepackage[russian,english]{babel}
+\fi
 \usepackage{tikz}
 \usepackage{tikz-dependency}
 \usetikzlibrary{arrows, calc, positioning}
@@ -254,13 +381,11 @@ def render_document(
     scope that we name manually to use `str-w-K` / `ud-w-K`.
     """
     body = render_pair(str_df, ud_df, sent_id, corr, **kwargs)
-    title_line = f"\n\\section*{{{_escape_latex(title)}}}\n" if title else ""
+    title_line = f"\n\\par\\noindent\\textbf{{{_escape_latex(title)}}}\\par\\medskip\n" if title else ""
     return (
         _PREAMBLE
         + title_line
-        + "\n% NOTE: the inline tikzpicture uses custom node names\n"
-        + "% (str-w-K, ud-w-K). When integrating into a larger doc,\n"
-        + "% rename prefixes as needed to avoid collisions.\n\n"
+        + "\n% NOTE: connector lines are drawn only when alias nodes exist.\n\n"
         + body
         + _POSTAMBLE
     )
@@ -292,7 +417,7 @@ def render_category_album(
     for cat, sids in picks.items():
         corr = corr_strict if cat in (1, 2) else corr_extended
         for sid in sids:
-            title = f"Category {cat}. sent\\_id={sid}"
+            title = f"Category {cat}. sent_id={sid}"
             tex = render_document(
                 str_df, ud_df, sid, corr, title=title, show_unresolved=True
             )

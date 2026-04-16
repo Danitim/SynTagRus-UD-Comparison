@@ -173,9 +173,21 @@ def pick_examples(
     """
     token_count: dict[SentID, int] = {}
     if ud_df is not None:
-        token_count = (
-            ud_df.groupby("sent_id")["id"].count().to_dict()
-        )
+        # Accept both flat frames (sent_id/id columns) and MultiIndex
+        # frames where sent_id/id live in the index.
+        if "sent_id" in ud_df.columns:
+            by_sent = ud_df.groupby("sent_id", sort=False)
+            token_count = (
+                by_sent["id"].count().to_dict()
+                if "id" in ud_df.columns
+                else by_sent.size().to_dict()
+            )
+        elif isinstance(ud_df.index, pd.MultiIndex) and "sent_id" in ud_df.index.names:
+            token_count = ud_df.groupby(level="sent_id", sort=False).size().to_dict()
+        elif ud_df.index.name == "sent_id":
+            token_count = ud_df.groupby(level=0, sort=False).size().to_dict()
+        else:
+            raise KeyError("ud_df must contain sent_id either as a column or as an index level")
 
     buckets: dict[int, list[SentID]] = {c: [] for c in range(1, 6)}
     for sid, diag in diagnoses.items():

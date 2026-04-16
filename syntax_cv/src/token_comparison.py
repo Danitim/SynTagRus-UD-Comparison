@@ -196,12 +196,22 @@ def label_confusion(
     return grouped
 
 
-def coverage_by_mode(corr: EdgeCorrespondence) -> pd.DataFrame:
+def coverage_by_mode(
+    corr: EdgeCorrespondence,
+    *,
+    include_punct: bool = False,
+    include_root: bool = True,
+    token_mask: Optional[dict[SentID, set[TokenID]]] = None,
+) -> pd.DataFrame:
     """
     One-row summary of an EdgeCorrespondence: mode, counts per status,
     resolved percentage, baseline percentage.
     """
-    stats = corr.coverage()
+    stats = corr.coverage(
+        include_punct=include_punct,
+        include_root=include_root,
+        token_mask=token_mask,
+    )
     by = stats["by_status"]
     return pd.DataFrame([{
         "mode": stats["mode"],

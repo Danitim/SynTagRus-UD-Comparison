@@ -189,6 +189,7 @@ class EdgeCorrespondence:
     per_sentence: dict[SentID, SentenceCorrespondence]
     str_skel: dict[SentID, SentenceSkeleton]
     ud_skel: dict[SentID, SentenceSkeleton]
+    ud_punct_tokens: dict[SentID, set[TokenID]] = field(default_factory=dict)
 
     # ---- public lookup API --------------------------------------------------
 
@@ -233,19 +234,26 @@ class EdgeCorrespondence:
 
     # ---- aggregate statistics ----------------------------------------------
 
-    def coverage(self, *, include_punct: bool = False,
-                 token_mask: Optional[dict[SentID, set[TokenID]]] = None) -> dict:
+    def coverage(
+        self,
+        *,
+        include_punct: bool = False,
+        include_root: bool = True,
+        token_mask: Optional[dict[SentID, set[TokenID]]] = None,
+    ) -> dict:
         """
         Aggregate coverage by match status.
 
-        The unit is a UD non-root edge (equivalently, a non-root token).
+        The unit is a UD token selected by filters below.
 
         Parameters
         ----------
-        include_punct : if False, the caller should pre-filter UD edges
-                        whose dependent is PUNCT before building the
-                        correspondence, or pass a `token_mask` selecting
-                        only the tokens to count.
+        include_punct : include punctuation tokens in the denominator.
+                        Defaults to False to match the legacy notebook
+                        metric ("осмысленные токены").
+        include_root  : include UD root token(s) in the denominator.
+                        Defaults to True to match the legacy notebook
+                        metric used in syntax_cv_old.
         token_mask    : optional per-sentence set of UD token ids to
                         include in the denominator/numerator.
         """
@@ -261,16 +269,32 @@ class EdgeCorrespondence:
             ud_sk = self.ud_skel[sent_id]
             allowed: Optional[set[TokenID]] = None
             if token_mask is not None:
-                allowed = token_mask.get(sent_id)
+                allowed = set(token_mask.get(sent_id, set()))
+            else:
+                allowed = set(ud_sk.token_ids)
+            if not include_punct:
+                allowed -= self.ud_punct_tokens.get(sent_id, set())
 
             for e_ud, m in sc.matches.items():
                 dep_ud = ud_sk.dep_of(e_ud)
                 if dep_ud is None:
                     continue
-                if allowed is not None and dep_ud not in allowed:
+                if dep_ud not in allowed:
                     continue
                 total += 1
                 counts[m.status] = counts.get(m.status, 0) + 1
+
+            if include_root:
+                ud_roots = _root_tokens(ud_sk)
+                str_roots = _root_tokens(self.str_skel[sent_id]) if sent_id in self.str_skel else set()
+                for v in ud_roots:
+                    if v not in allowed:
+                        continue
+                    total += 1
+                    if v in str_roots:
+                        counts["exact_same_dir"] += 1
+                    else:
+                        counts["unresolved"] += 1
 
         resolved = counts["exact_same_dir"] + counts["exact_mirrored"] + counts["restructured"]
         comparable_heads_match = counts["exact_same_dir"]
@@ -283,6 +307,47 @@ class EdgeCorrespondence:
             "baseline_heads_match": comparable_heads_match,
             "baseline_pct": (100 * comparable_heads_match / total) if total else 0.0,
         }
+
+
+def _root_tokens(sk: SentenceSkeleton) -> set[TokenID]:
+    """
+    Root token ids in a sentence skeleton.
+
+    Tokens that never appear as dependent endpoint in non-root edges
+    are roots (normally exactly one in a tree).
+    """
+    dependents = {d for d in (sk.dep_of(e) for e in sk.edges) if d is not None}
+    return {v for v in sk.token_ids if v not in dependents}
+
+
+def _collect_ud_punct_tokens(ud_df: pd.DataFrame) -> dict[SentID, set[TokenID]]:
+    """
+    Build sent_id -> token ids marked as punctuation in UD.
+    """
+    out: dict[SentID, set[TokenID]] = {}
+    if "sent_id" not in ud_df.columns or "id" not in ud_df.columns:
+        return out
+
+    has_deprel = "deprel" in ud_df.columns
+    has_upos = "upos" in ud_df.columns
+    if not has_deprel and not has_upos:
+        return out
+
+    cols = ["sent_id", "id"]
+    if has_deprel:
+        cols.append("deprel")
+    if has_upos:
+        cols.append("upos")
+
+    for sent_id, grp in ud_df[cols].groupby("sent_id", sort=False):
+        is_punct = pd.Series(False, index=grp.index)
+        if has_deprel:
+            is_punct |= grp["deprel"].astype(str).str.lower() == "punct"
+        if has_upos:
+            is_punct |= grp["upos"].astype(str).str.upper() == "PUNCT"
+        if is_punct.any():
+            out[sent_id] = set(int(x) for x in grp.loc[is_punct, "id"].tolist())
+    return out
 
 
 # ---------------------------------------------------------------------------
@@ -393,6 +458,7 @@ def build_edge_correspondence(
         per_sentence=per_sent,
         str_skel=str_skel,
         ud_skel=ud_skel,
+        ud_punct_tokens=_collect_ud_punct_tokens(ud_df),
     )
 
 
