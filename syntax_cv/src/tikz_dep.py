@@ -36,7 +36,7 @@ from typing import Iterable, Optional
 
 import pandas as pd
 
-from edge_correspondence import (
+from src.edge_correspondence import (
     EdgeCorrespondence,
     Edge,
     SentID,

@@ -31,7 +31,7 @@ from typing import Optional
 
 import pandas as pd
 
-from syntax_cv.src.edge_correspondence import Edge, TokenID, SentID
+from src.edge_correspondence import Edge, TokenID, SentID
 
 
 # ---------------------------------------------------------------------------

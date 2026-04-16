@@ -48,12 +48,12 @@ from typing import Optional
 
 import pandas as pd
 
-from edge_correspondence import (
+from src.edge_correspondence import (
     EdgeCorrespondence,
     SentID,
     build_edge_correspondence,
 )
-from lca_candidates import build_lca_candidates
+from src.lca_candidates import build_lca_candidates
 
 
 # ---------------------------------------------------------------------------

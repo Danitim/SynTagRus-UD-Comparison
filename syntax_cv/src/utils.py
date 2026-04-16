@@ -30,12 +30,12 @@ import pandas as pd
 
 from src.convert import convert_cv_to_csv
 
-from edge_correspondence import (
+from src.edge_correspondence import (
     EdgeCorrespondence,
     build_edge_correspondence,
 )
-from lca_candidates import build_lca_candidates
-from token_comparison import build_comparison_table
+from src.lca_candidates import build_lca_candidates
+from src.token_comparison import build_comparison_table
 
 
 # ---------------------------------------------------------------------------

@@ -63,7 +63,7 @@ from typing import Iterable, Literal, Optional
 
 import pandas as pd
 
-from syntax_cv.src.resolve import resolve_edge_matching
+from src.resolve import resolve_edge_matching
 
 
 # ---------------------------------------------------------------------------

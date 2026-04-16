@@ -26,7 +26,7 @@ from typing import Optional
 
 import pandas as pd
 
-from syntax_cv.src.edge_correspondence import (
+from src.edge_correspondence import (
     EdgeCorrespondence,
     SentID,
     TokenID,
