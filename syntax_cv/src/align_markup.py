@@ -133,7 +133,7 @@ def resolve_edge_matching(
         next_unresolved = []
 
         for e_ud in unresolved:
-            exact_pool = set(candidates.get(e_ud, set()))
+            exact_pool = candidates.get(e_ud, set())
             available = exact_pool - used_str
 
             # swap.md fallback: if exact candidates are empty, open all free STR edges
@@ -155,11 +155,115 @@ def resolve_edge_matching(
     return fixed
 
 
+def _build_directed_skeleton_by_sent(df: pd.DataFrame) -> dict:
+    """
+    Build per-sentence undirected skeleton -> head-id mapping.
+
+    Returns:
+      sent_id -> {frozenset({h, v}): h}
+    """
+    out: dict = {}
+    cols = df[["sent_id", "id", "head"]]
+    for sent_id, grp in cols.groupby("sent_id", sort=False):
+        ids = grp["id"].to_numpy(copy=False)
+        heads = grp["head"].to_numpy(copy=False)
+        edges: dict = {}
+        for v, h in zip(ids, heads):
+            h = int(h)
+            if h == 0:
+                continue
+            v = int(v)
+            edges[frozenset({h, v})] = h
+        out[sent_id] = edges
+    return out
+
+
+def _find_pairs_to_swap_cp_from_skeletons(
+    str_skel_by_sent: dict,
+    ud_skel_by_sent: dict,
+    extra_candidates=None,
+    *,
+    return_diagnostics: bool = False,
+) -> list[tuple] | tuple[list[tuple], dict]:
+    """
+    Internal CP pair extraction from prebuilt sentence skeletons.
+
+    This helper allows recursive alignment to reuse immutable UD skeletons
+    between passes and avoid repeated DataFrame scans.
+    """
+    pairs: list = []
+    seen: set = set()
+    diagnostics = {
+        "sentences_total": 0,
+        "sentences_with_unresolved": 0,
+        "total_ud_edges": 0,
+        "resolved_ud_edges": 0,
+        "unresolved_ud_edges": 0,
+        "unresolved_sent_ids": [],
+        "unresolved_by_sentence": {},
+    }
+
+    for sent_id, str_skel in str_skel_by_sent.items():
+        ud_skel = ud_skel_by_sent.get(sent_id)
+        if ud_skel is None:
+            continue
+
+        all_str_edges = set(str_skel.keys())
+        diagnostics["sentences_total"] += 1
+
+        # Default exact candidates by endpoint equality (swap.md Section 3).
+        # Since edges are undirected frozensets, equality means same endpoints.
+        candidates = {e_ud: ({e_ud} if e_ud in str_skel else set()) for e_ud in ud_skel}
+
+        # Merge extra candidates (e.g., from LCA analysis)
+        if extra_candidates and sent_id in extra_candidates:
+            for e_ud, extra in extra_candidates[sent_id].items():
+                if e_ud in candidates:
+                    candidates[e_ud] |= extra
+                else:
+                    candidates[e_ud] = set(extra)
+
+        # Constraint propagation with swap.md fallback on empty exact pools
+        fixed, unresolved = resolve_edge_matching(
+            candidates,
+            all_str_edges=all_str_edges,
+            return_unresolved=True,
+        )
+        diagnostics["total_ud_edges"] += len(ud_skel)
+        diagnostics["resolved_ud_edges"] += len(fixed)
+        diagnostics["unresolved_ud_edges"] += len(unresolved)
+        if unresolved:
+            diagnostics["sentences_with_unresolved"] += 1
+            diagnostics["unresolved_sent_ids"].append(sent_id)
+            diagnostics["unresolved_by_sentence"][sent_id] = len(unresolved)
+
+        # Extract mirrored pairs from same-skeleton fixed matchings
+        for e_ud, e_str in fixed.items():
+            if e_ud != e_str:
+                continue  # different skeleton — not a direct-swap candidate
+            head_str = str_skel.get(e_str)
+            head_ud = ud_skel.get(e_ud)
+            if head_str is None or head_ud is None:
+                continue
+            if head_str != head_ud:  # arc directions differ → mirrored
+                i, j = sorted(e_ud)
+                key = (sent_id, i, j)
+                if key not in seen:
+                    seen.add(key)
+                    pairs.append(key)
+
+    if return_diagnostics:
+        return pairs, diagnostics
+    return pairs
+
+
 def find_pairs_to_swap_cp(
     str_df: pd.DataFrame,
     ud_df: pd.DataFrame,
     extra_candidates=None,
-) -> list[tuple]:
+    *,
+    return_diagnostics: bool = False,
+) -> list[tuple] | tuple[list[tuple], dict]:
     """
     Find mirrored pairs via constraint propagation (Section 2.1, CP variant).
 
@@ -199,80 +303,25 @@ def find_pairs_to_swap_cp(
     -------
     list of (sent_id, id_min, id_max) — same format as find_pairs_to_swap(),
     in CP resolution order within each sentence.
+
+    If return_diagnostics=True, also returns a dict with aggregate CP status:
+      - sentences_total
+      - sentences_with_unresolved
+      - total_ud_edges
+      - resolved_ud_edges
+      - unresolved_ud_edges
+      - unresolved_sent_ids
+      - unresolved_by_sentence
     """
-    # ------------------------------------------------------------------ #
-    # Build per-sentence skeletons                                       #
-    # ------------------------------------------------------------------ #
-    str_skel_by_sent: dict = {}   # sent_id -> frozenset -> head in STR
-    ud_skel_by_sent: dict = {}    # sent_id -> frozenset -> head in UD
+    str_skel_by_sent = _build_directed_skeleton_by_sent(str_df)
+    ud_skel_by_sent = _build_directed_skeleton_by_sent(ud_df)
 
-    for sent_id, grp in str_df.groupby("sent_id", sort=False):
-        edges: dict = {}
-        for _, row in grp.iterrows():
-            h, v = int(row["head"]), int(row["id"])
-            if h != 0:
-                e = frozenset({h, v})
-                edges[e] = h
-        str_skel_by_sent[sent_id] = edges
-
-    for sent_id, grp in ud_df.groupby("sent_id", sort=False):
-        edges = {}
-        for _, row in grp.iterrows():
-            h, v = int(row["head"]), int(row["id"])
-            if h != 0:
-                e = frozenset({h, v})
-                edges[e] = h
-        ud_skel_by_sent[sent_id] = edges
-
-    # ------------------------------------------------------------------ #
-    # Per-sentence: build candidates → propagate → extract mirrored pairs #
-    # ------------------------------------------------------------------ #
-    pairs: list = []
-    seen: set = set()
-
-    for sent_id, str_skel in str_skel_by_sent.items():
-        if sent_id not in ud_skel_by_sent:
-            continue
-        ud_skel = ud_skel_by_sent[sent_id]
-        all_str_edges = set(str_skel.keys())
-
-        # Default exact candidates by endpoint equality (swap.md Section 3).
-        # Since edges are undirected frozensets, equality means same endpoints.
-        candidates: dict = {}
-        for e_ud in ud_skel:
-            candidates[e_ud] = {e_ud} if e_ud in str_skel else set()
-
-        # Merge extra candidates (e.g., from LCA analysis)
-        if extra_candidates and sent_id in extra_candidates:
-            for e_ud, extra in extra_candidates[sent_id].items():
-                if e_ud in candidates:
-                    candidates[e_ud] |= extra
-                else:
-                    candidates[e_ud] = set(extra)
-
-        # Constraint propagation with swap.md fallback on empty exact pools
-        fixed, _unresolved = resolve_edge_matching(
-            candidates,
-            all_str_edges=all_str_edges,
-            return_unresolved=True,
-        )
-
-        # Extract mirrored pairs from same-skeleton fixed matchings
-        for e_ud, e_str in fixed.items():
-            if e_ud != e_str:
-                continue  # different skeleton — not a direct-swap candidate
-            head_str = str_skel.get(e_str)
-            head_ud = ud_skel.get(e_ud)
-            if head_str is None or head_ud is None:
-                continue
-            if head_str != head_ud:  # arc directions differ → mirrored
-                i, j = sorted(e_ud)
-                key = (sent_id, i, j)
-                if key not in seen:
-                    seen.add(key)
-                    pairs.append(key)
-
-    return pairs
+    return _find_pairs_to_swap_cp_from_skeletons(
+        str_skel_by_sent,
+        ud_skel_by_sent,
+        extra_candidates=extra_candidates,
+        return_diagnostics=return_diagnostics,
+    )
 
 
 def swap_rows_in_df(
@@ -416,7 +465,7 @@ def build_recursive_swap_plan(
     stop_on_cycle: bool = True,
 ) -> list[list[tuple]]:
     """
-    Build recursive swap plan: recompute mirrored pairs after each pass.
+    Build recursive swap plan with merge-based pair finder.
 
     Pass k:
       1) find mirrored pairs on current STR tree vs fixed UD tree;
@@ -448,6 +497,67 @@ def build_recursive_swap_plan(
     return plan
 
 
+def build_recursive_swap_plan_cp(
+    str_df: pd.DataFrame,
+    ud_df: pd.DataFrame,
+    max_passes: int = 20,
+    stop_on_cycle: bool = True,
+    extra_candidates=None,
+    *,
+    return_diagnostics: bool = False,
+) -> list[list[tuple]] | tuple[list[list[tuple]], dict]:
+    """
+    Build recursive swap plan with CP pair finder.
+
+    At each pass, recompute CP-resolved mirrored pairs on the current STR tree.
+    This implements recursive "method of exclusion":
+    keep fixing unambiguous choices until stabilization, then repeat on the
+    updated tree while new mirrored pairs continue to appear.
+    """
+    current = str_df.copy()
+    plan: list[list[tuple]] = []
+    pass_diagnostics: list[dict] = []
+    ud_skel_by_sent = _build_directed_skeleton_by_sent(ud_df)
+
+    seen_states: set[str] = {_head_signature(current)}
+
+    for _ in range(max_passes):
+        current_skel_by_sent = _build_directed_skeleton_by_sent(current)
+        pairs, diag = _find_pairs_to_swap_cp_from_skeletons(
+            current_skel_by_sent,
+            ud_skel_by_sent,
+            extra_candidates=extra_candidates,
+            return_diagnostics=True,
+        )
+        pass_diagnostics.append(diag)
+        if not pairs:
+            break
+
+        plan.append(pairs)
+        current = apply_all_swaps(current, pairs)
+
+        if stop_on_cycle:
+            sig = _head_signature(current)
+            if sig in seen_states:
+                break
+            seen_states.add(sig)
+
+    if return_diagnostics:
+        summary = {
+            "passes": len(plan),
+            "pairs_total": sum(len(p) for p in plan),
+            "pass_diagnostics": pass_diagnostics,
+            "any_unresolved": any(d["unresolved_ud_edges"] > 0 for d in pass_diagnostics),
+            "last_unresolved_ud_edges": pass_diagnostics[-1]["unresolved_ud_edges"] if pass_diagnostics else 0,
+            "last_sentences_with_unresolved": pass_diagnostics[-1]["sentences_with_unresolved"] if pass_diagnostics else 0,
+            "last_unresolved_sent_ids": pass_diagnostics[-1]["unresolved_sent_ids"] if pass_diagnostics else [],
+            "last_unresolved_by_sentence": pass_diagnostics[-1]["unresolved_by_sentence"] if pass_diagnostics else {},
+        }
+        return plan, summary
+
+    return plan
+
+
 def apply_swap_plan(df: pd.DataFrame, plan: list[list[tuple]]) -> pd.DataFrame:
     """
     Apply recursive swap plan produced by build_recursive_swap_plan().
@@ -463,6 +573,7 @@ def align_recursively(
     ud_df: pd.DataFrame,
     max_passes: int = 20,
     stop_on_cycle: bool = True,
+    method: str = "cp",
     return_plan: bool = False,
 ):
     """
@@ -473,17 +584,202 @@ def align_recursively(
     or
       (aligned_str_df, plan) if return_plan=True.
     """
-    plan = build_recursive_swap_plan(
-        str_df=str_df,
-        ud_df=ud_df,
-        max_passes=max_passes,
-        stop_on_cycle=stop_on_cycle,
-    )
+    if method == "cp":
+        plan = build_recursive_swap_plan_cp(
+            str_df=str_df,
+            ud_df=ud_df,
+            max_passes=max_passes,
+            stop_on_cycle=stop_on_cycle,
+        )
+    elif method == "merge":
+        plan = build_recursive_swap_plan(
+            str_df=str_df,
+            ud_df=ud_df,
+            max_passes=max_passes,
+            stop_on_cycle=stop_on_cycle,
+        )
+    else:
+        raise ValueError("method must be 'cp' or 'merge'")
+
     aligned = apply_swap_plan(str_df, plan)
 
     if return_plan:
         return aligned, plan
     return aligned
+
+
+def get_unresolved_alignment_sentences(
+    str_df: pd.DataFrame,
+    ud_df: pd.DataFrame,
+    max_passes: int = 20,
+    stop_on_cycle: bool = True,
+    extra_candidates=None,
+    with_text: bool = True,
+) -> pd.DataFrame:
+    """
+    Return sentences where recursive CP alignment remains ambiguous.
+
+    Ambiguous means that after the last recursive pass there are UD edges
+    that still have multiple possible STR matches (no unique fixation by
+    elimination).
+    """
+    _, summary = build_recursive_swap_plan_cp(
+        str_df=str_df,
+        ud_df=ud_df,
+        max_passes=max_passes,
+        stop_on_cycle=stop_on_cycle,
+        extra_candidates=extra_candidates,
+        return_diagnostics=True,
+    )
+
+    unresolved_by_sentence = summary.get("last_unresolved_by_sentence", {})
+    if not unresolved_by_sentence:
+        cols = ["sent_id", "unresolved_ud_edges"]
+        if with_text:
+            cols.append("text")
+        return pd.DataFrame(columns=cols)
+
+    rows = [
+        {"sent_id": sent_id, "unresolved_ud_edges": n}
+        for sent_id, n in unresolved_by_sentence.items()
+    ]
+    out = pd.DataFrame(rows).sort_values(
+        ["unresolved_ud_edges", "sent_id"],
+        ascending=[False, True],
+    )
+
+    if with_text and "text" in str_df.columns:
+        sent_text = str_df.groupby("sent_id", sort=False)["text"].first()
+        out["text"] = out["sent_id"].map(sent_text)
+
+    return out.reset_index(drop=True)
+
+
+def inspect_unresolved_alignment_sentence(
+    str_df: pd.DataFrame,
+    ud_df: pd.DataFrame,
+    sent_id: str,
+    max_passes: int = 20,
+    stop_on_cycle: bool = True,
+    extra_candidates=None,
+) -> pd.DataFrame:
+    """
+    Inspect token-level ambiguity for one sentence after recursive CP alignment.
+
+    Returns one row per unresolved UD edge x available STR candidate with token
+    IDs/forms and directed heads in both trees after applying the recursive
+    swap plan to STR.
+    """
+    str_sent = str_df[str_df["sent_id"] == sent_id].copy()
+    ud_sent = ud_df[ud_df["sent_id"] == sent_id].copy()
+    if str_sent.empty or ud_sent.empty:
+        raise ValueError(f"sent_id={sent_id!r} not found in one of the inputs")
+
+    plan = build_recursive_swap_plan_cp(
+        str_df=str_sent,
+        ud_df=ud_sent,
+        max_passes=max_passes,
+        stop_on_cycle=stop_on_cycle,
+        extra_candidates=extra_candidates,
+    )
+    str_aligned = apply_swap_plan(str_sent, plan)
+
+    str_skel_by_sent = _build_directed_skeleton_by_sent(str_aligned)
+    ud_skel_by_sent = _build_directed_skeleton_by_sent(ud_sent)
+    str_skel = str_skel_by_sent.get(sent_id, {})
+    ud_skel = ud_skel_by_sent.get(sent_id, {})
+    all_str_edges = set(str_skel.keys())
+
+    candidates = {e_ud: ({e_ud} if e_ud in str_skel else set()) for e_ud in ud_skel}
+    if extra_candidates and sent_id in extra_candidates:
+        for e_ud, extra in extra_candidates[sent_id].items():
+            if e_ud in candidates:
+                candidates[e_ud] |= extra
+            else:
+                candidates[e_ud] = set(extra)
+
+    fixed, unresolved = resolve_edge_matching(
+        candidates,
+        all_str_edges=all_str_edges,
+        return_unresolved=True,
+    )
+    used_str = set(fixed.values())
+
+    columns = [
+        "sent_id",
+        "plan_passes",
+        "plan_pairs_total",
+        "ud_i",
+        "ud_form_i",
+        "ud_j",
+        "ud_form_j",
+        "ud_head",
+        "ud_dep",
+        "str_i",
+        "str_form_i",
+        "str_form_i_original",
+        "str_j",
+        "str_form_j",
+        "str_form_j_original",
+        "str_head",
+        "str_dep",
+    ]
+    if not unresolved:
+        return pd.DataFrame(columns=columns)
+
+    ud_id2form = {}
+    if "form" in ud_sent.columns:
+        ud_id2form = dict(zip(ud_sent["id"].astype(int), ud_sent["form"]))
+
+    str_id2form_aligned = {}
+    if "form" in str_aligned.columns:
+        str_id2form_aligned = dict(zip(str_aligned["id"].astype(int), str_aligned["form"]))
+
+    str_id2form_original = {}
+    if "form" in str_sent.columns:
+        str_id2form_original = dict(zip(str_sent["id"].astype(int), str_sent["form"]))
+
+    plan_pairs_total = sum(len(pass_pairs) for pass_pairs in plan)
+    rows = []
+    for e_ud in unresolved:
+        ud_i, ud_j = sorted(e_ud)
+        ud_head = ud_skel.get(e_ud)
+        ud_dep = None
+        if ud_head is not None:
+            ud_dep = ud_j if ud_head == ud_i else ud_i
+
+        exact_available = candidates.get(e_ud, set()) - used_str
+        available_str = exact_available if exact_available else (all_str_edges - used_str)
+        for e_str in sorted(available_str, key=lambda e: tuple(sorted(e))):
+            str_i, str_j = sorted(e_str)
+            str_head = str_skel.get(e_str)
+            str_dep = None
+            if str_head is not None:
+                str_dep = str_j if str_head == str_i else str_i
+
+            rows.append({
+                "sent_id": sent_id,
+                "plan_passes": len(plan),
+                "plan_pairs_total": plan_pairs_total,
+                "ud_i": ud_i,
+                "ud_form_i": ud_id2form.get(ud_i),
+                "ud_j": ud_j,
+                "ud_form_j": ud_id2form.get(ud_j),
+                "ud_head": ud_head,
+                "ud_dep": ud_dep,
+                "str_i": str_i,
+                "str_form_i": str_id2form_aligned.get(str_i),
+                "str_form_i_original": str_id2form_original.get(str_i),
+                "str_j": str_j,
+                "str_form_j": str_id2form_aligned.get(str_j),
+                "str_form_j_original": str_id2form_original.get(str_j),
+                "str_head": str_head,
+                "str_dep": str_dep,
+            })
+
+    return pd.DataFrame(rows, columns=columns).sort_values(
+        ["ud_i", "ud_j", "str_i", "str_j"]
+    ).reset_index(drop=True)
 
 
 # ---------------------------------------------------------------------------
@@ -498,16 +794,8 @@ def _build_skeleton(df: pd.DataFrame) -> dict[str, set[frozenset]]:
 
     Returns dict: sent_id → set of frozenset({head, id}).
     """
-    skeletons: dict = {}
-    for sent_id, group in df.groupby("sent_id", sort=False):
-        edges = set()
-        for _, row in group.iterrows():
-            h = int(row["head"])
-            v = int(row["id"])
-            if h != 0:
-                edges.add(frozenset({h, v}))
-        skeletons[sent_id] = edges
-    return skeletons
+    directed = _build_directed_skeleton_by_sent(df)
+    return {sent_id: set(edges.keys()) for sent_id, edges in directed.items()}
 
 
 def classify_edges(str_df: pd.DataFrame, ud_df: pd.DataFrame) -> pd.DataFrame:
