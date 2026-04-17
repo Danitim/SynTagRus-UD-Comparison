@@ -65,14 +65,6 @@ def _guarded_draw_line(style: str, a: str, b: str) -> str:
     )
 
 
-def _guarded_draw_circle(style: str, a: str, radius: str = "2mm") -> str:
-    return (
-        f"  \\ifcsname pgf@sh@ns@{a}\\endcsname"
-        f"\\draw[{style}] ({a}) circle ({radius});"
-        f"\\fi"
-    )
-
-
 def _escape_latex(s: object) -> str:
     if s is None:
         return ""
@@ -166,6 +158,7 @@ def render_pair(
     show_unresolved: bool = True,
     draw_root_link: bool = True,
     root_link_style: str = "densely dashed, thick, gray!70",
+    root_mismatch_style: str = "densely dashed, thick, green!60!black",
     deprel_col: str = "deprel",
     form_col: str = "form",
 ) -> str:
@@ -184,16 +177,17 @@ def render_pair(
     sent_id       : target sentence identifier.
     corr          : EdgeCorrespondence built from the same DataFrames.
     show_unresolved
-        If True, draw unresolved correspondences as red dotted lines
-        between UD-dep and the best-guess STR token (none — just render
-        the UD edge as decorative, with no STR counterpart). If False,
-        skip them entirely.
+        If True, highlight unresolved tokens in both rows and print
+        their list under the figure. Unresolved connectors are not
+        drawn (to reduce visual clutter).
     draw_root_link
         If True, draw an additional connector between root tokens.
         This connector is decorative: roots are not part of the
         edge-based correspondence map.
     root_link_style
         TikZ style used for the decorative root connector.
+    root_mismatch_style
+        TikZ style used when STR and UD root tokens differ.
     deprel_col, form_col : column names for labels and surface forms.
     """
     str_df = _as_render_view(str_df)
@@ -209,8 +203,54 @@ def render_pair(
     str_punct = _punct_token_ids(str_toks, deprel_col)
     ud_punct = _punct_token_ids(ud_toks, deprel_col)
 
-    str_forms = [_escape_latex(f) for f in str_toks[form_col]]
-    ud_forms = [_escape_latex(f) for f in ud_toks[form_col]]
+    sc = corr.per_sentence.get(sent_id)
+    unresolved_ud: list[int] = []
+    matched_str_deps: set[int] = set()
+    if sc is not None:
+        ud_sk = corr.ud_skel[sent_id]
+        str_sk_pre = corr.str_skel.get(sent_id)
+        for e_ud, m in sc.matches.items():
+            dep_ud = ud_sk.dep_of(e_ud)
+            if dep_ud is None or dep_ud in ud_punct:
+                continue
+            if m.status == "unresolved":
+                unresolved_ud.append(dep_ud)
+                continue
+            if m.e_str is not None and str_sk_pre is not None:
+                dep_str = str_sk_pre.dep_of(m.e_str)
+                if dep_str is not None and dep_str not in str_punct:
+                    matched_str_deps.add(int(dep_str))
+    unresolved_ud_set = set(unresolved_ud) if show_unresolved else set()
+    str_all_nonpunct = {int(r["id"]) for _, r in str_toks.iterrows() if int(r["id"]) not in str_punct}
+    str_roots = {int(r["id"]) for _, r in str_toks.iterrows() if int(r["head"]) == 0 and int(r["id"]) not in str_punct}
+    str_unmatched = sorted(str_all_nonpunct - matched_str_deps - str_roots)
+
+    # Choose STR tokens to highlight for unresolved UD tokens:
+    # map each unresolved UD token to the nearest still-unmatched STR token.
+    unresolved_str_set: set[int] = set()
+    free = set(str_unmatched)
+    for ud_tid in sorted(unresolved_ud_set):
+        if not free:
+            break
+        chosen = min(free, key=lambda s_tid: (abs(s_tid - ud_tid), s_tid))
+        unresolved_str_set.add(chosen)
+        free.remove(chosen)
+
+    str_forms: list[str] = []
+    for _, row in str_toks.iterrows():
+        tid = int(row["id"])
+        txt = _escape_latex(row[form_col])
+        if tid in unresolved_str_set:
+            txt = r"\textcolor{red!70!black}{\underline{" + txt + "}}"
+        str_forms.append(txt)
+
+    ud_forms: list[str] = []
+    for _, row in ud_toks.iterrows():
+        tid = int(row["id"])
+        txt = _escape_latex(row[form_col])
+        if tid in unresolved_ud_set:
+            txt = r"\textcolor{red!70!black}{\underline{" + txt + "}}"
+        ud_forms.append(txt)
 
     # --- STR dependency block (top) -----------------------------------------
 
@@ -296,7 +336,6 @@ def render_pair(
 
     lines.append(r"% ---- token correspondence (dashed) ----")
     lines.append(r"\begin{tikzpicture}[overlay, remember picture]")
-    sc = corr.per_sentence.get(sent_id)
     if sc is not None:
         ud_sk = corr.ud_skel[sent_id]
         str_sk = corr.str_skel[sent_id]
@@ -312,8 +351,7 @@ def render_pair(
                 continue
             style = _STATUS_STYLE[m.status]
             if m.e_str is None:
-                # Decorative marker on UD token only
-                lines.append(_guarded_draw_circle(style, f"ud-w-{ud_pos[dep_ud]}"))
+                # Intentionally do not draw unresolved connectors.
                 continue
             dep_str = str_sk.dep_of(m.e_str)
             if dep_str is None:
@@ -350,12 +388,25 @@ def render_pair(
             if s_root in str_pos and u_root in ud_pos:
                 lines.append(
                     _guarded_draw_line(
-                        _STATUS_STYLE["unresolved"],
+                        root_mismatch_style,
                         f"str-w-{str_pos[s_root]}",
                         f"ud-w-{ud_pos[u_root]}",
                     )
                 )
     lines.append(r"\end{tikzpicture}")
+
+    if unresolved_ud:
+        unresolved_ud = sorted(set(unresolved_ud))
+        ud_label = ud_toks.set_index("id")[form_col].to_dict()
+        label_text = ", ".join(
+            f"{tid}:{_escape_latex(ud_label.get(tid, ''))}" for tid in unresolved_ud
+        )
+        lines.append(
+            r"\par\small\noindent\textcolor{red!70!black}{"
+            + "Unresolved tokens (UD id:form): "
+            + label_text
+            + "}"
+        )
 
     return "\n".join(lines)
 
