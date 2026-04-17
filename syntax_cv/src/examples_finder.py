@@ -67,6 +67,10 @@ class SentenceDiagnosis:
     extended_counts: dict[str, int]
     strict_total: int
     extended_total: int
+    strict_meaningful_counts: dict[str, int]
+    extended_meaningful_counts: dict[str, int]
+    token_case_counts: dict[int, int] # per-token cases 1..5
+    meaningful_tokens: int            # UD tokens: non-punct, including root
     category: int                     # 1..5
 
 
@@ -78,6 +82,101 @@ def _counts(corr: EdgeCorrespondence, sent_id: SentID) -> tuple[dict[str, int], 
     for m in sc.matches.values():
         by[m.status] = by.get(m.status, 0) + 1
     return by, sum(by.values())
+
+
+def _root_tokens(sk) -> set[int]:
+    """
+    Root token ids in a sentence skeleton.
+    """
+    dependents = {d for d in (sk.dep_of(e) for e in sk.edges) if d is not None}
+    return {v for v in sk.token_ids if v not in dependents}
+
+
+def _counts_meaningful(corr: EdgeCorrespondence, sent_id: SentID) -> tuple[dict[str, int], int]:
+    """
+    Status counts on meaningful tokens only (no punct, root included).
+    """
+    status_map = _meaningful_status_map(corr, sent_id)
+    by: dict[str, int] = {
+        "exact_same_dir": 0,
+        "exact_mirrored": 0,
+        "restructured": 0,
+        "unresolved": 0,
+    }
+    for st in status_map.values():
+        by[st] = by.get(st, 0) + 1
+    return by, len(status_map)
+
+
+def _meaningful_status_map(corr: EdgeCorrespondence, sent_id: SentID) -> dict[int, str]:
+    """
+    Per-token status on meaningful UD tokens (no punct, root included).
+    """
+    out: dict[int, str] = {}
+    sc = corr.per_sentence.get(sent_id)
+    ud_sk = corr.ud_skel.get(sent_id)
+    if ud_sk is None:
+        return out
+
+    punct = corr.ud_punct_tokens.get(sent_id, set())
+    if sc is not None:
+        for e_ud, m in sc.matches.items():
+            dep_ud = ud_sk.dep_of(e_ud)
+            if dep_ud is None or dep_ud in punct:
+                continue
+            out[int(dep_ud)] = m.status
+
+    # Add root token(s): include in meaningful stats as requested.
+    ud_roots = _root_tokens(ud_sk)
+    str_sk = corr.str_skel.get(sent_id)
+    str_roots = _root_tokens(str_sk) if str_sk is not None else set()
+    for v in ud_roots:
+        if v in punct:
+            continue
+        out[int(v)] = "exact_same_dir" if v in str_roots else "unresolved"
+
+    return out
+
+
+def _token_case_counts(
+    strict: EdgeCorrespondence,
+    extended: EdgeCorrespondence,
+    sent_id: SentID,
+) -> tuple[dict[int, int], int]:
+    """
+    Per-token category counts (cases 1..5), meaningful tokens only.
+
+    Case mapping is token-level and forms a partition:
+      1: strict exact_same_dir
+      2: strict resolved but not exact_same_dir, extended resolved
+      3: strict unresolved, extended resolved
+      4: strict resolved, extended unresolved
+      5: strict unresolved, extended unresolved
+    """
+    s_map = _meaningful_status_map(strict, sent_id)
+    e_map = _meaningful_status_map(extended, sent_id)
+    token_ids = set(s_map) | set(e_map)
+    by_case = {1: 0, 2: 0, 3: 0, 4: 0, 5: 0}
+
+    for tid in token_ids:
+        s = s_map.get(tid, "unresolved")
+        e = e_map.get(tid, "unresolved")
+
+        s_resolved = s in ("exact_same_dir", "exact_mirrored", "restructured")
+        e_resolved = e in ("exact_same_dir", "exact_mirrored", "restructured")
+
+        if s == "exact_same_dir":
+            by_case[1] += 1
+        elif s_resolved and e_resolved:
+            by_case[2] += 1
+        elif (not s_resolved) and e_resolved:
+            by_case[3] += 1
+        elif s_resolved and (not e_resolved):
+            by_case[4] += 1
+        else:
+            by_case[5] += 1
+
+    return by_case, len(token_ids)
 
 
 def _classify(
@@ -118,19 +217,14 @@ def _classify(
 
 
 def diagnose_sentences(
-    str_df: pd.DataFrame,
-    ud_df: pd.DataFrame,
-    *,
-    max_path_len: int = 3,
+    corr_s,
+    corr_e,
 ) -> dict[SentID, SentenceDiagnosis]:
     """
     Build both correspondences and classify every sentence.
     """
-    strict = build_edge_correspondence(str_df, ud_df, mode="strict")
-    extras = build_lca_candidates(str_df, ud_df, max_path_len=max_path_len)
-    extended = build_edge_correspondence(
-        str_df, ud_df, mode="extended", extra_candidates=extras,
-    )
+    strict = corr_s
+    extended = corr_e
 
     all_sent_ids = set(strict.per_sentence) | set(extended.per_sentence)
 
@@ -138,6 +232,9 @@ def diagnose_sentences(
     for sid in all_sent_ids:
         s_by, s_tot = _counts(strict, sid)
         e_by, e_tot = _counts(extended, sid)
+        s_mean_by, s_mean_tot = _counts_meaningful(strict, sid)
+        e_mean_by, e_mean_tot = _counts_meaningful(extended, sid)
+        token_cases, n_mean = _token_case_counts(strict, extended, sid)
         cat = _classify(s_by, s_tot, e_by, e_tot)
         if cat == 0:
             continue
@@ -147,6 +244,10 @@ def diagnose_sentences(
             extended_counts=e_by,
             strict_total=s_tot,
             extended_total=e_tot,
+            strict_meaningful_counts=s_mean_by,
+            extended_meaningful_counts=e_mean_by,
+            token_case_counts=token_cases,
+            meaningful_tokens=n_mean if n_mean else (min(s_mean_tot, e_mean_tot) if e_mean_tot else s_mean_tot),
             category=cat,
         )
     return out
@@ -216,25 +317,33 @@ def category_summary(
     supervisor's implicit question: how often does each category occur?
     """
     rows = []
-    tot = len(diagnoses)
+    total_sentences = len(diagnoses)
+    total_meaningful_tokens = sum(d.meaningful_tokens for d in diagnoses.values())
     by_cat: dict[int, int] = {}
+    by_cat_tokens: dict[int, int] = {}
     for d in diagnoses.values():
         by_cat[d.category] = by_cat.get(d.category, 0) + 1
+        for cat in range(1, 6):
+            by_cat_tokens[cat] = by_cat_tokens.get(cat, 0) + d.token_case_counts.get(cat, 0)
     for cat in range(1, 6):
-        n = by_cat.get(cat, 0)
+        n_sent = by_cat.get(cat, 0)
+        n_tok = by_cat_tokens.get(cat, 0)
         rows.append({
             "category": cat,
             "description": _CATEGORY_DESCRIPTIONS[cat],
-            "sentences": n,
-            "pct": round(100 * n / tot, 2) if tot else 0.0,
+            "sentences": n_sent,
+            "sentences_pct": round(100 * n_sent / total_sentences, 2) if total_sentences else 0.0,
+            "tokens": n_tok,
+            "tokens_pct": round(100 * n_tok / total_meaningful_tokens, 2)
+                          if total_meaningful_tokens else 0.0,
         })
     return pd.DataFrame(rows)
 
 
 _CATEGORY_DESCRIPTIONS = {
-    1: "Структуры изначально совпадают (все edges exact_same_dir)",
-    2: "CP на exact-кандидатах разрешает всё (есть mirrored/restructured)",
-    3: "Strict оставляет unresolved, extended (LCA) разрешает всё",
-    4: "Strict разрешил всё, extended — нет (сигнал бага)",
-    5: "Ни strict, ни extended не разрешают часть edges",
+    1: "Структуры изначально совпадают",
+    2: "Первый метод справился",
+    3: "Первый метод не справился, второй справился",
+    4: "Первый метод справился, второй не справился",
+    5: "Ни один метод не справился",
 }

@@ -132,7 +132,7 @@ def build_correspondence(
     str_gold: pd.DataFrame,
     ud_gold: pd.DataFrame,
     *,
-    mode: Literal["strict", "extended"] = "strict",
+    mode: Literal["strict", "strict_plus", "extended"] = "strict",
     max_path_len: int = 3,
 ) -> EdgeCorrespondence:
     """
@@ -141,6 +141,9 @@ def build_correspondence(
     The inputs are expected to include columns sent_id, id, head (and
     ideally form, upos, deprel for downstream analysis). Both can be
     either index-reset or (sent_id, id)-indexed.
+
+    In `strict_plus` mode, a local 2-hop bridge heuristic is enabled
+    inside `build_edge_correspondence`.
 
     In `extended` mode, LCA-derived candidates are generated with
     `build_lca_candidates(max_path_len=max_path_len)` and injected

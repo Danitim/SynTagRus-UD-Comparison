@@ -32,12 +32,17 @@ relation that both formalisms recognise as the SAME relation.
 
 Resolution strategies
 ---------------------
-Two modes are supported, selected at construction time:
+Three modes are supported, selected at construction time:
 
   • strict   — candidate set for e_ud is only the STR edge with identical
                endpoints (if it exists). Matches the original pair-based
                swap philosophy but without tree mutation. Unresolvable
                edges remain ⊥ and are excluded from comparison.
+
+  • strict_plus — strict + a local 2-hop bridge heuristic:
+               when UD has h→x and x→y, and STR has x↔y plus h↔y, allow
+               h↔y as a candidate for h↔x. This resolves a broader class
+               of local regroupings without opening the global fallback.
 
   • extended — candidate set additionally contains STR edges on the path
                from v to the cross-tree LCA. Handles "star ↔ chain"
@@ -134,7 +139,7 @@ MatchStatus = Literal[
     "exact_same_dir",   # same skeleton, same head direction
     "exact_mirrored",   # same skeleton, opposite head direction
     "restructured",     # φ(e_ud) ≠ e_ud; different endpoints, found via
-                        #   extended candidates (e.g. LCA path)
+                        #   strict_plus/extended candidates
     "unresolved",       # CP could not fix φ(e_ud) to a single candidate
     "ud_only_root",     # e_ud has head=0 (root edge); no STR counterpart
                         #   considered — roots are not comparable as "labels"
@@ -185,7 +190,7 @@ class EdgeCorrespondence:
     is attached to them from the outside and consumed by downstream
     analyses via the `.matches` / `.match_for_token` APIs.
     """
-    mode: Literal["strict", "extended"]
+    mode: Literal["strict", "strict_plus", "extended"]
     per_sentence: dict[SentID, SentenceCorrespondence]
     str_skel: dict[SentID, SentenceSkeleton]
     ud_skel: dict[SentID, SentenceSkeleton]
@@ -350,6 +355,48 @@ def _collect_ud_punct_tokens(ud_df: pd.DataFrame) -> dict[SentID, set[TokenID]]:
     return out
 
 
+def _build_strict_plus_candidates(
+    str_sk: SentenceSkeleton,
+    ud_sk: SentenceSkeleton,
+) -> dict[Edge, set[Edge]]:
+    """
+    Local bridge candidates for general 2-hop regroupings.
+
+    Pattern:
+      UD:   h -> x, x -> y
+      STR:  h -> y and x/y connected
+
+    Then for UD edge {h,x} add STR edge {h,y} as a candidate.
+    """
+    children_by_head: dict[TokenID, set[TokenID]] = {}
+    for e_ud in ud_sk.edges:
+        head = ud_sk.head_of(e_ud)
+        dep = ud_sk.dep_of(e_ud)
+        if head is None or dep is None:
+            continue
+        children_by_head.setdefault(head, set()).add(dep)
+
+    out: dict[Edge, set[Edge]] = {}
+    for e_ud in ud_sk.edges:
+        if e_ud in str_sk.edges:
+            continue  # strict already handles this edge
+        h = ud_sk.head_of(e_ud)
+        x = ud_sk.dep_of(e_ud)
+        if h is None or x is None:
+            continue
+
+        for y in children_by_head.get(x, set()):
+            e_xy = frozenset({x, y})
+            if e_xy not in str_sk.edges:
+                continue
+
+            e_hy = frozenset({h, y})
+            if e_hy in str_sk.edges and e_hy != e_ud:
+                out.setdefault(e_ud, set()).add(e_hy)
+
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Construction
 # ---------------------------------------------------------------------------
@@ -358,7 +405,7 @@ def build_edge_correspondence(
     str_df: pd.DataFrame,
     ud_df: pd.DataFrame,
     *,
-    mode: Literal["strict", "extended"] = "strict",
+    mode: Literal["strict", "strict_plus", "extended"] = "strict",
     extra_candidates: Optional[dict[SentID, dict[Edge, Iterable[Edge]]]] = None,
 ) -> EdgeCorrespondence:
     """
@@ -370,6 +417,8 @@ def build_edge_correspondence(
     Parameters
     ----------
     mode             : 'strict'    — only exact-endpoint candidates.
+                       'strict_plus' — exact + local 2-hop bridge
+                                     candidates (general regrouping).
                        'extended'  — exact + caller-provided extras
                                      (e.g. LCA-derived candidates, see
                                      `lca_candidates.build_lca_candidates`).
@@ -413,6 +462,31 @@ def build_edge_correspondence(
             allow_open_fallback=False,
             return_unresolved=True,
         )
+
+        if mode == "strict_plus" and still_unresolved:
+            # Phase 2 (strict_plus): local 2-hop bridge candidates.
+            bridge = _build_strict_plus_candidates(
+                str_sk,
+                ud_sk,
+            )
+            used_str = set(fixed.values())
+            phase2_candidates: dict[Edge, set[Edge]] = {}
+            for e_ud in still_unresolved:
+                pool: set[Edge] = set()
+                extras = bridge.get(e_ud)
+                if extras:
+                    pool |= set(extras)
+                pool &= all_str_edges
+                pool -= used_str
+                phase2_candidates[e_ud] = pool
+
+            fixed2, still_unresolved = resolve_edge_matching(
+                phase2_candidates,
+                all_str_edges=None,
+                allow_open_fallback=False,
+                return_unresolved=True,
+            )
+            fixed.update(fixed2)
 
         if mode == "extended" and extra_candidates and still_unresolved:
             # Phase 2: add LCA candidates for unresolved edges only,
