@@ -149,6 +149,17 @@ def _punct_token_ids(tokens: pd.DataFrame, deprel_col: str) -> set[TokenID]:
 # Main renderer
 # ---------------------------------------------------------------------------
 
+def _column_sep(n_tokens: int) -> str:
+    """Column separation for deptext, scaled down for longer sentences."""
+    if n_tokens <= 8:
+        return "0.6cm"
+    if n_tokens <= 12:
+        return "0.4cm"
+    if n_tokens <= 16:
+        return "0.3cm"
+    return "0.2cm"
+
+
 def render_pair(
     str_df: pd.DataFrame,
     ud_df: pd.DataFrame,
@@ -200,6 +211,7 @@ def render_pair(
 
     str_pos = _position_map(str_toks)
     ud_pos = _position_map(ud_toks)
+    col_sep = _column_sep(max(len(str_toks), len(ud_toks)))
     str_punct = _punct_token_ids(str_toks, deprel_col)
     ud_punct = _punct_token_ids(ud_toks, deprel_col)
 
@@ -259,7 +271,7 @@ def render_pair(
     lines.append(r"\begin{minipage}{\linewidth}")
     lines.append(r"\centering")
     lines.append(r"\begin{dependency}[remember picture]")
-    lines.append(r"  \begin{deptext}[column sep=0.6cm]")
+    lines.append(f"  \\begin{{deptext}}[column sep={col_sep}]")
     lines.append("    " + " \\& ".join(str_forms) + r" \\")
     lines.append(r"  \end{deptext}")
 
@@ -297,7 +309,7 @@ def render_pair(
     lines.append(r"\begin{minipage}{\linewidth}")
     lines.append(r"\centering")
     lines.append(r"\begin{dependency}[remember picture]")
-    lines.append(r"  \begin{deptext}[column sep=0.6cm]")
+    lines.append(f"  \\begin{{deptext}}[column sep={col_sep}]")
     lines.append("    " + " \\& ".join(ud_forms) + r" \\")
     lines.append(r"  \end{deptext}")
 
@@ -416,7 +428,8 @@ def render_pair(
 # ---------------------------------------------------------------------------
 
 _PREAMBLE = r"""
-\documentclass[border=6pt]{article}
+\documentclass{article}
+\usepackage[a4paper, landscape, left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[utf8]{inputenc}

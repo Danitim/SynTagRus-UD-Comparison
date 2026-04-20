@@ -18,6 +18,10 @@ Algorithm (supervisor's specification, 17-Apr-26):
         4. **Brute force**: for ≤ MAX_BRUTE remaining edges, enumerate all
            assignments and pick the one with the highest subtree-token overlap.
 
+    Before phase 4, an anchor pass is applied for 1-vs-many leftovers:
+    if there is a unique edge pair with positive endpoint overlap, it is
+    fixed greedily to avoid accidental swaps caused by subtree-size ties.
+
     After matching edges at a node, the algorithm recurses into each matched
     (child_str, child_ud) pair, expanding the frontier one level deeper.
     Then a second pass runs from identity node anchors (t, t) to cover
@@ -112,6 +116,7 @@ def topdown_match(
     result: dict[Edge, Edge] = {}
     used_ud: set[Edge] = set()
     used_str: set[Edge] = set()
+    mirror_role_map: dict[TokenID, TokenID] = {}
 
     def _assign(
         e_ud: Edge,
@@ -136,6 +141,13 @@ def topdown_match(
             dep_str = str_sk.dep_of(e_ud)
             if dep_ud is not None and dep_str is not None:
                 _assign(e_ud, e_ud, dep_ud, dep_str, frontier=[])
+                h_ud = ud_sk.head_of(e_ud)
+                h_str = str_sk.head_of(e_ud)
+                if h_ud is not None and h_str is not None and h_ud != h_str:
+                    # Exact mirrored edge: keep role-aware endpoint mapping
+                    # for tie-breaking ambiguous local assignments.
+                    mirror_role_map[h_ud] = h_str
+                    mirror_role_map[dep_ud] = dep_str
 
     # ------------------------------------------------------------------
     def _match(s_node: TokenID, u_node: TokenID) -> None:
@@ -194,6 +206,56 @@ def topdown_match(
         still_s = [(e, dep) for e, dep in s_rem if e not in used_local]
 
         # ---- Phase 3: singleton elimination --------------------------------
+        def _anchor_bonus(e_ud: Edge, e_str: Edge) -> int:
+            bonus = 0
+            for u in e_ud:
+                mapped = mirror_role_map.get(u)
+                if mapped is not None and mapped in e_str:
+                    bonus += 1
+            return bonus
+
+        if len(still_s) == 1 and len(still_u) > 1:
+            e_str, dep_str = still_s[0]
+            overlap = [len(e_ud & e_str) for e_ud, _ in still_u]
+            best = max(overlap)
+            if best > 0:
+                cands = [j for j, ov in enumerate(overlap) if ov == best]
+                if len(cands) == 1:
+                    j = cands[0]
+                else:
+                    anchors = [_anchor_bonus(still_u[j][0], e_str) for j in cands]
+                    a_best = max(anchors)
+                    if anchors.count(a_best) != 1:
+                        j = -1
+                    else:
+                        j = cands[anchors.index(a_best)]
+                if j >= 0:
+                    e_ud, dep_ud = still_u[j]
+                    if _assign(e_ud, e_str, dep_ud, dep_str, frontier):
+                        still_u = [x for k, x in enumerate(still_u) if k != j]
+                        still_s = []
+
+        if len(still_u) == 1 and len(still_s) > 1:
+            e_ud, dep_ud = still_u[0]
+            overlap = [len(e_ud & e_str) for e_str, _ in still_s]
+            best = max(overlap)
+            if best > 0:
+                cands = [j for j, ov in enumerate(overlap) if ov == best]
+                if len(cands) == 1:
+                    j = cands[0]
+                else:
+                    anchors = [_anchor_bonus(e_ud, still_s[j][0]) for j in cands]
+                    a_best = max(anchors)
+                    if anchors.count(a_best) != 1:
+                        j = -1
+                    else:
+                        j = cands[anchors.index(a_best)]
+                if j >= 0:
+                    e_str, dep_str = still_s[j]
+                    if _assign(e_ud, e_str, dep_ud, dep_str, frontier):
+                        still_u = []
+                        still_s = [x for k, x in enumerate(still_s) if k != j]
+
         if len(still_u) == 1 and len(still_s) == 1:
             e_ud, dep_ud = still_u[0]
             e_str, dep_str = still_s[0]
@@ -215,21 +277,30 @@ def topdown_match(
                 )
 
                 best_score = -1
+                best_anchor_score = -1
                 best_u_idx: Optional[tuple[int, ...]] = None
                 best_perm: Optional[tuple[int, ...]] = None
 
                 for u_idx in u_choices:
                     for perm in permutations(range(ns), k):
                         score = 0
+                        anchor_score = 0
                         for j in range(k):
                             cu = still_u[u_idx[j]][1]
+                            e_ud = still_u[u_idx[j]][0]
+                            e_str = still_s[perm[j]][0]
                             cs = still_s[perm[j]][1]
                             score += len(
                                 ud_sub.get(cu, frozenset())
                                 & str_sub.get(cs, frozenset())
                             )
-                        if score > best_score:
+                            anchor_score += _anchor_bonus(e_ud, e_str)
+                        if (
+                            score > best_score
+                            or (score == best_score and anchor_score > best_anchor_score)
+                        ):
                             best_score = score
+                            best_anchor_score = anchor_score
                             best_u_idx = u_idx
                             best_perm = perm
 

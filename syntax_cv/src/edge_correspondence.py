@@ -228,7 +228,7 @@ class EdgeCorrespondence:
             return None
         # find incoming UD edge
         for e_ud, head in ud_sk.edges.items():
-            if head != v and v in e_ud and (e_ud - {v}).pop() == head:
+            if head != v and v in e_ud and next(iter(e_ud - {v})) == head:
                 # v is the dependent endpoint in e_ud
                 match = self.per_sentence[sent_id].matches.get(e_ud)
                 return match
