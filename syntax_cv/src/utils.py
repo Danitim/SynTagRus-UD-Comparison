@@ -132,8 +132,16 @@ def build_correspondence(
     str_gold: pd.DataFrame,
     ud_gold: pd.DataFrame,
     *,
-    mode: Literal["strict", "strict_plus", "extended"] = "strict",
+    mode: Literal[
+        "strict",
+        "strict_plus",
+        "extended",
+        "extended_stepwise",
+        "topdown",
+        "fi2003",
+    ] = "strict",
     max_path_len: int = 3,
+    fi_k: Optional[int] = 8,
 ) -> EdgeCorrespondence:
     """
     Build a single EdgeCorrespondence from two gold-tree DataFrames.
@@ -148,6 +156,19 @@ def build_correspondence(
     In `extended` mode, LCA-derived candidates are generated with
     `build_lca_candidates(max_path_len=max_path_len)` and injected
     into the CP resolver; no modification is performed on the inputs.
+
+    In `extended_stepwise` mode, we run iterative extended passes with
+    cumulative candidate pools:
+      strict -> LCA<=2 -> LCA<=3 -> ... -> LCA<=max_path_len.
+
+    In `topdown` mode, trees are matched top-down from the roots:
+    exact edges, shared children, singleton elimination, and brute-force
+    overlap scoring.  No LCA candidates or extra_candidates are used.
+
+    In `fi2003` mode, ordered-tree alignment DP (FI2003/JWZ style) is used.
+    `fi_k` controls k-relevance filtering. The default (`fi_k=8`) is a
+    practical speed/coverage trade-off for sentence-length inputs. Set
+    `fi_k=None` to enable automatic doubling with an unfiltered fallback.
     """
     str_df = str_gold.reset_index() if _is_mi_indexed(str_gold) else str_gold
     ud_df = ud_gold.reset_index() if _is_mi_indexed(ud_gold) else ud_gold
@@ -158,11 +179,26 @@ def build_correspondence(
     ud_df = _as_gold_view(ud_df)
 
     extras = None
+    extras_steps = None
     if mode == "extended":
         extras = build_lca_candidates(str_df, ud_df, max_path_len=max_path_len)
+    elif mode == "extended_stepwise":
+        start = 2
+        if max_path_len < start:
+            extras_steps = []
+        else:
+            extras_steps = [
+                build_lca_candidates(str_df, ud_df, max_path_len=d)
+                for d in range(start, max_path_len + 1)
+            ]
 
     return build_edge_correspondence(
-        str_df, ud_df, mode=mode, extra_candidates=extras,
+        str_df,
+        ud_df,
+        mode=mode,
+        extra_candidates=extras,
+        extra_candidates_steps=extras_steps,
+        fi_k=fi_k,
     )
 
 

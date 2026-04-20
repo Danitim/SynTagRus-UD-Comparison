@@ -483,17 +483,34 @@ def render_category_album(
     category. Returns a list of (category, sent_id, latex_source)
     tuples for the caller to write to disk or embed.
 
-    Categories 1-2 are rendered with `corr_strict`; categories 3-5 with
-    `corr_extended` so that the visible correspondence lines reflect
-    the algorithm that was supposed to cover the sentence.
+    Each document contains two structures in the same visual format:
+      1) correspondence from the first method (`corr_strict`);
+      2) correspondence from the second method (`corr_extended`).
     """
     out: list[tuple[int, SentID, str]] = []
     for cat, sids in picks.items():
-        corr = corr_strict if cat in (1, 2) else corr_extended
         for sid in sids:
             title = f"Category {cat}. sent_id={sid}"
-            tex = render_document(
-                str_df, ud_df, sid, corr, title=title, show_unresolved=True
+            first_title = "Method 1"
+            second_title = "Method 2"
+
+            body_first = render_pair(
+                str_df, ud_df, sid, corr_strict, show_unresolved=True
+            )
+            body_second = render_pair(
+                str_df, ud_df, sid, corr_extended, show_unresolved=True
+            )
+
+            tex = (
+                _PREAMBLE
+                + f"\n\\par\\noindent\\textbf{{{_escape_latex(title)}}}\\par\\medskip\n"
+                + "\n% NOTE: connector lines are drawn only when alias nodes exist.\n\n"
+                + f"\\par\\noindent\\textbf{{{_escape_latex(first_title)}}}\\par\\medskip\n"
+                + body_first
+                + "\n\n\\vspace{1.2em}\n\n"
+                + f"\\par\\noindent\\textbf{{{_escape_latex(second_title)}}}\\par\\medskip\n"
+                + body_second
+                + _POSTAMBLE
             )
             out.append((cat, sid, tex))
     return out

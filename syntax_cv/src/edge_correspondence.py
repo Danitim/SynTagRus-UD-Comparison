@@ -32,7 +32,7 @@ relation that both formalisms recognise as the SAME relation.
 
 Resolution strategies
 ---------------------
-Three modes are supported, selected at construction time:
+Five modes are supported, selected at construction time:
 
   • strict   — candidate set for e_ud is only the STR edge with identical
                endpoints (if it exists). Matches the original pair-based
@@ -48,6 +48,17 @@ Three modes are supported, selected at construction time:
                from v to the cross-tree LCA. Handles "star ↔ chain"
                conjunction restructurings and similar cases where no
                single undirected-endpoint edge exists in STR.
+
+  • extended_stepwise — same candidate family as extended, but applied
+             in stages by path radius:
+             strict -> LCA<=2 -> LCA<=3 -> ... -> LCA<=max_path_len.
+             Useful when global candidate pools are too ambiguous.
+
+  • fi2003 — ordered-tree alignment mode inspired by
+             Jansson-Lingas (Fundamenta Informaticae, 2003):
+             dynamic programming over subtree/forest pairs with optional
+             k-relevance filtering. Produces node alignment first, then
+             projects it to e_ud → e_str.
 
 In both modes the final fixation is performed by arc-consistency
 constraint propagation (`resolve_edge_matching`, carried over from the
@@ -190,7 +201,14 @@ class EdgeCorrespondence:
     is attached to them from the outside and consumed by downstream
     analyses via the `.matches` / `.match_for_token` APIs.
     """
-    mode: Literal["strict", "strict_plus", "extended"]
+    mode: Literal[
+        "strict",
+        "strict_plus",
+        "extended",
+        "extended_stepwise",
+        "topdown",
+        "fi2003",
+    ]
     per_sentence: dict[SentID, SentenceCorrespondence]
     str_skel: dict[SentID, SentenceSkeleton]
     ud_skel: dict[SentID, SentenceSkeleton]
@@ -397,6 +415,98 @@ def _build_strict_plus_candidates(
     return out
 
 
+def _build_head_bridge_candidates(
+    str_sk: SentenceSkeleton,
+    ud_sk: SentenceSkeleton,
+) -> dict[Edge, set[Edge]]:
+    """
+    Head-substitution candidates via shared STR/UD bridge edges.
+
+    For unresolved UD edge h_ud -> d, if there exists a shared edge
+    {h_ud, x} present in BOTH trees and STR contains x -> d (undirected
+    skeleton {x, d}), then {x, d} is a valid candidate for h_ud -> d.
+
+    This covers local root-shift/copoly inversion patterns where LCA
+    may be undefined across trees for token d (e.g. 4<->5 root swap).
+    """
+    out: dict[Edge, set[Edge]] = {}
+    shared = set(str_sk.edges) & set(ud_sk.edges)
+
+    bridge_by_head: dict[TokenID, set[TokenID]] = {}
+    for e in shared:
+        a, b = tuple(e)
+        bridge_by_head.setdefault(a, set()).add(b)
+        bridge_by_head.setdefault(b, set()).add(a)
+
+    for e_ud in ud_sk.edges:
+        if e_ud in str_sk.edges:
+            continue
+        h_ud = ud_sk.head_of(e_ud)
+        d_ud = ud_sk.dep_of(e_ud)
+        if h_ud is None or d_ud is None:
+            continue
+        for x in bridge_by_head.get(h_ud, set()):
+            e_str = frozenset({x, d_ud})
+            if e_str in str_sk.edges and e_str != e_ud:
+                out.setdefault(e_ud, set()).add(e_str)
+
+    return out
+
+
+def _build_mirror_swap_candidates(
+    str_sk: SentenceSkeleton,
+    ud_sk: SentenceSkeleton,
+) -> dict[Edge, set[Edge]]:
+    """
+    Candidates for local role-swap patterns around mirrored exact edges.
+
+    If a shared edge {a,b} is exact-mirrored (UD: b->a, STR: a->b), and an
+    unresolved UD edge targets b as dependent, we may need to compare against
+    the incoming STR edge of a (the swapped partner), provided this remains
+    locally anchored by a shared bridge between the two heads.
+    """
+    out: dict[Edge, set[Edge]] = {}
+    shared = set(str_sk.edges) & set(ud_sk.edges)
+
+    # UD-head -> {UD-dependent} for mirrored exact edges.
+    mirror_ud_head_to_dep: dict[TokenID, set[TokenID]] = {}
+    for e in shared:
+        h_ud = ud_sk.head_of(e)
+        h_str = str_sk.head_of(e)
+        d_ud = ud_sk.dep_of(e)
+        if h_ud is None or h_str is None or d_ud is None:
+            continue
+        if h_ud != h_str:
+            mirror_ud_head_to_dep.setdefault(h_ud, set()).add(d_ud)
+
+    incoming_str: dict[TokenID, Edge] = {}
+    for e in str_sk.edges:
+        d = str_sk.dep_of(e)
+        if d is not None:
+            incoming_str[d] = e
+
+    for e_ud in ud_sk.edges:
+        if e_ud in str_sk.edges:
+            continue
+        h_ud = ud_sk.head_of(e_ud)
+        d_ud = ud_sk.dep_of(e_ud)
+        if h_ud is None or d_ud is None:
+            continue
+
+        for swapped in mirror_ud_head_to_dep.get(d_ud, set()):
+            e_str = incoming_str.get(swapped)
+            if e_str is None or e_str == e_ud:
+                continue
+            h_str = str_sk.head_of(e_str)
+            if h_str is None:
+                continue
+            # Keep it local: both heads must be directly linked in both trees.
+            if frozenset({h_ud, h_str}) in shared:
+                out.setdefault(e_ud, set()).add(e_str)
+
+    return out
+
+
 # ---------------------------------------------------------------------------
 # Construction
 # ---------------------------------------------------------------------------
@@ -405,8 +515,19 @@ def build_edge_correspondence(
     str_df: pd.DataFrame,
     ud_df: pd.DataFrame,
     *,
-    mode: Literal["strict", "strict_plus", "extended"] = "strict",
+    mode: Literal[
+        "strict",
+        "strict_plus",
+        "extended",
+        "extended_stepwise",
+        "topdown",
+        "fi2003",
+    ] = "strict",
     extra_candidates: Optional[dict[SentID, dict[Edge, Iterable[Edge]]]] = None,
+    extra_candidates_steps: Optional[
+        list[dict[SentID, dict[Edge, Iterable[Edge]]]]
+    ] = None,
+    fi_k: Optional[int] = None,
 ) -> EdgeCorrespondence:
     """
     Build an EdgeCorrespondence from two CoNLL-style DataFrames.
@@ -422,10 +543,25 @@ def build_edge_correspondence(
                        'extended'  — exact + caller-provided extras
                                      (e.g. LCA-derived candidates, see
                                      `lca_candidates.build_lca_candidates`).
+                       'extended_stepwise' — strict first, then iterative
+                                     extended passes with cumulative LCA
+                                     pools (<=2, <=3, ..., <=max_path_len).
+                       'topdown'   — top-down recursive tree matching:
+                                     walk from roots pairing subtrees by
+                                     exact edges, shared children, singleton
+                                     elimination, and brute-force overlap.
+                                     extra_candidates is IGNORED.
+                       'fi2003'    — ordered-tree alignment DP (FI2003-style)
+                                     with optional k-relevance pruning.
     extra_candidates : nested dict sent_id -> { e_ud -> set(e_str) }
                        merged with exact candidates before CP. In
-                       strict mode this argument is IGNORED by design
-                       (to keep strict provably well-defined).
+                       strict / topdown / fi2003 / extended_stepwise modes
+                       this argument
+                       is IGNORED.
+    extra_candidates_steps : list of nested dicts (one dict per iteration
+                       step). Used only by extended_stepwise mode.
+    fi_k             : k-parameter for fi2003 relevance pruning.
+                       If None, fi2003 uses automatic doubling + fallback.
 
     Returns
     -------
@@ -447,73 +583,136 @@ def build_edge_correspondence(
             per_sent[sent_id] = SentenceCorrespondence(sent_id=sent_id, matches=matches)
             continue
 
-        all_str_edges = set(str_sk.edges.keys())
+        if mode == "topdown":
+            from src.topdown_matching import topdown_match
+            fixed = topdown_match(str_sk, ud_sk)
+            unresolved = [e for e in ud_sk.edges if e not in fixed]
+        elif mode == "fi2003":
+            from src.fi2003_matching import fi2003_match
+            fixed = fi2003_match(str_sk, ud_sk, k_blank=fi_k)
+            unresolved = [e for e in ud_sk.edges if e not in fixed]
+        else:
+            all_str_edges = set(str_sk.edges.keys())
 
-        exact_candidates: dict[Edge, set[Edge]] = {}
-        for e_ud in ud_sk.edges:
-            pool: set[Edge] = set()
-            if e_ud in str_sk.edges:
-                pool.add(e_ud)
-            exact_candidates[e_ud] = pool
-
-        fixed, still_unresolved = resolve_edge_matching(
-            exact_candidates,
-            all_str_edges=None,
-            allow_open_fallback=False,
-            return_unresolved=True,
-        )
-
-        if mode == "strict_plus" and still_unresolved:
-            # Phase 2 (strict_plus): local 2-hop bridge candidates.
-            bridge = _build_strict_plus_candidates(
-                str_sk,
-                ud_sk,
-            )
-            used_str = set(fixed.values())
-            phase2_candidates: dict[Edge, set[Edge]] = {}
-            for e_ud in still_unresolved:
+            exact_candidates: dict[Edge, set[Edge]] = {}
+            for e_ud in ud_sk.edges:
                 pool: set[Edge] = set()
-                extras = bridge.get(e_ud)
-                if extras:
-                    pool |= set(extras)
-                pool &= all_str_edges
-                pool -= used_str
-                phase2_candidates[e_ud] = pool
-
-            fixed2, still_unresolved = resolve_edge_matching(
-                phase2_candidates,
-                all_str_edges=None,
-                allow_open_fallback=False,
-                return_unresolved=True,
-            )
-            fixed.update(fixed2)
-
-        if mode == "extended" and extra_candidates and still_unresolved:
-            # Phase 2: add LCA candidates for unresolved edges only,
-            # then run CP over the remaining open positions.
-            used_str = set(fixed.values())
-            phase2_candidates: dict[Edge, set[Edge]] = {}
-            for e_ud in still_unresolved:
-                pool: set[Edge] = set()
-                # Re-include exact if it wasn't fixed (shouldn't happen,
-                # but for robustness).
                 if e_ud in str_sk.edges:
                     pool.add(e_ud)
-                extras = extra_candidates.get(sent_id, {}).get(e_ud)
-                if extras:
-                    pool |= set(extras)
-                pool &= all_str_edges  # only real STR edges
-                pool -= used_str       # exclude already-fixed STR edges
-                phase2_candidates[e_ud] = pool
+                exact_candidates[e_ud] = pool
 
-            fixed2, still_unresolved = resolve_edge_matching(
-                phase2_candidates,
+            fixed, still_unresolved = resolve_edge_matching(
+                exact_candidates,
                 all_str_edges=None,
                 allow_open_fallback=False,
                 return_unresolved=True,
             )
-            fixed.update(fixed2)
-        unresolved = still_unresolved
+
+            bridge_candidates: dict[Edge, set[Edge]] = {}
+            mirror_swap_candidates: dict[Edge, set[Edge]] = {}
+            if mode in ("extended", "extended_stepwise") and still_unresolved:
+                bridge_candidates = _build_head_bridge_candidates(str_sk, ud_sk)
+                mirror_swap_candidates = _build_mirror_swap_candidates(str_sk, ud_sk)
+
+            if mode == "strict_plus" and still_unresolved:
+                # Phase 2 (strict_plus): local 2-hop bridge candidates.
+                bridge = _build_strict_plus_candidates(
+                    str_sk,
+                    ud_sk,
+                )
+                used_str = set(fixed.values())
+                phase2_candidates: dict[Edge, set[Edge]] = {}
+                for e_ud in still_unresolved:
+                    pool: set[Edge] = set()
+                    extras = bridge.get(e_ud)
+                    if extras:
+                        pool |= set(extras)
+                    pool &= all_str_edges
+                    pool -= used_str
+                    phase2_candidates[e_ud] = pool
+
+                fixed2, still_unresolved = resolve_edge_matching(
+                    phase2_candidates,
+                    all_str_edges=None,
+                    allow_open_fallback=False,
+                    return_unresolved=True,
+                )
+                fixed.update(fixed2)
+
+            if mode == "extended" and still_unresolved:
+                # Phase 2: add LCA candidates for unresolved edges only,
+                # then run CP over the remaining open positions.
+                used_str = set(fixed.values())
+                phase2_candidates: dict[Edge, set[Edge]] = {}
+                for e_ud in still_unresolved:
+                    pool: set[Edge] = set()
+                    # Re-include exact if it wasn't fixed (shouldn't happen,
+                    # but for robustness).
+                    if e_ud in str_sk.edges:
+                        pool.add(e_ud)
+                    extras = (
+                        extra_candidates.get(sent_id, {}).get(e_ud)
+                        if extra_candidates
+                        else None
+                    )
+                    if extras:
+                        pool |= set(extras)
+                    b_extras = bridge_candidates.get(e_ud)
+                    if b_extras:
+                        pool |= set(b_extras)
+                    m_extras = mirror_swap_candidates.get(e_ud)
+                    if m_extras:
+                        pool |= set(m_extras)
+                    pool &= all_str_edges  # only real STR edges
+                    pool -= used_str       # exclude already-fixed STR edges
+                    phase2_candidates[e_ud] = pool
+
+                fixed2, still_unresolved = resolve_edge_matching(
+                    phase2_candidates,
+                    all_str_edges=None,
+                    allow_open_fallback=False,
+                    return_unresolved=True,
+                )
+                fixed.update(fixed2)
+
+            if (
+                mode == "extended_stepwise"
+                and still_unresolved
+            ):
+                used_str = set(fixed.values())
+                steps = extra_candidates_steps if extra_candidates_steps else [{}]
+                for extras_step in steps:
+                    if not still_unresolved:
+                        break
+
+                    phase_candidates: dict[Edge, set[Edge]] = {}
+                    for e_ud in still_unresolved:
+                        pool: set[Edge] = set()
+                        if e_ud in str_sk.edges:
+                            pool.add(e_ud)
+                        extras = extras_step.get(sent_id, {}).get(e_ud)
+                        if extras:
+                            pool |= set(extras)
+                        b_extras = bridge_candidates.get(e_ud)
+                        if b_extras:
+                            pool |= set(b_extras)
+                        m_extras = mirror_swap_candidates.get(e_ud)
+                        if m_extras:
+                            pool |= set(m_extras)
+                        pool &= all_str_edges
+                        pool -= used_str
+                        phase_candidates[e_ud] = pool
+
+                    fixed_i, still_unresolved = resolve_edge_matching(
+                        phase_candidates,
+                        all_str_edges=None,
+                        allow_open_fallback=False,
+                        return_unresolved=True,
+                    )
+                    if fixed_i:
+                        fixed.update(fixed_i)
+                        used_str |= set(fixed_i.values())
+            unresolved = still_unresolved
 
         matches: dict[Edge, EdgeMatch] = {}
         for e_ud in ud_sk.edges:
