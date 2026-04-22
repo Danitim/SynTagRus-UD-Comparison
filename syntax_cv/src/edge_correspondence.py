@@ -151,10 +151,22 @@ MatchStatus = Literal[
     "exact_mirrored",   # same skeleton, opposite head direction
     "restructured",     # φ(e_ud) ≠ e_ud; different endpoints, found via
                         #   strict_plus/extended candidates
+    "ambiguous",        # several structurally / heuristically optimal
+                        #   solutions remain; no single counterpart chosen
+    "candidate_gap",    # candidate generation / global matching could not
+                        #   supply a comparable STR edge for this token
     "unresolved",       # CP could not fix φ(e_ud) to a single candidate
     "ud_only_root",     # e_ud has head=0 (root edge); no STR counterpart
                         #   considered — roots are not comparable as "labels"
                         #   unless the STR root matches; handled separately.
+]
+
+CertificationStatus = Literal[
+    "strict",
+    "heuristic",
+    "ambiguous",
+    "candidate_gap",
+    "root",
 ]
 
 
@@ -163,6 +175,10 @@ class EdgeMatch:
     e_ud: Edge
     e_str: Optional[Edge]
     status: MatchStatus
+    certification: CertificationStatus = "strict"
+    detail: str = ""
+    candidate_count: int = 0
+    support_count: int = 0
 
 
 @dataclass
@@ -186,7 +202,11 @@ class SentenceCorrespondence:
         )
 
     def unresolved_count(self) -> int:
-        return sum(1 for m in self.matches.values() if m.status == "unresolved")
+        return sum(
+            1
+            for m in self.matches.values()
+            if m.status in ("unresolved", "ambiguous", "candidate_gap")
+        )
 
     def total_count(self) -> int:
         return len(self.matches)
@@ -208,6 +228,7 @@ class EdgeCorrespondence:
         "extended_stepwise",
         "topdown",
         "fi2003",
+        "certified",
     ]
     per_sentence: dict[SentID, SentenceCorrespondence]
     str_skel: dict[SentID, SentenceSkeleton]
@@ -284,7 +305,16 @@ class EdgeCorrespondence:
             "exact_same_dir": 0,
             "exact_mirrored": 0,
             "restructured": 0,
+            "ambiguous": 0,
+            "candidate_gap": 0,
             "unresolved": 0,
+        }
+        cert_counts: dict[str, int] = {
+            "strict": 0,
+            "heuristic": 0,
+            "ambiguous": 0,
+            "candidate_gap": 0,
+            "root": 0,
         }
         total = 0
 
@@ -306,6 +336,7 @@ class EdgeCorrespondence:
                     continue
                 total += 1
                 counts[m.status] = counts.get(m.status, 0) + 1
+                cert_counts[m.certification] = cert_counts.get(m.certification, 0) + 1
 
             if include_root:
                 ud_roots = _root_tokens(ud_sk)
@@ -316,8 +347,10 @@ class EdgeCorrespondence:
                     total += 1
                     if v in str_roots:
                         counts["exact_same_dir"] += 1
+                        cert_counts["strict"] += 1
                     else:
                         counts["unresolved"] += 1
+                        cert_counts["candidate_gap"] += 1
 
         resolved = counts["exact_same_dir"] + counts["exact_mirrored"] + counts["restructured"]
         comparable_heads_match = counts["exact_same_dir"]
@@ -325,6 +358,7 @@ class EdgeCorrespondence:
             "mode": self.mode,
             "total_ud_edges": total,
             "by_status": dict(counts),
+            "by_certification": dict(cert_counts),
             "resolved": resolved,
             "resolved_pct": (100 * resolved / total) if total else 0.0,
             "baseline_heads_match": comparable_heads_match,
@@ -522,12 +556,14 @@ def build_edge_correspondence(
         "extended_stepwise",
         "topdown",
         "fi2003",
+        "certified",
     ] = "strict",
     extra_candidates: Optional[dict[SentID, dict[Edge, Iterable[Edge]]]] = None,
     extra_candidates_steps: Optional[
         list[dict[SentID, dict[Edge, Iterable[Edge]]]]
     ] = None,
     fi_k: Optional[int] = None,
+    certified_use_fi2003: bool = False,
 ) -> EdgeCorrespondence:
     """
     Build an EdgeCorrespondence from two CoNLL-style DataFrames.
@@ -553,6 +589,10 @@ def build_edge_correspondence(
                                      extra_candidates is IGNORED.
                        'fi2003'    — ordered-tree alignment DP (FI2003-style)
                                      with optional k-relevance pruning.
+                       'certified' — candidate-union alignment with
+                                     structural certification into
+                                     strict / heuristic / ambiguous /
+                                     candidate_gap.
     extra_candidates : nested dict sent_id -> { e_ud -> set(e_str) }
                        merged with exact candidates before CP. In
                        strict / topdown / fi2003 / extended_stepwise modes
@@ -577,7 +617,13 @@ def build_edge_correspondence(
         if str_sk is None:
             # Whole STR sentence missing — mark all UD edges as unresolved.
             matches = {
-                e_ud: EdgeMatch(e_ud=e_ud, e_str=None, status="unresolved")
+                e_ud: EdgeMatch(
+                    e_ud=e_ud,
+                    e_str=None,
+                    status="candidate_gap" if mode == "certified" else "unresolved",
+                    certification="candidate_gap" if mode == "certified" else "candidate_gap",
+                    detail="missing_str_sentence",
+                )
                 for e_ud in ud_sk.edges
             }
             per_sent[sent_id] = SentenceCorrespondence(sent_id=sent_id, matches=matches)
@@ -591,6 +637,23 @@ def build_edge_correspondence(
             from src.fi2003_matching import fi2003_match
             fixed = fi2003_match(str_sk, ud_sk, k_blank=fi_k)
             unresolved = [e for e in ud_sk.edges if e not in fixed]
+        elif mode == "certified":
+            from src.certified_matching import build_certified_sentence_correspondence
+
+            sc = build_certified_sentence_correspondence(
+                sent_id,
+                str_sk,
+                ud_sk,
+                lca_local_steps=[
+                    step.get(sent_id, {})
+                    for step in (extra_candidates_steps or [])
+                ],
+                lca_full=(extra_candidates or {}).get(sent_id, {}),
+                fi_k=fi_k,
+                use_fi2003=certified_use_fi2003,
+            )
+            per_sent[sent_id] = sc
+            continue
         else:
             all_str_edges = set(str_sk.edges.keys())
 
@@ -728,7 +791,13 @@ def build_edge_correspondence(
                     status = "restructured"
                 matches[e_ud] = EdgeMatch(e_ud=e_ud, e_str=e_str, status=status)
             else:
-                matches[e_ud] = EdgeMatch(e_ud=e_ud, e_str=None, status="unresolved")
+                matches[e_ud] = EdgeMatch(
+                    e_ud=e_ud,
+                    e_str=None,
+                    status="unresolved",
+                    certification="candidate_gap",
+                    detail="legacy_unresolved",
+                )
 
         diag = {
             "ud_edges": len(ud_sk.edges),

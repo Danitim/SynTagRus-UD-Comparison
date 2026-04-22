@@ -54,7 +54,7 @@ def build_comparison_table(
     Columns (always present):
       sent_id, ud_id, ud_form, ud_head, ud_deprel,
       str_id, str_form, str_head, str_deprel,
-      status, comparable
+      status, certification, detail, comparable
 
     `status` takes values from EdgeCorrespondence; `comparable` is a
     convenience boolean (True iff status in {exact_same_dir,
@@ -119,6 +119,10 @@ def build_comparison_table(
                 "str_form": (str_row or {}).get("form"),
                 "str_deprel": (str_row or {}).get(str_label_col),
                 "status": status,
+                "certification": m.certification,
+                "detail": m.detail,
+                "candidate_count": m.candidate_count,
+                "support_count": m.support_count,
                 "comparable": status in ("exact_same_dir", "exact_mirrored", "restructured"),
             }
             for col in extra_ud_cols:
@@ -130,7 +134,7 @@ def build_comparison_table(
     cols = [
         "sent_id", "ud_id", "ud_form", "ud_head", "ud_deprel",
         "str_id", "str_form", "str_head", "str_deprel",
-        "status", "comparable",
+        "status", "certification", "detail", "candidate_count", "support_count", "comparable",
     ] + [f"ud_{c}" for c in extra_ud_cols] + [f"str_{c}" for c in extra_str_cols]
     return pd.DataFrame(rows, columns=cols)
 
@@ -176,6 +180,7 @@ def label_confusion(
     table: pd.DataFrame,
     *,
     status: tuple[str, ...] = ("exact_same_dir", "exact_mirrored", "restructured"),
+    certification: Optional[tuple[str, ...]] = None,
 ) -> pd.DataFrame:
     """
     Confusion table str_deprel × ud_deprel, restricted to comparable rows.
@@ -186,6 +191,8 @@ def label_confusion(
     desired.
     """
     sub = table[table["status"].isin(status)]
+    if certification is not None and "certification" in sub.columns:
+        sub = sub[sub["certification"].isin(certification)]
     grouped = (
         sub.groupby(["str_deprel", "ud_deprel"], dropna=False)
            .size()
@@ -213,13 +220,55 @@ def coverage_by_mode(
         token_mask=token_mask,
     )
     by = stats["by_status"]
+    cert = stats.get("by_certification", {})
     return pd.DataFrame([{
         "mode": stats["mode"],
         "total": stats["total_ud_edges"],
         "exact_same_dir": by["exact_same_dir"],
         "exact_mirrored": by["exact_mirrored"],
         "restructured": by["restructured"],
+        "ambiguous": by.get("ambiguous", 0),
+        "candidate_gap": by.get("candidate_gap", 0),
         "unresolved": by["unresolved"],
+        "strict": cert.get("strict", 0),
+        "heuristic": cert.get("heuristic", 0),
+        "ambiguous_cert": cert.get("ambiguous", 0),
+        "candidate_gap_cert": cert.get("candidate_gap", 0),
         "resolved_pct": round(stats["resolved_pct"], 2),
         "baseline_pct": round(stats["baseline_pct"], 2),
+    }])
+
+
+def coverage_by_certification(
+    corr: EdgeCorrespondence,
+    *,
+    include_punct: bool = False,
+    include_root: bool = True,
+    token_mask: Optional[dict[SentID, set[TokenID]]] = None,
+) -> pd.DataFrame:
+    """
+    One-row summary of a certified correspondence by certification class.
+    """
+    stats = corr.coverage(
+        include_punct=include_punct,
+        include_root=include_root,
+        token_mask=token_mask,
+    )
+    cert = stats.get("by_certification", {})
+    total = stats["total_ud_edges"]
+
+    def _pct(name: str) -> float:
+        return round(100 * cert.get(name, 0) / total, 2) if total else 0.0
+
+    return pd.DataFrame([{
+        "mode": stats["mode"],
+        "total": total,
+        "strict": cert.get("strict", 0),
+        "heuristic": cert.get("heuristic", 0),
+        "ambiguous": cert.get("ambiguous", 0),
+        "candidate_gap": cert.get("candidate_gap", 0),
+        "strict_pct": _pct("strict"),
+        "heuristic_pct": _pct("heuristic"),
+        "ambiguous_pct": _pct("ambiguous"),
+        "candidate_gap_pct": _pct("candidate_gap"),
     }])

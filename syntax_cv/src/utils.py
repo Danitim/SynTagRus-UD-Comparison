@@ -139,9 +139,11 @@ def build_correspondence(
         "extended_stepwise",
         "topdown",
         "fi2003",
+        "certified",
     ] = "strict",
     max_path_len: int = 3,
     fi_k: Optional[int] = 8,
+    certified_use_fi2003: bool = False,
 ) -> EdgeCorrespondence:
     """
     Build a single EdgeCorrespondence from two gold-tree DataFrames.
@@ -169,6 +171,16 @@ def build_correspondence(
     `fi_k` controls k-relevance filtering. The default (`fi_k=8`) is a
     practical speed/coverage trade-off for sentence-length inputs. Set
     `fi_k=None` to enable automatic doubling with an unfiltered fallback.
+
+    In `certified` mode, multiple candidate generators are combined into a
+    single candidate pool, followed by a two-stage certification:
+      1. strict structural forcing;
+      2. secondary heuristic disambiguation.
+    Residual non-unique cases are marked as `ambiguous`, and candidate
+    failures are marked as `candidate_gap`.
+    Set `certified_use_fi2003=True` to add FI2003 as an auxiliary candidate
+    generator; it is disabled by default because it is substantially slower
+    and was not the strongest standalone method in prior experiments.
     """
     str_df = str_gold.reset_index() if _is_mi_indexed(str_gold) else str_gold
     ud_df = ud_gold.reset_index() if _is_mi_indexed(ud_gold) else ud_gold
@@ -191,6 +203,16 @@ def build_correspondence(
                 build_lca_candidates(str_df, ud_df, max_path_len=d)
                 for d in range(start, max_path_len + 1)
             ]
+    elif mode == "certified":
+        start = 2
+        if max_path_len < start:
+            extras_steps = []
+        else:
+            extras_steps = [
+                build_lca_candidates(str_df, ud_df, max_path_len=d)
+                for d in range(start, max_path_len + 1)
+            ]
+        extras = build_lca_candidates(str_df, ud_df, max_path_len=None)
 
     return build_edge_correspondence(
         str_df,
@@ -199,6 +221,7 @@ def build_correspondence(
         extra_candidates=extras,
         extra_candidates_steps=extras_steps,
         fi_k=fi_k,
+        certified_use_fi2003=certified_use_fi2003,
     )
 
 

@@ -70,7 +70,7 @@ def _path_edges_to_ancestor(
     h: dict,
     a: TokenID,
     *,
-    max_len: int,
+    max_len: Optional[int],
 ) -> list[Edge]:
     """
     Undirected edges on the path v → ... → a in tree with head map `h`.
@@ -82,7 +82,7 @@ def _path_edges_to_ancestor(
     """
     edges: list[Edge] = []
     u = v
-    while u != a and u != 0 and len(edges) <= max_len:
+    while u != a and u != 0 and (max_len is None or len(edges) <= max_len):
         parent = h.get(u, 0)
         if parent == 0:
             return []  # a is not on the path
@@ -101,7 +101,7 @@ def build_lca_candidates(
     str_df: pd.DataFrame,
     ud_df: pd.DataFrame,
     *,
-    max_path_len: int = 3,
+    max_path_len: Optional[int] = 3,
 ) -> dict[SentID, dict[Edge, set[Edge]]]:
     """
     Build LCA-derived candidate edges for extended-mode edge correspondence.
@@ -140,7 +140,8 @@ def build_lca_candidates(
     max_path_len : upper bound on |P_ud| and |P_str|. The supervisor's
         observation is that 94%+ of tokens have max(|pi_str|, |pi_ud|) ≤ 2;
         a default of 3 covers the 98%+ threshold without drifting into
-        speculative long-range matchings.
+        speculative long-range matchings. Set to None for the unbounded
+        completeness pass used by the certified matcher.
     """
     str_df = str_df.reset_index(drop=False) if str_df.index.names != [None] else str_df
     ud_df = ud_df.reset_index(drop=False) if ud_df.index.names != [None] else ud_df

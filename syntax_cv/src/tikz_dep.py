@@ -52,8 +52,16 @@ _STATUS_STYLE = {
     "exact_same_dir": "solid, thick, gray!70",
     "exact_mirrored": "dashed, thick, orange!80!black",
     "restructured":   "dashed, thick, blue!60!black",
+    "ambiguous":      "dotted, thick, purple!60!black",
+    "candidate_gap":  "dotted, thick, red!60!black",
     "unresolved":     "dotted, thick, red!60!black",
 }
+
+
+def _match_style(match) -> str:
+    if match.status == "restructured" and getattr(match, "certification", "strict") == "strict":
+        return "dashed, thick, teal!70!black"
+    return _STATUS_STYLE[match.status]
 
 
 def _guarded_draw_line(style: str, a: str, b: str) -> str:
@@ -225,7 +233,7 @@ def render_pair(
             dep_ud = ud_sk.dep_of(e_ud)
             if dep_ud is None or dep_ud in ud_punct:
                 continue
-            if m.status == "unresolved":
+            if m.status in ("unresolved", "ambiguous", "candidate_gap"):
                 unresolved_ud.append(dep_ud)
                 continue
             if m.e_str is not None and str_sk_pre is not None:
@@ -359,9 +367,9 @@ def render_pair(
                 continue
             if dep_ud not in ud_pos:
                 continue
-            if m.status == "unresolved" and not show_unresolved:
+            if m.status in ("unresolved", "ambiguous", "candidate_gap") and not show_unresolved:
                 continue
-            style = _STATUS_STYLE[m.status]
+            style = _match_style(m)
             if m.e_str is None:
                 # Intentionally do not draw unresolved connectors.
                 continue
@@ -429,7 +437,7 @@ def render_pair(
 
 _PREAMBLE = r"""
 \documentclass{article}
-\usepackage[a4paper, landscape, left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
+\usepackage[a1paper, landscape, left=1.5cm, right=1.5cm, top=1.5cm, bottom=1.5cm]{geometry}
 \usepackage{iftex}
 \ifPDFTeX
   \usepackage[utf8]{inputenc}
