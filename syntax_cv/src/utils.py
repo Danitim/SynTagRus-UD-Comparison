@@ -144,6 +144,7 @@ def build_correspondence(
     max_path_len: int = 3,
     fi_k: Optional[int] = 8,
     certified_use_fi2003: bool = False,
+    certified_use_punct_band: bool = True,
 ) -> EdgeCorrespondence:
     """
     Build a single EdgeCorrespondence from two gold-tree DataFrames.
@@ -181,6 +182,8 @@ def build_correspondence(
     Set `certified_use_fi2003=True` to add FI2003 as an auxiliary candidate
     generator; it is disabled by default because it is substantially slower
     and was not the strongest standalone method in prior experiments.
+    `certified_use_punct_band` is kept only for backward compatibility and
+    is ignored: punctuation-specific residual heuristics have been removed.
     """
     str_df = str_gold.reset_index() if _is_mi_indexed(str_gold) else str_gold
     ud_df = ud_gold.reset_index() if _is_mi_indexed(ud_gold) else ud_gold
@@ -222,6 +225,7 @@ def build_correspondence(
         extra_candidates_steps=extras_steps,
         fi_k=fi_k,
         certified_use_fi2003=certified_use_fi2003,
+        certified_use_punct_band=certified_use_punct_band,
     )
 
 

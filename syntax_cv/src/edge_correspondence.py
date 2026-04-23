@@ -564,6 +564,7 @@ def build_edge_correspondence(
     ] = None,
     fi_k: Optional[int] = None,
     certified_use_fi2003: bool = False,
+    certified_use_punct_band: bool = True,
 ) -> EdgeCorrespondence:
     """
     Build an EdgeCorrespondence from two CoNLL-style DataFrames.
@@ -602,6 +603,9 @@ def build_edge_correspondence(
                        step). Used only by extended_stepwise mode.
     fi_k             : k-parameter for fi2003 relevance pruning.
                        If None, fi2003 uses automatic doubling + fallback.
+    certified_use_punct_band
+                     : deprecated compatibility flag; punctuation-specific
+                       residual heuristics are no longer used.
 
     Returns
     -------
@@ -609,6 +613,7 @@ def build_edge_correspondence(
     """
     str_skel = _build_skeleton(str_df)
     ud_skel = _build_skeleton(ud_df)
+    ud_punct_tokens = _collect_ud_punct_tokens(ud_df)
 
     per_sent: dict[SentID, SentenceCorrespondence] = {}
 
@@ -644,6 +649,7 @@ def build_edge_correspondence(
                 sent_id,
                 str_sk,
                 ud_sk,
+                punct_tokens=ud_punct_tokens.get(sent_id, set()),
                 lca_local_steps=[
                     step.get(sent_id, {})
                     for step in (extra_candidates_steps or [])
@@ -651,6 +657,7 @@ def build_edge_correspondence(
                 lca_full=(extra_candidates or {}).get(sent_id, {}),
                 fi_k=fi_k,
                 use_fi2003=certified_use_fi2003,
+                use_punct_band=certified_use_punct_band,
             )
             per_sent[sent_id] = sc
             continue
@@ -816,7 +823,7 @@ def build_edge_correspondence(
         per_sentence=per_sent,
         str_skel=str_skel,
         ud_skel=ud_skel,
-        ud_punct_tokens=_collect_ud_punct_tokens(ud_df),
+        ud_punct_tokens=ud_punct_tokens,
     )
 
 
