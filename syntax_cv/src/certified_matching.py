@@ -34,6 +34,7 @@ from src.topdown_matching import topdown_match
 _EXACT_MAX_UD_EDGES = 16
 _EXACT_MAX_STR_EDGES = 16
 _EXACT_MAX_STATE_ESTIMATE = 1_000_000
+_DOMINANT_SECONDARY_MARGIN = 1_000_000
 
 
 def build_certified_sentence_correspondence(
@@ -230,46 +231,95 @@ def build_certified_sentence_correspondence(
     )
     _add_candidate_family(support, soft_order, "order_residual")
 
-    heuristic_pools: dict[Edge, set[Edge]] = {}
-    for e_ud in heuristic_edges:
-        pool = {e_str for e_str in heuristic_seed_pools.get(e_ud, set()) if e_str not in blocked_str}
-        pool |= {e_str for e_str in soft_order.get(e_ud, set()) if e_str not in blocked_str}
-        if pool:
-            heuristic_pools[e_ud] = pool
-        else:
-            matches[e_ud] = EdgeMatch(
-                e_ud=e_ud,
-                e_str=None,
-                status="candidate_gap",
-                certification="candidate_gap",
-                detail="no_candidate_after_soft_completion",
-                candidate_count=0,
-                support_count=0,
-            )
-
-    for comp_ud in _connected_components(heuristic_pools):
-        comp_pools = {u: heuristic_pools[u] for u in comp_ud}
-        weights = {
-            e_ud: {
-                e_str: _candidate_weight(
-                    str_sk,
-                    ud_sk,
-                    e_ud,
-                    e_str,
-                    support[e_ud][e_str],
+    pending_heuristic = set(heuristic_edges)
+    while pending_heuristic:
+        heuristic_pools: dict[Edge, set[Edge]] = {}
+        for e_ud in sorted(pending_heuristic, key=_edge_sort_key):
+            pool = {e_str for e_str in heuristic_seed_pools.get(e_ud, set()) if e_str not in blocked_str}
+            pool |= {e_str for e_str in soft_order.get(e_ud, set()) if e_str not in blocked_str}
+            if pool:
+                heuristic_pools[e_ud] = pool
+            else:
+                matches[e_ud] = EdgeMatch(
+                    e_ud=e_ud,
+                    e_str=None,
+                    status="candidate_gap",
+                    certification="candidate_gap",
+                    detail="no_candidate_after_soft_completion",
+                    candidate_count=0,
+                    support_count=0,
                 )
-                for e_str in pool
-            }
-            for e_ud, pool in comp_pools.items()
-        }
-        _, heur_choices, heur_unmatched, heur_exact = _optimal_choice_sets(comp_pools, weights=weights)
-        if not heur_exact:
-            heuristic_fallback_components += 1
 
-        for e_ud in comp_pools:
-            feasible = heur_choices[e_ud]
-            if len(feasible) == 1 and not heur_unmatched[e_ud]:
-                e_str = next(iter(feasible))
+        pending_heuristic = {e_ud for e_ud in pending_heuristic if e_ud in heuristic_pools}
+        if not heuristic_pools:
+            break
+
+        pass_results: dict[Edge, tuple[set[Edge], bool, bool]] = {}
+        selected_this_pass: dict[Edge, tuple[Edge, str, bool]] = {}
+
+        for comp_ud in _connected_components(heuristic_pools):
+            comp_pools = {u: heuristic_pools[u] for u in comp_ud}
+            weights = {
+                e_ud: {
+                    e_str: _candidate_weight(
+                        str_sk,
+                        ud_sk,
+                        e_ud,
+                        e_str,
+                        support[e_ud][e_str],
+                    )
+                    for e_str in pool
+                }
+                for e_ud, pool in comp_pools.items()
+            }
+            _, heur_choices, heur_unmatched, heur_exact = _optimal_choice_sets(comp_pools, weights=weights)
+            if not heur_exact:
+                heuristic_fallback_components += 1
+
+            used_in_pass: set[Edge] = {
+                e_str
+                for e_str, _, _ in selected_this_pass.values()
+            }
+
+            for e_ud in comp_pools:
+                feasible = heur_choices[e_ud]
+                pass_results[e_ud] = (feasible, heur_unmatched[e_ud], heur_exact)
+                if len(feasible) == 1 and not heur_unmatched[e_ud]:
+                    e_str = next(iter(feasible))
+                    if e_str not in blocked_str and e_str not in used_in_pass:
+                        selected_this_pass[e_ud] = (
+                            e_str,
+                            (
+                                "selected_by_secondary_objective"
+                                if heur_exact
+                                else "selected_by_weighted_fallback"
+                            ),
+                            heur_exact,
+                        )
+                        used_in_pass.add(e_str)
+
+            dominant = _dominant_secondary_choices(
+                comp_pools,
+                heur_choices,
+                heur_unmatched,
+                weights,
+                support,
+                blocked_str | used_in_pass,
+            )
+            for e_ud, e_str in dominant.items():
+                if e_ud in selected_this_pass:
+                    continue
+                if e_str in blocked_str or e_str in used_in_pass:
+                    continue
+                selected_this_pass[e_ud] = (
+                    e_str,
+                    "selected_by_iterative_secondary_objective",
+                    heur_exact,
+                )
+                used_in_pass.add(e_str)
+
+        if selected_this_pass:
+            for e_ud, (e_str, detail, _) in selected_this_pass.items():
                 meta = support.get(e_ud, {}).get(e_str, {})
                 sources = set(meta.get("sources", ()))
                 certification = (
@@ -283,39 +333,49 @@ def build_certified_sentence_correspondence(
                     e_ud,
                     e_str,
                     certification=certification,
-                    detail=(
-                        "selected_by_secondary_objective"
-                        if heur_exact
-                        else "selected_by_weighted_fallback"
-                    ),
+                    detail=detail,
                     candidate_count=1,
                     support_count=len(meta.get("sources", ())),
                 )
+            blocked_str |= {e_str for e_str, _, _ in selected_this_pass.values()}
+            pending_heuristic = {e_ud for e_ud in pending_heuristic if e_ud not in selected_this_pass}
+            soft_order = _build_order_residual_candidates(
+                str_sk,
+                ud_sk,
+                punct_tokens=punct_tokens,
+                unresolved_ud_edges=sorted(pending_heuristic, key=_edge_sort_key),
+                unavailable_str_edges=blocked_str,
+            )
+            _add_candidate_family(support, soft_order, "order_residual")
+            continue
+
+        for e_ud in sorted(pending_heuristic, key=_edge_sort_key):
+            feasible, unmatched, exact = pass_results.get(e_ud, (set(), False, True))
+            if not exact:
+                matches[e_ud] = EdgeMatch(
+                    e_ud=e_ud,
+                    e_str=None,
+                    status="candidate_gap",
+                    certification="candidate_gap",
+                    detail="unmatched_in_weighted_fallback",
+                    candidate_count=0,
+                    support_count=0,
+                )
             else:
-                if not heur_exact:
-                    matches[e_ud] = EdgeMatch(
-                        e_ud=e_ud,
-                        e_str=None,
-                        status="candidate_gap",
-                        certification="candidate_gap",
-                        detail="unmatched_in_weighted_fallback",
-                        candidate_count=0,
-                        support_count=0,
-                    )
-                else:
-                    matches[e_ud] = EdgeMatch(
-                        e_ud=e_ud,
-                        e_str=None,
-                        status="ambiguous",
-                        certification="ambiguous",
-                        detail=(
-                            "multiple_heuristic_optima"
-                            if feasible or heur_unmatched[e_ud]
-                            else "unclassified_residual"
-                        ),
-                        candidate_count=len(feasible),
-                        support_count=_best_support_count(support, e_ud, feasible),
-                    )
+                matches[e_ud] = EdgeMatch(
+                    e_ud=e_ud,
+                    e_str=None,
+                    status="ambiguous",
+                    certification="ambiguous",
+                    detail=(
+                        "multiple_heuristic_optima"
+                        if feasible or unmatched
+                        else "unclassified_residual"
+                    ),
+                    candidate_count=len(feasible),
+                    support_count=_best_support_count(support, e_ud, feasible),
+                )
+        break
 
     diagnostics = {
         "ud_edges": len(ud_sk.edges),
@@ -1038,6 +1098,72 @@ def _candidate_weight(
         - dep_distance * 10
         - has_full_lca
     )
+
+
+def _dominant_secondary_choices(
+    comp_pools: dict[Edge, set[Edge]],
+    choices: dict[Edge, set[Edge]],
+    unmatched: dict[Edge, bool],
+    weights: dict[Edge, dict[Edge, int]],
+    support: dict[Edge, dict[Edge, dict[str, object]]],
+    unavailable_str: set[Edge],
+) -> dict[Edge, Edge]:
+    """
+    Break residual ties only when the existing secondary score has a clear
+    structural winner for a UD edge.
+
+    This does not add a candidate family. It only lets already-scored
+    structural choices be fixed before recomputing the soft residual order
+    for whatever remains in the component.
+    """
+    proposals: list[tuple[int, int, int, tuple[int, int], Edge, Edge]] = []
+    for e_ud in comp_pools:
+        feasible = [e_str for e_str in choices.get(e_ud, set()) if e_str not in unavailable_str]
+        if unmatched.get(e_ud) or len(feasible) < 2:
+            continue
+
+        ranked = sorted(
+            feasible,
+            key=lambda e_str: (weights[e_ud].get(e_str, 0), _edge_sort_key(e_str)),
+            reverse=True,
+        )
+        top = ranked[0]
+        top_weight = weights[e_ud].get(top, 0)
+        second_weight = weights[e_ud].get(ranked[1], 0)
+        margin = top_weight - second_weight
+        if margin < _DOMINANT_SECONDARY_MARGIN:
+            continue
+        if not _has_structural_source(support, e_ud, top):
+            continue
+
+        proposals.append(
+            (
+                margin,
+                top_weight,
+                len(support.get(e_ud, {}).get(top, {}).get("sources", ())),
+                _edge_sort_key(e_ud),
+                e_ud,
+                top,
+            )
+        )
+
+    selected: dict[Edge, Edge] = {}
+    used_str = set(unavailable_str)
+    for _, _, _, _, e_ud, e_str in sorted(proposals, reverse=True):
+        if e_ud in selected or e_str in used_str:
+            continue
+        selected[e_ud] = e_str
+        used_str.add(e_str)
+    return selected
+
+
+def _has_structural_source(
+    support: dict[Edge, dict[Edge, dict[str, object]]],
+    e_ud: Edge,
+    e_str: Edge,
+) -> bool:
+    sources = set(support.get(e_ud, {}).get(e_str, {}).get("sources", ()))
+    return bool(sources - {"order_residual"})
 
 
 def _best_support_count(
